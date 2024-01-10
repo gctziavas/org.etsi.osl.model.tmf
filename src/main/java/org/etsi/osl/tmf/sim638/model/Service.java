@@ -21,6 +21,7 @@ package org.etsi.osl.tmf.sim638.model;
 
 import java.time.OffsetDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,6 +36,7 @@ import org.etsi.osl.tmf.common.model.service.ServiceRelationship;
 import org.etsi.osl.tmf.common.model.service.ServiceSpecificationRef;
 import org.etsi.osl.tmf.common.model.service.ServiceStateType;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
+import org.etsi.osl.tmf.ri639.model.Resource;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
@@ -780,5 +782,76 @@ public class Service extends BaseRootNamedEntity {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * @param supportingResources
+	 * @return
+	 */
+	public ServiceStateType findNextStateBasedOnSupportingResources(List<Resource> supportingResources) {
+      @Valid
+      ServiceStateType nextState = this.getState() ;
+      boolean allActive = this.getSupportingResource().size() > 0 ;
+      boolean allTerminated = this.getSupportingResource().size() > 0 ;
+      boolean existsInactive=false;
+      boolean existsTerminated=false;
+      boolean existsReserved=false;
+      
+      for ( Resource res : supportingResources ) {
+                    
+          if ( res.getResourceStatus() != null ) {
+            switch (res.getResourceStatus()) {
+              case AVAILABLE: {
+                nextState = ServiceStateType.ACTIVE;
+                break;
+              }
+              case STANDBY: {
+                nextState = ServiceStateType.RESERVED;
+                break;
+              }
+              case SUSPENDED: {
+                nextState = ServiceStateType.INACTIVE;
+                break;
+              }
+              case RESERVED: {
+                nextState = ServiceStateType.RESERVED;
+                break;
+              }
+              case UNKNOWN: {
+                if (this.getState().equals( ServiceStateType.ACTIVE  )) {
+                  nextState = ServiceStateType.TERMINATED;              
+                }
+                break;
+              }
+              case ALARM: {
+                nextState = ServiceStateType.INACTIVE;
+                break;
+              }
+              default:
+                throw new IllegalArgumentException("Unexpected value: " + res.getResourceStatus());
+            } 
+          }
+
+          allActive = allActive && nextState == ServiceStateType.ACTIVE;
+          allTerminated = allTerminated && nextState == ServiceStateType.TERMINATED;
+          existsInactive = existsInactive || nextState == ServiceStateType.INACTIVE;
+          existsTerminated = existsTerminated || nextState == ServiceStateType.TERMINATED;
+          existsReserved = existsReserved || nextState == ServiceStateType.RESERVED;
+          
+       
+          if ( allActive ) {
+            return ServiceStateType.ACTIVE ; 
+          } else if ( allTerminated ) {
+            return ServiceStateType.TERMINATED ; 
+          } else if ( existsInactive ) {
+            return ServiceStateType.INACTIVE ; 
+          } else if ( existsReserved ) {
+            return ServiceStateType.RESERVED ; 
+          } else if ( existsTerminated ) {
+            return ServiceStateType.INACTIVE ; 
+          }
+	  
+      }
+      return nextState;      
 	}
 }
