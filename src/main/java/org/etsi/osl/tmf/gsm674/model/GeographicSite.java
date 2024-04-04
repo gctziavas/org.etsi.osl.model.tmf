@@ -41,6 +41,39 @@ public class GeographicSite extends BaseRootEntity {
     @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     private Set<RelatedParty> relatedParties = new HashSet<>();
 
+    public GeographicSite addCalendarPeriod(CalendarPeriod calendarPeriod){
+        if(this.calendar==null){
+            this.calendar=new HashSet<>();
+        }
+        this.calendar.add(calendarPeriod);
+        return this;
+    }
+
+    public GeographicSite addPlaceRefOrValue(PlaceRefOrValue placeRefOrValue){
+        if(this.placeRefOrValue==null){
+            this.placeRefOrValue=new HashSet<>();
+        }
+        this.placeRefOrValue.add(placeRefOrValue);
+        return this;
+    }
+
+    public GeographicSite addGeographicSiteRelationship(GeographicSiteRelationship geographicSiteRelationship){
+        if (this.geographicSiteRelationship==null){
+            this.geographicSiteRelationship=new HashSet<>();
+
+        }
+        this.geographicSiteRelationship.add(geographicSiteRelationship);
+        return this;
+    }
+
+    public GeographicSite addRelatedParty(RelatedParty relatedParty){
+        if(this.relatedParties==null){
+            this.relatedParties=new HashSet<>();
+        }
+        this.relatedParties.add(relatedParty);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
