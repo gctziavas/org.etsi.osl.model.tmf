@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import org.etsi.osl.tmf.common.model.BaseRootEntity;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
 
 import java.util.HashSet;
@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity(name = "GeographicSite")
-public class GeographicSite extends BaseRootEntity {
+public class GeographicSite extends BaseRootNamedEntity {
 
     @JsonProperty("id")
     private String id;
@@ -20,8 +20,6 @@ public class GeographicSite extends BaseRootEntity {
     private String code;
     @JsonProperty("description")
     private String description;
-    @JsonProperty("name")
-    private String name;
     @JsonProperty("status")
     private String status;
 
@@ -110,14 +108,6 @@ public class GeographicSite extends BaseRootEntity {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getStatus() {

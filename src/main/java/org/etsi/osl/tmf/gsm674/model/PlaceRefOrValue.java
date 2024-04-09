@@ -2,12 +2,12 @@ package org.etsi.osl.tmf.gsm674.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
-import org.etsi.osl.tmf.common.model.BaseRootEntity;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 
 import java.util.Objects;
 
 @Entity(name="PlaceRefOrValue")
-public class PlaceRefOrValue extends BaseRootEntity {
+public class PlaceRefOrValue extends BaseRootNamedEntity {
     @JsonProperty("id")
     private String id;
 
@@ -26,14 +26,6 @@ public class PlaceRefOrValue extends BaseRootEntity {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getReferredType() {
@@ -55,7 +47,7 @@ public class PlaceRefOrValue extends BaseRootEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, referredType);
+        return Objects.hash(super.hashCode(), id, name, referredType);
     }
 
     @Override
