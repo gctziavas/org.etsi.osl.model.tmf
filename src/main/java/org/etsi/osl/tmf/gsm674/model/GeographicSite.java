@@ -78,12 +78,12 @@ public class GeographicSite extends BaseRootNamedEntity {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         GeographicSite that = (GeographicSite) o;
-        return Objects.equals(id, that.id) && Objects.equals(code, that.code) && Objects.equals(description, that.description) && Objects.equals(name, that.name) && Objects.equals(status, that.status) && Objects.equals(calendar, that.calendar) && Objects.equals(placeRefOrValue, that.placeRefOrValue) && Objects.equals(geographicSiteRelationship, that.geographicSiteRelationship) && Objects.equals(relatedParties, that.relatedParties);
+        return Objects.equals(id, that.id) && Objects.equals(code, that.code) && Objects.equals(description, that.description) && Objects.equals(status, that.status) && Objects.equals(calendar, that.calendar) && Objects.equals(placeRefOrValue, that.placeRefOrValue) && Objects.equals(geographicSiteRelationship, that.geographicSiteRelationship) && Objects.equals(relatedParties, that.relatedParties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, code, description, name, status, calendar, placeRefOrValue, geographicSiteRelationship, relatedParties);
+        return Objects.hash(super.hashCode(), id, code, description, status, calendar, placeRefOrValue, geographicSiteRelationship, relatedParties);
     }
 
     public String getId() {

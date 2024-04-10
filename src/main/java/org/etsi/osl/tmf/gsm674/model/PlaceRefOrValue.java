@@ -11,9 +11,6 @@ public class PlaceRefOrValue extends BaseRootNamedEntity {
     @JsonProperty("id")
     private String id;
 
-    @JsonProperty("name")
-    private String name;
-
     @JsonProperty("@referredType")
     private String referredType;
 
@@ -42,12 +39,12 @@ public class PlaceRefOrValue extends BaseRootNamedEntity {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         PlaceRefOrValue that = (PlaceRefOrValue) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(referredType, that.referredType);
+        return Objects.equals(id, that.id) && Objects.equals(referredType, that.referredType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, name, referredType);
+        return Objects.hash(super.hashCode(), id, referredType);
     }
 
     @Override
