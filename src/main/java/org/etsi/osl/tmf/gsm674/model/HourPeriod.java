@@ -58,9 +58,9 @@ public class HourPeriod extends BaseRootEntity {
         sb.append("class HourPeriod {\n");
         sb.append("    startHour: ").append(toIndentedString(startHour)).append("\n");
         sb.append("    endHour: ").append(toIndentedString(endHour)).append("\n");
-        sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
-        sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    @baseType: ").append(toIndentedString(baseType)).append("\n");
+        sb.append("    @schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+        sb.append("    @type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

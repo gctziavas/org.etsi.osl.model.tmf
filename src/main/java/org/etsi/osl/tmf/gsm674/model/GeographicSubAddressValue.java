@@ -1,0 +1,328 @@
+package org.etsi.osl.tmf.gsm674.model;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.List;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+
+/**
+ * GeographicSubAddressValue
+ */
+
+
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
+public class GeographicSubAddressValue {
+  @JsonProperty("@type")
+  private String type;
+  @JsonProperty("@baseType")
+  private String baseType;
+  @JsonProperty("@schemaLocation")
+  private String schemaLocation;
+  @JsonProperty("buildingName")
+  private String buildingName;
+  @JsonProperty("levelNumber")
+  private String levelNumber;
+  @JsonProperty("levelType")
+  private String levelType;
+  @JsonProperty("name")
+  private String name;
+  @JsonProperty("privateStreetName")
+  private String privateStreetName;
+  @JsonProperty("privateStreetNumber")
+  private String privateStreetNumber;
+
+  @Valid
+  @JsonProperty("subUnit")
+  private List<GeographicSubAddressUnit> subUnit = new ArrayList<>();
+  @JsonProperty("subAddressType")
+  private String subAddressType;
+
+  public GeographicSubAddressValue() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public GeographicSubAddressValue(String atType) {
+    this.type = atType;
+  }
+
+  public GeographicSubAddressValue atType(String atType) {
+    this.type = atType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
+  */
+  @NotNull
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
+  public String getAtType() {
+    return type;
+  }
+
+  public void setAtType(String atType) {
+    this.type = atType;
+  }
+
+  public GeographicSubAddressValue atBaseType(String atBaseType) {
+    this.baseType = atBaseType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the super-class
+   * @return atBaseType
+  */
+  
+  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getAtBaseType() {
+    return baseType;
+  }
+
+  public void setAtBaseType(String atBaseType) {
+    this.baseType = atBaseType;
+  }
+
+  public GeographicSubAddressValue atSchemaLocation(String atSchemaLocation) {
+    this.schemaLocation = atSchemaLocation;
+    return this;
+  }
+
+  /**
+   * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * @return atSchemaLocation
+  */
+  
+  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getAtSchemaLocation() {
+    return schemaLocation;
+  }
+
+  public void setAtSchemaLocation(String atSchemaLocation) {
+    this.schemaLocation = atSchemaLocation;
+  }
+
+  public GeographicSubAddressValue buildingName(String buildingName) {
+    this.buildingName = buildingName;
+    return this;
+  }
+
+  /**
+   * allows for buildings that have well-known names
+   * @return buildingName
+  */
+  
+  @Schema(name = "buildingName", description = "allows for buildings that have well-known names", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getBuildingName() {
+    return buildingName;
+  }
+
+  public void setBuildingName(String buildingName) {
+    this.buildingName = buildingName;
+  }
+
+  public GeographicSubAddressValue levelNumber(String levelNumber) {
+    this.levelNumber = levelNumber;
+    return this;
+  }
+
+  /**
+   * used where a level type may be repeated e.g. BASEMENT 1, BASEMENT 2
+   * @return levelNumber
+  */
+  
+  @Schema(name = "levelNumber", description = "used where a level type may be repeated e.g. BASEMENT 1, BASEMENT 2", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getLevelNumber() {
+    return levelNumber;
+  }
+
+  public void setLevelNumber(String levelNumber) {
+    this.levelNumber = levelNumber;
+  }
+
+  public GeographicSubAddressValue levelType(String levelType) {
+    this.levelType = levelType;
+    return this;
+  }
+
+  /**
+   * describes level types within a building
+   * @return levelType
+  */
+  
+  @Schema(name = "levelType", description = "describes level types within a building", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getLevelType() {
+    return levelType;
+  }
+
+  public void setLevelType(String levelType) {
+    this.levelType = levelType;
+  }
+
+  public GeographicSubAddressValue name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the subAddress to identify it with a meaningful identification
+   * @return name
+  */
+  
+  @Schema(name = "name", description = "Name of the subAddress to identify it with a meaningful identification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public GeographicSubAddressValue privateStreetName(String privateStreetName) {
+    this.privateStreetName = privateStreetName;
+    return this;
+  }
+
+  /**
+   * private streets internal to a property (e.g. a university) may have internal names that are not recorded by the land title office.
+   * @return privateStreetName
+  */
+  
+  @Schema(name = "privateStreetName", description = "private streets internal to a property (e.g. a university) may have internal names that are not recorded by the land title office.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getPrivateStreetName() {
+    return privateStreetName;
+  }
+
+  public void setPrivateStreetName(String privateStreetName) {
+    this.privateStreetName = privateStreetName;
+  }
+
+  public GeographicSubAddressValue privateStreetNumber(String privateStreetNumber) {
+    this.privateStreetNumber = privateStreetNumber;
+    return this;
+  }
+
+  /**
+   * private streets numbers internal to a private street
+   * @return privateStreetNumber
+  */
+  
+  @Schema(name = "privateStreetNumber", description = "private streets numbers internal to a private street", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getPrivateStreetNumber() {
+    return privateStreetNumber;
+  }
+
+  public void setPrivateStreetNumber(String privateStreetNumber) {
+    this.privateStreetNumber = privateStreetNumber;
+  }
+
+  public GeographicSubAddressValue subUnit(List<GeographicSubAddressUnit> subUnit) {
+    this.subUnit = subUnit;
+    return this;
+  }
+
+  public GeographicSubAddressValue addSubUnitItem(GeographicSubAddressUnit subUnitItem) {
+    if (this.subUnit == null) {
+      this.subUnit = new ArrayList<>();
+    }
+    this.subUnit.add(subUnitItem);
+    return this;
+  }
+
+  /**
+   * Representation of a SubUnit. It is used for describing subunit within a subAddress e.g. BERTH, FLAT, PIER, SUITE, SHOP, TOWER, UNIT, WHARF.
+   * @return subUnit
+  */
+  @Valid 
+  @Schema(name = "subUnit", description = "Representation of a SubUnit. It is used for describing subunit within a subAddress e.g. BERTH, FLAT, PIER, SUITE, SHOP, TOWER, UNIT, WHARF.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public List<GeographicSubAddressUnit> getSubUnit() {
+    return subUnit;
+  }
+
+  public void setSubUnit(List<GeographicSubAddressUnit> subUnit) {
+    this.subUnit = subUnit;
+  }
+
+  public GeographicSubAddressValue subAddressType(String subAddressType) {
+    this.subAddressType = subAddressType;
+    return this;
+  }
+
+  /**
+   * Type of subAddress : it can be a subunit or a private street
+   * @return subAddressType
+  */
+  
+  @Schema(name = "subAddressType", description = "Type of subAddress : it can be a subunit or a private street", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  public String getSubAddressType() {
+    return subAddressType;
+  }
+
+  public void setSubAddressType(String subAddressType) {
+    this.subAddressType = subAddressType;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    GeographicSubAddressValue geographicSubAddressValue = (GeographicSubAddressValue) o;
+    return Objects.equals(this.type, geographicSubAddressValue.type) &&
+        Objects.equals(this.baseType, geographicSubAddressValue.baseType) &&
+        Objects.equals(this.schemaLocation, geographicSubAddressValue.schemaLocation) &&
+        Objects.equals(this.buildingName, geographicSubAddressValue.buildingName) &&
+        Objects.equals(this.levelNumber, geographicSubAddressValue.levelNumber) &&
+        Objects.equals(this.levelType, geographicSubAddressValue.levelType) &&
+        Objects.equals(this.name, geographicSubAddressValue.name) &&
+        Objects.equals(this.privateStreetName, geographicSubAddressValue.privateStreetName) &&
+        Objects.equals(this.privateStreetNumber, geographicSubAddressValue.privateStreetNumber) &&
+        Objects.equals(this.subUnit, geographicSubAddressValue.subUnit) &&
+        Objects.equals(this.subAddressType, geographicSubAddressValue.subAddressType);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(type, baseType, schemaLocation, buildingName, levelNumber, levelType, name, privateStreetName, privateStreetNumber, subUnit, subAddressType);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class GeographicSubAddressValue {\n");
+    sb.append("    @type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    @baseType: ").append(toIndentedString(baseType)).append("\n");
+    sb.append("    @schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+    sb.append("    buildingName: ").append(toIndentedString(buildingName)).append("\n");
+    sb.append("    levelNumber: ").append(toIndentedString(levelNumber)).append("\n");
+    sb.append("    levelType: ").append(toIndentedString(levelType)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    privateStreetName: ").append(toIndentedString(privateStreetName)).append("\n");
+    sb.append("    privateStreetNumber: ").append(toIndentedString(privateStreetNumber)).append("\n");
+    sb.append("    subUnit: ").append(toIndentedString(subUnit)).append("\n");
+    sb.append("    subAddressType: ").append(toIndentedString(subAddressType)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+
