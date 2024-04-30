@@ -840,15 +840,15 @@ public class Service extends BaseRootNamedEntity {
           
        
           if ( allActive ) {
-            return ServiceStateType.ACTIVE ; 
+            nextState = ServiceStateType.ACTIVE ; 
           } else if ( allTerminated ) {
-            return ServiceStateType.TERMINATED ; 
+            nextState = ServiceStateType.TERMINATED ; 
           } else if ( existsInactive ) {
-            return ServiceStateType.INACTIVE ; 
+            nextState = ServiceStateType.INACTIVE ; 
           } else if ( existsReserved ) {
-            return ServiceStateType.RESERVED ; 
+            nextState = ServiceStateType.RESERVED ; 
           } else if ( existsTerminated ) {
-            return ServiceStateType.INACTIVE ; 
+            nextState = ServiceStateType.INACTIVE ; 
           }
 	  
       }
