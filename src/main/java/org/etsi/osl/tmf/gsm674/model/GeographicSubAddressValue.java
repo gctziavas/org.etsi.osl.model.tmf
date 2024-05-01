@@ -5,14 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-
+import jakarta.persistence.Entity;
 /**
  * GeographicSubAddressValue
  */
 
-
+@Entity(name = "GeographicSubAddressValue")
+@Table(name = "GeographicSubAddressValue")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
 public class GeographicSubAddressValue {
   @JsonProperty("@type")
@@ -36,6 +40,7 @@ public class GeographicSubAddressValue {
 
   @Valid
   @JsonProperty("subUnit")
+  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
   private List<GeographicSubAddressUnit> subUnit = new ArrayList<>();
   @JsonProperty("subAddressType")
   private String subAddressType;

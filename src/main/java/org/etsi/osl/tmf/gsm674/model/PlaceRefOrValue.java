@@ -8,6 +8,10 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import org.etsi.osl.tmf.common.model.BaseRootEntity;
 
@@ -26,11 +30,20 @@ import org.etsi.osl.tmf.common.model.BaseRootEntity;
         @JsonSubTypes.Type(value = PlaceRefOrValue.class, name = "PlaceRefOrValue")
 })
 
+@Table(name = "PlaceRefOrValue")
+@Entity(name = "PlaceRefOrValue")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
 public class PlaceRefOrValue extends BaseRootEntity {
 
+    @JsonProperty("geographicAddress")
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+    private GeographicAddressValue geographicAddressValue;
     public PlaceRefOrValue() {
         super();
+    }
+
+    public PlaceRefOrValue(GeographicAddressValue geographicAddressValue) {
+        this.geographicAddressValue = geographicAddressValue;
     }
 
     /**
@@ -102,21 +115,16 @@ public class PlaceRefOrValue extends BaseRootEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        PlaceRefOrValue placeRefOrValue = (PlaceRefOrValue) o;
-        return Objects.equals(this.type, placeRefOrValue.type) &&
-                Objects.equals(this.baseType, placeRefOrValue.baseType) &&
-                Objects.equals(this.schemaLocation, placeRefOrValue.schemaLocation);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        PlaceRefOrValue that = (PlaceRefOrValue) o;
+        return Objects.equals(geographicAddressValue, that.geographicAddressValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, baseType, schemaLocation);
+        return Objects.hash(geographicAddressValue);
     }
 
     @Override
@@ -126,6 +134,7 @@ public class PlaceRefOrValue extends BaseRootEntity {
         sb.append("    @type: ").append(toIndentedString(type)).append("\n");
         sb.append("    @baseType: ").append(toIndentedString(baseType)).append("\n");
         sb.append("    @schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+        sb.append("    geographicAddress: ").append(toIndentedString(geographicAddressValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }
