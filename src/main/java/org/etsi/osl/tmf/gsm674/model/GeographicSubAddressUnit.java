@@ -6,20 +6,16 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Entity;
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
+
 /**
  * GeographicSubAddressUnit
  */
 @Entity(name = "GeographicSubAddressUnit")
 @Table(name = "GeographicSubAddressUnit")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
-public class GeographicSubAddressUnit {
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation;
-  @JsonProperty("@baseType")
-  private String baseType;
-  @JsonProperty("@type")
-  private String type;
-  @JsonProperty("subUnitNumber")
+public class GeographicSubAddressUnit extends BaseRootEntity {
+   @JsonProperty("subUnitNumber")
   private String subUnitNumber;
   @JsonProperty("subUnitType")
   private String subUnitType;

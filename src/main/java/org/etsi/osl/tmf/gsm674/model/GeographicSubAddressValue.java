@@ -11,6 +11,8 @@ import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Entity;
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
+
 /**
  * GeographicSubAddressValue
  */
@@ -18,13 +20,7 @@ import jakarta.persistence.Entity;
 @Entity(name = "GeographicSubAddressValue")
 @Table(name = "GeographicSubAddressValue")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
-public class GeographicSubAddressValue {
-  @JsonProperty("@type")
-  private String type;
-  @JsonProperty("@baseType")
-  private String baseType;
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation;
+public class GeographicSubAddressValue extends BaseRootEntity {
   @JsonProperty("buildingName")
   private String buildingName;
   @JsonProperty("levelNumber")

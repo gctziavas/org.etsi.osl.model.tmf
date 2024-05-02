@@ -27,6 +27,7 @@ public class GeographicSite extends BaseRootEntity implements PatchGeographicSit
     @JsonProperty("status")
     private String status;
     @JsonProperty("externalIdentifier")
+    @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     private List<ExternalIdentifier> externalIdentifier = new ArrayList<>();
     @JsonProperty("calendar")
     @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })

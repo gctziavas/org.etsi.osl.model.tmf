@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
 
 
@@ -37,6 +39,7 @@ public class GeographicAddressValue extends PlaceRefOrValue {
   @JsonProperty("streetType")
   private String streetType;
   @JsonProperty("geographicSubAddress")
+  @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
   private GeographicSubAddressValue geographicSubAddress;
   @JsonProperty("city")
   private String city;
