@@ -6,10 +6,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 
 /**
- * TBD
+ * The event data structure
  */
 
-@Schema(name = "GeographicSiteEventPayload", description = "TBD")
+@Schema(name = "GeographicSiteEventPayload", description = "The event data structure")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
 public class GeographicSiteEventPayload {
   @JsonProperty("geographicSite")

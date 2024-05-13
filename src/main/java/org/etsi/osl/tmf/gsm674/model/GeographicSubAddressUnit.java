@@ -11,8 +11,8 @@ import org.etsi.osl.tmf.common.model.BaseRootEntity;
 /**
  * GeographicSubAddressUnit
  */
-@Entity(name = "GeographicSubAddressUnit")
-@Table(name = "GeographicSubAddressUnit")
+@Entity(name = "GeoSubAddUnit")
+@Table(name = "GeoSubAddUnit")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
 public class GeographicSubAddressUnit extends BaseRootEntity {
    @JsonProperty("subUnitNumber")

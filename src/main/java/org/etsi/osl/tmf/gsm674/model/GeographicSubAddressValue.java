@@ -17,8 +17,8 @@ import org.etsi.osl.tmf.common.model.BaseRootEntity;
  * GeographicSubAddressValue
  */
 
-@Entity(name = "GeographicSubAddressValue")
-@Table(name = "GeographicSubAddressValue")
+@Entity(name = "GeoSubAddVal")
+@Table(name = "GeoSubAddVal")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-04-24T14:24:54.867613034Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
 public class GeographicSubAddressValue extends BaseRootEntity {
   @JsonProperty("buildingName")
