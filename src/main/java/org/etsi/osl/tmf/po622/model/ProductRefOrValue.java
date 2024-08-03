@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.service.Characteristic;
 import org.etsi.osl.tmf.common.model.service.ResourceRef;
 import org.etsi.osl.tmf.common.model.service.ServiceRef;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;

@@ -1,45 +1,29 @@
-/*-
- * ========================LICENSE_START=================================
- * org.etsi.osl.tmf.api
- * %%
- * Copyright (C) 2019 - 2021 openslice.io
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =========================LICENSE_END==================================
- */
-package org.etsi.osl.tmf.po622.model;
+package org.etsi.osl.tmf.pim637.model;
 
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.etsi.osl.tmf.common.model.service.Characteristic;
 import org.etsi.osl.tmf.common.model.service.ResourceRef;
 import org.etsi.osl.tmf.common.model.service.ServiceRef;
+import org.etsi.osl.tmf.po622.model.AgreementItemRef;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 /**
- * A product offering procured by a customer or other interested party playing a party role. A product is realized as one or more service(s) and / or resource(s).
+ * A product to be created defined by value or existing defined by reference. The polymorphic attributes @type, @schemaLocation &amp; @referredType are related to the product entity and not the RelatedProductRefOrValue class itself
  */
-@Schema(description = "A product offering procured by a customer or other interested party playing a party role. A product is realized as one or more service(s) and / or resource(s).")
+@Schema(description = "A product to be created defined by value or existing defined by reference. The polymorphic attributes @type, @schemaLocation & @referredType are related to the product entity and not the RelatedProductRefOrValue class itself")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class Product   {
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
+
+
+public class ProductRefOrValue   {
   @JsonProperty("id")
   private String id = null;
 
@@ -59,16 +43,16 @@ public class Product   {
   private String name = null;
 
   @JsonProperty("orderDate")
-  private OffsetDateTime orderDate = null;
+  private Date orderDate = null;
 
   @JsonProperty("productSerialNumber")
   private String productSerialNumber = null;
 
   @JsonProperty("startDate")
-  private OffsetDateTime startDate = null;
+  private Date startDate = null;
 
   @JsonProperty("terminationDate")
-  private OffsetDateTime terminationDate = null;
+  private Date terminationDate = null;
 
   @JsonProperty("agreement")
   @Valid
@@ -127,15 +111,18 @@ public class Product   {
   private ProductStatusType status = null;
 
   @JsonProperty("@baseType")
-  private String baseType = null;
+  private String _atBaseType = null;
 
   @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
+  private String _atSchemaLocation = null;
 
   @JsonProperty("@type")
-  private String type = null;
+  private String _atType = null;
 
-  public Product id(String id) {
+  @JsonProperty("@referredType")
+  private String _atReferredType = null;
+
+  public ProductRefOrValue id(String id) {
     this.id = id;
     return this;
   }
@@ -143,9 +130,10 @@ public class Product   {
   /**
    * Unique identifier of the product
    * @return id
-  **/
+   **/
   @Schema(description = "Unique identifier of the product")
-  
+      @NotNull
+
     public String getId() {
     return id;
   }
@@ -154,7 +142,7 @@ public class Product   {
     this.id = id;
   }
 
-  public Product href(String href) {
+  public ProductRefOrValue href(String href) {
     this.href = href;
     return this;
   }
@@ -162,9 +150,10 @@ public class Product   {
   /**
    * Reference of the product
    * @return href
-  **/
+   **/
   @Schema(description = "Reference of the product")
-  
+      @NotNull
+
     public String getHref() {
     return href;
   }
@@ -173,7 +162,7 @@ public class Product   {
     this.href = href;
   }
 
-  public Product description(String description) {
+  public ProductRefOrValue description(String description) {
     this.description = description;
     return this;
   }
@@ -181,9 +170,10 @@ public class Product   {
   /**
    * Is the description of the product. It could be copied from the description of the Product Offering.
    * @return description
-  **/
+   **/
   @Schema(description = "Is the description of the product. It could be copied from the description of the Product Offering.")
-  
+      @NotNull
+
     public String getDescription() {
     return description;
   }
@@ -192,7 +182,7 @@ public class Product   {
     this.description = description;
   }
 
-  public Product isBundle(Boolean isBundle) {
+  public ProductRefOrValue isBundle(Boolean isBundle) {
     this.isBundle = isBundle;
     return this;
   }
@@ -200,9 +190,10 @@ public class Product   {
   /**
    * If true, the product is a ProductBundle which is an instantiation of a BundledProductOffering. If false, the product is a ProductComponent which is an instantiation of a SimpleProductOffering.
    * @return isBundle
-  **/
+   **/
   @Schema(description = "If true, the product is a ProductBundle which is an instantiation of a BundledProductOffering. If false, the product is a ProductComponent which is an instantiation of a SimpleProductOffering.")
-  
+      @NotNull
+
     public Boolean isIsBundle() {
     return isBundle;
   }
@@ -211,7 +202,7 @@ public class Product   {
     this.isBundle = isBundle;
   }
 
-  public Product isCustomerVisible(Boolean isCustomerVisible) {
+  public ProductRefOrValue isCustomerVisible(Boolean isCustomerVisible) {
     this.isCustomerVisible = isCustomerVisible;
     return this;
   }
@@ -219,9 +210,10 @@ public class Product   {
   /**
    * If true, the product is visible by the customer.
    * @return isCustomerVisible
-  **/
+   **/
   @Schema(description = "If true, the product is visible by the customer.")
-  
+      @NotNull
+
     public Boolean isIsCustomerVisible() {
     return isCustomerVisible;
   }
@@ -230,7 +222,7 @@ public class Product   {
     this.isCustomerVisible = isCustomerVisible;
   }
 
-  public Product name(String name) {
+  public ProductRefOrValue name(String name) {
     this.name = name;
     return this;
   }
@@ -238,9 +230,10 @@ public class Product   {
   /**
    * Name of the product. It could be the same as the name of the product offering
    * @return name
-  **/
+   **/
   @Schema(description = "Name of the product. It could be the same as the name of the product offering")
-  
+      @NotNull
+
     public String getName() {
     return name;
   }
@@ -249,7 +242,7 @@ public class Product   {
     this.name = name;
   }
 
-  public Product orderDate(OffsetDateTime orderDate) {
+  public ProductRefOrValue orderDate(Date orderDate) {
     this.orderDate = orderDate;
     return this;
   }
@@ -257,19 +250,20 @@ public class Product   {
   /**
    * Is the date when the product was ordered
    * @return orderDate
-  **/
+   **/
   @Schema(description = "Is the date when the product was ordered")
-  
+      @NotNull
+
     @Valid
-    public OffsetDateTime getOrderDate() {
+    public Date getOrderDate() {
     return orderDate;
   }
 
-  public void setOrderDate(OffsetDateTime orderDate) {
+  public void setOrderDate(Date orderDate) {
     this.orderDate = orderDate;
   }
 
-  public Product productSerialNumber(String productSerialNumber) {
+  public ProductRefOrValue productSerialNumber(String productSerialNumber) {
     this.productSerialNumber = productSerialNumber;
     return this;
   }
@@ -277,9 +271,10 @@ public class Product   {
   /**
    * Is the serial number for the product. This is typically applicable to tangible products e.g. Broadband Router.
    * @return productSerialNumber
-  **/
+   **/
   @Schema(description = "Is the serial number for the product. This is typically applicable to tangible products e.g. Broadband Router.")
-  
+      @NotNull
+
     public String getProductSerialNumber() {
     return productSerialNumber;
   }
@@ -288,7 +283,7 @@ public class Product   {
     this.productSerialNumber = productSerialNumber;
   }
 
-  public Product startDate(OffsetDateTime startDate) {
+  public ProductRefOrValue startDate(Date startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -296,19 +291,20 @@ public class Product   {
   /**
    * Is the date from which the product starts
    * @return startDate
-  **/
+   **/
   @Schema(description = "Is the date from which the product starts")
-  
+      @NotNull
+
     @Valid
-    public OffsetDateTime getStartDate() {
+    public Date getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(Date startDate) {
     this.startDate = startDate;
   }
 
-  public Product terminationDate(OffsetDateTime terminationDate) {
+  public ProductRefOrValue terminationDate(Date terminationDate) {
     this.terminationDate = terminationDate;
     return this;
   }
@@ -316,26 +312,27 @@ public class Product   {
   /**
    * Is the date when the product was terminated
    * @return terminationDate
-  **/
+   **/
   @Schema(description = "Is the date when the product was terminated")
-  
+      @NotNull
+
     @Valid
-    public OffsetDateTime getTerminationDate() {
+    public Date getTerminationDate() {
     return terminationDate;
   }
 
-  public void setTerminationDate(OffsetDateTime terminationDate) {
+  public void setTerminationDate(Date terminationDate) {
     this.terminationDate = terminationDate;
   }
 
-  public Product agreement(List<AgreementItemRef> agreement) {
+  public ProductRefOrValue agreement(List<AgreementItemRef> agreement) {
     this.agreement = agreement;
     return this;
   }
 
-  public Product addAgreementItem(AgreementItemRef agreementItem) {
+  public ProductRefOrValue addAgreementItem(AgreementItemRef agreementItem) {
     if (this.agreement == null) {
-      this.agreement = new ArrayList<>();
+      this.agreement = new ArrayList<AgreementItemRef>();
     }
     this.agreement.add(agreementItem);
     return this;
@@ -344,9 +341,10 @@ public class Product   {
   /**
    * Get agreement
    * @return agreement
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<AgreementItemRef> getAgreement() {
     return agreement;
   }
@@ -355,7 +353,7 @@ public class Product   {
     this.agreement = agreement;
   }
 
-  public Product billingAccount(BillingAccountRef billingAccount) {
+  public ProductRefOrValue billingAccount(BillingAccountRef billingAccount) {
     this.billingAccount = billingAccount;
     return this;
   }
@@ -363,9 +361,10 @@ public class Product   {
   /**
    * Get billingAccount
    * @return billingAccount
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public BillingAccountRef getBillingAccount() {
     return billingAccount;
@@ -375,14 +374,14 @@ public class Product   {
     this.billingAccount = billingAccount;
   }
 
-  public Product place(List<RelatedPlaceRefOrValue> place) {
+  public ProductRefOrValue place(List<RelatedPlaceRefOrValue> place) {
     this.place = place;
     return this;
   }
 
-  public Product addPlaceItem(RelatedPlaceRefOrValue placeItem) {
+  public ProductRefOrValue addPlaceItem(RelatedPlaceRefOrValue placeItem) {
     if (this.place == null) {
-      this.place = new ArrayList<>();
+      this.place = new ArrayList<RelatedPlaceRefOrValue>();
     }
     this.place.add(placeItem);
     return this;
@@ -391,9 +390,10 @@ public class Product   {
   /**
    * Get place
    * @return place
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<RelatedPlaceRefOrValue> getPlace() {
     return place;
   }
@@ -402,14 +402,14 @@ public class Product   {
     this.place = place;
   }
 
-  public Product product(List<ProductRefOrValue> product) {
+  public ProductRefOrValue product(List<ProductRefOrValue> product) {
     this.product = product;
     return this;
   }
 
-  public Product addProductItem(ProductRefOrValue productItem) {
+  public ProductRefOrValue addProductItem(ProductRefOrValue productItem) {
     if (this.product == null) {
-      this.product = new ArrayList<>();
+      this.product = new ArrayList<ProductRefOrValue>();
     }
     this.product.add(productItem);
     return this;
@@ -418,9 +418,10 @@ public class Product   {
   /**
    * Get product
    * @return product
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<ProductRefOrValue> getProduct() {
     return product;
   }
@@ -429,14 +430,14 @@ public class Product   {
     this.product = product;
   }
 
-  public Product productCharacteristic(List<Characteristic> productCharacteristic) {
+  public ProductRefOrValue productCharacteristic(List<Characteristic> productCharacteristic) {
     this.productCharacteristic = productCharacteristic;
     return this;
   }
 
-  public Product addProductCharacteristicItem(Characteristic productCharacteristicItem) {
+  public ProductRefOrValue addProductCharacteristicItem(Characteristic productCharacteristicItem) {
     if (this.productCharacteristic == null) {
-      this.productCharacteristic = new ArrayList<>();
+      this.productCharacteristic = new ArrayList<Characteristic>();
     }
     this.productCharacteristic.add(productCharacteristicItem);
     return this;
@@ -445,9 +446,10 @@ public class Product   {
   /**
    * Get productCharacteristic
    * @return productCharacteristic
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<Characteristic> getProductCharacteristic() {
     return productCharacteristic;
   }
@@ -456,7 +458,7 @@ public class Product   {
     this.productCharacteristic = productCharacteristic;
   }
 
-  public Product productOffering(ProductOfferingRef productOffering) {
+  public ProductRefOrValue productOffering(ProductOfferingRef productOffering) {
     this.productOffering = productOffering;
     return this;
   }
@@ -464,9 +466,10 @@ public class Product   {
   /**
    * Get productOffering
    * @return productOffering
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public ProductOfferingRef getProductOffering() {
     return productOffering;
@@ -476,14 +479,14 @@ public class Product   {
     this.productOffering = productOffering;
   }
 
-  public Product productOrderItem(List<RelatedProductOrderItem> productOrderItem) {
+  public ProductRefOrValue productOrderItem(List<RelatedProductOrderItem> productOrderItem) {
     this.productOrderItem = productOrderItem;
     return this;
   }
 
-  public Product addProductOrderItemItem(RelatedProductOrderItem productOrderItemItem) {
+  public ProductRefOrValue addProductOrderItemItem(RelatedProductOrderItem productOrderItemItem) {
     if (this.productOrderItem == null) {
-      this.productOrderItem = new ArrayList<>();
+      this.productOrderItem = new ArrayList<RelatedProductOrderItem>();
     }
     this.productOrderItem.add(productOrderItemItem);
     return this;
@@ -492,9 +495,10 @@ public class Product   {
   /**
    * Get productOrderItem
    * @return productOrderItem
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<RelatedProductOrderItem> getProductOrderItem() {
     return productOrderItem;
   }
@@ -503,14 +507,14 @@ public class Product   {
     this.productOrderItem = productOrderItem;
   }
 
-  public Product productPrice(List<ProductPrice> productPrice) {
+  public ProductRefOrValue productPrice(List<ProductPrice> productPrice) {
     this.productPrice = productPrice;
     return this;
   }
 
-  public Product addProductPriceItem(ProductPrice productPriceItem) {
+  public ProductRefOrValue addProductPriceItem(ProductPrice productPriceItem) {
     if (this.productPrice == null) {
-      this.productPrice = new ArrayList<>();
+      this.productPrice = new ArrayList<ProductPrice>();
     }
     this.productPrice.add(productPriceItem);
     return this;
@@ -519,9 +523,10 @@ public class Product   {
   /**
    * Get productPrice
    * @return productPrice
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<ProductPrice> getProductPrice() {
     return productPrice;
   }
@@ -530,14 +535,14 @@ public class Product   {
     this.productPrice = productPrice;
   }
 
-  public Product productRelationship(List<ProductRelationship> productRelationship) {
+  public ProductRefOrValue productRelationship(List<ProductRelationship> productRelationship) {
     this.productRelationship = productRelationship;
     return this;
   }
 
-  public Product addProductRelationshipItem(ProductRelationship productRelationshipItem) {
+  public ProductRefOrValue addProductRelationshipItem(ProductRelationship productRelationshipItem) {
     if (this.productRelationship == null) {
-      this.productRelationship = new ArrayList<>();
+      this.productRelationship = new ArrayList<ProductRelationship>();
     }
     this.productRelationship.add(productRelationshipItem);
     return this;
@@ -546,9 +551,10 @@ public class Product   {
   /**
    * Get productRelationship
    * @return productRelationship
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<ProductRelationship> getProductRelationship() {
     return productRelationship;
   }
@@ -557,7 +563,7 @@ public class Product   {
     this.productRelationship = productRelationship;
   }
 
-  public Product productSpecification(ProductSpecificationRef productSpecification) {
+  public ProductRefOrValue productSpecification(ProductSpecificationRef productSpecification) {
     this.productSpecification = productSpecification;
     return this;
   }
@@ -565,9 +571,10 @@ public class Product   {
   /**
    * Get productSpecification
    * @return productSpecification
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public ProductSpecificationRef getProductSpecification() {
     return productSpecification;
@@ -577,14 +584,14 @@ public class Product   {
     this.productSpecification = productSpecification;
   }
 
-  public Product productTerm(List<ProductTerm> productTerm) {
+  public ProductRefOrValue productTerm(List<ProductTerm> productTerm) {
     this.productTerm = productTerm;
     return this;
   }
 
-  public Product addProductTermItem(ProductTerm productTermItem) {
+  public ProductRefOrValue addProductTermItem(ProductTerm productTermItem) {
     if (this.productTerm == null) {
-      this.productTerm = new ArrayList<>();
+      this.productTerm = new ArrayList<ProductTerm>();
     }
     this.productTerm.add(productTermItem);
     return this;
@@ -593,9 +600,10 @@ public class Product   {
   /**
    * Get productTerm
    * @return productTerm
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<ProductTerm> getProductTerm() {
     return productTerm;
   }
@@ -604,14 +612,14 @@ public class Product   {
     this.productTerm = productTerm;
   }
 
-  public Product realizingResource(List<ResourceRef> realizingResource) {
+  public ProductRefOrValue realizingResource(List<ResourceRef> realizingResource) {
     this.realizingResource = realizingResource;
     return this;
   }
 
-  public Product addRealizingResourceItem(ResourceRef realizingResourceItem) {
+  public ProductRefOrValue addRealizingResourceItem(ResourceRef realizingResourceItem) {
     if (this.realizingResource == null) {
-      this.realizingResource = new ArrayList<>();
+      this.realizingResource = new ArrayList<ResourceRef>();
     }
     this.realizingResource.add(realizingResourceItem);
     return this;
@@ -620,9 +628,10 @@ public class Product   {
   /**
    * Get realizingResource
    * @return realizingResource
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<ResourceRef> getRealizingResource() {
     return realizingResource;
   }
@@ -631,14 +640,14 @@ public class Product   {
     this.realizingResource = realizingResource;
   }
 
-  public Product realizingService(List<ServiceRef> realizingService) {
+  public ProductRefOrValue realizingService(List<ServiceRef> realizingService) {
     this.realizingService = realizingService;
     return this;
   }
 
-  public Product addRealizingServiceItem(ServiceRef realizingServiceItem) {
+  public ProductRefOrValue addRealizingServiceItem(ServiceRef realizingServiceItem) {
     if (this.realizingService == null) {
-      this.realizingService = new ArrayList<>();
+      this.realizingService = new ArrayList<ServiceRef>();
     }
     this.realizingService.add(realizingServiceItem);
     return this;
@@ -647,9 +656,10 @@ public class Product   {
   /**
    * Get realizingService
    * @return realizingService
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<ServiceRef> getRealizingService() {
     return realizingService;
   }
@@ -658,14 +668,14 @@ public class Product   {
     this.realizingService = realizingService;
   }
 
-  public Product relatedParty(List<RelatedParty> relatedParty) {
+  public ProductRefOrValue relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
 
-  public Product addRelatedPartyItem(RelatedParty relatedPartyItem) {
+  public ProductRefOrValue addRelatedPartyItem(RelatedParty relatedPartyItem) {
     if (this.relatedParty == null) {
-      this.relatedParty = new ArrayList<>();
+      this.relatedParty = new ArrayList<RelatedParty>();
     }
     this.relatedParty.add(relatedPartyItem);
     return this;
@@ -674,9 +684,10 @@ public class Product   {
   /**
    * Get relatedParty
    * @return relatedParty
-  **/
+   **/
   @Schema(description = "")
-      @Valid
+      @NotNull
+    @Valid
     public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
@@ -685,7 +696,7 @@ public class Product   {
     this.relatedParty = relatedParty;
   }
 
-  public Product status(ProductStatusType status) {
+  public ProductRefOrValue status(ProductStatusType status) {
     this.status = status;
     return this;
   }
@@ -693,9 +704,10 @@ public class Product   {
   /**
    * Get status
    * @return status
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public ProductStatusType getStatus() {
     return status;
@@ -705,61 +717,84 @@ public class Product   {
     this.status = status;
   }
 
-  public Product baseType(String baseType) {
-    this.baseType = baseType;
+  public ProductRefOrValue _atBaseType(String _atBaseType) {
+    this._atBaseType = _atBaseType;
     return this;
   }
 
   /**
    * When sub-classing, this defines the super-class
-   * @return baseType
-  **/
+   * @return _atBaseType
+   **/
   @Schema(description = "When sub-classing, this defines the super-class")
-  
+      @NotNull
+
     public String getAtBaseType() {
-    return baseType;
+    return _atBaseType;
   }
 
-  public void setAtBaseType(String baseType) {
-    this.baseType = baseType;
+  public void setAtBaseType(String _atBaseType) {
+    this._atBaseType = _atBaseType;
   }
 
-  public Product schemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
+  public ProductRefOrValue _atSchemaLocation(String _atSchemaLocation) {
+    this._atSchemaLocation = _atSchemaLocation;
     return this;
   }
 
   /**
    * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return schemaLocation
-  **/
+   * @return _atSchemaLocation
+   **/
   @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
+      @NotNull
+
     public String getAtSchemaLocation() {
-    return schemaLocation;
+    return _atSchemaLocation;
   }
 
-  public void setAtSchemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
+  public void setAtSchemaLocation(String _atSchemaLocation) {
+    this._atSchemaLocation = _atSchemaLocation;
   }
 
-  public Product type(String type) {
-    this.type = type;
+  public ProductRefOrValue _atType(String _atType) {
+    this._atType = _atType;
     return this;
   }
 
   /**
    * When sub-classing, this defines the sub-class entity name
-   * @return type
-  **/
+   * @return _atType
+   **/
   @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
+      @NotNull
+
     public String getAtType() {
-    return type;
+    return _atType;
   }
 
-  public void setAtType(String type) {
-    this.type = type;
+  public void setAtType(String _atType) {
+    this._atType = _atType;
+  }
+
+  public ProductRefOrValue _atReferredType(String _atReferredType) {
+    this._atReferredType = _atReferredType;
+    return this;
+  }
+
+  /**
+   * The actual type of the target instance when needed for disambiguation.
+   * @return _atReferredType
+   **/
+  @Schema(description = "The actual type of the target instance when needed for disambiguation.")
+      @NotNull
+
+    public String getAtReferredType() {
+    return _atReferredType;
+  }
+
+  public void setAtReferredType(String _atReferredType) {
+    this._atReferredType = _atReferredType;
   }
 
 
@@ -771,46 +806,47 @@ public class Product   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Product product = (Product) o;
-    return Objects.equals(this.id, product.id) &&
-        Objects.equals(this.href, product.href) &&
-        Objects.equals(this.description, product.description) &&
-        Objects.equals(this.isBundle, product.isBundle) &&
-        Objects.equals(this.isCustomerVisible, product.isCustomerVisible) &&
-        Objects.equals(this.name, product.name) &&
-        Objects.equals(this.orderDate, product.orderDate) &&
-        Objects.equals(this.productSerialNumber, product.productSerialNumber) &&
-        Objects.equals(this.startDate, product.startDate) &&
-        Objects.equals(this.terminationDate, product.terminationDate) &&
-        Objects.equals(this.agreement, product.agreement) &&
-        Objects.equals(this.billingAccount, product.billingAccount) &&
-        Objects.equals(this.place, product.place) &&
-        Objects.equals(this.product, product.product) &&
-        Objects.equals(this.productCharacteristic, product.productCharacteristic) &&
-        Objects.equals(this.productOffering, product.productOffering) &&
-        Objects.equals(this.productOrderItem, product.productOrderItem) &&
-        Objects.equals(this.productPrice, product.productPrice) &&
-        Objects.equals(this.productRelationship, product.productRelationship) &&
-        Objects.equals(this.productSpecification, product.productSpecification) &&
-        Objects.equals(this.productTerm, product.productTerm) &&
-        Objects.equals(this.realizingResource, product.realizingResource) &&
-        Objects.equals(this.realizingService, product.realizingService) &&
-        Objects.equals(this.relatedParty, product.relatedParty) &&
-        Objects.equals(this.status, product.status) &&
-        Objects.equals(this.baseType, product.baseType) &&
-        Objects.equals(this.schemaLocation, product.schemaLocation) &&
-        Objects.equals(this.type, product.type);
+    ProductRefOrValue productRefOrValue = (ProductRefOrValue) o;
+    return Objects.equals(this.id, productRefOrValue.id) &&
+        Objects.equals(this.href, productRefOrValue.href) &&
+        Objects.equals(this.description, productRefOrValue.description) &&
+        Objects.equals(this.isBundle, productRefOrValue.isBundle) &&
+        Objects.equals(this.isCustomerVisible, productRefOrValue.isCustomerVisible) &&
+        Objects.equals(this.name, productRefOrValue.name) &&
+        Objects.equals(this.orderDate, productRefOrValue.orderDate) &&
+        Objects.equals(this.productSerialNumber, productRefOrValue.productSerialNumber) &&
+        Objects.equals(this.startDate, productRefOrValue.startDate) &&
+        Objects.equals(this.terminationDate, productRefOrValue.terminationDate) &&
+        Objects.equals(this.agreement, productRefOrValue.agreement) &&
+        Objects.equals(this.billingAccount, productRefOrValue.billingAccount) &&
+        Objects.equals(this.place, productRefOrValue.place) &&
+        Objects.equals(this.product, productRefOrValue.product) &&
+        Objects.equals(this.productCharacteristic, productRefOrValue.productCharacteristic) &&
+        Objects.equals(this.productOffering, productRefOrValue.productOffering) &&
+        Objects.equals(this.productOrderItem, productRefOrValue.productOrderItem) &&
+        Objects.equals(this.productPrice, productRefOrValue.productPrice) &&
+        Objects.equals(this.productRelationship, productRefOrValue.productRelationship) &&
+        Objects.equals(this.productSpecification, productRefOrValue.productSpecification) &&
+        Objects.equals(this.productTerm, productRefOrValue.productTerm) &&
+        Objects.equals(this.realizingResource, productRefOrValue.realizingResource) &&
+        Objects.equals(this.realizingService, productRefOrValue.realizingService) &&
+        Objects.equals(this.relatedParty, productRefOrValue.relatedParty) &&
+        Objects.equals(this.status, productRefOrValue.status) &&
+        Objects.equals(this._atBaseType, productRefOrValue._atBaseType) &&
+        Objects.equals(this._atSchemaLocation, productRefOrValue._atSchemaLocation) &&
+        Objects.equals(this._atType, productRefOrValue._atType) &&
+        Objects.equals(this._atReferredType, productRefOrValue._atReferredType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, description, isBundle, isCustomerVisible, name, orderDate, productSerialNumber, startDate, terminationDate, agreement, billingAccount, place, product, productCharacteristic, productOffering, productOrderItem, productPrice, productRelationship, productSpecification, productTerm, realizingResource, realizingService, relatedParty, status, baseType, schemaLocation, type);
+    return Objects.hash(id, href, description, isBundle, isCustomerVisible, name, orderDate, productSerialNumber, startDate, terminationDate, agreement, billingAccount, place, product, productCharacteristic, productOffering, productOrderItem, productPrice, productRelationship, productSpecification, productTerm, realizingResource, realizingService, relatedParty, status, _atBaseType, _atSchemaLocation, _atType, _atReferredType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Product {\n");
+    sb.append("class ProductRefOrValue {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
@@ -837,9 +873,10 @@ public class Product   {
     sb.append("    realizingService: ").append(toIndentedString(realizingService)).append("\n");
     sb.append("    relatedParty: ").append(toIndentedString(relatedParty)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
-    sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    _atBaseType: ").append(toIndentedString(_atBaseType)).append("\n");
+    sb.append("    _atSchemaLocation: ").append(toIndentedString(_atSchemaLocation)).append("\n");
+    sb.append("    _atType: ").append(toIndentedString(_atType)).append("\n");
+    sb.append("    _atReferredType: ").append(toIndentedString(_atReferredType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,6 +28,7 @@ import org.etsi.osl.tmf.am651.model.AgreementRef;
 import org.etsi.osl.tmf.am666.model.AccountRef;
 import org.etsi.osl.tmf.am666.model.PaymentMethodRef;
 import org.etsi.osl.tmf.common.model.TimePeriod;
+import org.etsi.osl.tmf.common.model.service.Characteristic;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
