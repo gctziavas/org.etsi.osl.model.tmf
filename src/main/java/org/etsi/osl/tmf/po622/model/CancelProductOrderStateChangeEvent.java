@@ -21,11 +21,8 @@ package org.etsi.osl.tmf.po622.model;
 
 import java.time.OffsetDateTime;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 

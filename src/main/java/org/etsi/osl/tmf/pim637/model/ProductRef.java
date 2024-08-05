@@ -2,8 +2,10 @@ package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -12,25 +14,12 @@ import jakarta.validation.constraints.NotNull;
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
 
-
-public class ProductRef   {
+@Entity(name = "ProductRef637")
+public class ProductRef   extends BaseRootNamedEntity {
   @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("href")
-  private String href = null;
 
-  @JsonProperty("name")
-  private String name = null;
-
-  @JsonProperty("@baseType")
-  private String _atBaseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String _atSchemaLocation = null;
-
-  @JsonProperty("@type")
-  private String _atType = null;
 
   @JsonProperty("@referredType")
   private String _atReferredType = null;
@@ -95,65 +84,8 @@ public class ProductRef   {
     this.name = name;
   }
 
-  public ProductRef _atBaseType(String _atBaseType) {
-    this._atBaseType = _atBaseType;
-    return this;
-  }
+  
 
-  /**
-   * When sub-classing, this defines the super-class
-   * @return _atBaseType
-   **/
-  @Schema(description = "When sub-classing, this defines the super-class")
-      @NotNull
-
-    public String getAtBaseType() {
-    return _atBaseType;
-  }
-
-  public void setAtBaseType(String _atBaseType) {
-    this._atBaseType = _atBaseType;
-  }
-
-  public ProductRef _atSchemaLocation(String _atSchemaLocation) {
-    this._atSchemaLocation = _atSchemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return _atSchemaLocation
-   **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-      @NotNull
-
-    public String getAtSchemaLocation() {
-    return _atSchemaLocation;
-  }
-
-  public void setAtSchemaLocation(String _atSchemaLocation) {
-    this._atSchemaLocation = _atSchemaLocation;
-  }
-
-  public ProductRef _atType(String _atType) {
-    this._atType = _atType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class entity name
-   * @return _atType
-   **/
-  @Schema(description = "When sub-classing, this defines the sub-class entity name")
-      @NotNull
-
-    public String getAtType() {
-    return _atType;
-  }
-
-  public void setAtType(String _atType) {
-    this._atType = _atType;
-  }
 
   public ProductRef _atReferredType(String _atReferredType) {
     this._atReferredType = _atReferredType;
@@ -188,15 +120,15 @@ public class ProductRef   {
     return Objects.equals(this.id, productRef.id) &&
         Objects.equals(this.href, productRef.href) &&
         Objects.equals(this.name, productRef.name) &&
-        Objects.equals(this._atBaseType, productRef._atBaseType) &&
-        Objects.equals(this._atSchemaLocation, productRef._atSchemaLocation) &&
-        Objects.equals(this._atType, productRef._atType) &&
+        Objects.equals(this.baseType, productRef.baseType) &&
+        Objects.equals(this.schemaLocation, productRef.schemaLocation) &&
+        Objects.equals(this.type, productRef.type) &&
         Objects.equals(this._atReferredType, productRef._atReferredType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, name, _atBaseType, _atSchemaLocation, _atType, _atReferredType);
+    return Objects.hash(id, href, name, baseType, schemaLocation, type, _atReferredType);
   }
 
   @Override
@@ -207,9 +139,9 @@ public class ProductRef   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    _atBaseType: ").append(toIndentedString(_atBaseType)).append("\n");
-    sb.append("    _atSchemaLocation: ").append(toIndentedString(_atSchemaLocation)).append("\n");
-    sb.append("    _atType: ").append(toIndentedString(_atType)).append("\n");
+    sb.append("    _atBaseType: ").append(toIndentedString(baseType)).append("\n");
+    sb.append("    _atSchemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+    sb.append("    _atType: ").append(toIndentedString(type)).append("\n");
     sb.append("    _atReferredType: ").append(toIndentedString(_atReferredType)).append("\n");
     sb.append("}");
     return sb.toString();

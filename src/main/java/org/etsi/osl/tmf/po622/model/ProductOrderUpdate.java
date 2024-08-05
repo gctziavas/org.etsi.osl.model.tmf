@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.etsi.osl.tmf.common.model.service.Note;
+import org.etsi.osl.tmf.pim637.model.BillingAccountRef;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;

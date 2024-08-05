@@ -20,33 +20,26 @@
 package org.etsi.osl.tmf.po622.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
 
 /**
  * OrderItemRelationship
  */
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class OrderItemRelationship   {
+@Entity(name = "OrderItemRel")
+public class OrderItemRelationship  extends BaseRootEntity {
   @JsonProperty("id")
   private String id = null;
 
   @JsonProperty("relationshipType")
   private String relationshipType = null;
 
-  @JsonProperty("@baseType")
-  private String baseType = null;
 
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   public OrderItemRelationship id(String id) {
     this.id = id;

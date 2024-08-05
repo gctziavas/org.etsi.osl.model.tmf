@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Possible values for the status of the product
  */
 public enum ProductStatusType {
-  CREATED("created"),
-    PENDINGACTIVE("pendingActive"),
-    CANCELLED("cancelled"),
-    ACTIVE("active"),
-    PENDINGTERMINATE("pendingTerminate"),
-    TERMINATED("terminated"),
-    SUSPENDED("suspended"),
-    ABORTED_("aborted ");
+  CREATED("CREATED"),
+    PENDINGACTIVE("PENDINGACTIVE"),
+    CANCELLED("CANCELLED"),
+    ACTIVE("ACTIVE"),
+    PENDINGTERMINATE("PENDINGTERMINATE"),
+    TERMINATED("TERMINATED"),
+    SUSPENDED("SUSPENDED"),
+    ABORTED_("ABORTED_ ");
 
   private String value;
 

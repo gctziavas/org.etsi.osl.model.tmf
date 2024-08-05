@@ -2,8 +2,10 @@ package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -13,8 +15,8 @@ import jakarta.validation.constraints.NotNull;
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
 
-
-public class Money   {
+@Entity(name = "Money637")
+public class Money  extends BaseRootEntity {
   @JsonProperty("unit")
   private String unit = null;
 

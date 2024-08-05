@@ -26,17 +26,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Possible values for the state of the order
  */
 public enum ProductOrderStateType {
-  ACKNOWLEDGED("acknowledged"),
-    REJECTED("rejected"),
-    PENDING("pending"),
-    HELD("held"),
-    INPROGRESS("inProgress"),
-    CANCELLED("cancelled"),
-    COMPLETED("completed"),
-    FAILED("failed"),
-    PARTIAL("partial"),
-    ASSESSINGCANCELLATION("assessingCancellation"),
-    PENDINGCANCELLATION("pendingCancellation");
+  INITIAL("INITIAL"),
+  ACKNOWLEDGED("ACKNOWLEDGED"),
+    REJECTED("REJECTED"),
+    PENDING("PENDING"),
+    HELD("HELD"),
+    INPROGRESS("INPROGRESS"),
+    CANCELLED("CANCELLED"),
+    COMPLETED("COMPLETED"),
+    FAILED("FAILED"),
+    PARTIAL("PARTIAL"),
+    ASSESSINGCANCELLATION("ASSESSINGCANCELLATION"),
+    PENDINGCANCELLATION("PENDINGCANCELLATION");
 
   private String value;
 

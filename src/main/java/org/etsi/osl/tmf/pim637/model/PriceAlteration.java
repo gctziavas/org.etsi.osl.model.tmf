@@ -2,8 +2,14 @@ package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
+import org.etsi.osl.tmf.pcm620.model.ProductOfferingPriceRef;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -14,16 +20,13 @@ import jakarta.validation.constraints.NotNull;
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
 
-
-public class PriceAlteration   {
+@Entity(name = "PriceAlter637")
+public class PriceAlteration   extends BaseRootNamedEntity {
   @JsonProperty("applicationDuration")
   private Integer applicationDuration = null;
 
   @JsonProperty("description")
   private String description = null;
-
-  @JsonProperty("name")
-  private String name = null;
 
   @JsonProperty("priceType")
   private String priceType = null;
@@ -38,9 +41,11 @@ public class PriceAlteration   {
   private String unitOfMeasure = null;
 
   @JsonProperty("price")
+  @OneToOne(cascade = CascadeType.ALL)
   private Price price = null;
 
   @JsonProperty("productOfferingPrice")
+  @OneToOne(cascade = CascadeType.ALL)
   private ProductOfferingPriceRef productOfferingPrice = null;
 
   @JsonProperty("@baseType")

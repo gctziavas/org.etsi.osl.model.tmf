@@ -23,9 +23,9 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.etsi.osl.tmf.common.model.service.Note;
+import org.etsi.osl.tmf.pim637.model.BillingAccountRef;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -268,6 +268,14 @@ public class ProductOrderCreate   {
   public void setRequestedCompletionDate(OffsetDateTime requestedCompletionDate) {
     this.requestedCompletionDate = requestedCompletionDate;
   }
+  
+  public void setRequestedCompletionDate(String requestedCompletionDate) {
+
+    if (requestedCompletionDate!=null) {
+        this.requestedCompletionDate = OffsetDateTime.parse( requestedCompletionDate );
+        
+    }
+}
 
   public ProductOrderCreate requestedStartDate(OffsetDateTime requestedStartDate) {
     this.requestedStartDate = requestedStartDate;
@@ -288,6 +296,14 @@ public class ProductOrderCreate   {
   public void setRequestedStartDate(OffsetDateTime requestedStartDate) {
     this.requestedStartDate = requestedStartDate;
   }
+  
+  public void setRequestedStartDate(String requestedStartDate) {
+
+    if (requestedStartDate!=null) {
+        this.requestedStartDate = OffsetDateTime.parse( requestedStartDate );
+        
+    }
+}
 
   public ProductOrderCreate agreement(List<AgreementRef> agreement) {
     this.agreement = agreement;

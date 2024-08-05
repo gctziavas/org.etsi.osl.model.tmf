@@ -2,8 +2,12 @@ package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -15,7 +19,8 @@ import jakarta.validation.constraints.NotNull;
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
 
 
-public class Price   {
+@Entity(name = "Price637")
+public class Price   extends BaseRootEntity {
   @JsonProperty("percentage")
   private Float percentage = null;
 
@@ -23,9 +28,11 @@ public class Price   {
   private Float taxRate = null;
 
   @JsonProperty("dutyFreeAmount")
+  @OneToOne(cascade = CascadeType.ALL)
   private Money dutyFreeAmount = null;
 
   @JsonProperty("taxIncludedAmount")
+  @OneToOne(cascade = CascadeType.ALL)
   private Money taxIncludedAmount = null;
 
   @JsonProperty("@baseType")

@@ -26,10 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * action to be performed on the product
  */
 public enum OrderItemActionType {
-  ADD("add"),
-    MODIFY("modify"),
-    DELETE("delete"),
-    NOCHANGE("noChange");
+    ADD("ADD"),
+    MODIFY("MODIFY"),
+    DELETE("DELETE"),
+    NOCHANGE("NOCHANGE");
 
   private String value;
 
