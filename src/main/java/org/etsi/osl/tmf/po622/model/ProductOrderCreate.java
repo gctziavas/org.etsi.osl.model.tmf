@@ -34,12 +34,17 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 /**
- * A Product Order is a type of order which  can  be used to place an order between a customer and a service provider or between a service provider and a partner and vice versa, Skipped properties: id,href,completionDate,orderDate,state,expectedCompletionDate,productOrderItem.state
+ * A Product Order is a type of order which can be used to place an order between a customer and a
+ * service provider or between a service provider and a partner and vice versa, Skipped properties:
+ * id,href,completionDate,orderDate,state,expectedCompletionDate,productOrderItem.state
  */
-@Schema(description = "A Product Order is a type of order which  can  be used to place an order between a customer and a service provider or between a service provider and a partner and vice versa, Skipped properties: id,href,completionDate,orderDate,state,expectedCompletionDate,productOrderItem.state")
+@Schema(
+    description = "A Product Order is a type of order which  can  be used to place an order between a customer and a service provider or between a service provider and a partner and vice versa, Skipped properties: id,href,completionDate,orderDate,state,expectedCompletionDate,productOrderItem.state")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class ProductOrderCreate   {
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen",
+    date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
+public class ProductOrderCreate {
+  
   @JsonProperty("cancellationDate")
   private OffsetDateTime cancellationDate = null;
 
@@ -61,10 +66,8 @@ public class ProductOrderCreate   {
   @JsonProperty("priority")
   private String priority = null;
 
-  @JsonProperty("requestedCompletionDate")
   private OffsetDateTime requestedCompletionDate = null;
 
-  @JsonProperty("requestedStartDate")
   private OffsetDateTime requestedStartDate = null;
 
   @JsonProperty("agreement")
@@ -121,13 +124,14 @@ public class ProductOrderCreate   {
   }
 
   /**
-   * Date when the order is cancelled. This is used when order is cancelled. 
+   * Date when the order is cancelled. This is used when order is cancelled.
+   * 
    * @return cancellationDate
-  **/
+   **/
   @Schema(description = "Date when the order is cancelled. This is used when order is cancelled. ")
-  
-    @Valid
-    public OffsetDateTime getCancellationDate() {
+
+  @Valid
+  public OffsetDateTime getCancellationDate() {
     return cancellationDate;
   }
 
@@ -141,12 +145,13 @@ public class ProductOrderCreate   {
   }
 
   /**
-   * Reason why the order is cancelled. This is used when order is cancelled. 
+   * Reason why the order is cancelled. This is used when order is cancelled.
+   * 
    * @return cancellationReason
-  **/
+   **/
   @Schema(description = "Reason why the order is cancelled. This is used when order is cancelled. ")
-  
-    public String getCancellationReason() {
+
+  public String getCancellationReason() {
     return cancellationReason;
   }
 
@@ -160,12 +165,15 @@ public class ProductOrderCreate   {
   }
 
   /**
-   * Used to categorize the order from a business perspective that can be useful for the OM system (e.g. \"enterprise\", \"residential\", ...)
+   * Used to categorize the order from a business perspective that can be useful for the OM system
+   * (e.g. \"enterprise\", \"residential\", ...)
+   * 
    * @return category
-  **/
-  @Schema(description = "Used to categorize the order from a business perspective that can be useful for the OM system (e.g. \"enterprise\", \"residential\", ...)")
-  
-    public String getCategory() {
+   **/
+  @Schema(
+      description = "Used to categorize the order from a business perspective that can be useful for the OM system (e.g. \"enterprise\", \"residential\", ...)")
+
+  public String getCategory() {
     return category;
   }
 
@@ -180,11 +188,12 @@ public class ProductOrderCreate   {
 
   /**
    * Description of the product order
+   * 
    * @return description
-  **/
+   **/
   @Schema(description = "Description of the product order")
-  
-    public String getDescription() {
+
+  public String getDescription() {
     return description;
   }
 
@@ -199,11 +208,13 @@ public class ProductOrderCreate   {
 
   /**
    * ID given by the consumer and only understandable by him (to facilitate his searches afterwards)
+   * 
    * @return externalId
-  **/
-  @Schema(description = "ID given by the consumer and only understandable by him (to facilitate his searches afterwards)")
-  
-    public String getExternalId() {
+   **/
+  @Schema(
+      description = "ID given by the consumer and only understandable by him (to facilitate his searches afterwards)")
+
+  public String getExternalId() {
     return externalId;
   }
 
@@ -218,11 +229,13 @@ public class ProductOrderCreate   {
 
   /**
    * Contact attached to the order to send back information regarding this order
+   * 
    * @return notificationContact
-  **/
-  @Schema(description = "Contact attached to the order to send back information regarding this order")
-  
-    public String getNotificationContact() {
+   **/
+  @Schema(
+      description = "Contact attached to the order to send back information regarding this order")
+
+  public String getNotificationContact() {
     return notificationContact;
   }
 
@@ -236,12 +249,15 @@ public class ProductOrderCreate   {
   }
 
   /**
-   * A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the highest priority, and 4 the lowest)
+   * A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the
+   * highest priority, and 4 the lowest)
+   * 
    * @return priority
-  **/
-  @Schema(description = "A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the highest priority, and 4 the lowest)")
-  
-    public String getPriority() {
+   **/
+  @Schema(
+      description = "A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the highest priority, and 4 the lowest)")
+
+  public String getPriority() {
     return priority;
   }
 
@@ -256,26 +272,37 @@ public class ProductOrderCreate   {
 
   /**
    * Requested delivery date from the requestor perspective
+   * 
    * @return requestedCompletionDate
-  **/
+   **/
   @Schema(description = "Requested delivery date from the requestor perspective")
-  
-    @Valid
-    public OffsetDateTime getRequestedCompletionDate() {
+
+  @Valid
+  public OffsetDateTime getRequestedCompletionDate() {
     return requestedCompletionDate;
   }
+
+  @JsonProperty("requestedCompletionDate")
+  public String getRequestedCompletionDateStr() {
+    if (requestedCompletionDate != null) {
+      return requestedCompletionDate.toString();
+    } else {
+      return null;
+    }
+  }
+
 
   public void setRequestedCompletionDate(OffsetDateTime requestedCompletionDate) {
     this.requestedCompletionDate = requestedCompletionDate;
   }
-  
+
   public void setRequestedCompletionDate(String requestedCompletionDate) {
 
-    if (requestedCompletionDate!=null) {
-        this.requestedCompletionDate = OffsetDateTime.parse( requestedCompletionDate );
-        
+    if (requestedCompletionDate != null) {
+      this.requestedCompletionDate = OffsetDateTime.parse(requestedCompletionDate);
+
     }
-}
+  }
 
   public ProductOrderCreate requestedStartDate(OffsetDateTime requestedStartDate) {
     this.requestedStartDate = requestedStartDate;
@@ -283,27 +310,40 @@ public class ProductOrderCreate   {
   }
 
   /**
-   * Order fulfillment start date wished by the requestor. This is used when, for any reason, requestor cannot allow seller to begin to operationally begin the fulfillment before a date. 
+   * Order fulfillment start date wished by the requestor. This is used when, for any reason,
+   * requestor cannot allow seller to begin to operationally begin the fulfillment before a date.
+   * 
    * @return requestedStartDate
-  **/
-  @Schema(description = "Order fulfillment start date wished by the requestor. This is used when, for any reason, requestor cannot allow seller to begin to operationally begin the fulfillment before a date. ")
-  
-    @Valid
-    public OffsetDateTime getRequestedStartDate() {
+   **/
+  @Schema(
+      description = "Order fulfillment start date wished by the requestor. This is used when, for any reason, requestor cannot allow seller to begin to operationally begin the fulfillment before a date. ")
+
+  @Valid
+  public OffsetDateTime getRequestedStartDate() {
     return requestedStartDate;
   }
 
   public void setRequestedStartDate(OffsetDateTime requestedStartDate) {
     this.requestedStartDate = requestedStartDate;
   }
-  
+
   public void setRequestedStartDate(String requestedStartDate) {
 
-    if (requestedStartDate!=null) {
-        this.requestedStartDate = OffsetDateTime.parse( requestedStartDate );
-        
+    if (requestedStartDate != null) {
+      this.requestedStartDate = OffsetDateTime.parse(requestedStartDate);
+
     }
-}
+  }
+
+  @JsonProperty("requestedStartDate")
+  public String getRequestedStartDateStr() {
+
+    if (requestedStartDate != null) {
+      return requestedStartDate.toString();
+    }
+
+    return null;
+  }
 
   public ProductOrderCreate agreement(List<AgreementRef> agreement) {
     this.agreement = agreement;
@@ -320,11 +360,12 @@ public class ProductOrderCreate   {
 
   /**
    * A reference to an agreement defined in the context of the product order
+   * 
    * @return agreement
-  **/
+   **/
   @Schema(description = "A reference to an agreement defined in the context of the product order")
-      @Valid
-    public List<AgreementRef> getAgreement() {
+  @Valid
+  public List<AgreementRef> getAgreement() {
     return agreement;
   }
 
@@ -339,12 +380,13 @@ public class ProductOrderCreate   {
 
   /**
    * Get billingAccount
+   * 
    * @return billingAccount
-  **/
+   **/
   @Schema(description = "")
-  
-    @Valid
-    public BillingAccountRef getBillingAccount() {
+
+  @Valid
+  public BillingAccountRef getBillingAccount() {
     return billingAccount;
   }
 
@@ -367,11 +409,12 @@ public class ProductOrderCreate   {
 
   /**
    * Get channel
+   * 
    * @return channel
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<RelatedChannel> getChannel() {
+  @Valid
+  public List<RelatedChannel> getChannel() {
     return channel;
   }
 
@@ -394,11 +437,12 @@ public class ProductOrderCreate   {
 
   /**
    * Get note
+   * 
    * @return note
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<Note> getNote() {
+  @Valid
+  public List<Note> getNote() {
     return note;
   }
 
@@ -421,11 +465,12 @@ public class ProductOrderCreate   {
 
   /**
    * Get orderTotalPrice
+   * 
    * @return orderTotalPrice
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<OrderPrice> getOrderTotalPrice() {
+  @Valid
+  public List<OrderPrice> getOrderTotalPrice() {
     return orderTotalPrice;
   }
 
@@ -448,11 +493,12 @@ public class ProductOrderCreate   {
 
   /**
    * Get payment
+   * 
    * @return payment
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<PaymentRef> getPayment() {
+  @Valid
+  public List<PaymentRef> getPayment() {
     return payment;
   }
 
@@ -460,12 +506,14 @@ public class ProductOrderCreate   {
     this.payment = payment;
   }
 
-  public ProductOrderCreate productOfferingQualification(List<ProductOfferingQualificationRef> productOfferingQualification) {
+  public ProductOrderCreate productOfferingQualification(
+      List<ProductOfferingQualificationRef> productOfferingQualification) {
     this.productOfferingQualification = productOfferingQualification;
     return this;
   }
 
-  public ProductOrderCreate addProductOfferingQualificationItem(ProductOfferingQualificationRef productOfferingQualificationItem) {
+  public ProductOrderCreate addProductOfferingQualificationItem(
+      ProductOfferingQualificationRef productOfferingQualificationItem) {
     if (this.productOfferingQualification == null) {
       this.productOfferingQualification = new ArrayList<>();
     }
@@ -475,15 +523,17 @@ public class ProductOrderCreate   {
 
   /**
    * Get productOfferingQualification
+   * 
    * @return productOfferingQualification
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<ProductOfferingQualificationRef> getProductOfferingQualification() {
+  @Valid
+  public List<ProductOfferingQualificationRef> getProductOfferingQualification() {
     return productOfferingQualification;
   }
 
-  public void setProductOfferingQualification(List<ProductOfferingQualificationRef> productOfferingQualification) {
+  public void setProductOfferingQualification(
+      List<ProductOfferingQualificationRef> productOfferingQualification) {
     this.productOfferingQualification = productOfferingQualification;
   }
 
@@ -499,12 +549,14 @@ public class ProductOrderCreate   {
 
   /**
    * Get productOrderItem
+   * 
    * @return productOrderItem
-  **/
+   **/
   @Schema(description = "")
-      @NotNull
-    @Valid
-  @Size(min=1)   public List<ProductOrderItem> getProductOrderItem() {
+  @NotNull
+  @Valid
+  @Size(min = 1)
+  public List<ProductOrderItem> getProductOrderItem() {
     return productOrderItem;
   }
 
@@ -527,11 +579,12 @@ public class ProductOrderCreate   {
 
   /**
    * Get quote
+   * 
    * @return quote
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<QuoteRef> getQuote() {
+  @Valid
+  public List<QuoteRef> getQuote() {
     return quote;
   }
 
@@ -554,11 +607,12 @@ public class ProductOrderCreate   {
 
   /**
    * Get relatedParty
+   * 
    * @return relatedParty
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<RelatedParty> getRelatedParty() {
+  @Valid
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
@@ -573,11 +627,12 @@ public class ProductOrderCreate   {
 
   /**
    * When sub-classing, this defines the super-class
+   * 
    * @return baseType
-  **/
+   **/
   @Schema(description = "When sub-classing, this defines the super-class")
-  
-    public String getAtBaseType() {
+
+  public String getAtBaseType() {
     return baseType;
   }
 
@@ -592,11 +647,13 @@ public class ProductOrderCreate   {
 
   /**
    * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * 
    * @return schemaLocation
-  **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
-    public String getAtSchemaLocation() {
+   **/
+  @Schema(
+      description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
+
+  public String getAtSchemaLocation() {
     return schemaLocation;
   }
 
@@ -611,11 +668,12 @@ public class ProductOrderCreate   {
 
   /**
    * When sub-classing, this defines the sub-class entity name
+   * 
    * @return type
-  **/
+   **/
   @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
-    public String getAtType() {
+
+  public String getAtType() {
     return type;
   }
 
@@ -633,48 +691,54 @@ public class ProductOrderCreate   {
       return false;
     }
     ProductOrderCreate productOrderCreate = (ProductOrderCreate) o;
-    return Objects.equals(this.cancellationDate, productOrderCreate.cancellationDate) &&
-        Objects.equals(this.cancellationReason, productOrderCreate.cancellationReason) &&
-        Objects.equals(this.category, productOrderCreate.category) &&
-        Objects.equals(this.description, productOrderCreate.description) &&
-        Objects.equals(this.externalId, productOrderCreate.externalId) &&
-        Objects.equals(this.notificationContact, productOrderCreate.notificationContact) &&
-        Objects.equals(this.priority, productOrderCreate.priority) &&
-        Objects.equals(this.requestedCompletionDate, productOrderCreate.requestedCompletionDate) &&
-        Objects.equals(this.requestedStartDate, productOrderCreate.requestedStartDate) &&
-        Objects.equals(this.agreement, productOrderCreate.agreement) &&
-        Objects.equals(this.billingAccount, productOrderCreate.billingAccount) &&
-        Objects.equals(this.channel, productOrderCreate.channel) &&
-        Objects.equals(this.note, productOrderCreate.note) &&
-        Objects.equals(this.orderTotalPrice, productOrderCreate.orderTotalPrice) &&
-        Objects.equals(this.payment, productOrderCreate.payment) &&
-        Objects.equals(this.productOfferingQualification, productOrderCreate.productOfferingQualification) &&
-        Objects.equals(this.productOrderItem, productOrderCreate.productOrderItem) &&
-        Objects.equals(this.quote, productOrderCreate.quote) &&
-        Objects.equals(this.relatedParty, productOrderCreate.relatedParty) &&
-        Objects.equals(this.baseType, productOrderCreate.baseType) &&
-        Objects.equals(this.schemaLocation, productOrderCreate.schemaLocation) &&
-        Objects.equals(this.type, productOrderCreate.type);
+    return Objects.equals(this.cancellationDate, productOrderCreate.cancellationDate)
+        && Objects.equals(this.cancellationReason, productOrderCreate.cancellationReason)
+        && Objects.equals(this.category, productOrderCreate.category)
+        && Objects.equals(this.description, productOrderCreate.description)
+        && Objects.equals(this.externalId, productOrderCreate.externalId)
+        && Objects.equals(this.notificationContact, productOrderCreate.notificationContact)
+        && Objects.equals(this.priority, productOrderCreate.priority)
+        && Objects.equals(this.requestedCompletionDate, productOrderCreate.requestedCompletionDate)
+        && Objects.equals(this.requestedStartDate, productOrderCreate.requestedStartDate)
+        && Objects.equals(this.agreement, productOrderCreate.agreement)
+        && Objects.equals(this.billingAccount, productOrderCreate.billingAccount)
+        && Objects.equals(this.channel, productOrderCreate.channel)
+        && Objects.equals(this.note, productOrderCreate.note)
+        && Objects.equals(this.orderTotalPrice, productOrderCreate.orderTotalPrice)
+        && Objects.equals(this.payment, productOrderCreate.payment)
+        && Objects.equals(this.productOfferingQualification,
+            productOrderCreate.productOfferingQualification)
+        && Objects.equals(this.productOrderItem, productOrderCreate.productOrderItem)
+        && Objects.equals(this.quote, productOrderCreate.quote)
+        && Objects.equals(this.relatedParty, productOrderCreate.relatedParty)
+        && Objects.equals(this.baseType, productOrderCreate.baseType)
+        && Objects.equals(this.schemaLocation, productOrderCreate.schemaLocation)
+        && Objects.equals(this.type, productOrderCreate.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancellationDate, cancellationReason, category, description, externalId, notificationContact, priority, requestedCompletionDate, requestedStartDate, agreement, billingAccount, channel, note, orderTotalPrice, payment, productOfferingQualification, productOrderItem, quote, relatedParty, baseType, schemaLocation, type);
+    return Objects.hash(cancellationDate, cancellationReason, category, description, externalId,
+        notificationContact, priority, requestedCompletionDate, requestedStartDate, agreement,
+        billingAccount, channel, note, orderTotalPrice, payment, productOfferingQualification,
+        productOrderItem, quote, relatedParty, baseType, schemaLocation, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductOrderCreate {\n");
-    
+
     sb.append("    cancellationDate: ").append(toIndentedString(cancellationDate)).append("\n");
     sb.append("    cancellationReason: ").append(toIndentedString(cancellationReason)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-    sb.append("    notificationContact: ").append(toIndentedString(notificationContact)).append("\n");
+    sb.append("    notificationContact: ").append(toIndentedString(notificationContact))
+        .append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    requestedCompletionDate: ").append(toIndentedString(requestedCompletionDate)).append("\n");
+    sb.append("    requestedCompletionDate: ").append(toIndentedString(requestedCompletionDate))
+        .append("\n");
     sb.append("    requestedStartDate: ").append(toIndentedString(requestedStartDate)).append("\n");
     sb.append("    agreement: ").append(toIndentedString(agreement)).append("\n");
     sb.append("    billingAccount: ").append(toIndentedString(billingAccount)).append("\n");
@@ -682,7 +746,8 @@ public class ProductOrderCreate   {
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    orderTotalPrice: ").append(toIndentedString(orderTotalPrice)).append("\n");
     sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
-    sb.append("    productOfferingQualification: ").append(toIndentedString(productOfferingQualification)).append("\n");
+    sb.append("    productOfferingQualification: ")
+        .append(toIndentedString(productOfferingQualification)).append("\n");
     sb.append("    productOrderItem: ").append(toIndentedString(productOrderItem)).append("\n");
     sb.append("    quote: ").append(toIndentedString(quote)).append("\n");
     sb.append("    relatedParty: ").append(toIndentedString(relatedParty)).append("\n");
@@ -694,8 +759,7 @@ public class ProductOrderCreate   {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

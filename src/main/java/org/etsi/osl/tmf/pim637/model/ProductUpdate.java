@@ -9,6 +9,7 @@ import org.etsi.osl.tmf.common.model.service.Characteristic;
 import org.etsi.osl.tmf.common.model.service.ResourceRef;
 import org.etsi.osl.tmf.common.model.service.ServiceRef;
 import org.etsi.osl.tmf.pcm620.model.ProductOfferingRef;
+import org.etsi.osl.tmf.pcm620.model.ProductSpecificationRef;
 import org.etsi.osl.tmf.po622.model.AgreementItemRef;
 import org.etsi.osl.tmf.po622.model.RelatedProductOrderItem;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;

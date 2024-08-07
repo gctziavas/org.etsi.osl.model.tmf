@@ -34,12 +34,16 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 /**
- * A Product Order is a type of order which  can  be used to place an order between a customer and a service provider or between a service provider and a partner and vice versa, Skipped properties: id,href,orderDate
+ * A Product Order is a type of order which can be used to place an order between a customer and a
+ * service provider or between a service provider and a partner and vice versa, Skipped properties:
+ * id,href,orderDate
  */
-@Schema(description = "A Product Order is a type of order which  can  be used to place an order between a customer and a service provider or between a service provider and a partner and vice versa, Skipped properties: id,href,orderDate")
+@Schema(
+    description = "A Product Order is a type of order which  can  be used to place an order between a customer and a service provider or between a service provider and a partner and vice versa, Skipped properties: id,href,orderDate")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class ProductOrderUpdate   {
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen",
+    date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
+public class ProductOrderUpdate {
   @JsonProperty("cancellationDate")
   private OffsetDateTime cancellationDate = null;
 
@@ -49,13 +53,12 @@ public class ProductOrderUpdate   {
   @JsonProperty("category")
   private String category = null;
 
-  @JsonProperty("completionDate")
+
   private OffsetDateTime completionDate = null;
 
   @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("expectedCompletionDate")
   private OffsetDateTime expectedCompletionDate = null;
 
   @JsonProperty("externalId")
@@ -67,10 +70,8 @@ public class ProductOrderUpdate   {
   @JsonProperty("priority")
   private String priority = null;
 
-  @JsonProperty("requestedCompletionDate")
   private OffsetDateTime requestedCompletionDate = null;
 
-  @JsonProperty("requestedStartDate")
   private OffsetDateTime requestedStartDate = null;
 
   @JsonProperty("agreement")
@@ -130,13 +131,14 @@ public class ProductOrderUpdate   {
   }
 
   /**
-   * Date when the order is cancelled. This is used when order is cancelled. 
+   * Date when the order is cancelled. This is used when order is cancelled.
+   * 
    * @return cancellationDate
-  **/
+   **/
   @Schema(description = "Date when the order is cancelled. This is used when order is cancelled. ")
-  
-    @Valid
-    public OffsetDateTime getCancellationDate() {
+
+  @Valid
+  public OffsetDateTime getCancellationDate() {
     return cancellationDate;
   }
 
@@ -150,12 +152,13 @@ public class ProductOrderUpdate   {
   }
 
   /**
-   * Reason why the order is cancelled. This is used when order is cancelled. 
+   * Reason why the order is cancelled. This is used when order is cancelled.
+   * 
    * @return cancellationReason
-  **/
+   **/
   @Schema(description = "Reason why the order is cancelled. This is used when order is cancelled. ")
-  
-    public String getCancellationReason() {
+
+  public String getCancellationReason() {
     return cancellationReason;
   }
 
@@ -169,12 +172,15 @@ public class ProductOrderUpdate   {
   }
 
   /**
-   * Used to categorize the order from a business perspective that can be useful for the OM system (e.g. \"enterprise\", \"residential\", ...)
+   * Used to categorize the order from a business perspective that can be useful for the OM system
+   * (e.g. \"enterprise\", \"residential\", ...)
+   * 
    * @return category
-  **/
-  @Schema(description = "Used to categorize the order from a business perspective that can be useful for the OM system (e.g. \"enterprise\", \"residential\", ...)")
-  
-    public String getCategory() {
+   **/
+  @Schema(
+      description = "Used to categorize the order from a business perspective that can be useful for the OM system (e.g. \"enterprise\", \"residential\", ...)")
+
+  public String getCategory() {
     return category;
   }
 
@@ -189,12 +195,13 @@ public class ProductOrderUpdate   {
 
   /**
    * Date when the order was completed
+   * 
    * @return completionDate
-  **/
+   **/
   @Schema(description = "Date when the order was completed")
-  
-    @Valid
-    public OffsetDateTime getCompletionDate() {
+
+  @Valid
+  public OffsetDateTime getCompletionDate() {
     return completionDate;
   }
 
@@ -207,13 +214,33 @@ public class ProductOrderUpdate   {
     return this;
   }
 
+  @JsonProperty("completionDate")
+
+  public String getCompletionDateStr() {
+    if (completionDate != null) {
+      return completionDate.toString();
+    } else {
+      return null;
+    }
+  }
+
+  public void setCompletionDate(String completionDate) {
+
+    if (completionDate != null) {
+      this.completionDate = OffsetDateTime.parse(completionDate);
+
+    }
+  }
+
+
   /**
    * Description of the product order
+   * 
    * @return description
-  **/
+   **/
   @Schema(description = "Description of the product order")
-  
-    public String getDescription() {
+
+  public String getDescription() {
     return description;
   }
 
@@ -228,17 +255,35 @@ public class ProductOrderUpdate   {
 
   /**
    * Expected delivery date amended by the provider
+   * 
    * @return expectedCompletionDate
-  **/
+   **/
   @Schema(description = "Expected delivery date amended by the provider")
-  
-    @Valid
-    public OffsetDateTime getExpectedCompletionDate() {
+
+  @Valid
+  public OffsetDateTime getExpectedCompletionDate() {
     return expectedCompletionDate;
+  }
+
+  @JsonProperty("expectedCompletionDate")
+  public String getExpectedCompletionDateStr() {
+    if (expectedCompletionDate != null) {
+      return expectedCompletionDate.toString();
+    } else {
+      return null;
+    }
   }
 
   public void setExpectedCompletionDate(OffsetDateTime expectedCompletionDate) {
     this.expectedCompletionDate = expectedCompletionDate;
+  }
+
+  public void setExpectedCompletionDate(String expectedCompletionDate) {
+
+    if (expectedCompletionDate != null) {
+      this.expectedCompletionDate = OffsetDateTime.parse(expectedCompletionDate);
+
+    }
   }
 
   public ProductOrderUpdate externalId(String externalId) {
@@ -248,11 +293,13 @@ public class ProductOrderUpdate   {
 
   /**
    * ID given by the consumer and only understandable by him (to facilitate his searches afterwards)
+   * 
    * @return externalId
-  **/
-  @Schema(description = "ID given by the consumer and only understandable by him (to facilitate his searches afterwards)")
-  
-    public String getExternalId() {
+   **/
+  @Schema(
+      description = "ID given by the consumer and only understandable by him (to facilitate his searches afterwards)")
+
+  public String getExternalId() {
     return externalId;
   }
 
@@ -267,11 +314,13 @@ public class ProductOrderUpdate   {
 
   /**
    * Contact attached to the order to send back information regarding this order
+   * 
    * @return notificationContact
-  **/
-  @Schema(description = "Contact attached to the order to send back information regarding this order")
-  
-    public String getNotificationContact() {
+   **/
+  @Schema(
+      description = "Contact attached to the order to send back information regarding this order")
+
+  public String getNotificationContact() {
     return notificationContact;
   }
 
@@ -285,12 +334,15 @@ public class ProductOrderUpdate   {
   }
 
   /**
-   * A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the highest priority, and 4 the lowest)
+   * A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the
+   * highest priority, and 4 the lowest)
+   * 
    * @return priority
-  **/
-  @Schema(description = "A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the highest priority, and 4 the lowest)")
-  
-    public String getPriority() {
+   **/
+  @Schema(
+      description = "A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the highest priority, and 4 the lowest)")
+
+  public String getPriority() {
     return priority;
   }
 
@@ -303,14 +355,32 @@ public class ProductOrderUpdate   {
     return this;
   }
 
+  @JsonProperty("requestedCompletionDate")
+  public String getRequestedCompletionDateStr() {
+    if (requestedCompletionDate != null) {
+      return requestedCompletionDate.toString();
+    } else {
+      return null;
+    }
+  }
+
+  public void setRequestedCompletionDate(String requestedCompletionDate) {
+
+    if (requestedCompletionDate != null) {
+      this.requestedCompletionDate = OffsetDateTime.parse(requestedCompletionDate);
+
+    }
+  }
+
   /**
    * Requested delivery date from the requestor perspective
+   * 
    * @return requestedCompletionDate
-  **/
+   **/
   @Schema(description = "Requested delivery date from the requestor perspective")
-  
-    @Valid
-    public OffsetDateTime getRequestedCompletionDate() {
+
+  @Valid
+  public OffsetDateTime getRequestedCompletionDate() {
     return requestedCompletionDate;
   }
 
@@ -324,18 +394,39 @@ public class ProductOrderUpdate   {
   }
 
   /**
-   * Order fulfillment start date wished by the requestor. This is used when, for any reason, requestor cannot allow seller to begin to operationally begin the fulfillment before a date. 
+   * Order fulfillment start date wished by the requestor. This is used when, for any reason,
+   * requestor cannot allow seller to begin to operationally begin the fulfillment before a date.
+   * 
    * @return requestedStartDate
-  **/
-  @Schema(description = "Order fulfillment start date wished by the requestor. This is used when, for any reason, requestor cannot allow seller to begin to operationally begin the fulfillment before a date. ")
-  
-    @Valid
-    public OffsetDateTime getRequestedStartDate() {
+   **/
+  @Schema(
+      description = "Order fulfillment start date wished by the requestor. This is used when, for any reason, requestor cannot allow seller to begin to operationally begin the fulfillment before a date. ")
+
+  @Valid
+  public OffsetDateTime getRequestedStartDate() {
     return requestedStartDate;
   }
 
   public void setRequestedStartDate(OffsetDateTime requestedStartDate) {
     this.requestedStartDate = requestedStartDate;
+  }
+  
+  @JsonProperty("requestedStartDate")
+  public String getRequestedStartDateStr() {
+
+    if (requestedStartDate != null) {
+      return requestedStartDate.toString();
+    }
+
+    return null;
+  }
+  
+  public void setRequestedStartDate(String requestedStartDate) {
+
+    if (requestedStartDate != null) {
+      this.requestedStartDate = OffsetDateTime.parse(requestedStartDate);
+
+    }
   }
 
   public ProductOrderUpdate agreement(List<AgreementRef> agreement) {
@@ -353,11 +444,12 @@ public class ProductOrderUpdate   {
 
   /**
    * A reference to an agreement defined in the context of the product order
+   * 
    * @return agreement
-  **/
+   **/
   @Schema(description = "A reference to an agreement defined in the context of the product order")
-      @Valid
-    public List<AgreementRef> getAgreement() {
+  @Valid
+  public List<AgreementRef> getAgreement() {
     return agreement;
   }
 
@@ -372,12 +464,13 @@ public class ProductOrderUpdate   {
 
   /**
    * Get billingAccount
+   * 
    * @return billingAccount
-  **/
+   **/
   @Schema(description = "")
-  
-    @Valid
-    public BillingAccountRef getBillingAccount() {
+
+  @Valid
+  public BillingAccountRef getBillingAccount() {
     return billingAccount;
   }
 
@@ -400,11 +493,12 @@ public class ProductOrderUpdate   {
 
   /**
    * Get channel
+   * 
    * @return channel
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<RelatedChannel> getChannel() {
+  @Valid
+  public List<RelatedChannel> getChannel() {
     return channel;
   }
 
@@ -427,11 +521,12 @@ public class ProductOrderUpdate   {
 
   /**
    * Get note
+   * 
    * @return note
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<Note> getNote() {
+  @Valid
+  public List<Note> getNote() {
     return note;
   }
 
@@ -454,11 +549,12 @@ public class ProductOrderUpdate   {
 
   /**
    * Get orderTotalPrice
+   * 
    * @return orderTotalPrice
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<OrderPrice> getOrderTotalPrice() {
+  @Valid
+  public List<OrderPrice> getOrderTotalPrice() {
     return orderTotalPrice;
   }
 
@@ -481,11 +577,12 @@ public class ProductOrderUpdate   {
 
   /**
    * Get payment
+   * 
    * @return payment
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<PaymentRef> getPayment() {
+  @Valid
+  public List<PaymentRef> getPayment() {
     return payment;
   }
 
@@ -493,12 +590,14 @@ public class ProductOrderUpdate   {
     this.payment = payment;
   }
 
-  public ProductOrderUpdate productOfferingQualification(List<ProductOfferingQualificationRef> productOfferingQualification) {
+  public ProductOrderUpdate productOfferingQualification(
+      List<ProductOfferingQualificationRef> productOfferingQualification) {
     this.productOfferingQualification = productOfferingQualification;
     return this;
   }
 
-  public ProductOrderUpdate addProductOfferingQualificationItem(ProductOfferingQualificationRef productOfferingQualificationItem) {
+  public ProductOrderUpdate addProductOfferingQualificationItem(
+      ProductOfferingQualificationRef productOfferingQualificationItem) {
     if (this.productOfferingQualification == null) {
       this.productOfferingQualification = new ArrayList<>();
     }
@@ -508,15 +607,17 @@ public class ProductOrderUpdate   {
 
   /**
    * Get productOfferingQualification
+   * 
    * @return productOfferingQualification
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<ProductOfferingQualificationRef> getProductOfferingQualification() {
+  @Valid
+  public List<ProductOfferingQualificationRef> getProductOfferingQualification() {
     return productOfferingQualification;
   }
 
-  public void setProductOfferingQualification(List<ProductOfferingQualificationRef> productOfferingQualification) {
+  public void setProductOfferingQualification(
+      List<ProductOfferingQualificationRef> productOfferingQualification) {
     this.productOfferingQualification = productOfferingQualification;
   }
 
@@ -532,12 +633,14 @@ public class ProductOrderUpdate   {
 
   /**
    * Get productOrderItem
+   * 
    * @return productOrderItem
-  **/
+   **/
   @Schema(description = "")
-      @NotNull
-    @Valid
-  @Size(min=1)   public List<ProductOrderItem> getProductOrderItem() {
+  @NotNull
+  @Valid
+  @Size(min = 1)
+  public List<ProductOrderItem> getProductOrderItem() {
     return productOrderItem;
   }
 
@@ -560,11 +663,12 @@ public class ProductOrderUpdate   {
 
   /**
    * Get quote
+   * 
    * @return quote
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<QuoteRef> getQuote() {
+  @Valid
+  public List<QuoteRef> getQuote() {
     return quote;
   }
 
@@ -587,11 +691,12 @@ public class ProductOrderUpdate   {
 
   /**
    * Get relatedParty
+   * 
    * @return relatedParty
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<RelatedParty> getRelatedParty() {
+  @Valid
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
@@ -606,12 +711,13 @@ public class ProductOrderUpdate   {
 
   /**
    * Get state
+   * 
    * @return state
-  **/
+   **/
   @Schema(description = "")
-  
-    @Valid
-    public ProductOrderStateType getState() {
+
+  @Valid
+  public ProductOrderStateType getState() {
     return state;
   }
 
@@ -626,11 +732,12 @@ public class ProductOrderUpdate   {
 
   /**
    * When sub-classing, this defines the super-class
+   * 
    * @return baseType
-  **/
+   **/
   @Schema(description = "When sub-classing, this defines the super-class")
-  
-    public String getAtBaseType() {
+
+  public String getAtBaseType() {
     return baseType;
   }
 
@@ -645,11 +752,13 @@ public class ProductOrderUpdate   {
 
   /**
    * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * 
    * @return schemaLocation
-  **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
-    public String getAtSchemaLocation() {
+   **/
+  @Schema(
+      description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
+
+  public String getAtSchemaLocation() {
     return schemaLocation;
   }
 
@@ -664,11 +773,12 @@ public class ProductOrderUpdate   {
 
   /**
    * When sub-classing, this defines the sub-class entity name
+   * 
    * @return type
-  **/
+   **/
   @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
-    public String getAtType() {
+
+  public String getAtType() {
     return type;
   }
 
@@ -686,53 +796,61 @@ public class ProductOrderUpdate   {
       return false;
     }
     ProductOrderUpdate productOrderUpdate = (ProductOrderUpdate) o;
-    return Objects.equals(this.cancellationDate, productOrderUpdate.cancellationDate) &&
-        Objects.equals(this.cancellationReason, productOrderUpdate.cancellationReason) &&
-        Objects.equals(this.category, productOrderUpdate.category) &&
-        Objects.equals(this.completionDate, productOrderUpdate.completionDate) &&
-        Objects.equals(this.description, productOrderUpdate.description) &&
-        Objects.equals(this.expectedCompletionDate, productOrderUpdate.expectedCompletionDate) &&
-        Objects.equals(this.externalId, productOrderUpdate.externalId) &&
-        Objects.equals(this.notificationContact, productOrderUpdate.notificationContact) &&
-        Objects.equals(this.priority, productOrderUpdate.priority) &&
-        Objects.equals(this.requestedCompletionDate, productOrderUpdate.requestedCompletionDate) &&
-        Objects.equals(this.requestedStartDate, productOrderUpdate.requestedStartDate) &&
-        Objects.equals(this.agreement, productOrderUpdate.agreement) &&
-        Objects.equals(this.billingAccount, productOrderUpdate.billingAccount) &&
-        Objects.equals(this.channel, productOrderUpdate.channel) &&
-        Objects.equals(this.note, productOrderUpdate.note) &&
-        Objects.equals(this.orderTotalPrice, productOrderUpdate.orderTotalPrice) &&
-        Objects.equals(this.payment, productOrderUpdate.payment) &&
-        Objects.equals(this.productOfferingQualification, productOrderUpdate.productOfferingQualification) &&
-        Objects.equals(this.productOrderItem, productOrderUpdate.productOrderItem) &&
-        Objects.equals(this.quote, productOrderUpdate.quote) &&
-        Objects.equals(this.relatedParty, productOrderUpdate.relatedParty) &&
-        Objects.equals(this.state, productOrderUpdate.state) &&
-        Objects.equals(this.baseType, productOrderUpdate.baseType) &&
-        Objects.equals(this.schemaLocation, productOrderUpdate.schemaLocation) &&
-        Objects.equals(this.type, productOrderUpdate.type);
+    return Objects.equals(this.cancellationDate, productOrderUpdate.cancellationDate)
+        && Objects.equals(this.cancellationReason, productOrderUpdate.cancellationReason)
+        && Objects.equals(this.category, productOrderUpdate.category)
+        && Objects.equals(this.completionDate, productOrderUpdate.completionDate)
+        && Objects.equals(this.description, productOrderUpdate.description)
+        && Objects.equals(this.expectedCompletionDate, productOrderUpdate.expectedCompletionDate)
+        && Objects.equals(this.externalId, productOrderUpdate.externalId)
+        && Objects.equals(this.notificationContact, productOrderUpdate.notificationContact)
+        && Objects.equals(this.priority, productOrderUpdate.priority)
+        && Objects.equals(this.requestedCompletionDate, productOrderUpdate.requestedCompletionDate)
+        && Objects.equals(this.requestedStartDate, productOrderUpdate.requestedStartDate)
+        && Objects.equals(this.agreement, productOrderUpdate.agreement)
+        && Objects.equals(this.billingAccount, productOrderUpdate.billingAccount)
+        && Objects.equals(this.channel, productOrderUpdate.channel)
+        && Objects.equals(this.note, productOrderUpdate.note)
+        && Objects.equals(this.orderTotalPrice, productOrderUpdate.orderTotalPrice)
+        && Objects.equals(this.payment, productOrderUpdate.payment)
+        && Objects.equals(this.productOfferingQualification,
+            productOrderUpdate.productOfferingQualification)
+        && Objects.equals(this.productOrderItem, productOrderUpdate.productOrderItem)
+        && Objects.equals(this.quote, productOrderUpdate.quote)
+        && Objects.equals(this.relatedParty, productOrderUpdate.relatedParty)
+        && Objects.equals(this.state, productOrderUpdate.state)
+        && Objects.equals(this.baseType, productOrderUpdate.baseType)
+        && Objects.equals(this.schemaLocation, productOrderUpdate.schemaLocation)
+        && Objects.equals(this.type, productOrderUpdate.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancellationDate, cancellationReason, category, completionDate, description, expectedCompletionDate, externalId, notificationContact, priority, requestedCompletionDate, requestedStartDate, agreement, billingAccount, channel, note, orderTotalPrice, payment, productOfferingQualification, productOrderItem, quote, relatedParty, state, baseType, schemaLocation, type);
+    return Objects.hash(cancellationDate, cancellationReason, category, completionDate, description,
+        expectedCompletionDate, externalId, notificationContact, priority, requestedCompletionDate,
+        requestedStartDate, agreement, billingAccount, channel, note, orderTotalPrice, payment,
+        productOfferingQualification, productOrderItem, quote, relatedParty, state, baseType,
+        schemaLocation, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductOrderUpdate {\n");
-    
+
     sb.append("    cancellationDate: ").append(toIndentedString(cancellationDate)).append("\n");
     sb.append("    cancellationReason: ").append(toIndentedString(cancellationReason)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    completionDate: ").append(toIndentedString(completionDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    expectedCompletionDate: ").append(toIndentedString(expectedCompletionDate)).append("\n");
+    sb.append("    expectedCompletionDate: ").append(toIndentedString(expectedCompletionDate))
+        .append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-    sb.append("    notificationContact: ").append(toIndentedString(notificationContact)).append("\n");
+    sb.append("    notificationContact: ").append(toIndentedString(notificationContact))
+        .append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    requestedCompletionDate: ").append(toIndentedString(requestedCompletionDate)).append("\n");
+    sb.append("    requestedCompletionDate: ").append(toIndentedString(requestedCompletionDate))
+        .append("\n");
     sb.append("    requestedStartDate: ").append(toIndentedString(requestedStartDate)).append("\n");
     sb.append("    agreement: ").append(toIndentedString(agreement)).append("\n");
     sb.append("    billingAccount: ").append(toIndentedString(billingAccount)).append("\n");
@@ -740,7 +858,8 @@ public class ProductOrderUpdate   {
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    orderTotalPrice: ").append(toIndentedString(orderTotalPrice)).append("\n");
     sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
-    sb.append("    productOfferingQualification: ").append(toIndentedString(productOfferingQualification)).append("\n");
+    sb.append("    productOfferingQualification: ")
+        .append(toIndentedString(productOfferingQualification)).append("\n");
     sb.append("    productOrderItem: ").append(toIndentedString(productOrderItem)).append("\n");
     sb.append("    quote: ").append(toIndentedString(quote)).append("\n");
     sb.append("    relatedParty: ").append(toIndentedString(relatedParty)).append("\n");
@@ -753,8 +872,7 @@ public class ProductOrderUpdate   {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

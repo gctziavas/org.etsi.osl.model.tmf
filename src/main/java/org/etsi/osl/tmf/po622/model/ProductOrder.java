@@ -20,14 +20,13 @@
 package org.etsi.osl.tmf.po622.model;
 
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.etsi.osl.tmf.common.model.BaseRootEntity;
+import org.etsi.osl.tmf.common.model.UserPartRoleType;
 import org.etsi.osl.tmf.common.model.service.Note;
 import org.etsi.osl.tmf.pim637.model.BillingAccountRef;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
@@ -69,7 +68,7 @@ public class ProductOrder extends BaseRootEntity {
   @JsonProperty("category")
   private String category = null;
 
-  
+
   private OffsetDateTime completionDate = null;
 
   @Lob
@@ -77,7 +76,7 @@ public class ProductOrder extends BaseRootEntity {
   @JsonProperty("description")
   private String description = null;;
 
-  
+
   private OffsetDateTime expectedCompletionDate = null;
 
   @JsonProperty("externalId")
@@ -91,14 +90,14 @@ public class ProductOrder extends BaseRootEntity {
   @JsonProperty("priority")
   private String priority = null;
 
-  
+
   private OffsetDateTime requestedCompletionDate = null;
-  
+
   private OffsetDateTime requestedStartDate = null;
 
   @JsonProperty("agreement")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   private Set<AgreementRef> agreement = new HashSet<>();
 
   @JsonProperty("billingAccount")
@@ -108,53 +107,48 @@ public class ProductOrder extends BaseRootEntity {
 
   @JsonProperty("channel")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   private Set<RelatedChannel> channel = new HashSet<>();
 
   @JsonProperty("note")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-  private Set<Note> note =  new HashSet<>();
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  private Set<Note> note = new HashSet<>();
 
   @JsonProperty("orderTotalPrice")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-  private Set<OrderPrice> orderTotalPrice  =  new HashSet<>();
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  private Set<OrderPrice> orderTotalPrice = new HashSet<>();
 
   @JsonProperty("payment")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   private Set<PaymentRef> payment = new HashSet<>();
 
   @JsonProperty("productOfferingQualification")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   private Set<ProductOfferingQualificationRef> productOfferingQualification = new HashSet<>();
 
   @JsonProperty("productOrderItem")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   private Set<ProductOrderItem> productOrderItem = new HashSet<>();
 
   @JsonProperty("quote")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
   private Set<QuoteRef> quote = new HashSet<>();
 
   @JsonProperty("relatedParty")
   @Valid
-  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-  private Set<RelatedParty> relatedParty =  new HashSet<>();
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  private Set<RelatedParty> relatedParty = new HashSet<>();
 
   @JsonProperty("state")
-  private ProductOrderStateType state = ProductOrderStateType.INITIAL ;
+  private ProductOrderStateType state = ProductOrderStateType.INITIAL;
 
-  
 
-  public ProductOrder id(String id) {
-    this.id = id;
-    return this;
-  }
 
   /**
    * ID created on repository side (OM system)
@@ -164,12 +158,13 @@ public class ProductOrder extends BaseRootEntity {
   @Schema(description = "ID created on repository side (OM system)")
 
   public String getId() {
-    return id;
+    if ((id != null) && (uuid == null)) { // this check is good for external partners when no uuid
+                                          // exists
+      return id;
+    }
+    return uuid;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public ProductOrder href(String href) {
     this.href = href;
@@ -269,12 +264,12 @@ public class ProductOrder extends BaseRootEntity {
   @Valid
   @JsonProperty("completionDate")
   public String getCompletionDateString() {
-      if ( this.completionDate == null) {
-          return null;
-      }
-      return this.completionDate.toString();
+    if (this.completionDate == null) {
+      return null;
+    }
+    return this.completionDate.toString();
   }
-  
+
   @Valid
   public OffsetDateTime getCompletionDate() {
     return completionDate;
@@ -283,12 +278,12 @@ public class ProductOrder extends BaseRootEntity {
   public void setCompletionDate(OffsetDateTime completionDate) {
     this.completionDate = completionDate;
   }
-  
+
   public void setCompletionDate(String completionDate) {
-    if (completionDate!=null) {
-        this.completionDate = OffsetDateTime.parse( completionDate );           
+    if (completionDate != null) {
+      this.completionDate = OffsetDateTime.parse(completionDate);
     }
-}
+  }
 
 
   public ProductOrder description(String description) {
@@ -326,12 +321,12 @@ public class ProductOrder extends BaseRootEntity {
   @JsonProperty("expectedCompletionDate")
   public String getExpectedCompletionDateString() {
 
-      if ( this.expectedCompletionDate == null) {
-          return null;
-      }
-      return this.expectedCompletionDate.toString();
+    if (this.expectedCompletionDate == null) {
+      return null;
+    }
+    return this.expectedCompletionDate.toString();
   }
-  
+
   @Valid
   public OffsetDateTime getExpectedCompletionDate() {
     return expectedCompletionDate;
@@ -340,13 +335,13 @@ public class ProductOrder extends BaseRootEntity {
   public void setExpectedCompletionDate(OffsetDateTime expectedCompletionDate) {
     this.expectedCompletionDate = expectedCompletionDate;
   }
-  
+
   public void setExpectedCompletionDate(String expectedCompletionDate) {
-    if (expectedCompletionDate!=null) {
-        this.expectedCompletionDate = OffsetDateTime.parse( expectedCompletionDate );
-        
+    if (expectedCompletionDate != null) {
+      this.expectedCompletionDate = OffsetDateTime.parse(expectedCompletionDate);
+
     }
-}
+  }
 
   public ProductOrder externalId(String externalId) {
     this.externalId = externalId;
@@ -401,14 +396,14 @@ public class ProductOrder extends BaseRootEntity {
    * @return orderDate
    **/
   @Schema(description = "Date when the order was created")
-  
+
   @Valid
   @JsonProperty("orderDate")
   public String getOrderDateString() {
-      if ( this.orderDate == null) {
-          return null;
-      }
-      return this.orderDate.toString();
+    if (this.orderDate == null) {
+      return null;
+    }
+    return this.orderDate.toString();
   }
 
   @Valid
@@ -419,14 +414,14 @@ public class ProductOrder extends BaseRootEntity {
   public void setOrderDate(OffsetDateTime orderDate) {
     this.orderDate = orderDate;
   }
-  
+
   public void setOrderDate(String orderDate) {
 
-    if (orderDate!=null) {
-        this.orderDate = OffsetDateTime.parse( orderDate );
-        
+    if (orderDate != null) {
+      this.orderDate = OffsetDateTime.parse(orderDate);
+
     }
-}
+  }
 
   public ProductOrder priority(String priority) {
     this.priority = priority;
@@ -466,12 +461,12 @@ public class ProductOrder extends BaseRootEntity {
   @JsonProperty("requestedCompletionDate")
   public String getRequestedCompletionDateString() {
 
-      if ( this.requestedCompletionDate == null) {
-          return null;
-      }
-      return this.requestedCompletionDate.toString();
+    if (this.requestedCompletionDate == null) {
+      return null;
+    }
+    return this.requestedCompletionDate.toString();
   }
-  
+
   @Valid
   public OffsetDateTime getRequestedCompletionDate() {
     return requestedCompletionDate;
@@ -480,14 +475,14 @@ public class ProductOrder extends BaseRootEntity {
   public void setRequestedCompletionDate(OffsetDateTime requestedCompletionDate) {
     this.requestedCompletionDate = requestedCompletionDate;
   }
-  
+
   public void setRequestedCompletionDate(String requestedCompletionDate) {
 
-    if (requestedCompletionDate!=null) {
-        this.requestedCompletionDate = OffsetDateTime.parse( requestedCompletionDate );
-        
+    if (requestedCompletionDate != null) {
+      this.requestedCompletionDate = OffsetDateTime.parse(requestedCompletionDate);
+
     }
-}
+  }
 
   public ProductOrder requestedStartDate(OffsetDateTime requestedStartDate) {
     this.requestedStartDate = requestedStartDate;
@@ -507,12 +502,12 @@ public class ProductOrder extends BaseRootEntity {
   @JsonProperty("requestedStartDate")
   public String getRequestedStartDateString() {
 
-      if ( this.requestedStartDate == null) {
-          return null;
-      }
-      return this.requestedStartDate.toString();
+    if (this.requestedStartDate == null) {
+      return null;
+    }
+    return this.requestedStartDate.toString();
   }
-  
+
   @Valid
   public OffsetDateTime getRequestedStartDate() {
     return requestedStartDate;
@@ -521,14 +516,14 @@ public class ProductOrder extends BaseRootEntity {
   public void setRequestedStartDate(OffsetDateTime requestedStartDate) {
     this.requestedStartDate = requestedStartDate;
   }
-  
-  
+
+
   public void setRequestedStartDate(String requestedStartDate) {
 
-      if (requestedStartDate!=null) {
-          this.requestedStartDate = OffsetDateTime.parse( requestedStartDate );
-          
-      }
+    if (requestedStartDate != null) {
+      this.requestedStartDate = OffsetDateTime.parse(requestedStartDate);
+
+    }
   }
 
   public ProductOrder agreement(Set<AgreementRef> agreement) {
@@ -986,5 +981,26 @@ public class ProductOrder extends BaseRootEntity {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  public ProductOrderItem findOrderItemById(String id) {
+    for (ProductOrderItem oi : this.productOrderItem) {
+      if (oi.getId().equals(id)) {
+        return oi;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * @return the PartyRole that made the request
+   */
+  public RelatedParty getOrderRequester() {
+    for (RelatedParty rp : relatedParty) {
+      if (rp.getRole().equals(UserPartRoleType.REQUESTER.toString())) {
+        return rp;
+      }
+    }
+    return null;
   }
 }

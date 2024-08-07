@@ -137,12 +137,9 @@ public class ProductOrderItem extends BaseRootEntity {
       @NotNull
 
     public String getId() {
-    return id;
+    return uuid;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public ProductOrderItem quantity(Integer quantity) {
     this.quantity = quantity;
