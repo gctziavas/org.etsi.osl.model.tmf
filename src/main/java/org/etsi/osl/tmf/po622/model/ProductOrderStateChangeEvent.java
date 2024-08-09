@@ -293,6 +293,9 @@ public class ProductOrderStateChangeEvent   {
   
     @Valid
     public ProductOrderStateChangeEventPayload getEvent() {
+    if (event==null) {
+      event = new ProductOrderStateChangeEventPayload();
+    }
     return event;
   }
 

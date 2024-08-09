@@ -88,7 +88,7 @@ public class ProductOrderItem extends BaseRootEntity {
   @JsonProperty("product")
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "prod_refuuid", referencedColumnName = "uuid")
-  private ProductRef product = null;
+  private ProductRefOrValue product = null;
 
   @JsonProperty("productOffering")
   @OneToOne(cascade = CascadeType.ALL)
@@ -123,11 +123,6 @@ public class ProductOrderItem extends BaseRootEntity {
   @JsonProperty("state")
   private ProductOrderItemStateType state = ProductOrderItemStateType.INITIAL;
 
-
-  public ProductOrderItem id(String id) {
-    this.id = id;
-    return this;
-  }
 
   /**
    * Identifier of the line item (generally it is a sequence number 01, 02, 03, ...)
@@ -329,7 +324,7 @@ public class ProductOrderItem extends BaseRootEntity {
     this.payment = payment;
   }
 
-  public ProductOrderItem product(ProductRef product) {
+  public ProductOrderItem product(ProductRefOrValue product) {
     this.product = product;
     return this;
   }
@@ -341,11 +336,11 @@ public class ProductOrderItem extends BaseRootEntity {
   @Schema(description = "")
   
     @Valid
-    public ProductRef getProduct() {
+    public ProductRefOrValue getProduct() {
     return product;
   }
 
-  public void setProduct(ProductRef product) {
+  public void setProduct(ProductRefOrValue product) {
     this.product = product;
   }
 
@@ -395,9 +390,6 @@ public class ProductOrderItem extends BaseRootEntity {
   }
 
   public ProductOrderItem addProductOrderItemItem(ProductOrderItem productOrderItemItem) {
-    if (this.productOrderItem == null) {
-      this.productOrderItem = new HashSet<>();
-    }
     this.productOrderItem.add(productOrderItemItem);
     return this;
   }

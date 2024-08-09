@@ -293,6 +293,9 @@ public class ProductOrderCreateEvent   {
   
     @Valid
     public ProductOrderCreateEventPayload getEvent() {
+    if (event==null) {
+      event = new ProductOrderCreateEventPayload();
+    }
     return event;
   }
 

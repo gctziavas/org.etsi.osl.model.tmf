@@ -2,9 +2,12 @@ package org.etsi.osl.tmf.pim637.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.etsi.osl.tmf.common.model.service.Characteristic;
 import org.etsi.osl.tmf.common.model.service.ResourceRef;
 import org.etsi.osl.tmf.common.model.service.ServiceRef;
@@ -15,6 +18,11 @@ import org.etsi.osl.tmf.po622.model.RelatedProductOrderItem;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -25,102 +33,106 @@ import jakarta.validation.constraints.NotNull;
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
 
-
-public class Product   {
+@Entity(name = "Product637")
+public class Product  extends BaseRootNamedEntity {
   @JsonProperty("id")
-  private String id = null;
+  protected String id = null;
 
-  @JsonProperty("href")
-  private String href = null;
 
   @JsonProperty("description")
-  private String description = null;
+  protected String description = null;
 
   @JsonProperty("isBundle")
-  private Boolean isBundle = null;
+  protected Boolean isBundle = null;
 
   @JsonProperty("isCustomerVisible")
-  private Boolean isCustomerVisible = null;
-
-  @JsonProperty("name")
-  private String name = null;
+  protected Boolean isCustomerVisible = null;
 
   @JsonProperty("orderDate")
-  private Date orderDate = null;
+  protected Date orderDate = null;
 
   @JsonProperty("productSerialNumber")
-  private String productSerialNumber = null;
+  protected String productSerialNumber = null;
 
   @JsonProperty("startDate")
-  private Date startDate = null;
+  protected Date startDate = null;
 
   @JsonProperty("terminationDate")
-  private Date terminationDate = null;
+  protected Date terminationDate = null;
 
   @JsonProperty("agreement")
   @Valid
-  private List<AgreementItemRef> agreement = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<AgreementItemRef> agreement = new HashSet<>();
 
   @JsonProperty("billingAccount")
-  private BillingAccountRef billingAccount = null;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "billing_acc_refuuid", referencedColumnName = "uuid")
+  protected BillingAccountRef billingAccount = null;
 
   @JsonProperty("place")
   @Valid
-  private List<RelatedPlaceRefOrValue> place = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<RelatedPlaceRefOrValue> place = new HashSet<>();
 
   @JsonProperty("product")
   @Valid
-  private List<ProductRefOrValue> product = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<ProductRefOrValue> product = new HashSet<>();
 
   @JsonProperty("productCharacteristic")
   @Valid
-  private List<Characteristic> productCharacteristic = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<Characteristic> productCharacteristic = new HashSet<>();
 
   @JsonProperty("productOffering")
-  private ProductOfferingRef productOffering = null;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "prodoff_refuuid", referencedColumnName = "uuid")
+  protected ProductOfferingRef productOffering = null;
 
   @JsonProperty("productOrderItem")
   @Valid
-  private List<RelatedProductOrderItem> productOrderItem = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<RelatedProductOrderItem> productOrderItem = new HashSet<>();
 
   @JsonProperty("productPrice")
   @Valid
-  private List<ProductPrice> productPrice = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<ProductPrice> productPrice = new HashSet<>();
 
   @JsonProperty("productRelationship")
   @Valid
-  private List<ProductRelationship> productRelationship = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<ProductRelationship> productRelationship = new HashSet<>();
 
   @JsonProperty("productSpecification")
-  private ProductSpecificationRef productSpecification = null;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "prodspec_refuuid", referencedColumnName = "uuid")
+  protected ProductSpecificationRef productSpecification = null;
 
   @JsonProperty("productTerm")
   @Valid
-  private List<ProductTerm> productTerm = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<ProductTerm> productTerm = new HashSet<>();
 
   @JsonProperty("realizingResource")
   @Valid
-  private List<ResourceRef> realizingResource = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<ResourceRef> realizingResource = new HashSet<>();
 
   @JsonProperty("realizingService")
   @Valid
-  private List<ServiceRef> realizingService = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<ServiceRef> realizingService = new HashSet<>();
 
   @JsonProperty("relatedParty")
   @Valid
-  private List<RelatedParty> relatedParty = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  protected Set<RelatedParty> relatedParty = new HashSet<>();
 
   @JsonProperty("status")
-  private ProductStatusType status = null;
+  protected ProductStatusType status = null;
 
-  @JsonProperty("@baseType")
-  private String _atBaseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String _atSchemaLocation = null;
-
-  @JsonProperty("@type")
-  private String _atType = null;
 
   public Product id(String id) {
     this.id = id;
@@ -325,14 +337,14 @@ public class Product   {
     this.terminationDate = terminationDate;
   }
 
-  public Product agreement(List<AgreementItemRef> agreement) {
+  public Product agreement(Set<AgreementItemRef> agreement) {
     this.agreement = agreement;
     return this;
   }
 
   public Product addAgreementItem(AgreementItemRef agreementItem) {
     if (this.agreement == null) {
-      this.agreement = new ArrayList<AgreementItemRef>();
+      this.agreement = new HashSet<AgreementItemRef>();
     }
     this.agreement.add(agreementItem);
     return this;
@@ -345,11 +357,11 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<AgreementItemRef> getAgreement() {
+    public Set<AgreementItemRef> getAgreement() {
     return agreement;
   }
 
-  public void setAgreement(List<AgreementItemRef> agreement) {
+  public void setAgreement(Set<AgreementItemRef> agreement) {
     this.agreement = agreement;
   }
 
@@ -374,14 +386,14 @@ public class Product   {
     this.billingAccount = billingAccount;
   }
 
-  public Product place(List<RelatedPlaceRefOrValue> place) {
+  public Product place(Set<RelatedPlaceRefOrValue> place) {
     this.place = place;
     return this;
   }
 
   public Product addPlaceItem(RelatedPlaceRefOrValue placeItem) {
     if (this.place == null) {
-      this.place = new ArrayList<RelatedPlaceRefOrValue>();
+      this.place = new HashSet<RelatedPlaceRefOrValue>();
     }
     this.place.add(placeItem);
     return this;
@@ -394,22 +406,22 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<RelatedPlaceRefOrValue> getPlace() {
+    public Set<RelatedPlaceRefOrValue> getPlace() {
     return place;
   }
 
-  public void setPlace(List<RelatedPlaceRefOrValue> place) {
+  public void setPlace(Set<RelatedPlaceRefOrValue> place) {
     this.place = place;
   }
 
-  public Product product(List<ProductRefOrValue> product) {
+  public Product product(Set<ProductRefOrValue> product) {
     this.product = product;
     return this;
   }
 
   public Product addProductItem(ProductRefOrValue productItem) {
     if (this.product == null) {
-      this.product = new ArrayList<ProductRefOrValue>();
+      this.product = new HashSet<ProductRefOrValue>();
     }
     this.product.add(productItem);
     return this;
@@ -422,22 +434,22 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<ProductRefOrValue> getProduct() {
+    public Set<ProductRefOrValue> getProduct() {
     return product;
   }
 
-  public void setProduct(List<ProductRefOrValue> product) {
+  public void setProduct(Set<ProductRefOrValue> product) {
     this.product = product;
   }
 
-  public Product productCharacteristic(List<Characteristic> productCharacteristic) {
+  public Product productCharacteristic(Set<Characteristic> productCharacteristic) {
     this.productCharacteristic = productCharacteristic;
     return this;
   }
 
   public Product addProductCharacteristicItem(Characteristic productCharacteristicItem) {
     if (this.productCharacteristic == null) {
-      this.productCharacteristic = new ArrayList<Characteristic>();
+      this.productCharacteristic = new HashSet<Characteristic>();
     }
     this.productCharacteristic.add(productCharacteristicItem);
     return this;
@@ -450,11 +462,11 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<Characteristic> getProductCharacteristic() {
+    public Set<Characteristic> getProductCharacteristic() {
     return productCharacteristic;
   }
 
-  public void setProductCharacteristic(List<Characteristic> productCharacteristic) {
+  public void setProductCharacteristic(Set<Characteristic> productCharacteristic) {
     this.productCharacteristic = productCharacteristic;
   }
 
@@ -479,14 +491,14 @@ public class Product   {
     this.productOffering = productOffering;
   }
 
-  public Product productOrderItem(List<RelatedProductOrderItem> productOrderItem) {
+  public Product productOrderItem(Set<RelatedProductOrderItem> productOrderItem) {
     this.productOrderItem = productOrderItem;
     return this;
   }
 
   public Product addProductOrderItemItem(RelatedProductOrderItem productOrderItemItem) {
     if (this.productOrderItem == null) {
-      this.productOrderItem = new ArrayList<RelatedProductOrderItem>();
+      this.productOrderItem = new HashSet<RelatedProductOrderItem>();
     }
     this.productOrderItem.add(productOrderItemItem);
     return this;
@@ -499,22 +511,22 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<RelatedProductOrderItem> getProductOrderItem() {
+    public Set<RelatedProductOrderItem> getProductOrderItem() {
     return productOrderItem;
   }
 
-  public void setProductOrderItem(List<RelatedProductOrderItem> productOrderItem) {
+  public void setProductOrderItem(Set<RelatedProductOrderItem> productOrderItem) {
     this.productOrderItem = productOrderItem;
   }
 
-  public Product productPrice(List<ProductPrice> productPrice) {
+  public Product productPrice(Set<ProductPrice> productPrice) {
     this.productPrice = productPrice;
     return this;
   }
 
   public Product addProductPriceItem(ProductPrice productPriceItem) {
     if (this.productPrice == null) {
-      this.productPrice = new ArrayList<ProductPrice>();
+      this.productPrice = new HashSet<ProductPrice>();
     }
     this.productPrice.add(productPriceItem);
     return this;
@@ -527,22 +539,22 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<ProductPrice> getProductPrice() {
+    public Set<ProductPrice> getProductPrice() {
     return productPrice;
   }
 
-  public void setProductPrice(List<ProductPrice> productPrice) {
+  public void setProductPrice(Set<ProductPrice> productPrice) {
     this.productPrice = productPrice;
   }
 
-  public Product productRelationship(List<ProductRelationship> productRelationship) {
+  public Product productRelationship(Set<ProductRelationship> productRelationship) {
     this.productRelationship = productRelationship;
     return this;
   }
 
   public Product addProductRelationshipItem(ProductRelationship productRelationshipItem) {
     if (this.productRelationship == null) {
-      this.productRelationship = new ArrayList<ProductRelationship>();
+      this.productRelationship = new HashSet<ProductRelationship>();
     }
     this.productRelationship.add(productRelationshipItem);
     return this;
@@ -555,11 +567,11 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<ProductRelationship> getProductRelationship() {
+    public Set<ProductRelationship> getProductRelationship() {
     return productRelationship;
   }
 
-  public void setProductRelationship(List<ProductRelationship> productRelationship) {
+  public void setProductRelationship(Set<ProductRelationship> productRelationship) {
     this.productRelationship = productRelationship;
   }
 
@@ -584,14 +596,14 @@ public class Product   {
     this.productSpecification = productSpecification;
   }
 
-  public Product productTerm(List<ProductTerm> productTerm) {
+  public Product productTerm(Set<ProductTerm> productTerm) {
     this.productTerm = productTerm;
     return this;
   }
 
   public Product addProductTermItem(ProductTerm productTermItem) {
     if (this.productTerm == null) {
-      this.productTerm = new ArrayList<ProductTerm>();
+      this.productTerm = new HashSet<ProductTerm>();
     }
     this.productTerm.add(productTermItem);
     return this;
@@ -604,22 +616,22 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<ProductTerm> getProductTerm() {
+    public Set<ProductTerm> getProductTerm() {
     return productTerm;
   }
 
-  public void setProductTerm(List<ProductTerm> productTerm) {
+  public void setProductTerm(Set<ProductTerm> productTerm) {
     this.productTerm = productTerm;
   }
 
-  public Product realizingResource(List<ResourceRef> realizingResource) {
+  public Product realizingResource(Set<ResourceRef> realizingResource) {
     this.realizingResource = realizingResource;
     return this;
   }
 
   public Product addRealizingResourceItem(ResourceRef realizingResourceItem) {
     if (this.realizingResource == null) {
-      this.realizingResource = new ArrayList<ResourceRef>();
+      this.realizingResource = new HashSet<ResourceRef>();
     }
     this.realizingResource.add(realizingResourceItem);
     return this;
@@ -632,22 +644,22 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<ResourceRef> getRealizingResource() {
+    public Set<ResourceRef> getRealizingResource() {
     return realizingResource;
   }
 
-  public void setRealizingResource(List<ResourceRef> realizingResource) {
+  public void setRealizingResource(Set<ResourceRef> realizingResource) {
     this.realizingResource = realizingResource;
   }
 
-  public Product realizingService(List<ServiceRef> realizingService) {
+  public Product realizingService(Set<ServiceRef> realizingService) {
     this.realizingService = realizingService;
     return this;
   }
 
   public Product addRealizingServiceItem(ServiceRef realizingServiceItem) {
     if (this.realizingService == null) {
-      this.realizingService = new ArrayList<ServiceRef>();
+      this.realizingService = new HashSet<ServiceRef>();
     }
     this.realizingService.add(realizingServiceItem);
     return this;
@@ -660,22 +672,22 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<ServiceRef> getRealizingService() {
+    public Set<ServiceRef> getRealizingService() {
     return realizingService;
   }
 
-  public void setRealizingService(List<ServiceRef> realizingService) {
+  public void setRealizingService(Set<ServiceRef> realizingService) {
     this.realizingService = realizingService;
   }
 
-  public Product relatedParty(List<RelatedParty> relatedParty) {
+  public Product relatedParty(Set<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
 
   public Product addRelatedPartyItem(RelatedParty relatedPartyItem) {
     if (this.relatedParty == null) {
-      this.relatedParty = new ArrayList<RelatedParty>();
+      this.relatedParty = new HashSet<RelatedParty>();
     }
     this.relatedParty.add(relatedPartyItem);
     return this;
@@ -688,11 +700,11 @@ public class Product   {
   @Schema(description = "")
       @NotNull
     @Valid
-    public List<RelatedParty> getRelatedParty() {
+    public Set<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<RelatedParty> relatedParty) {
+  public void setRelatedParty(Set<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 
@@ -717,65 +729,9 @@ public class Product   {
     this.status = status;
   }
 
-  public Product _atBaseType(String _atBaseType) {
-    this._atBaseType = _atBaseType;
-    return this;
-  }
+ 
 
-  /**
-   * When sub-classing, this defines the super-class
-   * @return _atBaseType
-   **/
-  @Schema(description = "When sub-classing, this defines the super-class")
-      @NotNull
-
-    public String getAtBaseType() {
-    return _atBaseType;
-  }
-
-  public void setAtBaseType(String _atBaseType) {
-    this._atBaseType = _atBaseType;
-  }
-
-  public Product _atSchemaLocation(String _atSchemaLocation) {
-    this._atSchemaLocation = _atSchemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return _atSchemaLocation
-   **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-      @NotNull
-
-    public String getAtSchemaLocation() {
-    return _atSchemaLocation;
-  }
-
-  public void setAtSchemaLocation(String _atSchemaLocation) {
-    this._atSchemaLocation = _atSchemaLocation;
-  }
-
-  public Product _atType(String _atType) {
-    this._atType = _atType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class entity name
-   * @return _atType
-   **/
-  @Schema(description = "When sub-classing, this defines the sub-class entity name")
-      @NotNull
-
-    public String getAtType() {
-    return _atType;
-  }
-
-  public void setAtType(String _atType) {
-    this._atType = _atType;
-  }
+ 
 
 
   @Override
@@ -812,15 +768,16 @@ public class Product   {
         Objects.equals(this.realizingService, product.realizingService) &&
         Objects.equals(this.relatedParty, product.relatedParty) &&
         Objects.equals(this.status, product.status) &&
-        Objects.equals(this._atBaseType, product._atBaseType) &&
-        Objects.equals(this._atSchemaLocation, product._atSchemaLocation) &&
-        Objects.equals(this._atType, product._atType);
+        Objects.equals(this.baseType, product.baseType) &&
+        Objects.equals(this.schemaLocation, product.schemaLocation) &&
+        Objects.equals(this.type, product.type);
   }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, href, description, isBundle, isCustomerVisible, name, orderDate, productSerialNumber, startDate, terminationDate, agreement, billingAccount, place, product, productCharacteristic, productOffering, productOrderItem, productPrice, productRelationship, productSpecification, productTerm, realizingResource, realizingService, relatedParty, status, _atBaseType, _atSchemaLocation, _atType);
-  }
+//  @Override
+//  public int hashCode() {
+//    return Objects.hash(id, href, description, isBundle, isCustomerVisible, name, orderDate, 
+//        productSerialNumber, startDate, terminationDate, agreement, billingAccount, place, product, productCharacteristic, productOffering, productOrderItem, productPrice, productRelationship, productSpecification, productTerm, realizingResource, realizingService, relatedParty, status, baseType, _atSchemaLocation, _atType);
+//  }
 
   @Override
   public String toString() {
@@ -852,9 +809,9 @@ public class Product   {
     sb.append("    realizingService: ").append(toIndentedString(realizingService)).append("\n");
     sb.append("    relatedParty: ").append(toIndentedString(relatedParty)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    _atBaseType: ").append(toIndentedString(_atBaseType)).append("\n");
-    sb.append("    _atSchemaLocation: ").append(toIndentedString(_atSchemaLocation)).append("\n");
-    sb.append("    _atType: ").append(toIndentedString(_atType)).append("\n");
+    sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
+    sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

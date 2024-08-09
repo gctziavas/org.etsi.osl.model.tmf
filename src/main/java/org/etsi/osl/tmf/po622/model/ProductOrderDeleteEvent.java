@@ -293,6 +293,9 @@ public class ProductOrderDeleteEvent   {
   
     @Valid
     public ProductOrderDeleteEventPayload getEvent() {
+    if (event==null) {
+      event = new ProductOrderDeleteEventPayload();
+    }
     return event;
   }
 

@@ -21,8 +21,10 @@ package org.etsi.osl.tmf.po622.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -31,27 +33,14 @@ import jakarta.validation.constraints.NotNull;
 @Schema(description = "Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.")
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class AgreementItemRef   {
+@Entity(name = "AgrItemRef622")
+public class AgreementItemRef    extends BaseRootNamedEntity {
   @JsonProperty("id")
   private String id = null;
-
-  @JsonProperty("href")
-  private String href = null;
 
   @JsonProperty("agreementItemId")
   private String agreementItemId = null;
 
-  @JsonProperty("name")
-  private String name = null;
-
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   @JsonProperty("@referredType")
   private String _atReferredType = null;
@@ -76,119 +65,7 @@ public class AgreementItemRef   {
     this.id = id;
   }
 
-  public AgreementItemRef href(String href) {
-    this.href = href;
-    return this;
-  }
-
-  /**
-   * Reference of the related entity.
-   * @return href
-  **/
-  @Schema(description = "Reference of the related entity.")
   
-    public String getHref() {
-    return href;
-  }
-
-  public void setHref(String href) {
-    this.href = href;
-  }
-
-  public AgreementItemRef agreementItemId(String agreementItemId) {
-    this.agreementItemId = agreementItemId;
-    return this;
-  }
-
-  /**
-   * Identifier of the agreement
-   * @return agreementItemId
-  **/
-  @Schema(description = "Identifier of the agreement")
-  
-    public String getAgreementItemId() {
-    return agreementItemId;
-  }
-
-  public void setAgreementItemId(String agreementItemId) {
-    this.agreementItemId = agreementItemId;
-  }
-
-  public AgreementItemRef name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the related entity.
-   * @return name
-  **/
-  @Schema(description = "Name of the related entity.")
-  
-    public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public AgreementItemRef baseType(String baseType) {
-    this.baseType = baseType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the super-class
-   * @return baseType
-  **/
-  @Schema(description = "When sub-classing, this defines the super-class")
-  
-    public String getAtBaseType() {
-    return baseType;
-  }
-
-  public void setAtBaseType(String baseType) {
-    this.baseType = baseType;
-  }
-
-  public AgreementItemRef schemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return schemaLocation
-  **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
-    public String getAtSchemaLocation() {
-    return schemaLocation;
-  }
-
-  public void setAtSchemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
-  }
-
-  public AgreementItemRef type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class entity name
-   * @return type
-  **/
-  @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
-    public String getAtType() {
-    return type;
-  }
-
-  public void setAtType(String type) {
-    this.type = type;
-  }
 
   public AgreementItemRef _atReferredType(String _atReferredType) {
     this._atReferredType = _atReferredType;

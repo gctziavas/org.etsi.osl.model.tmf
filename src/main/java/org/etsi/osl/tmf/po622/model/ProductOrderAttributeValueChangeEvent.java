@@ -271,6 +271,9 @@ public class ProductOrderAttributeValueChangeEvent   {
   
     @Valid
     public ProductOrderAttributeValueChangeEventPayload getEvent() {
+    if (event==null) {
+      event = new ProductOrderAttributeValueChangeEventPayload();
+    }
     return event;
   }
 

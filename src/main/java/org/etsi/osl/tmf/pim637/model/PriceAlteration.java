@@ -48,15 +48,6 @@ public class PriceAlteration   extends BaseRootNamedEntity {
   @OneToOne(cascade = CascadeType.ALL)
   private ProductOfferingPriceRef productOfferingPrice = null;
 
-  @JsonProperty("@baseType")
-  private String _atBaseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String _atSchemaLocation = null;
-
-  @JsonProperty("@type")
-  private String _atType = null;
-
   public PriceAlteration applicationDuration(Integer applicationDuration) {
     this.applicationDuration = applicationDuration;
     return this;
@@ -239,65 +230,6 @@ public class PriceAlteration   extends BaseRootNamedEntity {
     this.productOfferingPrice = productOfferingPrice;
   }
 
-  public PriceAlteration _atBaseType(String _atBaseType) {
-    this._atBaseType = _atBaseType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the super-class
-   * @return _atBaseType
-   **/
-  @Schema(description = "When sub-classing, this defines the super-class")
-      @NotNull
-
-    public String getAtBaseType() {
-    return _atBaseType;
-  }
-
-  public void setAtBaseType(String _atBaseType) {
-    this._atBaseType = _atBaseType;
-  }
-
-  public PriceAlteration _atSchemaLocation(String _atSchemaLocation) {
-    this._atSchemaLocation = _atSchemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return _atSchemaLocation
-   **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-      @NotNull
-
-    public String getAtSchemaLocation() {
-    return _atSchemaLocation;
-  }
-
-  public void setAtSchemaLocation(String _atSchemaLocation) {
-    this._atSchemaLocation = _atSchemaLocation;
-  }
-
-  public PriceAlteration _atType(String _atType) {
-    this._atType = _atType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class entity name
-   * @return _atType
-   **/
-  @Schema(description = "When sub-classing, this defines the sub-class entity name")
-      @NotNull
-
-    public String getAtType() {
-    return _atType;
-  }
-
-  public void setAtType(String _atType) {
-    this._atType = _atType;
-  }
 
 
   @Override
@@ -318,14 +250,14 @@ public class PriceAlteration   extends BaseRootNamedEntity {
         Objects.equals(this.unitOfMeasure, priceAlteration.unitOfMeasure) &&
         Objects.equals(this.price, priceAlteration.price) &&
         Objects.equals(this.productOfferingPrice, priceAlteration.productOfferingPrice) &&
-        Objects.equals(this._atBaseType, priceAlteration._atBaseType) &&
-        Objects.equals(this._atSchemaLocation, priceAlteration._atSchemaLocation) &&
-        Objects.equals(this._atType, priceAlteration._atType);
+        Objects.equals(this.baseType, priceAlteration.baseType) &&
+        Objects.equals(this.schemaLocation, priceAlteration.schemaLocation) &&
+        Objects.equals(this.type, priceAlteration.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationDuration, description, name, priceType, priority, recurringChargePeriod, unitOfMeasure, price, productOfferingPrice, _atBaseType, _atSchemaLocation, _atType);
+    return Objects.hash(applicationDuration, description, name, priceType, priority, recurringChargePeriod, unitOfMeasure, price, productOfferingPrice, baseType, schemaLocation, type);
   }
 
   @Override
@@ -342,9 +274,9 @@ public class PriceAlteration   extends BaseRootNamedEntity {
     sb.append("    unitOfMeasure: ").append(toIndentedString(unitOfMeasure)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    productOfferingPrice: ").append(toIndentedString(productOfferingPrice)).append("\n");
-    sb.append("    _atBaseType: ").append(toIndentedString(_atBaseType)).append("\n");
-    sb.append("    _atSchemaLocation: ").append(toIndentedString(_atSchemaLocation)).append("\n");
-    sb.append("    _atType: ").append(toIndentedString(_atType)).append("\n");
+    sb.append("    _atBaseType: ").append(toIndentedString(baseType)).append("\n");
+    sb.append("    _atSchemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+    sb.append("    _atType: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

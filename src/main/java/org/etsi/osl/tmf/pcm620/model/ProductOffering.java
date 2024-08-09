@@ -111,22 +111,22 @@ public class ProductOffering extends BaseEntity {
 	private Set<ProductOfferingTerm> productOfferingTerm = new HashSet<>();
 
 	@JsonProperty("productSpecification")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private ProductSpecificationRef productSpecification = null;
 
 	@JsonProperty("resourceCandidate")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private ResourceCandidateRef resourceCandidate = null;
 
 	@JsonProperty("serviceCandidate")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private ServiceCandidateRef serviceCandidate = null;
 
 	@JsonProperty("serviceLevelAgreement")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private SLARef serviceLevelAgreement = null;
 
