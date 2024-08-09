@@ -734,5 +734,14 @@ public class ProductOffering extends BaseEntity {
 		return o.toString().replace("\n", "\n    ");
 	}
 
+  public Object findCharacteristicByName(String aname) {
+    for (ProductSpecificationCharacteristicValueUse ssci : this.prodSpecCharValueUse ) {
+      if (ssci.getName()!=null && ssci.getName().equals(aname)) {
+          return ssci;
+      }
+  }
+    return null;
+  }
+
 
 }
