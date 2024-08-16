@@ -117,6 +117,10 @@ public class ProductOrderCreate {
 
   @JsonProperty("@type")
   private String type = null;
+  
+  //we don;t skip state..This allows us to put it immediately in acknowledged
+  @JsonProperty("state")
+  private ProductOrderStateType state = null;
 
   public ProductOrderCreate cancellationDate(OffsetDateTime cancellationDate) {
     this.cancellationDate = cancellationDate;
@@ -659,6 +663,27 @@ public class ProductOrderCreate {
 
   public void setAtSchemaLocation(String schemaLocation) {
     this.schemaLocation = schemaLocation;
+  }
+  
+  public ProductOrderCreate state(ProductOrderStateType state) {
+    this.state = state;
+    return this;
+  }
+
+  /**
+   * Get state
+   * 
+   * @return state
+   **/
+  @Schema(description = "")
+
+  @Valid
+  public ProductOrderStateType getState() {
+    return state;
+  }
+
+  public void setState(ProductOrderStateType state) {
+    this.state = state;
   }
 
   public ProductOrderCreate type(String type) {
