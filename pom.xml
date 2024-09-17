@@ -3,11 +3,12 @@
 	<parent>
 		<groupId>org.etsi.osl</groupId>
 		<artifactId>org.etsi.osl.main</artifactId>
-		<version>1.0.0</version>
+		<version>2024Q4-SNAPSHOT</version>
 		<relativePath>../org.etsi.osl.main</relativePath>
 	</parent>
 	
   	<artifactId>org.etsi.osl.model.tmf</artifactId>
+	<version>${org.etsi.osl.model.tmf.version}</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
