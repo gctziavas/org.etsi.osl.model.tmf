@@ -1,0 +1,77 @@
+package org.etsi.osl.tmf.pm628.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+
+import javax.annotation.Generated;
+import java.util.Objects;
+
+/**
+ * PerformanceMeasurementCreateEventPayload generic structure
+ */
+
+@Schema(name = "PerformanceMeasurementCreateEventPayload", description = "PerformanceMeasurementCreateEventPayload generic structure")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-05-15T07:30:16.936523289Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
+public class PerformanceMeasurementCreateEventPayload {
+
+  private PerformanceMeasurement performanceMeasurement;
+
+  public PerformanceMeasurementCreateEventPayload performanceMeasurement(PerformanceMeasurement performanceMeasurement) {
+    this.performanceMeasurement = performanceMeasurement;
+    return this;
+  }
+
+  /**
+   * Get performanceMeasurement
+   * @return performanceMeasurement
+  */
+  @Valid 
+  @Schema(name = "performanceMeasurement", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("performanceMeasurement")
+  public PerformanceMeasurement getPerformanceMeasurement() {
+    return performanceMeasurement;
+  }
+
+  public void setPerformanceMeasurement(PerformanceMeasurement performanceMeasurement) {
+    this.performanceMeasurement = performanceMeasurement;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PerformanceMeasurementCreateEventPayload performanceMeasurementCreateEventPayload = (PerformanceMeasurementCreateEventPayload) o;
+    return Objects.equals(this.performanceMeasurement, performanceMeasurementCreateEventPayload.performanceMeasurement);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(performanceMeasurement);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PerformanceMeasurementCreateEventPayload {\n");
+    sb.append("    performanceMeasurement: ").append(toIndentedString(performanceMeasurement)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+
