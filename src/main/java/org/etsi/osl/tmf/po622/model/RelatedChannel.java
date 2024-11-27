@@ -20,12 +20,12 @@
 package org.etsi.osl.tmf.po622.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -34,27 +34,15 @@ import jakarta.validation.constraints.NotNull;
 @Schema(description = "Related channel to another entity. May be online web, mobile app, social ,etc.")
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class RelatedChannel   {
+@Entity(name = "RelatedChan622")
+public class RelatedChannel extends BaseRootNamedEntity {
   @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("href")
-  private String href = null;
-
-  @JsonProperty("name")
-  private String name = null;
 
   @JsonProperty("role")
   private String role = null;
 
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   @JsonProperty("@referredType")
   private String _atReferredType = null;

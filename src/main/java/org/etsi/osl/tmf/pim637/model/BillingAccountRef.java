@@ -17,62 +17,42 @@
  * limitations under the License.
  * =========================LICENSE_END==================================
  */
-package org.etsi.osl.tmf.po622.model;
+package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 
 /**
- * Product specification reference: A ProductSpecification is a detailed description of a tangible or intangible object made available externally in the form of a ProductOffering to customers or other parties playing a party role.
+ * BillingAccount reference. A BillingAccount is a detailed description of a bill structure.
  */
-@Schema(description = "Product specification reference: A ProductSpecification is a detailed description of a tangible or intangible object made available externally in the form of a ProductOffering to customers or other parties playing a party role.")
+@Schema(description = "BillingAccount reference. A BillingAccount is a detailed description of a bill structure.")
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class ProductSpecificationRef   {
+
+
+@Entity(name = "BillingAccRef622")
+public class BillingAccountRef extends BaseRootNamedEntity {
   @JsonProperty("id")
   private String id = null;
-
-  @JsonProperty("href")
-  private String href = null;
-
-  @JsonProperty("name")
-  private String name = null;
-
-  @JsonProperty("version")
-  private String version = null;
-
-  @JsonProperty("targetProductSchema")
-  private TargetProductSchema targetProductSchema = null;
-
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   @JsonProperty("@referredType")
   private String _atReferredType = null;
 
-  public ProductSpecificationRef id(String id) {
+  public BillingAccountRef id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique identifier of a related entity.
+   * Unique identifier of the billing account
    * @return id
   **/
-  @Schema(description = "Unique identifier of a related entity.")
+  @Schema(description = "Unique identifier of the billing account")
       @NotNull
 
     public String getId() {
@@ -83,16 +63,16 @@ public class ProductSpecificationRef   {
     this.id = id;
   }
 
-  public ProductSpecificationRef href(String href) {
+  public BillingAccountRef href(String href) {
     this.href = href;
     return this;
   }
 
   /**
-   * Reference of the related entity.
+   * Reference of the billing account
    * @return href
   **/
-  @Schema(description = "Reference of the related entity.")
+  @Schema(description = "Reference of the billing account")
   
     public String getHref() {
     return href;
@@ -102,16 +82,16 @@ public class ProductSpecificationRef   {
     this.href = href;
   }
 
-  public ProductSpecificationRef name(String name) {
+  public BillingAccountRef name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the related entity.
+   * Name of the billing account
    * @return name
   **/
-  @Schema(description = "Name of the related entity.")
+  @Schema(description = "Name of the billing account")
   
     public String getName() {
     return name;
@@ -121,46 +101,7 @@ public class ProductSpecificationRef   {
     this.name = name;
   }
 
-  public ProductSpecificationRef version(String version) {
-    this.version = version;
-    return this;
-  }
-
-  /**
-   * Version of the product specification
-   * @return version
-  **/
-  @Schema(description = "Version of the product specification")
-  
-    public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public ProductSpecificationRef targetProductSchema(TargetProductSchema targetProductSchema) {
-    this.targetProductSchema = targetProductSchema;
-    return this;
-  }
-
-  /**
-   * Get targetProductSchema
-   * @return targetProductSchema
-  **/
-  @Schema(description = "")
-  
-    @Valid
-    public TargetProductSchema getTargetProductSchema() {
-    return targetProductSchema;
-  }
-
-  public void setTargetProductSchema(TargetProductSchema targetProductSchema) {
-    this.targetProductSchema = targetProductSchema;
-  }
-
-  public ProductSpecificationRef baseType(String baseType) {
+  public BillingAccountRef baseType(String baseType) {
     this.baseType = baseType;
     return this;
   }
@@ -179,7 +120,7 @@ public class ProductSpecificationRef   {
     this.baseType = baseType;
   }
 
-  public ProductSpecificationRef schemaLocation(String schemaLocation) {
+  public BillingAccountRef schemaLocation(String schemaLocation) {
     this.schemaLocation = schemaLocation;
     return this;
   }
@@ -198,7 +139,7 @@ public class ProductSpecificationRef   {
     this.schemaLocation = schemaLocation;
   }
 
-  public ProductSpecificationRef type(String type) {
+  public BillingAccountRef type(String type) {
     this.type = type;
     return this;
   }
@@ -217,7 +158,7 @@ public class ProductSpecificationRef   {
     this.type = type;
   }
 
-  public ProductSpecificationRef _atReferredType(String _atReferredType) {
+  public BillingAccountRef _atReferredType(String _atReferredType) {
     this._atReferredType = _atReferredType;
     return this;
   }
@@ -245,33 +186,29 @@ public class ProductSpecificationRef   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductSpecificationRef productSpecificationRef = (ProductSpecificationRef) o;
-    return Objects.equals(this.id, productSpecificationRef.id) &&
-        Objects.equals(this.href, productSpecificationRef.href) &&
-        Objects.equals(this.name, productSpecificationRef.name) &&
-        Objects.equals(this.version, productSpecificationRef.version) &&
-        Objects.equals(this.targetProductSchema, productSpecificationRef.targetProductSchema) &&
-        Objects.equals(this.baseType, productSpecificationRef.baseType) &&
-        Objects.equals(this.schemaLocation, productSpecificationRef.schemaLocation) &&
-        Objects.equals(this.type, productSpecificationRef.type) &&
-        Objects.equals(this._atReferredType, productSpecificationRef._atReferredType);
+    BillingAccountRef billingAccountRef = (BillingAccountRef) o;
+    return Objects.equals(this.id, billingAccountRef.id) &&
+        Objects.equals(this.href, billingAccountRef.href) &&
+        Objects.equals(this.name, billingAccountRef.name) &&
+        Objects.equals(this.baseType, billingAccountRef.baseType) &&
+        Objects.equals(this.schemaLocation, billingAccountRef.schemaLocation) &&
+        Objects.equals(this.type, billingAccountRef.type) &&
+        Objects.equals(this._atReferredType, billingAccountRef._atReferredType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, name, version, targetProductSchema, baseType, schemaLocation, type, _atReferredType);
+    return Objects.hash(id, href, name, baseType, schemaLocation, type, _atReferredType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProductSpecificationRef {\n");
+    sb.append("class BillingAccountRef {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    targetProductSchema: ").append(toIndentedString(targetProductSchema)).append("\n");
     sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
     sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -20,14 +20,25 @@
 package org.etsi.osl.tmf.po622.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-
+import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
+import org.etsi.osl.tmf.pcm620.model.ProductOfferingPriceRef;
+import org.etsi.osl.tmf.pim637.model.BillingAccountRef;
+import org.etsi.osl.tmf.pim637.model.Price;
+import org.etsi.osl.tmf.pim637.model.PriceAlteration;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
 
 /**
@@ -36,12 +47,13 @@ import jakarta.validation.Valid;
 @Schema(description = "An amount, usually of money, that represents the actual price paid by the Customer for this item or this order")
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class OrderPrice   {
+@Entity(name = "OrderPrice622")
+public class OrderPrice  extends BaseRootNamedEntity {
+
+  @Lob
+  @Column(name = "LDESCRIPTION", columnDefinition = "LONGTEXT")
   @JsonProperty("description")
   private String description = null;
-
-  @JsonProperty("name")
-  private String name = null;
 
   @JsonProperty("priceType")
   private String priceType = null;
@@ -53,26 +65,25 @@ public class OrderPrice   {
   private String unitOfMeasure = null;
 
   @JsonProperty("billingAccount")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "billing_acc_refuuid", referencedColumnName = "uuid")  
   private BillingAccountRef billingAccount = null;
 
   @JsonProperty("price")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "price_uuid", referencedColumnName = "uuid")  
   private Price price = null;
 
   @JsonProperty("priceAlteration")
   @Valid
-  private List<PriceAlteration> priceAlteration = null;
+  @OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  private Set<PriceAlteration> priceAlteration = new HashSet<>();
 
   @JsonProperty("productOfferingPrice")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "productOffPr_refuuid", referencedColumnName = "uuid")  
   private ProductOfferingPriceRef productOfferingPrice = null;
 
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   public OrderPrice description(String description) {
     this.description = description;
@@ -209,14 +220,14 @@ public class OrderPrice   {
     this.price = price;
   }
 
-  public OrderPrice priceAlteration(List<PriceAlteration> priceAlteration) {
+  public OrderPrice priceAlteration(Set<PriceAlteration> priceAlteration) {
     this.priceAlteration = priceAlteration;
     return this;
   }
 
   public OrderPrice addPriceAlterationItem(PriceAlteration priceAlterationItem) {
     if (this.priceAlteration == null) {
-      this.priceAlteration = new ArrayList<>();
+      this.priceAlteration = new HashSet<>();
     }
     this.priceAlteration.add(priceAlterationItem);
     return this;
@@ -228,11 +239,11 @@ public class OrderPrice   {
   **/
   @Schema(description = "a strucuture used to describe a price alteration")
       @Valid
-    public List<PriceAlteration> getPriceAlteration() {
+    public Set<PriceAlteration> getPriceAlteration() {
     return priceAlteration;
   }
 
-  public void setPriceAlteration(List<PriceAlteration> priceAlteration) {
+  public void setPriceAlteration(Set<PriceAlteration> priceAlteration) {
     this.priceAlteration = priceAlteration;
   }
 

@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -35,6 +36,7 @@ import jakarta.validation.constraints.NotNull;
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-10-19T00:15:57.249+03:00")
 @JsonIgnoreProperties( {"uuid"} )
+@Entity(name = "ProdOffref620")
 public class ProductOfferingRef extends BaseRootNamedEntity {
 	
 	

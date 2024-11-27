@@ -1,39 +1,22 @@
-/*-
- * ========================LICENSE_START=================================
- * org.etsi.osl.tmf.api
- * %%
- * Copyright (C) 2019 - 2021 openslice.io
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =========================LICENSE_END==================================
- */
-package org.etsi.osl.tmf.po622.model;
+package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * A base / value business entity used to represent money
  */
 @Schema(description = "A base / value business entity used to represent money")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class Money   {
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
+
+@Entity(name = "Money637")
+public class Money  extends BaseRootEntity {
   @JsonProperty("unit")
   private String unit = null;
 
@@ -48,9 +31,10 @@ public class Money   {
   /**
    * Currency (ISO4217 norm uses 3 letters to define the currency)
    * @return unit
-  **/
+   **/
   @Schema(description = "Currency (ISO4217 norm uses 3 letters to define the currency)")
-  
+      @NotNull
+
     public String getUnit() {
     return unit;
   }
@@ -67,9 +51,10 @@ public class Money   {
   /**
    * A positive floating point number
    * @return value
-  **/
+   **/
   @Schema(description = "A positive floating point number")
-  
+      @NotNull
+
     public Float getValue() {
     return value;
   }

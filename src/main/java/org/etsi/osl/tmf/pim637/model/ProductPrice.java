@@ -1,33 +1,20 @@
-/*-
- * ========================LICENSE_START=================================
- * org.etsi.osl.tmf.api
- * %%
- * Copyright (C) 2019 - 2021 openslice.io
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =========================LICENSE_END==================================
- */
-package org.etsi.osl.tmf.po622.model;
+package org.etsi.osl.tmf.pim637.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-
+import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
+import org.etsi.osl.tmf.pcm620.model.ProductOfferingPriceRef;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -36,13 +23,13 @@ import jakarta.validation.constraints.NotNull;
  */
 @Schema(description = "An amount, usually of money, that represents the actual price paid by a Customer for a purchase, a rent or a lease of a Product. The price is valid for a defined period of time.")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class ProductPrice   {
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
+
+@Entity(name = "ProdPrice637")
+public class ProductPrice  extends BaseRootNamedEntity {
   @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("name")
-  private String name = null;
 
   @JsonProperty("priceType")
   private String priceType = null;
@@ -54,26 +41,24 @@ public class ProductPrice   {
   private String unitOfMeasure = null;
 
   @JsonProperty("billingAccount")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "billing_acc_refuuid", referencedColumnName = "uuid")
   private BillingAccountRef billingAccount = null;
 
   @JsonProperty("price")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "price_uuid", referencedColumnName = "uuid")
   private Price price = null;
 
   @JsonProperty("productOfferingPrice")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "prodoffprice_refuuid", referencedColumnName = "uuid")
   private ProductOfferingPriceRef productOfferingPrice = null;
 
   @JsonProperty("productPriceAlteration")
   @Valid
-  private List<PriceAlteration> productPriceAlteration = null;
-
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
+  @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+  private Set<PriceAlteration> productPriceAlteration = new HashSet<>();
 
   public ProductPrice description(String description) {
     this.description = description;
@@ -83,9 +68,10 @@ public class ProductPrice   {
   /**
    * A narrative that explains in detail the semantics of this product price.
    * @return description
-  **/
+   **/
   @Schema(description = "A narrative that explains in detail the semantics of this product price.")
-  
+      @NotNull
+
     public String getDescription() {
     return description;
   }
@@ -102,9 +88,10 @@ public class ProductPrice   {
   /**
    * A short descriptive name such as \"Subscription price\".
    * @return name
-  **/
+   **/
   @Schema(description = "A short descriptive name such as \"Subscription price\".")
-  
+      @NotNull
+
     public String getName() {
     return name;
   }
@@ -121,8 +108,8 @@ public class ProductPrice   {
   /**
    * A category that describes the price, such as recurring, discount, allowance, penalty, and so forth.
    * @return priceType
-  **/
-  @Schema(description = "A category that describes the price, such as recurring, discount, allowance, penalty, and so forth.")
+   **/
+  @Schema(required = true, description = "A category that describes the price, such as recurring, discount, allowance, penalty, and so forth.")
       @NotNull
 
     public String getPriceType() {
@@ -141,9 +128,10 @@ public class ProductPrice   {
   /**
    * Could be month, week...
    * @return recurringChargePeriod
-  **/
+   **/
   @Schema(description = "Could be month, week...")
-  
+      @NotNull
+
     public String getRecurringChargePeriod() {
     return recurringChargePeriod;
   }
@@ -160,9 +148,10 @@ public class ProductPrice   {
   /**
    * Could be minutes, GB...
    * @return unitOfMeasure
-  **/
+   **/
   @Schema(description = "Could be minutes, GB...")
-  
+      @NotNull
+
     public String getUnitOfMeasure() {
     return unitOfMeasure;
   }
@@ -179,9 +168,10 @@ public class ProductPrice   {
   /**
    * Get billingAccount
    * @return billingAccount
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public BillingAccountRef getBillingAccount() {
     return billingAccount;
@@ -199,8 +189,8 @@ public class ProductPrice   {
   /**
    * Get price
    * @return price
-  **/
-  @Schema(description = "")
+   **/
+  @Schema(required = true, description = "")
       @NotNull
 
     @Valid
@@ -220,9 +210,10 @@ public class ProductPrice   {
   /**
    * Get productOfferingPrice
    * @return productOfferingPrice
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public ProductOfferingPriceRef getProductOfferingPrice() {
     return productOfferingPrice;
@@ -232,14 +223,14 @@ public class ProductPrice   {
     this.productOfferingPrice = productOfferingPrice;
   }
 
-  public ProductPrice productPriceAlteration(List<PriceAlteration> productPriceAlteration) {
+  public ProductPrice productPriceAlteration(Set<PriceAlteration> productPriceAlteration) {
     this.productPriceAlteration = productPriceAlteration;
     return this;
   }
 
   public ProductPrice addProductPriceAlterationItem(PriceAlteration productPriceAlterationItem) {
     if (this.productPriceAlteration == null) {
-      this.productPriceAlteration = new ArrayList<>();
+      this.productPriceAlteration = new HashSet<PriceAlteration>();
     }
     this.productPriceAlteration.add(productPriceAlterationItem);
     return this;
@@ -248,73 +239,19 @@ public class ProductPrice   {
   /**
    * Get productPriceAlteration
    * @return productPriceAlteration
-  **/
+   **/
   @Schema(description = "")
-      @Valid
-    public List<PriceAlteration> getProductPriceAlteration() {
+      @NotNull
+    @Valid
+    public Set<PriceAlteration> getProductPriceAlteration() {
     return productPriceAlteration;
   }
 
-  public void setProductPriceAlteration(List<PriceAlteration> productPriceAlteration) {
+  public void setProductPriceAlteration(Set<PriceAlteration> productPriceAlteration) {
     this.productPriceAlteration = productPriceAlteration;
   }
 
-  public ProductPrice baseType(String baseType) {
-    this.baseType = baseType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the super-class
-   * @return baseType
-  **/
-  @Schema(description = "When sub-classing, this defines the super-class")
-  
-    public String getAtBaseType() {
-    return baseType;
-  }
-
-  public void setAtBaseType(String baseType) {
-    this.baseType = baseType;
-  }
-
-  public ProductPrice schemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return schemaLocation
-  **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
-    public String getAtSchemaLocation() {
-    return schemaLocation;
-  }
-
-  public void setAtSchemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
-  }
-
-  public ProductPrice type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class entity name
-   * @return type
-  **/
-  @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
-    public String getAtType() {
-    return type;
-  }
-
-  public void setAtType(String type) {
-    this.type = type;
-  }
+ 
 
 
   @Override
@@ -337,12 +274,12 @@ public class ProductPrice   {
         Objects.equals(this.productPriceAlteration, productPrice.productPriceAlteration) &&
         Objects.equals(this.baseType, productPrice.baseType) &&
         Objects.equals(this.schemaLocation, productPrice.schemaLocation) &&
-        Objects.equals(this.type, productPrice.type);
+        Objects.equals(this.baseType, productPrice.baseType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, priceType, recurringChargePeriod, unitOfMeasure, billingAccount, price, productOfferingPrice, productPriceAlteration, baseType, schemaLocation, type);
+    return Objects.hash(description, name, priceType, recurringChargePeriod, unitOfMeasure, billingAccount, price, productOfferingPrice, productPriceAlteration, baseType, schemaLocation, baseType);
   }
 
   @Override
@@ -359,9 +296,9 @@ public class ProductPrice   {
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    productOfferingPrice: ").append(toIndentedString(productOfferingPrice)).append("\n");
     sb.append("    productPriceAlteration: ").append(toIndentedString(productPriceAlteration)).append("\n");
-    sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
-    sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    _atBaseType: ").append(toIndentedString(baseType)).append("\n");
+    sb.append("    _atSchemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+    sb.append("    _atType: ").append(toIndentedString(baseType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

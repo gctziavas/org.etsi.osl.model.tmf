@@ -1,7 +1,5 @@
 # org.etsi.osl.model.tmf
 
-
-
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
@@ -43,6 +41,7 @@ Use the built-in continuous integration in GitLab.
 - [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
 ***
+
 
 # Editing this README
 

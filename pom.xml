@@ -7,6 +7,7 @@
 		<relativePath>../org.etsi.osl.main</relativePath>
 	</parent>
 	
+	
   	<artifactId>org.etsi.osl.model.tmf</artifactId>
 	<version>${org.etsi.osl.model.tmf.version}</version>
 
@@ -18,6 +19,7 @@
 		<springdoc.version>${springdoc-version}</springdoc.version>
 		<mapstruct.version>1.5.3.Final</mapstruct.version>
 	</properties>
+	
 
 	<repositories>
 		<repository>

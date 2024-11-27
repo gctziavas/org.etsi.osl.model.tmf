@@ -1,31 +1,15 @@
-/*-
- * ========================LICENSE_START=================================
- * org.etsi.osl.tmf.api
- * %%
- * Copyright (C) 2019 - 2021 openslice.io
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =========================LICENSE_END==================================
- */
-package org.etsi.osl.tmf.po622.model;
+package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
+import org.etsi.osl.tmf.pcm620.model.ProductOfferingPriceRef;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
@@ -34,16 +18,15 @@ import jakarta.validation.constraints.NotNull;
  */
 @Schema(description = "Is an amount, usually of money, that modifies the price charged for an order item.")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class PriceAlteration   {
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
+
+@Entity(name = "PriceAlter637")
+public class PriceAlteration   extends BaseRootNamedEntity {
   @JsonProperty("applicationDuration")
   private Integer applicationDuration = null;
 
   @JsonProperty("description")
   private String description = null;
-
-  @JsonProperty("name")
-  private String name = null;
 
   @JsonProperty("priceType")
   private String priceType = null;
@@ -58,19 +41,12 @@ public class PriceAlteration   {
   private String unitOfMeasure = null;
 
   @JsonProperty("price")
+  @OneToOne(cascade = CascadeType.ALL)
   private Price price = null;
 
   @JsonProperty("productOfferingPrice")
+  @OneToOne(cascade = CascadeType.ALL)
   private ProductOfferingPriceRef productOfferingPrice = null;
-
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   public PriceAlteration applicationDuration(Integer applicationDuration) {
     this.applicationDuration = applicationDuration;
@@ -80,9 +56,10 @@ public class PriceAlteration   {
   /**
    * Duration during which the alteration applies on the order item price (for instance 2 months free of charge for the recurring charge)
    * @return applicationDuration
-  **/
+   **/
   @Schema(description = "Duration during which the alteration applies on the order item price (for instance 2 months free of charge for the recurring charge)")
-  
+      @NotNull
+
     public Integer getApplicationDuration() {
     return applicationDuration;
   }
@@ -99,9 +76,10 @@ public class PriceAlteration   {
   /**
    * A narrative that explains in detail the semantics of this order item price alteration
    * @return description
-  **/
+   **/
   @Schema(description = "A narrative that explains in detail the semantics of this order item price alteration")
-  
+      @NotNull
+
     public String getDescription() {
     return description;
   }
@@ -118,9 +96,10 @@ public class PriceAlteration   {
   /**
    * Name of the order item price alteration
    * @return name
-  **/
+   **/
   @Schema(description = "Name of the order item price alteration")
-  
+      @NotNull
+
     public String getName() {
     return name;
   }
@@ -137,8 +116,8 @@ public class PriceAlteration   {
   /**
    * A category that describes the price such as recurring, one time and usage.
    * @return priceType
-  **/
-  @Schema(description = "A category that describes the price such as recurring, one time and usage.")
+   **/
+  @Schema(required = true, description = "A category that describes the price such as recurring, one time and usage.")
       @NotNull
 
     public String getPriceType() {
@@ -157,9 +136,10 @@ public class PriceAlteration   {
   /**
    * Priority level for applying this alteration among all the defined alterations on the order item price
    * @return priority
-  **/
+   **/
   @Schema(description = "Priority level for applying this alteration among all the defined alterations on the order item price")
-  
+      @NotNull
+
     public Integer getPriority() {
     return priority;
   }
@@ -176,9 +156,10 @@ public class PriceAlteration   {
   /**
    * Could be month, week...
    * @return recurringChargePeriod
-  **/
+   **/
   @Schema(description = "Could be month, week...")
-  
+      @NotNull
+
     public String getRecurringChargePeriod() {
     return recurringChargePeriod;
   }
@@ -195,9 +176,10 @@ public class PriceAlteration   {
   /**
    * Could be minutes, GB...
    * @return unitOfMeasure
-  **/
+   **/
   @Schema(description = "Could be minutes, GB...")
-  
+      @NotNull
+
     public String getUnitOfMeasure() {
     return unitOfMeasure;
   }
@@ -214,8 +196,8 @@ public class PriceAlteration   {
   /**
    * Get price
    * @return price
-  **/
-  @Schema(description = "")
+   **/
+  @Schema(required = true, description = "")
       @NotNull
 
     @Valid
@@ -235,9 +217,10 @@ public class PriceAlteration   {
   /**
    * Get productOfferingPrice
    * @return productOfferingPrice
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public ProductOfferingPriceRef getProductOfferingPrice() {
     return productOfferingPrice;
@@ -247,62 +230,6 @@ public class PriceAlteration   {
     this.productOfferingPrice = productOfferingPrice;
   }
 
-  public PriceAlteration baseType(String baseType) {
-    this.baseType = baseType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the super-class
-   * @return baseType
-  **/
-  @Schema(description = "When sub-classing, this defines the super-class")
-  
-    public String getAtBaseType() {
-    return baseType;
-  }
-
-  public void setAtBaseType(String baseType) {
-    this.baseType = baseType;
-  }
-
-  public PriceAlteration schemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return schemaLocation
-  **/
-  @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
-    public String getAtSchemaLocation() {
-    return schemaLocation;
-  }
-
-  public void setAtSchemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
-  }
-
-  public PriceAlteration type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class entity name
-   * @return type
-  **/
-  @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
-    public String getAtType() {
-    return type;
-  }
-
-  public void setAtType(String type) {
-    this.type = type;
-  }
 
 
   @Override
@@ -347,9 +274,9 @@ public class PriceAlteration   {
     sb.append("    unitOfMeasure: ").append(toIndentedString(unitOfMeasure)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    productOfferingPrice: ").append(toIndentedString(productOfferingPrice)).append("\n");
-    sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
-    sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    _atBaseType: ").append(toIndentedString(baseType)).append("\n");
+    sb.append("    _atSchemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
+    sb.append("    _atType: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

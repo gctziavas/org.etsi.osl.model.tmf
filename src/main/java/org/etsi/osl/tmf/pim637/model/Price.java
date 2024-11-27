@@ -1,40 +1,26 @@
-/*-
- * ========================LICENSE_START=================================
- * org.etsi.osl.tmf.api
- * %%
- * Copyright (C) 2019 - 2021 openslice.io
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =========================LICENSE_END==================================
- */
-package org.etsi.osl.tmf.po622.model;
+package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Provides all amounts (tax included, duty free, tax rate), used currency and percentage to apply for Price Alteration.
  */
 @Schema(description = "Provides all amounts (tax included, duty free, tax rate), used currency and percentage to apply for Price Alteration.")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class Price   {
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
+
+
+@Entity(name = "Price637")
+public class Price   extends BaseRootEntity {
   @JsonProperty("percentage")
   private Float percentage = null;
 
@@ -42,19 +28,21 @@ public class Price   {
   private Float taxRate = null;
 
   @JsonProperty("dutyFreeAmount")
+  @OneToOne(cascade = CascadeType.ALL)
   private Money dutyFreeAmount = null;
 
   @JsonProperty("taxIncludedAmount")
+  @OneToOne(cascade = CascadeType.ALL)
   private Money taxIncludedAmount = null;
 
   @JsonProperty("@baseType")
-  private String baseType = null;
+  private String _atBaseType = null;
 
   @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
+  private String _atSchemaLocation = null;
 
   @JsonProperty("@type")
-  private String type = null;
+  private String _atType = null;
 
   public Price percentage(Float percentage) {
     this.percentage = percentage;
@@ -64,9 +52,10 @@ public class Price   {
   /**
    * Percentage to apply for ProdOfferPriceAlteration
    * @return percentage
-  **/
+   **/
   @Schema(description = "Percentage to apply for ProdOfferPriceAlteration")
-  
+      @NotNull
+
     public Float getPercentage() {
     return percentage;
   }
@@ -83,9 +72,10 @@ public class Price   {
   /**
    * Tax rate
    * @return taxRate
-  **/
+   **/
   @Schema(description = "Tax rate")
-  
+      @NotNull
+
     public Float getTaxRate() {
     return taxRate;
   }
@@ -102,9 +92,10 @@ public class Price   {
   /**
    * Get dutyFreeAmount
    * @return dutyFreeAmount
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public Money getDutyFreeAmount() {
     return dutyFreeAmount;
@@ -122,9 +113,10 @@ public class Price   {
   /**
    * Get taxIncludedAmount
    * @return taxIncludedAmount
-  **/
+   **/
   @Schema(description = "")
-  
+      @NotNull
+
     @Valid
     public Money getTaxIncludedAmount() {
     return taxIncludedAmount;
@@ -134,61 +126,64 @@ public class Price   {
     this.taxIncludedAmount = taxIncludedAmount;
   }
 
-  public Price baseType(String baseType) {
-    this.baseType = baseType;
+  public Price _atBaseType(String _atBaseType) {
+    this._atBaseType = _atBaseType;
     return this;
   }
 
   /**
    * When sub-classing, this defines the super-class
-   * @return baseType
-  **/
+   * @return _atBaseType
+   **/
   @Schema(description = "When sub-classing, this defines the super-class")
-  
+      @NotNull
+
     public String getAtBaseType() {
-    return baseType;
+    return _atBaseType;
   }
 
-  public void setAtBaseType(String baseType) {
-    this.baseType = baseType;
+  public void setAtBaseType(String _atBaseType) {
+    this._atBaseType = _atBaseType;
   }
 
-  public Price schemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
+  public Price _atSchemaLocation(String _atSchemaLocation) {
+    this._atSchemaLocation = _atSchemaLocation;
     return this;
   }
 
   /**
    * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return schemaLocation
-  **/
+   * @return _atSchemaLocation
+   **/
   @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
+      @NotNull
+
     public String getAtSchemaLocation() {
-    return schemaLocation;
+    return _atSchemaLocation;
   }
 
-  public void setAtSchemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
+  public void setAtSchemaLocation(String _atSchemaLocation) {
+    this._atSchemaLocation = _atSchemaLocation;
   }
 
-  public Price type(String type) {
-    this.type = type;
+  public Price _atType(String _atType) {
+    this._atType = _atType;
     return this;
   }
 
   /**
    * When sub-classing, this defines the sub-class entity name
-   * @return type
-  **/
+   * @return _atType
+   **/
   @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
+      @NotNull
+
     public String getAtType() {
-    return type;
+    return _atType;
   }
 
-  public void setAtType(String type) {
-    this.type = type;
+  public void setAtType(String _atType) {
+    this._atType = _atType;
   }
 
 
@@ -205,14 +200,14 @@ public class Price   {
         Objects.equals(this.taxRate, price.taxRate) &&
         Objects.equals(this.dutyFreeAmount, price.dutyFreeAmount) &&
         Objects.equals(this.taxIncludedAmount, price.taxIncludedAmount) &&
-        Objects.equals(this.baseType, price.baseType) &&
-        Objects.equals(this.schemaLocation, price.schemaLocation) &&
-        Objects.equals(this.type, price.type);
+        Objects.equals(this._atBaseType, price._atBaseType) &&
+        Objects.equals(this._atSchemaLocation, price._atSchemaLocation) &&
+        Objects.equals(this._atType, price._atType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(percentage, taxRate, dutyFreeAmount, taxIncludedAmount, baseType, schemaLocation, type);
+    return Objects.hash(percentage, taxRate, dutyFreeAmount, taxIncludedAmount, _atBaseType, _atSchemaLocation, _atType);
   }
 
   @Override
@@ -224,9 +219,9 @@ public class Price   {
     sb.append("    taxRate: ").append(toIndentedString(taxRate)).append("\n");
     sb.append("    dutyFreeAmount: ").append(toIndentedString(dutyFreeAmount)).append("\n");
     sb.append("    taxIncludedAmount: ").append(toIndentedString(taxIncludedAmount)).append("\n");
-    sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
-    sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    _atBaseType: ").append(toIndentedString(_atBaseType)).append("\n");
+    sb.append("    _atSchemaLocation: ").append(toIndentedString(_atSchemaLocation)).append("\n");
+    sb.append("    _atType: ").append(toIndentedString(_atType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

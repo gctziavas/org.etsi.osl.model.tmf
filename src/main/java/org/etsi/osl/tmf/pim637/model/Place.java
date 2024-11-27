@@ -1,38 +1,19 @@
-/*-
- * ========================LICENSE_START=================================
- * org.etsi.osl.tmf.api
- * %%
- * Copyright (C) 2019 - 2021 openslice.io
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =========================LICENSE_END==================================
- */
-package org.etsi.osl.tmf.po622.model;
+package org.etsi.osl.tmf.pim637.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Place reference. Place defines the places where the products are sold or delivered.
  */
 @Schema(description = "Place reference. Place defines the places where the products are sold or delivered.")
 @Validated
-@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-08-04T00:27:07.324017400+03:00[Europe/Athens]")
+
+
 public class Place   {
   @JsonProperty("id")
   private String id = null;
@@ -44,13 +25,13 @@ public class Place   {
   private String name = null;
 
   @JsonProperty("@baseType")
-  private String baseType = null;
+  private String _atBaseType = null;
 
   @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
+  private String _atSchemaLocation = null;
 
   @JsonProperty("@type")
-  private String type = null;
+  private String _atType = null;
 
   public Place id(String id) {
     this.id = id;
@@ -60,9 +41,10 @@ public class Place   {
   /**
    * Unique identifier of the place
    * @return id
-  **/
+   **/
   @Schema(description = "Unique identifier of the place")
-  
+      @NotNull
+
     public String getId() {
     return id;
   }
@@ -79,9 +61,10 @@ public class Place   {
   /**
    * Unique reference of the place
    * @return href
-  **/
+   **/
   @Schema(description = "Unique reference of the place")
-  
+      @NotNull
+
     public String getHref() {
     return href;
   }
@@ -98,9 +81,10 @@ public class Place   {
   /**
    * A user-friendly name for the place, such as [Paris Store], [London Store], [Main Home]
    * @return name
-  **/
+   **/
   @Schema(description = "A user-friendly name for the place, such as [Paris Store], [London Store], [Main Home]")
-  
+      @NotNull
+
     public String getName() {
     return name;
   }
@@ -109,61 +93,64 @@ public class Place   {
     this.name = name;
   }
 
-  public Place baseType(String baseType) {
-    this.baseType = baseType;
+  public Place _atBaseType(String _atBaseType) {
+    this._atBaseType = _atBaseType;
     return this;
   }
 
   /**
    * When sub-classing, this defines the super-class
-   * @return baseType
-  **/
+   * @return _atBaseType
+   **/
   @Schema(description = "When sub-classing, this defines the super-class")
-  
+      @NotNull
+
     public String getAtBaseType() {
-    return baseType;
+    return _atBaseType;
   }
 
-  public void setAtBaseType(String baseType) {
-    this.baseType = baseType;
+  public void setAtBaseType(String _atBaseType) {
+    this._atBaseType = _atBaseType;
   }
 
-  public Place schemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
+  public Place _atSchemaLocation(String _atSchemaLocation) {
+    this._atSchemaLocation = _atSchemaLocation;
     return this;
   }
 
   /**
    * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return schemaLocation
-  **/
+   * @return _atSchemaLocation
+   **/
   @Schema(description = "A URI to a JSON-Schema file that defines additional attributes and relationships")
-  
+      @NotNull
+
     public String getAtSchemaLocation() {
-    return schemaLocation;
+    return _atSchemaLocation;
   }
 
-  public void setAtSchemaLocation(String schemaLocation) {
-    this.schemaLocation = schemaLocation;
+  public void setAtSchemaLocation(String _atSchemaLocation) {
+    this._atSchemaLocation = _atSchemaLocation;
   }
 
-  public Place type(String type) {
-    this.type = type;
+  public Place _atType(String _atType) {
+    this._atType = _atType;
     return this;
   }
 
   /**
    * When sub-classing, this defines the sub-class entity name
-   * @return type
-  **/
+   * @return _atType
+   **/
   @Schema(description = "When sub-classing, this defines the sub-class entity name")
-  
+      @NotNull
+
     public String getAtType() {
-    return type;
+    return _atType;
   }
 
-  public void setAtType(String type) {
-    this.type = type;
+  public void setAtType(String _atType) {
+    this._atType = _atType;
   }
 
 
@@ -179,14 +166,14 @@ public class Place   {
     return Objects.equals(this.id, place.id) &&
         Objects.equals(this.href, place.href) &&
         Objects.equals(this.name, place.name) &&
-        Objects.equals(this.baseType, place.baseType) &&
-        Objects.equals(this.schemaLocation, place.schemaLocation) &&
-        Objects.equals(this.type, place.type);
+        Objects.equals(this._atBaseType, place._atBaseType) &&
+        Objects.equals(this._atSchemaLocation, place._atSchemaLocation) &&
+        Objects.equals(this._atType, place._atType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, name, baseType, schemaLocation, type);
+    return Objects.hash(id, href, name, _atBaseType, _atSchemaLocation, _atType);
   }
 
   @Override
@@ -197,9 +184,9 @@ public class Place   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    baseType: ").append(toIndentedString(baseType)).append("\n");
-    sb.append("    schemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    _atBaseType: ").append(toIndentedString(_atBaseType)).append("\n");
+    sb.append("    _atSchemaLocation: ").append(toIndentedString(_atSchemaLocation)).append("\n");
+    sb.append("    _atType: ").append(toIndentedString(_atType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
