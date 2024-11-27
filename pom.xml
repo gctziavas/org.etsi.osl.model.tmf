@@ -20,8 +20,6 @@
 		<mapstruct.version>1.5.3.Final</mapstruct.version>
 	</properties>
 	
-	<version>${org.etsi.osl.model.tmf.version}</version>
-	
 
 	<repositories>
 		<repository>
