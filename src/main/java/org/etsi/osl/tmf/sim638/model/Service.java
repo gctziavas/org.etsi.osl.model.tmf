@@ -877,7 +877,7 @@ public class Service extends BaseRootNamedEntity {
       if ( ckind != null && ckind.getValue() != null) {
         resourceKind = ckind.getValue().getValue() ; //example "Application"
       }
-      if (serviceKindChar.getValue().getValue().equals( resourceKind )) { //if this service is the same kind as the resource then don't prefix the characteristic
+      if (serviceKindChar.getValue().getValue().equals( resourceKind ) || this.getCategory().equals(resourceKind) ) { //if this service is the same kind as the resource then don't prefix the characteristic
         return true;
       } 
     }
