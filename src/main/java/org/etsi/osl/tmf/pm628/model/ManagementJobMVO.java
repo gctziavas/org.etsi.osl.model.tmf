@@ -1,13 +1,12 @@
 package org.etsi.osl.tmf.pm628.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.annotation.Generated;
 import java.util.ArrayList;
@@ -58,6 +57,13 @@ public class ManagementJobMVO {
   @JsonProperty("scheduleDefinition")
   @Valid
   private List<ScheduleDefinitionMVO> scheduleDefinition = new ArrayList<>();
+
+  // Property bellow was added by UoP and is not officialy part of TMF628 Model
+  // @JsonProperty("executionState")
+  @Setter
+  @Getter
+  @JsonIgnore
+  private ExecutionStateType executionState;
 
   public ManagementJobMVO() {
     super();
