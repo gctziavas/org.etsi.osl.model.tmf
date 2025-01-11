@@ -33,7 +33,6 @@ public class DayOfWeekRecurrence {
   @Column(name = "dowr_schema_location")
   private String schemaLocation;
 
-  @JsonProperty("dates")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime dates;
 
@@ -119,11 +118,21 @@ public class DayOfWeekRecurrence {
   */
   @Valid 
   @Schema(name = "dates", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("dates")
   public OffsetDateTime getDates() {
     return dates;
   }
+  
+  @JsonProperty("dates")
+  public String getDatesString() {
+    return dates.toString();
+  }
 
+  public void setDates(String dates) {
+    if ( dates!= null ) {
+      this.dates = OffsetDateTime.parse( dates );
+  }
+  }
+  
   public void setDates(OffsetDateTime dates) {
     this.dates = dates;
   }

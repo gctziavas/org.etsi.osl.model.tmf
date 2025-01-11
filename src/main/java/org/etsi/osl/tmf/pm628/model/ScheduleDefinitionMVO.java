@@ -8,9 +8,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.annotation.Generated;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * ScheduleDefinitionMVO
@@ -32,36 +34,30 @@ public class ScheduleDefinitionMVO {
   @JsonProperty("uuid")
   private String uuid;
 
-  @JsonProperty("scheduleDefinitionStartTime")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime scheduleDefinitionStartTime;
 
-  @JsonProperty("scheduleDefinitionEndTime")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime scheduleDefinitionEndTime;
 
   @JsonProperty("recurringFrequency")
   private String recurringFrequency;
 
-  @JsonProperty("excludedDate")
   @Valid
   private List<OffsetDateTime> excludedDate = new ArrayList<>();
 
   @JsonProperty("scheduleDefinitionHourRange")
   private String scheduleDefinitionHourRange;
 
-  @JsonProperty("WeeklyScheduledDefinition")
   @Valid
   private List<DayOfWeekRecurrenceMVO> weeklyScheduledDefinition = new ArrayList<>();
 
-  @JsonProperty("monthlyScheduleDayOfMonthDefinition")
   @Valid
   private List<OffsetDateTime> monthlyScheduleDayOfMonthDefinition = new ArrayList<>();
 
   @JsonProperty("MonthlyScheduleDayOfWeekDefinition")
   private MonthlyScheduleDayOfWeekDefinitionMVO monthlyScheduleDayOfWeekDefinition;
 
-  @JsonProperty("dateScheduleDefintion")
   @Valid
   private List<OffsetDateTime> dateScheduleDefintion = new ArrayList<>();
 
@@ -167,10 +163,24 @@ public class ScheduleDefinitionMVO {
   */
   @Valid 
   @Schema(name = "scheduleDefinitionStartTime", description = "The Start time of the Schedule Definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+
   @JsonProperty("scheduleDefinitionStartTime")
+  public String getScheduleDefinitionStartTimeString() {
+    return scheduleDefinitionStartTime.toString();
+  }
+  
+  
+  public void setScheduleDefinitionStartTime(String t) {
+      if ( t!= null ) {
+          this.scheduleDefinitionStartTime = OffsetDateTime.parse( t );
+      }
+  }
+  
   public OffsetDateTime getScheduleDefinitionStartTime() {
     return scheduleDefinitionStartTime;
   }
+  
+  
 
   public void setScheduleDefinitionStartTime(OffsetDateTime scheduleDefinitionStartTime) {
     this.scheduleDefinitionStartTime = scheduleDefinitionStartTime;
@@ -188,6 +198,15 @@ public class ScheduleDefinitionMVO {
   @Valid 
   @Schema(name = "scheduleDefinitionEndTime", description = "The End time of the Schedule Definition. If the attribute is empty the Schedule run forever, not having a time constraint.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("scheduleDefinitionEndTime")
+  public String getScheduleDefinitionEndTimeString() {
+    return scheduleDefinitionEndTime.toString();
+  }
+  
+  public void setScheduleDefinitionEndTime(String t) {
+    if ( t!= null ) {
+        this.scheduleDefinitionEndTime = OffsetDateTime.parse( t );
+    }
+}
   public OffsetDateTime getScheduleDefinitionEndTime() {
     return scheduleDefinitionEndTime;
   }
@@ -235,7 +254,32 @@ public class ScheduleDefinitionMVO {
   */
   @Valid 
   @Schema(name = "excludedDate", description = "A list of specific dates that should be excluded from the Schedule Definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+
   @JsonProperty("excludedDate")
+  public List<String> getExcludedDateString() {
+    // Transforming List<OffsetDateTime> to List<String>
+    List<String> stringList = excludedDate.stream()
+            .map(OffsetDateTime::toString)
+            .collect(Collectors.toList());
+    return stringList;
+  }
+
+
+  @JsonProperty("excludedDate")
+  public void setExcludedDateString(List<String> excludedDate) {
+    this.excludedDate = excludedDate.stream()
+        .map(date -> {
+            try {
+                return OffsetDateTime.parse(date);
+            } catch (DateTimeParseException e) {
+                // Handle parse exception
+                System.err.println("Invalid date format: " + date);
+                return null; // or handle it as per your requirement
+            }
+        })
+        .collect(Collectors.toList());
+  }
+  
   public List<OffsetDateTime> getExcludedDate() {
     return excludedDate;
   }
@@ -311,7 +355,31 @@ public class ScheduleDefinitionMVO {
   */
   @Valid 
   @Schema(name = "monthlyScheduleDayOfMonthDefinition", description = "The schedule definition for running the threshold job", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+
   @JsonProperty("monthlyScheduleDayOfMonthDefinition")
+  public List<String> getMonthlyScheduleDayOfMonthDefinitionString() {
+    // Transforming List<OffsetDateTime> to List<String>
+    List<String> stringList = monthlyScheduleDayOfMonthDefinition.stream()
+            .map(OffsetDateTime::toString)
+            .collect(Collectors.toList());
+    return stringList;
+  }
+  
+  @JsonProperty("monthlyScheduleDayOfMonthDefinition")
+  public void setMonthlyScheduleDayOfMonthDefinitionString(List<String> monthlyScheduleDayOfMonthDefinition) {
+    
+    this.monthlyScheduleDayOfMonthDefinition = monthlyScheduleDayOfMonthDefinition.stream()
+        .map(date -> {
+            try {
+                return OffsetDateTime.parse(date);
+            } catch (DateTimeParseException e) {
+                // Handle parse exception
+                System.err.println("Invalid date format: " + date);
+                return null; // or handle it as per your requirement
+            }
+        })
+        .collect(Collectors.toList());
+  }
   public List<OffsetDateTime> getMonthlyScheduleDayOfMonthDefinition() {
     return monthlyScheduleDayOfMonthDefinition;
   }
@@ -359,7 +427,31 @@ public class ScheduleDefinitionMVO {
   */
   @Valid 
   @Schema(name = "dateScheduleDefintion", description = "The date schedule is used to define a schedule that is based on specific dates, such as December 31st 2015, February 28th 2013", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  
   @JsonProperty("dateScheduleDefintion")
+  public List<String> getDateScheduleDefintionString() {
+    List<String> stringList = dateScheduleDefintion.stream()
+        .map(OffsetDateTime::toString)
+        .collect(Collectors.toList());
+    return stringList;
+  }
+
+
+  @JsonProperty("dateScheduleDefintion")
+  public void setDateScheduleDefintionString(List<String> dateScheduleDefintion) {
+    this.dateScheduleDefintion = dateScheduleDefintion.stream()
+        .map(date -> {
+            try {
+                return OffsetDateTime.parse(date);
+            } catch (DateTimeParseException e) {
+                // Handle parse exception
+                System.err.println("Invalid date format: " + date);
+                return null; // or handle it as per your requirement
+            }
+        })
+        .collect(Collectors.toList());
+  }
+  
   public List<OffsetDateTime> getDateScheduleDefintion() {
     return dateScheduleDefintion;
   }

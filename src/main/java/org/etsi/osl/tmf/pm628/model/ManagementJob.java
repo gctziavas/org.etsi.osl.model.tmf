@@ -41,7 +41,6 @@ public class ManagementJob extends BaseRootEntity {
   @JsonProperty("adminState")
   private AdministrativeState adminState;
 
-  @JsonProperty("creationTime")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime creationTime;
 
@@ -73,7 +72,6 @@ public class ManagementJob extends BaseRootEntity {
   @JsonProperty("jobPriority")
   private Integer jobPriority = 5;
 
-  @JsonProperty("lastModifiedTime")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime lastModifiedTime;
 
@@ -130,6 +128,17 @@ public class ManagementJob extends BaseRootEntity {
   @Valid 
   @Schema(name = "creationTime", description = "The measurement job creation time.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("creationTime")
+  public String getCreationTimeStr() {
+    return creationTime.toString();
+  }
+  
+  public void setCreationTime(String t) {
+    if ( t!= null ) {
+        this.creationTime = OffsetDateTime.parse( t );
+    }
+  }
+  
+  
   public OffsetDateTime getCreationTime() {
     return creationTime;
   }
@@ -268,6 +277,16 @@ public class ManagementJob extends BaseRootEntity {
   @Valid 
   @Schema(name = "lastModifiedTime", description = "The last time that a measurement job was modified.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lastModifiedTime")
+  public String getLastModifiedTimeStr() {
+    return lastModifiedTime.toString();
+  }
+  
+  public void setLastModifiedTime(String t) {
+    if ( t!= null ) {
+        this.lastModifiedTime = OffsetDateTime.parse( t );
+    }
+  }
+  
   public OffsetDateTime getLastModifiedTime() {
     return lastModifiedTime;
   }

@@ -73,7 +73,7 @@ public class Event {
   @JsonProperty("eventId")
   protected String eventId= UUID.randomUUID().toString();
 
-  @JsonProperty("eventTime")
+ 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   protected OffsetDateTime eventTime = OffsetDateTime.now(ZoneOffset.UTC);
 
@@ -441,14 +441,25 @@ public class Event {
   */
   @Valid 
   @Schema(name = "eventTime", description = "Time of the event occurrence.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("eventTime")
   public OffsetDateTime getEventTime() {
     return eventTime;
   }
+  
+  @JsonProperty("eventTime")
+  public String getEventTimeString() {
+      return eventTime.toString();
+  }
+  
 
   public void setEventTime(OffsetDateTime eventTime) {
     this.eventTime = eventTime;
   }
+  
+  public void setEventTime(String eventTime) {
+    if ( eventTime!= null ) {
+        this.eventTime = OffsetDateTime.parse( eventTime );         
+    }
+}
 
   public Event eventType(String eventType) {
     this.eventType = eventType;

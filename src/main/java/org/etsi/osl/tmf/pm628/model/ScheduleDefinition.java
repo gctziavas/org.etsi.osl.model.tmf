@@ -9,9 +9,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.annotation.Generated;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * ScheduleDefinition
@@ -22,18 +24,15 @@ import java.util.Objects;
 @Entity(name = "PM628_SchedDef")
 public class ScheduleDefinition extends BaseRootEntity {
 
-  @JsonProperty("scheduleDefinitionStartTime")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime scheduleDefinitionStartTime;
 
-  @JsonProperty("scheduleDefinitionEndTime")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime scheduleDefinitionEndTime;
 
   @JsonProperty("recurringFrequency")
   private String recurringFrequency;
 
-  @JsonProperty("excludedDate")
   @Valid
   private List<OffsetDateTime> excludedDate = new ArrayList<>();
 
@@ -49,7 +48,6 @@ public class ScheduleDefinition extends BaseRootEntity {
   )
   private List<DayOfWeekRecurrence> weeklyScheduledDefinition = new ArrayList<>();
 
-  @JsonProperty("monthlyScheduleDayOfMonthDefinition")
   @Valid
   private List<OffsetDateTime> monthlyScheduleDayOfMonthDefinition = new ArrayList<>();
 
@@ -57,7 +55,6 @@ public class ScheduleDefinition extends BaseRootEntity {
   @Embedded
   private MonthlyScheduleDayOfWeekDefinition monthlyScheduleDayOfWeekDefinition;
 
-  @JsonProperty("dateScheduleDefintion")
   @Valid
   private List<OffsetDateTime> dateScheduleDefintion = new ArrayList<>();
 
@@ -83,9 +80,21 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "scheduleDefinitionStartTime", description = "The Start time of the Schedule Definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("scheduleDefinitionStartTime")
+
   public OffsetDateTime getScheduleDefinitionStartTime() {
     return scheduleDefinitionStartTime;
+  }
+  
+  @JsonProperty("scheduleDefinitionStartTime")
+  public String getScheduleDefinitionStartTimeString() {
+    return scheduleDefinitionStartTime.toString();
+  }
+  
+  
+  public void setScheduleDefinitionStartTime(String t) {
+      if ( t!= null ) {
+          this.scheduleDefinitionStartTime = OffsetDateTime.parse( t );
+      }
   }
 
   public void setScheduleDefinitionStartTime(OffsetDateTime scheduleDefinitionStartTime) {
@@ -103,10 +112,21 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "scheduleDefinitionEndTime", description = "The End time of the Schedule Definition. If the attribute is empty the Schedule run forever, not having a time constraint.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("scheduleDefinitionEndTime")
+
   public OffsetDateTime getScheduleDefinitionEndTime() {
     return scheduleDefinitionEndTime;
   }
+  
+  @JsonProperty("scheduleDefinitionEndTime")
+  public String getScheduleDefinitionEndTimeString() {
+    return scheduleDefinitionEndTime.toString();
+  }
+  
+  public void setScheduleDefinitionEndTime(String t) {
+    if ( t!= null ) {
+        this.scheduleDefinitionEndTime = OffsetDateTime.parse( t );
+    }
+}
 
   public void setScheduleDefinitionEndTime(OffsetDateTime scheduleDefinitionEndTime) {
     this.scheduleDefinitionEndTime = scheduleDefinitionEndTime;
@@ -151,13 +171,38 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "excludedDate", description = "A list of specific dates that should be excluded from the Schedule Definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("excludedDate")
+
   public List<OffsetDateTime> getExcludedDate() {
     return excludedDate;
+    
+  }
+  
+  @JsonProperty("excludedDate")
+  public List<String> getExcludedDateString() {
+    // Transforming List<OffsetDateTime> to List<String>
+    List<String> stringList = excludedDate.stream()
+            .map(OffsetDateTime::toString)
+            .collect(Collectors.toList());
+    return stringList;
   }
 
   public void setExcludedDate(List<OffsetDateTime> excludedDate) {
     this.excludedDate = excludedDate;
+  }
+
+  @JsonProperty("excludedDate")
+  public void setExcludedDateString(List<String> excludedDate) {
+    this.excludedDate = excludedDate.stream()
+        .map(date -> {
+            try {
+                return OffsetDateTime.parse(date);
+            } catch (DateTimeParseException e) {
+                // Handle parse exception
+                System.err.println("Invalid date format: " + date);
+                return null; // or handle it as per your requirement
+            }
+        })
+        .collect(Collectors.toList());
   }
 
   public ScheduleDefinition scheduleDefinitionHourRange(String scheduleDefinitionHourRange) {
@@ -227,13 +272,38 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "monthlyScheduleDayOfMonthDefinition", description = "The schedule definition for running the threshold job", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("monthlyScheduleDayOfMonthDefinition")
+  
   public List<OffsetDateTime> getMonthlyScheduleDayOfMonthDefinition() {
     return monthlyScheduleDayOfMonthDefinition;
+  }
+  
+  @JsonProperty("monthlyScheduleDayOfMonthDefinition")
+  public List<String> getMonthlyScheduleDayOfMonthDefinitionString() {
+    // Transforming List<OffsetDateTime> to List<String>
+    List<String> stringList = monthlyScheduleDayOfMonthDefinition.stream()
+            .map(OffsetDateTime::toString)
+            .collect(Collectors.toList());
+    return stringList;
   }
 
   public void setMonthlyScheduleDayOfMonthDefinition(List<OffsetDateTime> monthlyScheduleDayOfMonthDefinition) {
     this.monthlyScheduleDayOfMonthDefinition = monthlyScheduleDayOfMonthDefinition;
+  }
+  
+  @JsonProperty("monthlyScheduleDayOfMonthDefinition")
+  public void setMonthlyScheduleDayOfMonthDefinitionString(List<String> monthlyScheduleDayOfMonthDefinition) {
+    
+    this.monthlyScheduleDayOfMonthDefinition = monthlyScheduleDayOfMonthDefinition.stream()
+        .map(date -> {
+            try {
+                return OffsetDateTime.parse(date);
+            } catch (DateTimeParseException e) {
+                // Handle parse exception
+                System.err.println("Invalid date format: " + date);
+                return null; // or handle it as per your requirement
+            }
+        })
+        .collect(Collectors.toList());
   }
 
   public ScheduleDefinition monthlyScheduleDayOfWeekDefinition(MonthlyScheduleDayOfWeekDefinition monthlyScheduleDayOfWeekDefinition) {
@@ -275,13 +345,37 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "dateScheduleDefintion", description = "The date schedule is used to define a schedule that is based on specific dates, such as December 31st 2015, February 28th 2013", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("dateScheduleDefintion")
+  
   public List<OffsetDateTime> getDateScheduleDefintion() {
     return dateScheduleDefintion;
   }
+  
+  @JsonProperty("dateScheduleDefintion")
+  public List<String> getDateScheduleDefintionString() {
+    List<String> stringList = dateScheduleDefintion.stream()
+        .map(OffsetDateTime::toString)
+        .collect(Collectors.toList());
+    return stringList;
+  }
+
 
   public void setDateScheduleDefintion(List<OffsetDateTime> dateScheduleDefintion) {
     this.dateScheduleDefintion = dateScheduleDefintion;
+  }
+
+  @JsonProperty("dateScheduleDefintion")
+  public void setDateScheduleDefintionString(List<String> dateScheduleDefintion) {
+    this.dateScheduleDefintion = dateScheduleDefintion.stream()
+        .map(date -> {
+            try {
+                return OffsetDateTime.parse(date);
+            } catch (DateTimeParseException e) {
+                // Handle parse exception
+                System.err.println("Invalid date format: " + date);
+                return null; // or handle it as per your requirement
+            }
+        })
+        .collect(Collectors.toList());
   }
 
   @Override
