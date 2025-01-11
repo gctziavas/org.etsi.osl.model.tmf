@@ -27,7 +27,6 @@ public class PerformanceIndicatorSpecificationRefMVO implements PerformanceIndic
   @JsonProperty("href")
   private String href;
 
-  @JsonProperty("uuid")
   private String uuid;
 
   @JsonProperty("name")

@@ -33,7 +33,6 @@ public class DayOfMonthRecurrence {
   @Column(name = "domr_schema_location")
   private String schemaLocation;
 
-  @JsonProperty("dates")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime dates;
 
@@ -120,6 +119,16 @@ public class DayOfMonthRecurrence {
   @Valid 
   @Schema(name = "dates", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("dates")
+  public String getDatesString() {
+    return dates.toString();
+  }
+
+  public void setDates(String dates) {
+    if ( dates!= null ) {
+      this.dates = OffsetDateTime.parse( dates );
+  }
+  }
+  
   public OffsetDateTime getDates() {
     return dates;
   }
