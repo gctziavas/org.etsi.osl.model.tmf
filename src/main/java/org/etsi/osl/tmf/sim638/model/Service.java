@@ -37,6 +37,7 @@ import org.etsi.osl.tmf.common.model.service.ServiceSpecificationRef;
 import org.etsi.osl.tmf.common.model.service.ServiceStateType;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
 import org.etsi.osl.tmf.ri639.model.Resource;
+import org.etsi.osl.tmf.ri639.model.ResourceStatusType;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
@@ -788,71 +789,99 @@ public class Service extends BaseRootNamedEntity {
 	 * @param supportingResources
 	 * @return
 	 */
-	public ServiceStateType findNextStateBasedOnSupportingResources(List<Resource> supportingResources) {
+	public ServiceStateType findNextStateBasedOnResourceList(List<Resource> supportingResources) {
+      
+      if (this.getState().equals( ServiceStateType.TERMINATED  )) {
+        return ServiceStateType.TERMINATED;
+      }
+
       @Valid
       ServiceStateType nextState = this.getState() ;
-      boolean allActive = this.getSupportingResource().size() > 0 ;
-      boolean allTerminated = this.getSupportingResource().size() > 0 ;
-      boolean existsInactive=false;
-      boolean existsTerminated=false;
+      boolean allResourcesAvailable = true ;
+      boolean allResourcesTerminated = true ;
+      boolean existsSuspended=false;
+      boolean existsStandby=false;
       boolean existsReserved=false;
+      boolean existUnknown=false;
+      boolean existAlarm=false;
       
       for ( Resource res : supportingResources ) {
                     
           if ( res.getResourceStatus() != null ) {
             switch (res.getResourceStatus()) {
               case AVAILABLE: {
-                nextState = ServiceStateType.ACTIVE;
+                
                 break;
               }
               case STANDBY: {
-                nextState = ServiceStateType.RESERVED;
+                existsStandby = true;
                 break;
               }
               case SUSPENDED: {
-                nextState = ServiceStateType.INACTIVE;
+                existsSuspended = true;
                 break;
               }
               case RESERVED: {
-                nextState = ServiceStateType.RESERVED;
+                existsReserved = true;
                 break;
               }
               case UNKNOWN: {
-                if (this.getState().equals( ServiceStateType.ACTIVE  )) {
-                  nextState = ServiceStateType.TERMINATED;              
-                }
+                existUnknown =true;
                 break;
               }
               case ALARM: {
-                nextState = ServiceStateType.INACTIVE;
+                existAlarm = true;
                 break;
               }
               default:
                 throw new IllegalArgumentException("Unexpected value: " + res.getResourceStatus());
             } 
-          }
+          } else 
+            existUnknown =true;
 
-          allActive = allActive && nextState == ServiceStateType.ACTIVE;
-          allTerminated = allTerminated && nextState == ServiceStateType.TERMINATED;
-          existsInactive = existsInactive || nextState == ServiceStateType.INACTIVE;
-          existsTerminated = existsTerminated || nextState == ServiceStateType.TERMINATED;
-          existsReserved = existsReserved || nextState == ServiceStateType.RESERVED;
+          allResourcesAvailable = allResourcesAvailable && res.getResourceStatus()!=null && res.getResourceStatus().equals(ResourceStatusType.AVAILABLE);
+          allResourcesTerminated = allResourcesTerminated && res.getResourceStatus()!=null && res.getResourceStatus().equals(ResourceStatusType.SUSPENDED);
           
-       
-          if ( allActive ) {
-            nextState = ServiceStateType.ACTIVE ; 
-          } else if ( allTerminated ) {
-            nextState = ServiceStateType.TERMINATED ; 
-          } else if ( existsInactive ) {
-            nextState = ServiceStateType.INACTIVE ; 
-          } else if ( existsReserved ) {
-            nextState = ServiceStateType.RESERVED ; 
-          } else if ( existsTerminated ) {
-            nextState = ServiceStateType.INACTIVE ; 
-          }
-	  
       }
+      
+      if ( allResourcesAvailable ) {
+        nextState = ServiceStateType.ACTIVE ; 
+      } else if ( allResourcesTerminated ) {
+        nextState = ServiceStateType.TERMINATED ; 
+      } else if ( existAlarm ) {
+        nextState = ServiceStateType.INACTIVE ; 
+      } else if ( existsReserved || existsStandby) {
+        nextState = ServiceStateType.RESERVED ; 
+      } else if ( existsSuspended ) {
+        nextState = ServiceStateType.TERMINATED ; 
+      } else if ( existUnknown ) {
+//        if (this.getState().equals( ServiceStateType.ACTIVE  )) { //helpful state for argoCD lifecycle
+//          nextState = ServiceStateType.TERMINATED ;
+//        }
+      }
+      
       return nextState;      
       
 	}
+
+
+  /**
+   * @param res
+   * @return true if this resource is same (kubernetes) kind.
+   */
+  public boolean checkIsKindResource(Resource res) {
+    Characteristic serviceKindChar = this.getServiceCharacteristicByName("Kind"); 
+    if (serviceKindChar != null && serviceKindChar.getValue()!=null) {
+      org.etsi.osl.tmf.ri639.model.Characteristic ckind = res.getResourceCharacteristicByName("Kind");
+      String resourceKind="";
+      if ( ckind != null && ckind.getValue() != null) {
+        resourceKind = ckind.getValue().getValue() ; //example "Application"
+      }
+      if (serviceKindChar.getValue().getValue().equals( resourceKind ) || this.getCategory().equals(resourceKind) ) { //if this service is the same kind as the resource then don't prefix the characteristic
+        return true;
+      } 
+    }
+    
+    return false;
+  }
 }

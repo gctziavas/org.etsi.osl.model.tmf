@@ -20,11 +20,14 @@
 package org.etsi.osl.tmf.po622.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.etsi.osl.tmf.common.model.Quantity;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Lob;
 import jakarta.validation.Valid;
 
 /**
@@ -33,24 +36,17 @@ import jakarta.validation.Valid;
 @Schema(description = "Description of a productTerm linked to this orderItem. This represent a commitment with a duration")
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class OrderTerm   {
+@Entity(name = "OrderTerm622")
+public class OrderTerm   extends BaseRootNamedEntity {
+
+  @Lob
+  @Column(name = "LDESCRIPTION", columnDefinition = "LONGTEXT")
   @JsonProperty("description")
   private String description = null;
-
-  @JsonProperty("name")
-  private String name = null;
 
   @JsonProperty("duration")
   private Quantity duration = null;
 
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   public OrderTerm description(String description) {
     this.description = description;

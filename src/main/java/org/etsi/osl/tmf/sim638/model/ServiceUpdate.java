@@ -819,4 +819,14 @@ public class ServiceUpdate {
 		}
 		return o.toString().replace("\n", "\n    ");
 	}
+
+  public Characteristic getServiceCharacteristicByName(String characteristicname) {
+
+    for (Characteristic c : this.serviceCharacteristic) {
+        if ( c.getName().equals( characteristicname )) {
+            return c;
+        }
+    }
+    return null;
+  }
 }

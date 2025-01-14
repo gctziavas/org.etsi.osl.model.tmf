@@ -20,7 +20,6 @@
 package org.etsi.osl.tmf.po622.model;
 
 import java.util.Objects;
-
 import org.springframework.validation.annotation.Validated;
 
 /**

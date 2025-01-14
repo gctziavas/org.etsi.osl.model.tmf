@@ -111,22 +111,22 @@ public class ProductOffering extends BaseEntity {
 	private Set<ProductOfferingTerm> productOfferingTerm = new HashSet<>();
 
 	@JsonProperty("productSpecification")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private ProductSpecificationRef productSpecification = null;
 
 	@JsonProperty("resourceCandidate")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private ResourceCandidateRef resourceCandidate = null;
 
 	@JsonProperty("serviceCandidate")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private ServiceCandidateRef serviceCandidate = null;
 
 	@JsonProperty("serviceLevelAgreement")
-	@OneToOne( cascade = {CascadeType.MERGE, CascadeType.DETACH} )
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     @JoinColumn(referencedColumnName = "uuid")
 	private SLARef serviceLevelAgreement = null;
 
@@ -733,6 +733,15 @@ public class ProductOffering extends BaseEntity {
 		}
 		return o.toString().replace("\n", "\n    ");
 	}
+
+  public Object findCharacteristicByName(String aname) {
+    for (ProductSpecificationCharacteristicValueUse ssci : this.prodSpecCharValueUse ) {
+      if (ssci.getName()!=null && ssci.getName().equals(aname)) {
+          return ssci;
+      }
+  }
+    return null;
+  }
 
 
 }

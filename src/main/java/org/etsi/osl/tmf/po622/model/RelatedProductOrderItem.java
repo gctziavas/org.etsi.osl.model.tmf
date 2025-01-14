@@ -20,12 +20,12 @@
 package org.etsi.osl.tmf.po622.model;
 
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.etsi.osl.tmf.common.model.BaseRootEntity;
+import org.etsi.osl.tmf.common.model.BaseRootNamedEntity;
 import org.springframework.validation.annotation.Validated;
-
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -34,7 +34,8 @@ import jakarta.validation.constraints.NotNull;
 @Schema(description = "RelatedProductOrderItem (ProductOrder item) .The product order item which triggered product creation/change/termination.")
 @Validated
 @jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-10-30T10:29:21.184964400+02:00[Europe/Athens]")
-public class RelatedProductOrderItem   {
+@Entity(name = "RelatedProdOrdItem622")
+public class RelatedProductOrderItem   extends BaseRootEntity {
   @JsonProperty("orderItemAction")
   private String orderItemAction = null;
 
@@ -50,14 +51,6 @@ public class RelatedProductOrderItem   {
   @JsonProperty("role")
   private String role = null;
 
-  @JsonProperty("@baseType")
-  private String baseType = null;
-
-  @JsonProperty("@schemaLocation")
-  private String schemaLocation = null;
-
-  @JsonProperty("@type")
-  private String type = null;
 
   @JsonProperty("@referredType")
   private String _atReferredType = null;

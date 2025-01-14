@@ -29,6 +29,7 @@ import org.etsi.osl.tmf.common.model.BaseEntity;
 import org.etsi.osl.tmf.common.model.service.ServiceSpecificationRef;
 import org.etsi.osl.tmf.prm669.model.RelatedParty;
 import org.etsi.osl.tmf.rcm634.model.ResourceSpecificationRef;
+import org.etsi.osl.tmf.scm633.model.ServiceSpecCharacteristic;
 import org.springframework.validation.annotation.Validated;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
@@ -521,4 +522,13 @@ public class ProductSpecification extends BaseEntity {
 		}
 		return o.toString().replace("\n", "\n    ");
 	}
+
+  public ProductSpecificationCharacteristic findProdCharacteristicByName(String an) {
+    for (ProductSpecificationCharacteristic ssci : this.getProductSpecCharacteristic()) {
+      if (ssci.getName()!=null && ssci.getName().equals(an)) {
+          return ssci;
+      }
+  }
+    return null;
+  }
 }
