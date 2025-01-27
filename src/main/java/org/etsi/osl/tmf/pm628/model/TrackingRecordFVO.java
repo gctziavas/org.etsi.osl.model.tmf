@@ -42,7 +42,6 @@ public class TrackingRecordFVO {
   @JsonProperty("systemId")
   private String systemId;
 
-  @JsonProperty("time")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime time;
 
@@ -200,6 +199,16 @@ public class TrackingRecordFVO {
   @Valid 
   @Schema(name = "time", description = "Describes the time at which the action was done", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
+  public String getTimeString() {
+    return time.toString();
+  }
+
+  public void setTime(String time) {
+    if ( time!= null ) {
+      this.time = OffsetDateTime.parse( time );
+    }
+  }
+
   public OffsetDateTime getTime() {
     return time;
   }

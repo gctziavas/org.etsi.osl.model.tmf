@@ -52,7 +52,6 @@ public class Event {
   @JsonProperty("priority")
   protected String priority;
 
-  @JsonProperty("timeOccurred")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   protected OffsetDateTime timeOccurred;
 
@@ -306,6 +305,16 @@ public class Event {
   @Valid 
   @Schema(name = "timeOccurred", description = "The time the event occurred.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("timeOccurred")
+  public String getTimeOccurredString() {
+    return timeOccurred.toString();
+  }
+
+  public void setTimeOccurred(String timeOccurred) {
+    if ( timeOccurred!= null ) {
+      this.timeOccurred = OffsetDateTime.parse( timeOccurred );
+    }
+  }
+
   public OffsetDateTime getTimeOccurred() {
     return timeOccurred;
   }

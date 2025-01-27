@@ -33,7 +33,6 @@ public class NoteMVO {
   @JsonProperty("author")
   private String author;
 
-  @JsonProperty("date")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime date;
 
@@ -163,6 +162,16 @@ public class NoteMVO {
   @Valid 
   @Schema(name = "date", example = "2020-11-20T08:00Z", description = "Date of the note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("date")
+  public String getDateString() {
+    return date.toString();
+  }
+
+  public void setDate(String date) {
+    if ( date!= null ) {
+      this.date = OffsetDateTime.parse( date );
+    }
+  }
+
   public OffsetDateTime getDate() {
     return date;
   }

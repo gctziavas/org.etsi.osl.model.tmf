@@ -61,7 +61,6 @@ public class ResourceFVO implements ResourceRefOrValueFVO {
   @JsonProperty("name")
   private String name;
 
-  @JsonProperty("endOperatingDate")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime endOperatingDate;
 
@@ -111,7 +110,6 @@ public class ResourceFVO implements ResourceRefOrValueFVO {
   @JsonProperty("resourceSpecification")
   private ResourceSpecificationRefFVO resourceSpecification;
 
-  @JsonProperty("startOperatingDate")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startOperatingDate;
 
@@ -312,6 +310,16 @@ public class ResourceFVO implements ResourceRefOrValueFVO {
   @Valid 
   @Schema(name = "endOperatingDate", description = "A date time( DateTime). The date till the resource is operating", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("endOperatingDate")
+  public String getEndOperatingDateString() {
+    return endOperatingDate.toString();
+  }
+
+  public void setEndOperatingDate(String endOperatingDate) {
+    if ( endOperatingDate!= null ) {
+      this.endOperatingDate = OffsetDateTime.parse( endOperatingDate );
+    }
+  }
+
   public OffsetDateTime getEndOperatingDate() {
     return endOperatingDate;
   }
@@ -648,6 +656,16 @@ public class ResourceFVO implements ResourceRefOrValueFVO {
   @Valid 
   @Schema(name = "startOperatingDate", description = "A date time( DateTime). The date from which the resource is operating", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("startOperatingDate")
+  public String getStartOperatingDateString() {
+    return startOperatingDate.toString();
+  }
+
+  public void setStartOperatingDate(String startOperatingDate) {
+    if ( startOperatingDate!= null ) {
+      this.startOperatingDate = OffsetDateTime.parse( startOperatingDate );
+    }
+  }
+
   public OffsetDateTime getStartOperatingDate() {
     return startOperatingDate;
   }
