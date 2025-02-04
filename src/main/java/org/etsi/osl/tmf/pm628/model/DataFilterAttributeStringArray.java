@@ -43,7 +43,6 @@ public class DataFilterAttributeStringArray extends DataFilterAttribute {
   */
   
   @Schema(name = "value", example = "[\"Dallas\",\"Houston\",\"Paris\"]", description = "an array of field names", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("value")
   public List<String> getValue() {
     return value;
   }

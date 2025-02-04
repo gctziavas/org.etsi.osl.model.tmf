@@ -53,7 +53,6 @@ public class MeasurementCollectionJobMVO extends MeasurementJobMVO {
   */
   
   @Schema(name = "outputFormat", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("outputFormat")
   public String getOutputFormat() {
     return outputFormat;
   }
@@ -73,7 +72,6 @@ public class MeasurementCollectionJobMVO extends MeasurementJobMVO {
   */
   @Valid 
   @Schema(name = "reportingPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("reportingPeriod")
   public ReportingPeriod getReportingPeriod() {
     return reportingPeriod;
   }
@@ -93,7 +91,6 @@ public class MeasurementCollectionJobMVO extends MeasurementJobMVO {
   */
   @Valid 
   @Schema(name = "jobCollectionFilter", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobCollectionFilter")
   public DataFilterMapMVO getJobCollectionFilter() {
     return jobCollectionFilter;
   }
@@ -113,7 +110,6 @@ public class MeasurementCollectionJobMVO extends MeasurementJobMVO {
   */
   @Valid 
   @Schema(name = "searchTaskFilter", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("searchTaskFilter")
   public DataFilterMapMVO getSearchTaskFilter() {
     return searchTaskFilter;
   }
@@ -133,7 +129,6 @@ public class MeasurementCollectionJobMVO extends MeasurementJobMVO {
   */
   
   @Schema(name = "jobOnDemand", description = "True if the job is a single job to be executed immediately in which case the reportingPeriod and scheduleDefinition would not be applicable, false otherwise", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobOnDemand")
   public Boolean getJobOnDemand() {
     return jobOnDemand;
   }

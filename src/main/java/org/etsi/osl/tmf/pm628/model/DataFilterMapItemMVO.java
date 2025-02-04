@@ -17,8 +17,10 @@ import java.util.Objects;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-05-15T07:30:16.936523289Z[Etc/UTC]", comments = "Generator version: 7.6.0-SNAPSHOT")
 public class DataFilterMapItemMVO {
 
+  @JsonProperty("filterTemplate")
   private DataFilterTemplateMVO filterTemplate;
 
+  @JsonProperty("stringArray")
   private DataFilterAttributeStringArray stringArray;
 
   public DataFilterMapItemMVO filterTemplate(DataFilterTemplateMVO filterTemplate) {
@@ -32,7 +34,6 @@ public class DataFilterMapItemMVO {
   */
   @Valid 
   @Schema(name = "filterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("filterTemplate")
   public DataFilterTemplateMVO getFilterTemplate() {
     return filterTemplate;
   }
@@ -52,7 +53,6 @@ public class DataFilterMapItemMVO {
   */
   @Valid 
   @Schema(name = "stringArray", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("stringArray")
   public DataFilterAttributeStringArray getStringArray() {
     return stringArray;
   }

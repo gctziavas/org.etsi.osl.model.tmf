@@ -44,7 +44,6 @@ public class PerformanceIndicatorGroupSpecificationRef extends BaseRootNamedEnti
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }
@@ -64,7 +63,6 @@ public class PerformanceIndicatorGroupSpecificationRef extends BaseRootNamedEnti
   */
   
   @Schema(name = "version", description = "Version of the performance indicator group specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("version")
   public String getVersion() {
     return version;
   }

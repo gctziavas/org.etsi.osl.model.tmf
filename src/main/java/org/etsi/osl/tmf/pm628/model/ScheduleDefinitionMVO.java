@@ -83,7 +83,6 @@ public class ScheduleDefinitionMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -103,7 +102,6 @@ public class ScheduleDefinitionMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -123,7 +121,6 @@ public class ScheduleDefinitionMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -143,7 +140,6 @@ public class ScheduleDefinitionMVO {
   */
   
   @Schema(name = "uuid", description = "Identifier of the schedule definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -226,7 +222,6 @@ public class ScheduleDefinitionMVO {
   */
   
   @Schema(name = "recurringFrequency", description = "A recurring frequency to run a job within day that is included in schedule definition, for example: every 5 minutes, 15 minute, 30 minutes, 1 hour", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("recurringFrequency")
   public String getRecurringFrequency() {
     return recurringFrequency;
   }
@@ -299,7 +294,6 @@ public class ScheduleDefinitionMVO {
   */
   
   @Schema(name = "scheduleDefinitionHourRange", description = "A list of time ranges within a specific day that the schedule will be active on, for example 08:00-12:00, 16:00-19:00.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("scheduleDefinitionHourRange")
   public String getScheduleDefinitionHourRange() {
     return scheduleDefinitionHourRange;
   }
@@ -327,7 +321,6 @@ public class ScheduleDefinitionMVO {
   */
   @Valid 
   @Schema(name = "WeeklyScheduledDefinition", description = "The weekly schedule is used to define a schedule that is based on the days of the week, e.g. a schedule that will be active only on Monday and Tuesday.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("WeeklyScheduledDefinition")
   public List<DayOfWeekRecurrenceMVO> getWeeklyScheduledDefinition() {
     return weeklyScheduledDefinition;
   }
@@ -399,7 +392,6 @@ public class ScheduleDefinitionMVO {
   */
   @Valid 
   @Schema(name = "MonthlyScheduleDayOfWeekDefinition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("MonthlyScheduleDayOfWeekDefinition")
   public MonthlyScheduleDayOfWeekDefinitionMVO getMonthlyScheduleDayOfWeekDefinition() {
     return monthlyScheduleDayOfWeekDefinition;
   }

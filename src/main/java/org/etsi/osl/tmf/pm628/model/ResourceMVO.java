@@ -149,7 +149,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -169,7 +168,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -189,7 +187,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -209,7 +206,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -229,7 +225,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "uuid", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -249,7 +244,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "category", description = "Category of the concrete resource. e.g Gold, Silver for MSISDN concrete resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("category")
   public String getCategory() {
     return category;
   }
@@ -269,7 +263,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "description", description = "free-text description of the resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
   public String getDescription() {
     return description;
   }
@@ -289,7 +282,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "name", description = "the name of the resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -339,7 +331,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "administrativeState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("administrativeState")
   public ResourceAdministrativeStateType getAdministrativeState() {
     return administrativeState;
   }
@@ -359,7 +350,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "operationalState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("operationalState")
   public ResourceOperationalStateType getOperationalState() {
     return operationalState;
   }
@@ -379,7 +369,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "resourceStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceStatus")
   public ResourceStatusType getResourceStatus() {
     return resourceStatus;
   }
@@ -399,7 +388,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "usageState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("usageState")
   public ResourceUsageStateType getUsageState() {
     return usageState;
   }
@@ -419,7 +407,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
   public TimePeriod getValidFor() {
     return validFor;
   }
@@ -447,7 +434,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("note")
   public List<NoteMVO> getNote() {
     return note;
   }
@@ -475,7 +461,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "resourceOrderItem", description = "A list of resource order items related to this resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceOrderItem")
   public List<RelatedResourceOrderItemMVO> getResourceOrderItem() {
     return resourceOrderItem;
   }
@@ -503,7 +488,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "place", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("place")
   public List<RelatedPlaceRefMVO> getPlace() {
     return place;
   }
@@ -531,7 +515,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "relatedParty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("relatedParty")
   public List<RelatedPartyRefOrPartyRoleRefMVO> getRelatedParty() {
     return relatedParty;
   }
@@ -559,7 +542,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "resourceRelationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceRelationship")
   public List<ResourceRelationshipMVO> getResourceRelationship() {
     return resourceRelationship;
   }
@@ -587,7 +569,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "resourceCharacteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceCharacteristic")
   public List<CharacteristicMVO> getResourceCharacteristic() {
     return resourceCharacteristic;
   }
@@ -615,7 +596,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("attachment")
   public List<AttachmentRefMVO> getAttachment() {
     return attachment;
   }
@@ -635,7 +615,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "resourceSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceSpecification")
   public ResourceSpecificationRefMVO getResourceSpecification() {
     return resourceSpecification;
   }
@@ -685,7 +664,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   
   @Schema(name = "resourceVersion", description = "A field that identifies the specific version of an instance of a resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceVersion")
   public String getResourceVersion() {
     return resourceVersion;
   }
@@ -713,7 +691,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "activationFeature", description = "Configuration features", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("activationFeature")
   public List<FeatureMVO> getActivationFeature() {
     return activationFeature;
   }
@@ -733,7 +710,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "intent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("intent")
   public IntentRefMVO getIntent() {
     return intent;
   }
@@ -761,7 +737,6 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
   */
   @Valid 
   @Schema(name = "externalIdentifier", description = "An identification of this resource that is owned by or originates in a software system different from the current system. The structure identifies the system itself, the nature of the resource within the system and the unique ID of the resource within the system. It is anticipated that multiple external IDs can be held for a single resource, e.g. if the resource passed through multiple systems on the way to the current system.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("externalIdentifier")
   public List<ExternalIdentifierMVO> getExternalIdentifier() {
     return externalIdentifier;
   }

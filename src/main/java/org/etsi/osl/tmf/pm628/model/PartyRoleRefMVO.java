@@ -64,7 +64,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -84,7 +83,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -104,7 +102,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -124,7 +121,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -144,7 +140,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "uuid", description = "The identifier of the referred entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -164,7 +159,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "name", description = "Name of the referred entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -184,7 +178,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }
@@ -204,7 +197,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "partyId", description = "The identifier of the engaged party that is linked to the PartyRole object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("partyId")
   public String getPartyId() {
     return partyId;
   }
@@ -224,7 +216,6 @@ public class PartyRoleRefMVO implements PartyRefOrPartyRoleRefMVO {
   */
   
   @Schema(name = "partyName", description = "The name of the engaged party that is linked to the PartyRole object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("partyName")
   public String getPartyName() {
     return partyName;
   }

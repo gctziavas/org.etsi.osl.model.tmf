@@ -52,7 +52,6 @@ public class DayOfWeekRecurrenceFVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -72,7 +71,6 @@ public class DayOfWeekRecurrenceFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -92,7 +90,6 @@ public class DayOfWeekRecurrenceFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }

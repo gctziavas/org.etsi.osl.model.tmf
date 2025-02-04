@@ -53,7 +53,6 @@ public class DataAccessEndpointFVO extends LogicalResourceFVO {
   */
   @Valid 
   @Schema(name = "uri", description = "URI for using the data access API", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uri")
   public URI getUri() {
     return uri;
   }
@@ -73,7 +72,6 @@ public class DataAccessEndpointFVO extends LogicalResourceFVO {
   */
   @Valid 
   @Schema(name = "uriQueryFilter", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uriQueryFilter")
   public DataFilterMapFVO getUriQueryFilter() {
     return uriQueryFilter;
   }
@@ -93,7 +91,6 @@ public class DataAccessEndpointFVO extends LogicalResourceFVO {
   */
   
   @Schema(name = "apiType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("apiType")
   public String getApiType() {
     return apiType;
   }

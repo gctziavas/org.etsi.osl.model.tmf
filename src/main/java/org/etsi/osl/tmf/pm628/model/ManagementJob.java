@@ -107,7 +107,6 @@ public class ManagementJob extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "adminState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("adminState")
   public AdministrativeState getAdminState() {
     return adminState;
   }
@@ -158,7 +157,6 @@ public class ManagementJob extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "executionState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("executionState")
   public ExecutionStateType getExecutionState() {
     return executionState;
   }
@@ -186,7 +184,6 @@ public class ManagementJob extends BaseRootEntity {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "fileTransferData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("fileTransferData")
   public List<FileTransferData> getFileTransferData() {
     return fileTransferData;
   }
@@ -214,7 +211,6 @@ public class ManagementJob extends BaseRootEntity {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "dataAccessEndpoint", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("dataAccessEndpoint")
   public List<DataAccessEndpoint> getDataAccessEndpoint() {
     return dataAccessEndpoint;
   }
@@ -234,7 +230,6 @@ public class ManagementJob extends BaseRootEntity {
   */
   
   @Schema(name = "jobId", description = "The ID of the management job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobId")
   public String getJobId() {
     return jobId;
   }
@@ -256,7 +251,6 @@ public class ManagementJob extends BaseRootEntity {
   */
   @Min(1) @Max(10) 
   @Schema(name = "jobPriority", description = "The priority of the management job. The way the management application will use the JobPriority to schedule job execution is application specific and outside the scope. Integer, limited to a range of 1 to 10.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobPriority")
   public Integer getJobPriority() {
     return jobPriority;
   }
@@ -314,7 +308,6 @@ public class ManagementJob extends BaseRootEntity {
   */
   @Valid @Size(max = 1) 
   @Schema(name = "scheduleDefinition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("scheduleDefinition")
   public List<ScheduleDefinition> getScheduleDefinition() {
     return scheduleDefinition;
   }

@@ -104,7 +104,6 @@ public class Event {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -124,7 +123,6 @@ public class Event {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -144,7 +142,6 @@ public class Event {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -164,7 +161,6 @@ public class Event {
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -184,7 +180,6 @@ public class Event {
   */
   
   @Schema(name = "id", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("id")
   public String getId() {
     return id;
   }
@@ -204,7 +199,6 @@ public class Event {
   */
   
   @Schema(name = "correlationId", description = "The correlation id for this event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("correlationId")
   public String getCorrelationId() {
     return correlationId;
   }
@@ -224,7 +218,6 @@ public class Event {
   */
   
   @Schema(name = "domain", description = "The domain of the event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("domain")
   public String getDomain() {
     return domain;
   }
@@ -244,7 +237,6 @@ public class Event {
   */
   
   @Schema(name = "title", description = "The title of the event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("title")
   public String getTitle() {
     return title;
   }
@@ -264,7 +256,6 @@ public class Event {
   */
   
   @Schema(name = "description", description = "An explanation of the event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
   public String getDescription() {
     return description;
   }
@@ -284,7 +275,6 @@ public class Event {
   */
   
   @Schema(name = "priority", description = "A priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("priority")
   public String getPriority() {
     return priority;
   }
@@ -334,7 +324,6 @@ public class Event {
   */
   @Valid 
   @Schema(name = "source", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("source")
   public EntityRef getSource() {
     return source;
   }
@@ -354,7 +343,6 @@ public class Event {
   */
   @Valid 
   @Schema(name = "reportingSystem", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("reportingSystem")
   public EntityRef getReportingSystem() {
     return reportingSystem;
   }
@@ -382,7 +370,6 @@ public class Event {
   */
   @Valid 
   @Schema(name = "relatedParty", description = "Collection of related parties", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("relatedParty")
   public List<RelatedPartyRefOrPartyRoleRef> getRelatedParty() {
     return relatedParty;
   }
@@ -410,7 +397,6 @@ public class Event {
   */
   @Valid 
   @Schema(name = "analyticCharacteristic", description = "Collection of analytic characteristics", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("analyticCharacteristic")
   public List<Characteristic> getAnalyticCharacteristic() {
     return analyticCharacteristic;
   }
@@ -430,7 +416,6 @@ public class Event {
   */
   
   @Schema(name = "eventId", description = "The identifier of the notification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("eventId")
   public String getEventId() {
     return eventId;
   }
@@ -481,7 +466,6 @@ public class Event {
   */
   
   @Schema(name = "eventType", description = "The type of the notification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("eventType")
   public String getEventType() {
     return eventType;
   }
@@ -501,7 +485,6 @@ public class Event {
   */
   
   @Schema(name = "event", description = "The event linked to the involved resource object", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("event")
   public Object getEvent() {
     return event;
   }

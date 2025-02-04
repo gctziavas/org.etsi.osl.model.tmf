@@ -74,7 +74,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -94,7 +93,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -114,7 +112,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -134,7 +131,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   @Valid 
   @Schema(name = "fileLocation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("fileLocation")
   public URI getFileLocation() {
     return fileLocation;
   }
@@ -154,7 +150,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   
   @Schema(name = "fileFormat", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("fileFormat")
   public String getFileFormat() {
     return fileFormat;
   }
@@ -174,7 +169,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   @Valid 
   @Schema(name = "compressionType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("compressionType")
   public CompressionType getCompressionType() {
     return compressionType;
   }
@@ -194,7 +188,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   @Valid 
   @Schema(name = "retentionPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("retentionPeriod")
   public Duration getRetentionPeriod() {
     return retentionPeriod;
   }
@@ -214,7 +207,6 @@ public class FileTransferData extends ProtocolTransferData {
   */
   @Valid 
   @Schema(name = "packingType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("packingType")
   public PackingType getPackingType() {
     return packingType;
   }

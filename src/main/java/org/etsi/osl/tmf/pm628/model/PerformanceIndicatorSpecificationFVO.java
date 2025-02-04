@@ -96,7 +96,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -116,7 +115,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -136,7 +134,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -156,7 +153,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -176,7 +172,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "uuid", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -196,7 +191,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @NotNull 
   @Schema(name = "name", description = "A word, term, or phrase by which a PerformanceIndicatorSpecification is known and distinguished from other PerformanceIndicatorSpecifications.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -216,7 +210,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "description", description = "A narrative that explains in detail what the PerformanceIndicatorSpecification is.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
   public String getDescription() {
     return description;
   }
@@ -236,7 +229,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "perspective", description = "The point of view for the PerformanceIndicatorSpecification, such as a single user instance or aggregation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("perspective")
   public String getPerspective() {
     return perspective;
   }
@@ -256,7 +248,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @NotNull 
   @Schema(name = "indicatorCategory", description = "A grouping or set of PerformanceIndicatorSpecifications that are classified together because of common characteristics, such as technology specific, service specific, or technology/service independent.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("indicatorCategory")
   public String getIndicatorCategory() {
     return indicatorCategory;
   }
@@ -276,7 +267,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @NotNull @Valid 
   @Schema(name = "indicatorType", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("indicatorType")
   public IndicatorType getIndicatorType() {
     return indicatorType;
   }
@@ -296,7 +286,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "derivationAlgorithm", description = "A step-by-step procedure used to calculate the value of PerformanceIndicator.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("derivationAlgorithm")
   public String getDerivationAlgorithm() {
     return derivationAlgorithm;
   }
@@ -316,7 +305,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   
   @Schema(name = "derivationMethod", description = "For simple calculations, the method used to calculate the value of a PerformanceIndicator, such as average, minimum, maximum, sum and so forth.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("derivationMethod")
   public String getDerivationMethod() {
     return derivationMethod;
   }
@@ -336,7 +324,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @Valid 
   @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
   public TimePeriod getValidFor() {
     return validFor;
   }
@@ -356,7 +343,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @NotNull @Valid 
   @Schema(name = "collectionType", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("collectionType")
   public CollectionType getCollectionType() {
     return collectionType;
   }
@@ -376,7 +362,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @NotNull 
   @Schema(name = "indicatorUnit", description = "The unit by which the indicator is measured. For example, seconds, KBs, rate per second, etc.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("indicatorUnit")
   public String getIndicatorUnit() {
     return indicatorUnit;
   }
@@ -404,7 +389,6 @@ public class PerformanceIndicatorSpecificationFVO implements PerformanceIndicato
   */
   @Valid @Size(min = 0) 
   @Schema(name = "performanceIndicatorSpecRelationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorSpecRelationship")
   public List<PerformanceIndicatorSpecRelationshipFVO> getPerformanceIndicatorSpecRelationship() {
     return performanceIndicatorSpecRelationship;
   }

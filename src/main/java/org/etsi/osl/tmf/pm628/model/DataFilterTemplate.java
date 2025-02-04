@@ -61,7 +61,6 @@ public class DataFilterTemplate {
    */
   @NotNull
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -81,7 +80,6 @@ public class DataFilterTemplate {
    */
 
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -101,7 +99,6 @@ public class DataFilterTemplate {
    */
 
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -121,7 +118,6 @@ public class DataFilterTemplate {
    */
 
   @Schema(name = "id", example = "6c088cf7f1bc", description = "Unique identifier of this DataFilterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("id")
   public String getId() {
     return id;
   }
@@ -141,7 +137,6 @@ public class DataFilterTemplate {
    */
   @Valid
   @Schema(name = "href", example = "https://host/dataFilerTemplate/6c088cf7f1bc", description = "Hyperlink reference to this DataFilterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -161,7 +156,6 @@ public class DataFilterTemplate {
    */
 
   @Schema(name = "name", description = "Name given to this DataFilterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }

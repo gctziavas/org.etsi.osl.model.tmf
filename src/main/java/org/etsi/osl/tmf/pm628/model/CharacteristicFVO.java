@@ -59,7 +59,6 @@ public class CharacteristicFVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -79,7 +78,6 @@ public class CharacteristicFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -99,7 +97,6 @@ public class CharacteristicFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -119,7 +116,6 @@ public class CharacteristicFVO {
   */
   
   @Schema(name = "name", description = "Name of the characteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -139,7 +135,6 @@ public class CharacteristicFVO {
   */
   
   @Schema(name = "valueType", description = "Data type of the value of the characteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("valueType")
   public String getValueType() {
     return valueType;
   }
@@ -167,7 +162,6 @@ public class CharacteristicFVO {
   */
   @Valid 
   @Schema(name = "characteristicRelationship", description = "Collection of characteristic relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("characteristicRelationship")
   public List<CharacteristicRelationshipFVO> getCharacteristicRelationship() {
     return characteristicRelationship;
   }

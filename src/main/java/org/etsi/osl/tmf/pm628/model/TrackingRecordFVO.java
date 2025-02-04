@@ -70,7 +70,6 @@ public class TrackingRecordFVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -90,7 +89,6 @@ public class TrackingRecordFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -110,7 +108,6 @@ public class TrackingRecordFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -130,7 +127,6 @@ public class TrackingRecordFVO {
   */
   
   @Schema(name = "description", example = "[\"acknowledge\",\"clear\"]", description = "Describes the action being done, such as: ack, clear", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
   public String getDescription() {
     return description;
   }
@@ -158,7 +154,6 @@ public class TrackingRecordFVO {
   */
   @Valid 
   @Schema(name = "characteristic", description = "A generic list of any type of elements. Used for vendor Extensions or loose element encapsulation from other namespaces", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("characteristic")
   public List<CharacteristicFVO> getCharacteristic() {
     return characteristic;
   }
@@ -178,7 +173,6 @@ public class TrackingRecordFVO {
   */
   
   @Schema(name = "systemId", description = "Describes the system Id from which the action was done", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("systemId")
   public String getSystemId() {
     return systemId;
   }
@@ -228,7 +222,6 @@ public class TrackingRecordFVO {
   */
   
   @Schema(name = "user", description = "Describes the user doing the action", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("user")
   public String getUser() {
     return user;
   }

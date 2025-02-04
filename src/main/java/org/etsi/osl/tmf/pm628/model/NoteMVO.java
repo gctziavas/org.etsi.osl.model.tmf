@@ -61,7 +61,6 @@ public class NoteMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -81,7 +80,6 @@ public class NoteMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -101,7 +99,6 @@ public class NoteMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -121,7 +118,6 @@ public class NoteMVO {
   */
   
   @Schema(name = "uuid", example = "afa9-3d90aaa8da0f", description = "Identifier of the note within its containing entity", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -141,7 +137,6 @@ public class NoteMVO {
   */
   
   @Schema(name = "author", example = "Mr. N. Bene", description = "Author of the note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("author")
   public String getAuthor() {
     return author;
   }
@@ -191,7 +186,6 @@ public class NoteMVO {
   */
   
   @Schema(name = "text", example = "This is important", description = "Text of the note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("text")
   public String getText() {
     return text;
   }

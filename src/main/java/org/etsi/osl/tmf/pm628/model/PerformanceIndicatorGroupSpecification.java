@@ -65,7 +65,6 @@ public class PerformanceIndicatorGroupSpecification extends BaseRootNamedEntity 
   */
   
   @Schema(name = "groupCategory", description = "A grouping or set of PerformanceIndicatorGroupSpecifications that are classified together because of common characteristics, such as technology specific, service specific, or technology/service independent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("groupCategory")
   public String getGroupCategory() {
     return groupCategory;
   }
@@ -93,7 +92,6 @@ public class PerformanceIndicatorGroupSpecification extends BaseRootNamedEntity 
   */
   @Valid @Size(min = 1) 
   @Schema(name = "performanceIndicatorSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorSpecification")
   public List<@Valid PerformanceIndicatorSpecificationRefOrValue> getPerformanceIndicatorSpecification() {
     return performanceIndicatorSpecification;
   }

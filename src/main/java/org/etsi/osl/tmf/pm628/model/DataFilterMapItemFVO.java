@@ -34,7 +34,6 @@ public class DataFilterMapItemFVO {
   */
   @Valid 
   @Schema(name = "filterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("filterTemplate")
   public DataFilterTemplateFVO getFilterTemplate() {
     return filterTemplate;
   }
@@ -54,7 +53,6 @@ public class DataFilterMapItemFVO {
   */
   @Valid 
   @Schema(name = "stringArray", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("stringArray")
   public DataFilterAttributeStringArray getStringArray() {
     return stringArray;
   }

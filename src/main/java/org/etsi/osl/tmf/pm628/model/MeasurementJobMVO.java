@@ -73,7 +73,6 @@ public class MeasurementJobMVO extends ManagementJobMVO {
   */
   
   @Schema(name = "consumingApplicationId", description = "The identifier of the application that consumes performance indicators.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("consumingApplicationId")
   public String getConsumingApplicationId() {
     return consumingApplicationId;
   }
@@ -93,7 +92,6 @@ public class MeasurementJobMVO extends ManagementJobMVO {
   */
   
   @Schema(name = "producingApplicationId", description = "The identifier of the application that produces performance indicators.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("producingApplicationId")
   public String getProducingApplicationId() {
     return producingApplicationId;
   }
@@ -113,7 +111,6 @@ public class MeasurementJobMVO extends ManagementJobMVO {
   */
   @Valid 
   @Schema(name = "granularity", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("granularity")
   public Granularity getGranularity() {
     return granularity;
   }
@@ -141,7 +138,6 @@ public class MeasurementJobMVO extends ManagementJobMVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "performanceIndicatorGroupSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorGroupSpecification")
   public List<PerformanceIndicatorGroupSpecificationMVO> getPerformanceIndicatorGroupSpecification() {
     return performanceIndicatorGroupSpecification;
   }
@@ -169,7 +165,6 @@ public class MeasurementJobMVO extends ManagementJobMVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "performanceIndicatorSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorSpecification")
   public List<@Valid PerformanceIndicatorSpecificationRefOrValueMVO> getPerformanceIndicatorSpecification() {
     return performanceIndicatorSpecification;
   }
@@ -197,7 +192,6 @@ public class MeasurementJobMVO extends ManagementJobMVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "trackingRecord", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("trackingRecord")
   public List<TrackingRecordMVO> getTrackingRecord() {
     return trackingRecord;
   }
