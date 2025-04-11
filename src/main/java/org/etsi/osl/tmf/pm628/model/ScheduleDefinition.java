@@ -189,6 +189,7 @@ public class ScheduleDefinition extends BaseRootEntity {
     this.excludedDate = excludedDate;
   }
 
+  @JsonProperty("excludedDate")
   public void setExcludedDateString(List<String> excludedDate) {
     this.excludedDate = excludedDate.stream()
         .map(date -> {

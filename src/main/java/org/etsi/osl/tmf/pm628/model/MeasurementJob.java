@@ -62,7 +62,7 @@ public class MeasurementJob extends ManagementJob {
   @AnyKeyJavaClass(String.class)
   @AnyDiscriminatorValue(discriminator = "value", entity = PerformanceIndicatorSpecification.class)
   @AnyDiscriminatorValue(discriminator = "ref", entity = PerformanceIndicatorSpecificationRef.class)
-  @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+  @Cascade({org.hibernate.annotations.CascadeType.MERGE, org.hibernate.annotations.CascadeType.PERSIST})
   @JoinTable(
           name = "pm628_meas_job_perf_ind_specs",
           joinColumns = @JoinColumn(name = "meas_job_uuid"),

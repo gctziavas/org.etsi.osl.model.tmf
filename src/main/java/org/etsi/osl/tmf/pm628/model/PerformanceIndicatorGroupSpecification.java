@@ -35,7 +35,7 @@ public class PerformanceIndicatorGroupSpecification extends BaseRootNamedEntity 
   @AnyKeyJavaClass(String.class)
   @AnyDiscriminatorValue(discriminator = "value", entity = PerformanceIndicatorSpecification.class)
   @AnyDiscriminatorValue(discriminator = "ref", entity = PerformanceIndicatorSpecificationRef.class)
-  @Cascade(CascadeType.MERGE)
+  @Cascade({CascadeType.MERGE, CascadeType.PERSIST})
   @JoinTable(
           name = "perf_ind_group_spec_perf_ind_specs",
           joinColumns = @JoinColumn(name = "perf_ind_group_spec_id"),
