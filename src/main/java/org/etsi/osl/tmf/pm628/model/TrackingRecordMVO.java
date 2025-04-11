@@ -197,7 +197,7 @@ public class TrackingRecordMVO {
   @Schema(name = "time", description = "Describes the time at which the action was done", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("time")
   public String getTimeString() {
-    return time.toString();
+    return (time != null) ? time.toString() : null;
   }
 
   public void setTime(String time) {

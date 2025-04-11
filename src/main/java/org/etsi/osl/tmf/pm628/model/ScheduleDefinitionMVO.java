@@ -162,7 +162,7 @@ public class ScheduleDefinitionMVO {
 
   @JsonProperty("scheduleDefinitionStartTime")
   public String getScheduleDefinitionStartTimeString() {
-    return scheduleDefinitionStartTime.toString();
+    return (scheduleDefinitionStartTime != null) ? scheduleDefinitionStartTime.toString() : null;
   }
   
   
@@ -195,7 +195,7 @@ public class ScheduleDefinitionMVO {
   @Schema(name = "scheduleDefinitionEndTime", description = "The End time of the Schedule Definition. If the attribute is empty the Schedule run forever, not having a time constraint.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("scheduleDefinitionEndTime")
   public String getScheduleDefinitionEndTimeString() {
-    return scheduleDefinitionEndTime.toString();
+    return (scheduleDefinitionEndTime != null) ? scheduleDefinitionEndTime.toString() : null;
   }
   
   public void setScheduleDefinitionEndTime(String t) {

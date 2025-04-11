@@ -226,7 +226,7 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   @Schema(name = "endOperatingDate", description = "A date time( DateTime). The date till the resource is operating", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("endOperatingDate")
   public String getEndOperatingDateString() {
-    return endOperatingDate.toString();
+    return (endOperatingDate != null) ? endOperatingDate.toString() : null;
   }
 
   public void setEndOperatingDate(String endOperatingDate) {
@@ -559,7 +559,7 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   @Schema(name = "startOperatingDate", description = "A date time( DateTime). The date from which the resource is operating", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("startOperatingDate")
   public String getStartOperatingDateString() {
-    return startOperatingDate.toString();
+    return (startOperatingDate != null) ? startOperatingDate.toString() : null;
   }
 
   public void setStartOperatingDate(String startOperatingDate) {

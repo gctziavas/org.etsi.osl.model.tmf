@@ -117,7 +117,7 @@ public class DayOfMonthRecurrence {
   @Schema(name = "dates", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("dates")
   public String getDatesString() {
-    return dates.toString();
+    return (dates != null) ? dates.toString() : null;
   }
 
   public void setDates(String dates) {

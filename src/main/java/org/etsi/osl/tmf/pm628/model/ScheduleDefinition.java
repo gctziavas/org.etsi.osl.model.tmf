@@ -87,7 +87,7 @@ public class ScheduleDefinition extends BaseRootEntity {
   
   @JsonProperty("scheduleDefinitionStartTime")
   public String getScheduleDefinitionStartTimeString() {
-    return scheduleDefinitionStartTime.toString();
+    return (scheduleDefinitionStartTime != null) ? scheduleDefinitionStartTime.toString() : null;
   }
   
   
@@ -119,7 +119,7 @@ public class ScheduleDefinition extends BaseRootEntity {
   
   @JsonProperty("scheduleDefinitionEndTime")
   public String getScheduleDefinitionEndTimeString() {
-    return scheduleDefinitionEndTime.toString();
+    return (scheduleDefinitionEndTime != null) ? scheduleDefinitionEndTime.toString() : null;
   }
   
   public void setScheduleDefinitionEndTime(String t) {

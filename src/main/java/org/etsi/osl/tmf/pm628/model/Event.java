@@ -296,7 +296,7 @@ public class Event {
   @Schema(name = "timeOccurred", description = "The time the event occurred.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("timeOccurred")
   public String getTimeOccurredString() {
-    return timeOccurred.toString();
+    return (timeOccurred != null) ? timeOccurred.toString() : null;
   }
 
   public void setTimeOccurred(String timeOccurred) {
@@ -441,7 +441,7 @@ public class Event {
   
   @JsonProperty("eventTime")
   public String getEventTimeString() {
-      return eventTime.toString();
+    return (eventTime != null) ? eventTime.toString() : null;
   }
   
 

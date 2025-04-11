@@ -158,7 +158,7 @@ public class NoteMVO {
   @Schema(name = "date", example = "2020-11-20T08:00Z", description = "Date of the note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("date")
   public String getDateString() {
-    return date.toString();
+    return (date != null) ? date.toString() : null;
   }
 
   public void setDate(String date) {

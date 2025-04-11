@@ -128,7 +128,7 @@ public class ManagementJob extends BaseRootEntity {
   @Schema(name = "creationTime", description = "The measurement job creation time.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("creationTime")
   public String getCreationTimeStr() {
-    return creationTime.toString();
+    return (creationTime != null) ? creationTime.toString() : null;
   }
   
   public void setCreationTime(String t) {
@@ -272,7 +272,7 @@ public class ManagementJob extends BaseRootEntity {
   @Schema(name = "lastModifiedTime", description = "The last time that a measurement job was modified.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lastModifiedTime")
   public String getLastModifiedTimeStr() {
-    return lastModifiedTime.toString();
+    return (lastModifiedTime != null) ? lastModifiedTime.toString() : null;
   }
   
   public void setLastModifiedTime(String t) {
