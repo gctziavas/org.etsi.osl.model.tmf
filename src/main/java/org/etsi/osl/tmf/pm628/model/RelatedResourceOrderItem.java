@@ -73,7 +73,6 @@ public class RelatedResourceOrderItem {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -93,7 +92,6 @@ public class RelatedResourceOrderItem {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -113,7 +111,6 @@ public class RelatedResourceOrderItem {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -133,7 +130,6 @@ public class RelatedResourceOrderItem {
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }
@@ -153,7 +149,6 @@ public class RelatedResourceOrderItem {
   */
   
   @Schema(name = "resourceOrderHref", description = "Reference of the related entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceOrderHref")
   public String getResourceOrderHref() {
     return resourceOrderHref;
   }
@@ -173,7 +168,6 @@ public class RelatedResourceOrderItem {
   */
   
   @Schema(name = "resourceOrderId", description = "Unique identifier of a related entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceOrderId")
   public String getResourceOrderId() {
     return resourceOrderId;
   }
@@ -193,7 +187,6 @@ public class RelatedResourceOrderItem {
   */
   @Valid 
   @Schema(name = "itemAction", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("itemAction")
   public OrderItemActionType getItemAction() {
     return itemAction;
   }
@@ -213,7 +206,6 @@ public class RelatedResourceOrderItem {
   */
   
   @Schema(name = "itemId", description = "Identifier of the order item where the resource was managed", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("itemId")
   public String getItemId() {
     return itemId;
   }
@@ -233,7 +225,6 @@ public class RelatedResourceOrderItem {
   */
   
   @Schema(name = "role", description = "role of the resource order item for this resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("role")
   public String getRole() {
     return role;
   }

@@ -55,7 +55,6 @@ public class ExternalIdentifierMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -75,7 +74,6 @@ public class ExternalIdentifierMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -95,7 +93,6 @@ public class ExternalIdentifierMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -115,7 +112,6 @@ public class ExternalIdentifierMVO {
   */
   
   @Schema(name = "owner", example = "MagentoCommerce", description = "Name of the external system that owns the entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("owner")
   public String getOwner() {
     return owner;
   }
@@ -135,7 +131,6 @@ public class ExternalIdentifierMVO {
   */
   
   @Schema(name = "externalIdentifierType", example = "ProductOrder", description = "Type of the identification, typically would be the type of the entity within the external system", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("externalIdentifierType")
   public String getExternalIdentifierType() {
     return externalIdentifierType;
   }
@@ -155,7 +150,6 @@ public class ExternalIdentifierMVO {
   */
   
   @Schema(name = "id", description = "identification of the entity within the external system.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("id")
   public String getId() {
     return id;
   }

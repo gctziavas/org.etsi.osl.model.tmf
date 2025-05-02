@@ -74,7 +74,6 @@ public class FeatureMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -94,7 +93,6 @@ public class FeatureMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -114,7 +112,6 @@ public class FeatureMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -134,7 +131,6 @@ public class FeatureMVO {
   */
   
   @Schema(name = "isBundle", description = "True if this is a feature group. Default is false.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isBundle")
   public Boolean getIsBundle() {
     return isBundle;
   }
@@ -162,7 +158,6 @@ public class FeatureMVO {
   */
   @Valid 
   @Schema(name = "featureRelationship", description = "Collection of feature relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("featureRelationship")
   public List<FeatureRelationshipMVO> getFeatureRelationship() {
     return featureRelationship;
   }
@@ -190,7 +185,6 @@ public class FeatureMVO {
   */
   @Valid 
   @Schema(name = "featureCharacteristic", description = "This is a list of Characteristics for a particular feature.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("featureCharacteristic")
   public List<CharacteristicMVO> getFeatureCharacteristic() {
     return featureCharacteristic;
   }
@@ -218,7 +212,6 @@ public class FeatureMVO {
   */
   @Valid 
   @Schema(name = "policyConstraint", description = "Reference to manage a list of feature specification policy constraints", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("policyConstraint")
   public List<PolicyRefMVO> getPolicyConstraint() {
     return policyConstraint;
   }
@@ -238,7 +231,6 @@ public class FeatureMVO {
   */
   
   @Schema(name = "isEnabled", description = "True if this feature is enabled. Default is true.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isEnabled")
   public Boolean getIsEnabled() {
     return isEnabled;
   }
@@ -258,7 +250,6 @@ public class FeatureMVO {
   */
   
   @Schema(name = "uuid", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -278,7 +269,6 @@ public class FeatureMVO {
   */
   @NotNull 
   @Schema(name = "name", description = "This is the name for the feature.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }

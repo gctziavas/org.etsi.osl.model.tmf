@@ -52,7 +52,6 @@ public class LogicalResource extends Resource {
   */
   
   @Schema(name = "value", description = "the value of the logical resource. E.g '0746712345' for  MSISDN's", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("value")
   public String getValue() {
     return value;
   }

@@ -52,7 +52,6 @@ public class PerformanceIndicatorSpecRelationship extends BaseRootEntity {
   */
   
   @Schema(name = "relationshipType", description = "", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("relationshipType")
   public String getRelationshipType() {
     return relationshipType;
   }
@@ -72,7 +71,6 @@ public class PerformanceIndicatorSpecRelationship extends BaseRootEntity {
   */
   
   @Schema(name = "role", description = "The association role for this service specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("role")
   public String getRole() {
     return role;
   }
@@ -92,7 +90,6 @@ public class PerformanceIndicatorSpecRelationship extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
   public TimePeriod getValidFor() {
     return validFor;
   }

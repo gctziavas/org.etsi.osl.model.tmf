@@ -62,7 +62,6 @@ public class PerformanceIndicatorGroupSpecificationFVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -82,7 +81,6 @@ public class PerformanceIndicatorGroupSpecificationFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return atBaseType;
   }
@@ -102,7 +100,6 @@ public class PerformanceIndicatorGroupSpecificationFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -122,7 +119,6 @@ public class PerformanceIndicatorGroupSpecificationFVO {
   */
   @NotNull 
   @Schema(name = "name", description = "A word, term, or phrase by which a PerformanceIndicatorGroupSpecification is tagged.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -142,7 +138,6 @@ public class PerformanceIndicatorGroupSpecificationFVO {
   */
   @NotNull 
   @Schema(name = "groupCategory", description = "A grouping or set of PerformanceIndicatorGroupSpecifications that are classified together because of common characteristics, such as technology specific, service specific, or technology/service independent.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("groupCategory")
   public String getGroupCategory() {
     return groupCategory;
   }
@@ -170,7 +165,6 @@ public class PerformanceIndicatorGroupSpecificationFVO {
   */
   @Valid @Size(min = 1) 
   @Schema(name = "performanceIndicatorSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorSpecification")
   public List<@Valid PerformanceIndicatorSpecificationRefOrValueFVO> getPerformanceIndicatorSpecification() {
     return performanceIndicatorSpecification;
   }

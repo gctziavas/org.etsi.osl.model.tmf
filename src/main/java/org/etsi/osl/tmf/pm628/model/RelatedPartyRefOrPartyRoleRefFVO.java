@@ -54,7 +54,6 @@ public class RelatedPartyRefOrPartyRoleRefFVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -74,7 +73,6 @@ public class RelatedPartyRefOrPartyRoleRefFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -94,7 +92,6 @@ public class RelatedPartyRefOrPartyRoleRefFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -114,7 +111,6 @@ public class RelatedPartyRefOrPartyRoleRefFVO {
   */
   @NotNull 
   @Schema(name = "role", description = "Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("role")
   public String getRole() {
     return role;
   }
@@ -134,7 +130,6 @@ public class RelatedPartyRefOrPartyRoleRefFVO {
   */
   @Valid 
   @Schema(name = "partyOrPartyRole", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("partyOrPartyRole")
   public PartyRefOrPartyRoleRefFVO getPartyOrPartyRole() {
     return partyOrPartyRole;
   }

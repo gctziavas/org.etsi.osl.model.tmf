@@ -49,7 +49,6 @@ public class PartyRoleRef extends BaseRootNamedEntity implements PartyRefOrParty
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }
@@ -69,7 +68,6 @@ public class PartyRoleRef extends BaseRootNamedEntity implements PartyRefOrParty
   */
   
   @Schema(name = "partyId", description = "The identifier of the engaged party that is linked to the PartyRole object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("partyId")
   public String getPartyId() {
     return partyId;
   }
@@ -89,7 +87,6 @@ public class PartyRoleRef extends BaseRootNamedEntity implements PartyRefOrParty
   */
   
   @Schema(name = "partyName", description = "The name of the engaged party that is linked to the PartyRole object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("partyName")
   public String getPartyName() {
     return partyName;
   }

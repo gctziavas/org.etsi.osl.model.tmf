@@ -79,7 +79,6 @@ public class Feature extends BaseRootNamedEntity {
   */
   
   @Schema(name = "isBundle", description = "True if this is a feature group. Default is false.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isBundle")
   public Boolean getIsBundle() {
     return isBundle;
   }
@@ -107,7 +106,6 @@ public class Feature extends BaseRootNamedEntity {
   */
   @Valid 
   @Schema(name = "featureRelationship", description = "Collection of feature relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("featureRelationship")
   public List<FeatureRelationship> getFeatureRelationship() {
     return featureRelationship;
   }
@@ -135,7 +133,6 @@ public class Feature extends BaseRootNamedEntity {
   */
   @Valid 
   @Schema(name = "featureCharacteristic", description = "This is a list of Characteristics for a particular feature.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("featureCharacteristic")
   public List<Characteristic> getFeatureCharacteristic() {
     return featureCharacteristic;
   }
@@ -163,7 +160,6 @@ public class Feature extends BaseRootNamedEntity {
   */
   @Valid 
   @Schema(name = "policyConstraint", description = "Reference to manage a list of feature specification policy constraints", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("policyConstraint")
   public List<PolicyRef> getPolicyConstraint() {
     return policyConstraint;
   }
@@ -183,7 +179,6 @@ public class Feature extends BaseRootNamedEntity {
   */
   
   @Schema(name = "isEnabled", description = "True if this feature is enabled. Default is true.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isEnabled")
   public Boolean getIsEnabled() {
     return isEnabled;
   }

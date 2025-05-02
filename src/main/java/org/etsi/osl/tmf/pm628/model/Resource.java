@@ -49,7 +49,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   @JsonProperty("description")
   private String description;
 
-  @JsonProperty("endOperatingDate")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime endOperatingDate;
 
@@ -137,7 +136,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   @JoinColumn(name = "res_spec_id")
   private ResourceSpecificationRef resourceSpecification;
 
-  @JsonProperty("startOperatingDate")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startOperatingDate;
 
@@ -188,7 +186,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   
   @Schema(name = "category", description = "Category of the concrete resource. e.g Gold, Silver for MSISDN concrete resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("category")
   public String getCategory() {
     return category;
   }
@@ -208,7 +205,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   
   @Schema(name = "description", description = "free-text description of the resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
   public String getDescription() {
     return description;
   }
@@ -229,6 +225,16 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   @Valid 
   @Schema(name = "endOperatingDate", description = "A date time( DateTime). The date till the resource is operating", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("endOperatingDate")
+  public String getEndOperatingDateString() {
+    return (endOperatingDate != null) ? endOperatingDate.toString() : null;
+  }
+
+  public void setEndOperatingDate(String endOperatingDate) {
+    if ( endOperatingDate!= null ) {
+      this.endOperatingDate = OffsetDateTime.parse( endOperatingDate );
+    }
+  }
+
   public OffsetDateTime getEndOperatingDate() {
     return endOperatingDate;
   }
@@ -248,7 +254,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "administrativeState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("administrativeState")
   public ResourceAdministrativeStateType getAdministrativeState() {
     return administrativeState;
   }
@@ -268,7 +273,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "operationalState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("operationalState")
   public ResourceOperationalStateType getOperationalState() {
     return operationalState;
   }
@@ -288,7 +292,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "resourceStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceStatus")
   public ResourceStatusType getResourceStatus() {
     return resourceStatus;
   }
@@ -308,7 +311,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "usageState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("usageState")
   public ResourceUsageStateType getUsageState() {
     return usageState;
   }
@@ -328,7 +330,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
   public TimePeriod getValidFor() {
     return validFor;
   }
@@ -356,7 +357,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("note")
   public List<Note> getNote() {
     return note;
   }
@@ -384,7 +384,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "resourceOrderItem", description = "A list of resource order items related to this resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceOrderItem")
   public List<RelatedResourceOrderItem> getResourceOrderItem() {
     return resourceOrderItem;
   }
@@ -412,7 +411,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "place", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("place")
   public List<RelatedPlaceRef> getPlace() {
     return place;
   }
@@ -440,7 +438,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "relatedParty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("relatedParty")
   public List<RelatedPartyRefOrPartyRoleRef> getRelatedParty() {
     return relatedParty;
   }
@@ -468,7 +465,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "resourceRelationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceRelationship")
   public List<ResourceRelationship> getResourceRelationship() {
     return resourceRelationship;
   }
@@ -496,7 +492,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "resourceCharacteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceCharacteristic")
   public List<Characteristic> getResourceCharacteristic() {
     return resourceCharacteristic;
   }
@@ -524,7 +519,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("attachment")
   public List<AttachmentRef> getAttachment() {
     return attachment;
   }
@@ -544,7 +538,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "resourceSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceSpecification")
   public ResourceSpecificationRef getResourceSpecification() {
     return resourceSpecification;
   }
@@ -565,6 +558,16 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   @Valid 
   @Schema(name = "startOperatingDate", description = "A date time( DateTime). The date from which the resource is operating", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("startOperatingDate")
+  public String getStartOperatingDateString() {
+    return (startOperatingDate != null) ? startOperatingDate.toString() : null;
+  }
+
+  public void setStartOperatingDate(String startOperatingDate) {
+    if ( startOperatingDate!= null ) {
+      this.startOperatingDate = OffsetDateTime.parse( startOperatingDate );
+    }
+  }
+
   public OffsetDateTime getStartOperatingDate() {
     return startOperatingDate;
   }
@@ -584,7 +587,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   
   @Schema(name = "resourceVersion", description = "A field that identifies the specific version of an instance of a resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceVersion")
   public String getResourceVersion() {
     return resourceVersion;
   }
@@ -612,7 +614,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "activationFeature", description = "Configuration features", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("activationFeature")
   public List<Feature> getActivationFeature() {
     return activationFeature;
   }
@@ -632,7 +633,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "intent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("intent")
   public IntentRef getIntent() {
     return intent;
   }
@@ -660,7 +660,6 @@ public class Resource extends BaseRootNamedEntity implements ResourceRefOrValue 
   */
   @Valid 
   @Schema(name = "externalIdentifier", description = "An identification of this resource that is owned by or originates in a software system different from the current system. The structure identifies the system itself, the nature of the resource within the system and the unique ID of the resource within the system. It is anticipated that multiple external IDs can be held for a single resource, e.g. if the resource passed through multiple systems on the way to the current system.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("externalIdentifier")
   public List<ExternalIdentifier> getExternalIdentifier() {
     return externalIdentifier;
   }

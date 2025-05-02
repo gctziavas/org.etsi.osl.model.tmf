@@ -66,7 +66,6 @@ public class MonthlyScheduleDayOfWeekDefinition {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -86,7 +85,6 @@ public class MonthlyScheduleDayOfWeekDefinition {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -106,7 +104,6 @@ public class MonthlyScheduleDayOfWeekDefinition {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -134,7 +131,6 @@ public class MonthlyScheduleDayOfWeekDefinition {
   */
   @Valid 
   @Schema(name = "dayOfMonthRecurrence", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("dayOfMonthRecurrence")
   public List<DayOfMonthRecurrence> getDayOfMonthRecurrence() {
     return dayOfMonthRecurrence;
   }
@@ -154,7 +150,6 @@ public class MonthlyScheduleDayOfWeekDefinition {
   */
   
   @Schema(name = "recurringDaySequence", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("recurringDaySequence")
   public String getRecurringDaySequence() {
     return recurringDaySequence;
   }

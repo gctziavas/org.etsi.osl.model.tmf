@@ -31,7 +31,6 @@ public class CompressionType {
   */
   @Valid 
   @Schema(name = "compressionEnumType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("compressionEnumType")
   public CompressionEnumType getCompressionEnumType() {
     return compressionEnumType;
   }

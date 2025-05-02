@@ -84,7 +84,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @NotNull 
   @Schema(name = "consumingApplicationId", description = "The identifier of the application that consumes performance indicators.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("consumingApplicationId")
   public String getConsumingApplicationId() {
     return consumingApplicationId;
   }
@@ -104,7 +103,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @NotNull 
   @Schema(name = "producingApplicationId", description = "The identifier of the application that produces performance indicators.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("producingApplicationId")
   public String getProducingApplicationId() {
     return producingApplicationId;
   }
@@ -124,7 +122,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @Valid 
   @Schema(name = "granularity", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("granularity")
   public Granularity getGranularity() {
     return granularity;
   }
@@ -152,7 +149,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "performanceIndicatorGroupSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorGroupSpecification")
   public List<PerformanceIndicatorGroupSpecificationFVO> getPerformanceIndicatorGroupSpecification() {
     return performanceIndicatorGroupSpecification;
   }
@@ -180,7 +176,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @NotNull @Valid @Size(min = 0) 
   @Schema(name = "performanceIndicatorSpecification", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("performanceIndicatorSpecification")
   public List<@Valid PerformanceIndicatorSpecificationRefOrValueFVO> getPerformanceIndicatorSpecification() {
     return performanceIndicatorSpecification;
   }
@@ -208,7 +203,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "trackingRecord", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("trackingRecord")
   public List<TrackingRecordFVO> getTrackingRecord() {
     return trackingRecord;
   }
@@ -228,7 +222,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @Valid 
   @Schema(name = "monitoredInstancesCriteria", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("monitoredInstancesCriteria")
   public MonitoredInstancesCriteriaFVO getMonitoredInstancesCriteria() {
     return monitoredInstancesCriteria;
   }
@@ -248,7 +241,6 @@ public class MeasurementJobFVO extends ManagementJobFVO {
   */
   @Valid 
   @Schema(name = "monitoredClassCriteria", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("monitoredClassCriteria")
   public MonitoredClassCriteriaFVO getMonitoredClassCriteria() {
     return monitoredClassCriteria;
   }

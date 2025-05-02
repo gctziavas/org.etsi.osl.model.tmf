@@ -47,7 +47,6 @@ public class CharacteristicRelationship extends BaseRootEntity {
      */
 
     @Schema(name = "relationshipType", description = "The type of relationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("relationshipType")
     public String getRelationshipType() {
         return relationshipType;
     }
