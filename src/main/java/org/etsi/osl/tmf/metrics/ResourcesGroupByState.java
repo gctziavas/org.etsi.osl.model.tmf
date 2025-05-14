@@ -11,7 +11,7 @@ public class ResourcesGroupByState {
         this.resources = resources;
     }
 
-    public Services getResources() {
+    public Resources getResources() {
         return resources;
     }
 }

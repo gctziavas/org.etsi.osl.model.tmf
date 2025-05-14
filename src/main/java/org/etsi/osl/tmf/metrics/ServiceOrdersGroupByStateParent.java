@@ -2,15 +2,15 @@ package org.etsi.osl.tmf.metrics;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Services {
+public class ServiceOrdersGroupByStateParent {
 
     @JsonProperty("total")
     private final int total;
 
     @JsonProperty("aggregations")
-    private final ServicesGroupByStateAggregations aggregations;
+    private final ServiceOrdersGroupByStateAggregations aggregations;
 
-    public Services(int total, ServicesGroupByStateAggregations aggregations) {
+    public ServiceOrdersGroupByStateParent(int total, ServiceOrdersGroupByStateAggregations aggregations) {
         this.total = total;
         this.aggregations = aggregations;
     }
@@ -19,7 +19,7 @@ public class Services {
         return total;
     }
 
-    public ServicesGroupByStateAggregations getAggregations() {
+    public ServiceOrdersGroupByStateAggregations getAggregations() {
         return aggregations;
     }
 }

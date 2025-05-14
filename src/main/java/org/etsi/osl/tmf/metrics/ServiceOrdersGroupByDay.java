@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ServiceOrdersGroupByDay {
 
     @JsonProperty("serviceOrders")
-    private final ServiceOrdersDay serviceOrders;
+    private final ServiceOrdersGroupByDayParent serviceOrders;
 
-    public ServiceOrdersGroupByDay(ServiceOrdersDay serviceOrders) {
+    public ServiceOrdersGroupByDay(ServiceOrdersGroupByDayParent serviceOrders) {
         this.serviceOrders = serviceOrders;
     }
 
-    public ServiceOrdersDay getServiceOrders() {
+    public ServiceOrdersGroupByDayParent getServiceOrders() {
         return serviceOrders;
     }
 }
