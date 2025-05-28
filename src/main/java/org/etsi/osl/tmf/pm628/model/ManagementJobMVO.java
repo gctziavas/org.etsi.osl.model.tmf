@@ -63,7 +63,7 @@ public class ManagementJobMVO {
   // @JsonProperty("executionState")
   @Setter
   @Getter
-  @JsonIgnore
+  @JsonProperty("executionState")
   private ExecutionStateType executionState;
 
   public ManagementJobMVO() {
@@ -267,6 +267,7 @@ public class ManagementJobMVO {
         Objects.equals(this.schemaLocation, managementJobMVO.schemaLocation) &&
         Objects.equals(this.href, managementJobMVO.href) &&
         Objects.equals(this.uuid, managementJobMVO.uuid) &&
+        Objects.equals(this.executionState, managementJobMVO.executionState) &&
         Objects.equals(this.fileTransferData, managementJobMVO.fileTransferData) &&
         Objects.equals(this.dataAccessEndpoint, managementJobMVO.dataAccessEndpoint) &&
         Objects.equals(this.scheduleDefinition, managementJobMVO.scheduleDefinition);
@@ -286,6 +287,7 @@ public class ManagementJobMVO {
     sb.append("    atSchemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    id: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    executionState: ").append(toIndentedString(executionState)).append("\n");
     sb.append("    fileTransferData: ").append(toIndentedString(fileTransferData)).append("\n");
     sb.append("    dataAccessEndpoint: ").append(toIndentedString(dataAccessEndpoint)).append("\n");
     sb.append("    scheduleDefinition: ").append(toIndentedString(scheduleDefinition)).append("\n");
