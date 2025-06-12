@@ -41,15 +41,15 @@ public class MeasurementJobMVO extends ManagementJobMVO {
 
   @JsonProperty("performanceIndicatorGroupSpecification")
   @Valid
-  private List<PerformanceIndicatorGroupSpecificationMVO> performanceIndicatorGroupSpecification = new ArrayList<>();
+  private List<PerformanceIndicatorGroupSpecificationMVO> performanceIndicatorGroupSpecification;
 
   @JsonProperty("performanceIndicatorSpecification")
   @Valid
-  private List<@Valid PerformanceIndicatorSpecificationRefOrValueMVO> performanceIndicatorSpecification = new ArrayList<>();
+  private List<@Valid PerformanceIndicatorSpecificationRefOrValueMVO> performanceIndicatorSpecification;
 
   @JsonProperty("trackingRecord")
   @Valid
-  private List<TrackingRecordMVO> trackingRecord = new ArrayList<>();
+  private List<TrackingRecordMVO> trackingRecord;
 
   public MeasurementJobMVO() {
     super();

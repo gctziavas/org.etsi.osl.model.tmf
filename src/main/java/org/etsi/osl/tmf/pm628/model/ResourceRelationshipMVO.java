@@ -32,7 +32,7 @@ public class ResourceRelationshipMVO {
 
   @JsonProperty("resourceRelationshipCharacteristic")
   @Valid
-  private List<CharacteristicMVO> resourceRelationshipCharacteristic = new ArrayList<>();
+  private List<CharacteristicMVO> resourceRelationshipCharacteristic;
 
   @JsonProperty("resource")
   private ResourceRefOrValueMVO resource;

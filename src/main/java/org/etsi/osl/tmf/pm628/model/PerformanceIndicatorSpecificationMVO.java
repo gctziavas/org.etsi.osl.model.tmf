@@ -67,7 +67,7 @@ public class PerformanceIndicatorSpecificationMVO implements PerformanceIndicato
 
   @JsonProperty("performanceIndicatorSpecRelationship")
   @Valid
-  private List<PerformanceIndicatorSpecRelationshipMVO> performanceIndicatorSpecRelationship = new ArrayList<>();
+  private List<PerformanceIndicatorSpecRelationshipMVO> performanceIndicatorSpecRelationship;
 
   public PerformanceIndicatorSpecificationMVO() {
     super();

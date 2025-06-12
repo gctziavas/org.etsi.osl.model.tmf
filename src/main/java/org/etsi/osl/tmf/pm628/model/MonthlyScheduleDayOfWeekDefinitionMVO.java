@@ -29,7 +29,7 @@ public class MonthlyScheduleDayOfWeekDefinitionMVO {
 
   @JsonProperty("dayOfMonthRecurrence")
   @Valid
-  private List<DayOfMonthRecurrenceMVO> dayOfMonthRecurrence = new ArrayList<>();
+  private List<DayOfMonthRecurrenceMVO> dayOfMonthRecurrence;
 
   @JsonProperty("recurringDaySequence")
   private String recurringDaySequence;

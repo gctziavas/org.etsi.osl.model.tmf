@@ -44,22 +44,22 @@ public class ScheduleDefinitionMVO {
   private String recurringFrequency;
 
   @Valid
-  private List<OffsetDateTime> excludedDate = new ArrayList<>();
+  private List<OffsetDateTime> excludedDate;
 
   @JsonProperty("scheduleDefinitionHourRange")
   private String scheduleDefinitionHourRange;
 
   @Valid
-  private List<DayOfWeekRecurrenceMVO> weeklyScheduledDefinition = new ArrayList<>();
+  private List<DayOfWeekRecurrenceMVO> weeklyScheduledDefinition;
 
   @Valid
-  private List<OffsetDateTime> monthlyScheduleDayOfMonthDefinition = new ArrayList<>();
+  private List<OffsetDateTime> monthlyScheduleDayOfMonthDefinition;
 
   @JsonProperty("MonthlyScheduleDayOfWeekDefinition")
   private MonthlyScheduleDayOfWeekDefinitionMVO monthlyScheduleDayOfWeekDefinition;
 
   @Valid
-  private List<OffsetDateTime> dateScheduleDefintion = new ArrayList<>();
+  private List<OffsetDateTime> dateScheduleDefintion;
 
   public ScheduleDefinitionMVO() {
     super();

@@ -81,31 +81,31 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
 
   @JsonProperty("note")
   @Valid
-  private List<NoteMVO> note = new ArrayList<>();
+  private List<NoteMVO> note;
 
   @JsonProperty("resourceOrderItem")
   @Valid
-  private List<RelatedResourceOrderItemMVO> resourceOrderItem = new ArrayList<>();
+  private List<RelatedResourceOrderItemMVO> resourceOrderItem;
 
   @JsonProperty("place")
   @Valid
-  private List<RelatedPlaceRefMVO> place = new ArrayList<>();
+  private List<RelatedPlaceRefMVO> place;
 
   @JsonProperty("relatedParty")
   @Valid
-  private List<RelatedPartyRefOrPartyRoleRefMVO> relatedParty = new ArrayList<>();
+  private List<RelatedPartyRefOrPartyRoleRefMVO> relatedParty ;
 
   @JsonProperty("resourceRelationship")
   @Valid
-  private List<ResourceRelationshipMVO> resourceRelationship = new ArrayList<>();
+  private List<ResourceRelationshipMVO> resourceRelationship;
 
   @JsonProperty("resourceCharacteristic")
   @Valid
-  private List<CharacteristicMVO> resourceCharacteristic = new ArrayList<>();
+  private List<CharacteristicMVO> resourceCharacteristic;
 
   @JsonProperty("attachment")
   @Valid
-  private List<AttachmentRefMVO> attachment = new ArrayList<>();
+  private List<AttachmentRefMVO> attachment;
 
   @JsonProperty("resourceSpecification")
   private ResourceSpecificationRefMVO resourceSpecification;
@@ -118,14 +118,14 @@ public class ResourceMVO implements ResourceRefOrValueMVO {
 
   @JsonProperty("activationFeature")
   @Valid
-  private List<FeatureMVO> activationFeature = new ArrayList<>();
+  private List<FeatureMVO> activationFeature;
 
   @JsonProperty("intent")
   private IntentRefMVO intent;
 
   @JsonProperty("externalIdentifier")
   @Valid
-  private List<ExternalIdentifierMVO> externalIdentifier = new ArrayList<>();
+  private List<ExternalIdentifierMVO> externalIdentifier;
 
   public ResourceMVO() {
     super();
