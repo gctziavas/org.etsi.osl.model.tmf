@@ -39,7 +39,7 @@ public class PerformanceIndicatorGroupSpecificationMVO {
 
   @JsonProperty("performanceIndicatorSpecification")
   @Valid
-  private List<@Valid PerformanceIndicatorSpecificationRefOrValueMVO> performanceIndicatorSpecification = new ArrayList<>();
+  private List<@Valid PerformanceIndicatorSpecificationRefOrValueMVO> performanceIndicatorSpecification;
 
   public PerformanceIndicatorGroupSpecificationMVO() {
     super();

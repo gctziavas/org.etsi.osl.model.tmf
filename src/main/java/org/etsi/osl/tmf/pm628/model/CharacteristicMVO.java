@@ -38,7 +38,7 @@ public class CharacteristicMVO {
 
   @JsonProperty("characteristicRelationship")
   @Valid
-  private List<CharacteristicRelationshipMVO> characteristicRelationship = new ArrayList<>();
+  private List<CharacteristicRelationshipMVO> characteristicRelationship;
 
   public CharacteristicMVO() {
     super();

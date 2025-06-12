@@ -37,7 +37,7 @@ public class TrackingRecordMVO {
 
   @JsonProperty("characteristic")
   @Valid
-  private List<CharacteristicMVO> characteristic = new ArrayList<>();
+  private List<CharacteristicMVO> characteristic;
 
   @JsonProperty("systemId")
   private String systemId;

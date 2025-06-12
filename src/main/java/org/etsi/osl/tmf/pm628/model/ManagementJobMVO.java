@@ -49,15 +49,15 @@ public class ManagementJobMVO {
 
   @JsonProperty("fileTransferData")
   @Valid
-  private List<FileTransferDataMVO> fileTransferData = new ArrayList<>();
+  private List<FileTransferDataMVO> fileTransferData = null;
 
   @JsonProperty("dataAccessEndpoint")
   @Valid
-  private List<DataAccessEndpointMVO> dataAccessEndpoint = new ArrayList<>();
+  private List<DataAccessEndpointMVO> dataAccessEndpoint = null;
 
   @JsonProperty("scheduleDefinition")
   @Valid
-  private List<ScheduleDefinitionMVO> scheduleDefinition = new ArrayList<>();
+  private List<ScheduleDefinitionMVO> scheduleDefinition = null;
 
   // Property bellow was added by UoP and is not officialy part of TMF628 Model
   // @JsonProperty("executionState")
