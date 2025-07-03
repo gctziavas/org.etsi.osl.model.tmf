@@ -23,6 +23,7 @@ public interface MeasurementCollectionJobMapper {
     @Mapping(target = "schemaLocation", ignore = true)
     @Mapping(target = "href", ignore = true)
     @Mapping(target = "uuid", ignore = true)
+    @Mapping(target = "executionState", expression = "java(measurementCollectionJobMVO.getExecutionState())")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     MeasurementCollectionJob updateMeasurementCollectionJob(MeasurementCollectionJobMVO measurementCollectionJobMVO, @MappingTarget MeasurementCollectionJob measurementCollectionJob);
 
