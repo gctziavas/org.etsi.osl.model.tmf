@@ -81,7 +81,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   
   @Schema(name = "description", description = "A narrative that explains in detail what the PerformanceIndicatorSpecification is.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
   public String getDescription() {
     return description;
   }
@@ -101,7 +100,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   
   @Schema(name = "perspective", description = "The point of view for the PerformanceIndicatorSpecification, such as a single user instance or aggregation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("perspective")
   public String getPerspective() {
     return perspective;
   }
@@ -121,7 +119,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   
   @Schema(name = "indicatorCategory", description = "A grouping or set of PerformanceIndicatorSpecifications that are classified together because of common characteristics, such as technology specific, service specific, or technology/service independent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("indicatorCategory")
   public String getIndicatorCategory() {
     return indicatorCategory;
   }
@@ -141,7 +138,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   @Valid 
   @Schema(name = "indicatorType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("indicatorType")
   public IndicatorType getIndicatorType() {
     return indicatorType;
   }
@@ -161,7 +157,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   
   @Schema(name = "derivationAlgorithm", description = "A step-by-step procedure used to calculate the value of PerformanceIndicator.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("derivationAlgorithm")
   public String getDerivationAlgorithm() {
     return derivationAlgorithm;
   }
@@ -181,7 +176,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   
   @Schema(name = "derivationMethod", description = "For simple calculations, the method used to calculate the value of a PerformanceIndicator, such as average, minimum, maximum, sum and so forth.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("derivationMethod")
   public String getDerivationMethod() {
     return derivationMethod;
   }
@@ -201,7 +195,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   @Valid 
   @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
   public TimePeriod getValidFor() {
     return validFor;
   }
@@ -221,7 +214,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   @Valid 
   @Schema(name = "collectionType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("collectionType")
   public CollectionType getCollectionType() {
     return collectionType;
   }
@@ -241,7 +233,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   
   @Schema(name = "indicatorUnit", description = "The unit by which the indicator is measured. For example, seconds, KBs, rate per second, etc.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("indicatorUnit")
   public String getIndicatorUnit() {
     return indicatorUnit;
   }
@@ -269,7 +260,6 @@ public class PerformanceIndicatorSpecification extends BaseRootNamedEntity imple
   */
   @Valid @Size(min = 0) 
   @Schema(name = "performanceIndicatorSpecRelationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorSpecRelationship")
   public List<PerformanceIndicatorSpecRelationship> getPerformanceIndicatorSpecRelationship() {
     return performanceIndicatorSpecRelationship;
   }

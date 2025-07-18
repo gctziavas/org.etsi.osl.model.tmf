@@ -102,9 +102,8 @@ public class ManagementJobFVO {
    * When sub-classing, this defines the sub-class Extensible name
    * @return atType
   */
-  @NotNull 
+  @NotNull
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -124,7 +123,6 @@ public class ManagementJobFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -144,7 +142,6 @@ public class ManagementJobFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -164,7 +161,6 @@ public class ManagementJobFVO {
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -184,7 +180,6 @@ public class ManagementJobFVO {
   */
   
   @Schema(name = "uuid", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -204,7 +199,6 @@ public class ManagementJobFVO {
   */
   @Valid 
   @Schema(name = "adminState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("adminState")
   public AdministrativeState getAdminState() {
     return adminState;
   }
@@ -226,7 +220,7 @@ public class ManagementJobFVO {
   @Schema(name = "creationTime", description = "The measurement job creation time.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("creationTime")
   public String getCreationTimeStr() {
-    return creationTime.toString();
+    return (creationTime != null) ? creationTime.toString() : null;
   }
   
   public void setCreationTime(String t) {
@@ -254,7 +248,6 @@ public class ManagementJobFVO {
   */
   @Valid 
   @Schema(name = "executionState", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("executionState")
   public ExecutionStateType getExecutionState() {
     return executionState;
   }
@@ -282,7 +275,6 @@ public class ManagementJobFVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "fileTransferData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("fileTransferData")
   public List<FileTransferDataFVO> getFileTransferData() {
     return fileTransferData;
   }
@@ -310,7 +302,6 @@ public class ManagementJobFVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "dataAccessEndpoint", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("dataAccessEndpoint")
   public List<DataAccessEndpointFVO> getDataAccessEndpoint() {
     return dataAccessEndpoint;
   }
@@ -330,7 +321,6 @@ public class ManagementJobFVO {
   */
   
   @Schema(name = "jobId", description = "The ID of the management job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobId")
   public String getJobId() {
     return jobId;
   }
@@ -352,7 +342,6 @@ public class ManagementJobFVO {
   */
   @Min(1) @Max(10) 
   @Schema(name = "jobPriority", description = "The priority of the management job. The way the management application will use the JobPriority to schedule job execution is application specific and outside the scope. Integer, limited to a range of 1 to 10.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobPriority")
   public Integer getJobPriority() {
     return jobPriority;
   }
@@ -374,7 +363,7 @@ public class ManagementJobFVO {
   @Schema(name = "lastModifiedTime", description = "The last time that a measurement job was modified.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lastModifiedTime")
   public String getLastModifiedTimeStr() {
-    return lastModifiedTime.toString();
+    return (lastModifiedTime != null) ? lastModifiedTime.toString() : null;
   }
   
   public void setLastModifiedTime(String t) {
@@ -410,7 +399,6 @@ public class ManagementJobFVO {
   */
   @Valid @Size(max = 1) 
   @Schema(name = "scheduleDefinition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("scheduleDefinition")
   public List<ScheduleDefinitionFVO> getScheduleDefinition() {
     return scheduleDefinition;
   }

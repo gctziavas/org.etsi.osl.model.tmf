@@ -58,7 +58,6 @@ public class MonitoredClassCriteria {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -78,7 +77,6 @@ public class MonitoredClassCriteria {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -98,7 +96,6 @@ public class MonitoredClassCriteria {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -118,7 +115,6 @@ public class MonitoredClassCriteria {
   */
   
   @Schema(name = "monitoredObjectClass", description = "A monitored object class for specifying the set of instances that are referenced by a PM query.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("monitoredObjectClass")
   public String getMonitoredObjectClass() {
     return monitoredObjectClass;
   }
@@ -138,7 +134,6 @@ public class MonitoredClassCriteria {
   */
   
   @Schema(name = "objectInstanceFilter", description = "A filter that can be used in conjunction with the monitored object class for specifying the set of instances that are referenced by a PM query.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("objectInstanceFilter")
   public String getObjectInstanceFilter() {
     return objectInstanceFilter;
   }

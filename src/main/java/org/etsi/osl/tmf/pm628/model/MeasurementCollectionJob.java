@@ -75,7 +75,6 @@ public class MeasurementCollectionJob extends MeasurementJob implements PatchMea
   */
   
   @Schema(name = "outputFormat", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("outputFormat")
   public String getOutputFormat() {
     return outputFormat;
   }
@@ -95,7 +94,6 @@ public class MeasurementCollectionJob extends MeasurementJob implements PatchMea
   */
   @Valid 
   @Schema(name = "reportingPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("reportingPeriod")
   public ReportingPeriod getReportingPeriod() {
     return reportingPeriod;
   }
@@ -115,7 +113,6 @@ public class MeasurementCollectionJob extends MeasurementJob implements PatchMea
   */
   @Valid 
   @Schema(name = "jobCollectionFilter", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobCollectionFilter")
   public DataFilterMap getJobCollectionFilter() {
     return jobCollectionFilter;
   }
@@ -135,7 +132,6 @@ public class MeasurementCollectionJob extends MeasurementJob implements PatchMea
   */
   @Valid 
   @Schema(name = "searchTaskFilter", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("searchTaskFilter")
   public DataFilterMap getSearchTaskFilter() {
     return searchTaskFilter;
   }
@@ -155,7 +151,6 @@ public class MeasurementCollectionJob extends MeasurementJob implements PatchMea
   */
   
   @Schema(name = "jobOnDemand", description = "True if the job is a single job to be executed immediately in which case the reportingPeriod and scheduleDefinition would not be applicable, false otherwise", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("jobOnDemand")
   public Boolean getJobOnDemand() {
     return jobOnDemand;
   }

@@ -33,7 +33,6 @@ public class Duration {
      */
 
     @Schema(name = "amount", description = "Time interval (number of seconds, minutes, hours, etc.)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("amount")
     public Integer getAmount() {
         return amount;
     }
@@ -53,7 +52,6 @@ public class Duration {
      */
 
     @Schema(name = "units", description = "Unit of time (seconds, minutes, hours, etc.)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("units")
     public String getUnits() {
         return units;
     }

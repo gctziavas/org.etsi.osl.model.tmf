@@ -31,7 +31,6 @@ public class PackingType {
   */
   @Valid 
   @Schema(name = "packingEnumType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("packingEnumType")
   public PackingEnumType getPackingEnumType() {
     return packingEnumType;
   }

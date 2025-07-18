@@ -61,7 +61,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -81,7 +80,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -101,7 +99,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -121,7 +118,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -141,7 +137,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   
   @Schema(name = "uuid", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -161,7 +156,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   
   @Schema(name = "name", description = "Name of the referred entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -181,7 +175,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }
@@ -201,7 +194,6 @@ public class PerformanceIndicatorSpecificationRefFVO implements PerformanceIndic
   */
   
   @Schema(name = "version", description = "Version of the performance indicator specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("version")
   public String getVersion() {
     return version;
   }

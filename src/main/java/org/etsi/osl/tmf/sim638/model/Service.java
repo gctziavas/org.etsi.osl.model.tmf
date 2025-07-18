@@ -853,7 +853,7 @@ public class Service extends BaseRootNamedEntity {
       } else if ( existsReserved || existsStandby) {
         nextState = ServiceStateType.RESERVED ; 
       } else if ( existsSuspended ) {
-        nextState = ServiceStateType.TERMINATED ; 
+          //do nothing
       } else if ( existUnknown ) {
 //        if (this.getState().equals( ServiceStateType.ACTIVE  )) { //helpful state for argoCD lifecycle
 //          nextState = ServiceStateType.TERMINATED ;

@@ -55,7 +55,6 @@ public class Characteristic extends BaseRootNamedEntity {
      */
 
     @Schema(name = "valueType", description = "Data type of the value of the characteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("valueType")
     public String getValueType() {
         return valueType;
     }
@@ -83,7 +82,6 @@ public class Characteristic extends BaseRootNamedEntity {
      */
     @Valid
     @Schema(name = "characteristicRelationship", description = "Collection of characteristic relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("characteristicRelationship")
     public List<CharacteristicRelationship> getCharacteristicRelationship() {
         return characteristicRelationship;
     }

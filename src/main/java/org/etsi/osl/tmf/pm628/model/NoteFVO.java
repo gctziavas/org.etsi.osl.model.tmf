@@ -30,7 +30,6 @@ public class NoteFVO {
   @JsonProperty("author")
   private String author;
 
-  @JsonProperty("date")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime date;
 
@@ -59,7 +58,6 @@ public class NoteFVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -79,7 +77,6 @@ public class NoteFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -99,7 +96,6 @@ public class NoteFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getAtSchemaLocation() {
     return schemaLocation;
   }
@@ -119,7 +115,6 @@ public class NoteFVO {
   */
   
   @Schema(name = "author", example = "Mr. N. Bene", description = "Author of the note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("author")
   public String getAuthor() {
     return author;
   }
@@ -140,6 +135,16 @@ public class NoteFVO {
   @Valid 
   @Schema(name = "date", example = "2020-11-20T08:00Z", description = "Date of the note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("date")
+  public String getDateString() {
+    return (date != null) ? date.toString() : null;
+  }
+
+  public void setDate(String date) {
+    if ( date!= null ) {
+      this.date = OffsetDateTime.parse( date );
+    }
+  }
+
   public OffsetDateTime getDate() {
     return date;
   }
@@ -159,7 +164,6 @@ public class NoteFVO {
   */
   
   @Schema(name = "text", example = "This is important", description = "Text of the note", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("text")
   public String getText() {
     return text;
   }

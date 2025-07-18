@@ -35,7 +35,7 @@ public class PerformanceIndicatorGroupSpecification extends BaseRootNamedEntity 
   @AnyKeyJavaClass(String.class)
   @AnyDiscriminatorValue(discriminator = "value", entity = PerformanceIndicatorSpecification.class)
   @AnyDiscriminatorValue(discriminator = "ref", entity = PerformanceIndicatorSpecificationRef.class)
-  @Cascade(CascadeType.MERGE)
+  @Cascade({CascadeType.MERGE, CascadeType.PERSIST})
   @JoinTable(
           name = "perf_ind_group_spec_perf_ind_specs",
           joinColumns = @JoinColumn(name = "perf_ind_group_spec_id"),
@@ -65,7 +65,6 @@ public class PerformanceIndicatorGroupSpecification extends BaseRootNamedEntity 
   */
   
   @Schema(name = "groupCategory", description = "A grouping or set of PerformanceIndicatorGroupSpecifications that are classified together because of common characteristics, such as technology specific, service specific, or technology/service independent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("groupCategory")
   public String getGroupCategory() {
     return groupCategory;
   }
@@ -93,7 +92,6 @@ public class PerformanceIndicatorGroupSpecification extends BaseRootNamedEntity 
   */
   @Valid @Size(min = 1) 
   @Schema(name = "performanceIndicatorSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("performanceIndicatorSpecification")
   public List<@Valid PerformanceIndicatorSpecificationRefOrValue> getPerformanceIndicatorSpecification() {
     return performanceIndicatorSpecification;
   }

@@ -2,6 +2,8 @@ package org.etsi.osl.tmf.pm628.model;
 
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper(
         nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT,
         nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
@@ -21,6 +23,20 @@ public interface MeasurementCollectionJobMapper {
     @Mapping(target = "schemaLocation", ignore = true)
     @Mapping(target = "href", ignore = true)
     @Mapping(target = "uuid", ignore = true)
+    @Mapping(target = "executionState", expression = "java(measurementCollectionJobMVO.getExecutionState())")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     MeasurementCollectionJob updateMeasurementCollectionJob(MeasurementCollectionJobMVO measurementCollectionJobMVO, @MappingTarget MeasurementCollectionJob measurementCollectionJob);
+
+    @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
+    List<DataAccessEndpoint> dataAccessEndpointMVOListToDataAccessEndpointList(List<DataAccessEndpointMVO> list);
+    @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
+    List<PerformanceIndicatorGroupSpecification> performanceIndicatorGroupSpecificationMVOListToPerformanceIndicatorGroupSpecificationList(List<PerformanceIndicatorGroupSpecificationMVO> list);
+    @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
+    List<PerformanceIndicatorSpecificationRefOrValue> performanceIndicatorSpecificationMVOListToPerformanceIndicatorSpecificationList(List<PerformanceIndicatorSpecificationRefOrValueMVO> list);
+    @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
+    List<TrackingRecord> trackingRecordMVOListToTrackingRecordList(List<TrackingRecordMVO> list);
+    @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
+    List<FileTransferData> fileTransferDataMVOListToFileTransferDataList(List<FileTransferDataMVO> list);
+    @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
+    List<ScheduleDefinition> scheduleDefinitionMVOListToScheduleDefinitionList(List<ScheduleDefinitionMVO> list);
 }

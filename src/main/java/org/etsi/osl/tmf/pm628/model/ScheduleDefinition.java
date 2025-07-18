@@ -87,7 +87,7 @@ public class ScheduleDefinition extends BaseRootEntity {
   
   @JsonProperty("scheduleDefinitionStartTime")
   public String getScheduleDefinitionStartTimeString() {
-    return scheduleDefinitionStartTime.toString();
+    return (scheduleDefinitionStartTime != null) ? scheduleDefinitionStartTime.toString() : null;
   }
   
   
@@ -119,7 +119,7 @@ public class ScheduleDefinition extends BaseRootEntity {
   
   @JsonProperty("scheduleDefinitionEndTime")
   public String getScheduleDefinitionEndTimeString() {
-    return scheduleDefinitionEndTime.toString();
+    return (scheduleDefinitionEndTime != null) ? scheduleDefinitionEndTime.toString() : null;
   }
   
   public void setScheduleDefinitionEndTime(String t) {
@@ -143,7 +143,6 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   
   @Schema(name = "recurringFrequency", description = "A recurring frequency to run a job within day that is included in schedule definition, for example: every 5 minutes, 15 minute, 30 minutes, 1 hour", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("recurringFrequency")
   public String getRecurringFrequency() {
     return recurringFrequency;
   }
@@ -244,7 +243,6 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "WeeklyScheduledDefinition", description = "The weekly schedule is used to define a schedule that is based on the days of the week, e.g. a schedule that will be active only on Monday and Tuesday.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("WeeklyScheduledDefinition")
   public List<DayOfWeekRecurrence> getWeeklyScheduledDefinition() {
     return weeklyScheduledDefinition;
   }
@@ -317,7 +315,6 @@ public class ScheduleDefinition extends BaseRootEntity {
   */
   @Valid 
   @Schema(name = "MonthlyScheduleDayOfWeekDefinition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("MonthlyScheduleDayOfWeekDefinition")
   public MonthlyScheduleDayOfWeekDefinition getMonthlyScheduleDayOfWeekDefinition() {
     return monthlyScheduleDayOfWeekDefinition;
   }

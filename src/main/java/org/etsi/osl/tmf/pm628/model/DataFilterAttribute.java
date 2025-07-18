@@ -40,7 +40,6 @@ public class DataFilterAttribute {
   */
   
   @Schema(name = "valueType", description = "Data type of the value of the attribute", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("valueType")
   public String getValueType() {
     return valueType;
   }

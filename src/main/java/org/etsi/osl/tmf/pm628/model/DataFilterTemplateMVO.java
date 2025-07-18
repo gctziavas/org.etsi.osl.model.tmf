@@ -58,7 +58,6 @@ public class DataFilterTemplateMVO {
   */
   @NotNull
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -78,7 +77,6 @@ public class DataFilterTemplateMVO {
   */
 
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -98,7 +96,6 @@ public class DataFilterTemplateMVO {
   */
 
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -132,7 +129,6 @@ public class DataFilterTemplateMVO {
   */
 
   @Schema(name = "id", example = "6c088cf7f1bc", description = "Unique identifier of this DataFilterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("id")
   public String getId() {
     return id;
   }
@@ -152,7 +148,6 @@ public class DataFilterTemplateMVO {
   */
 
   @Schema(name = "name", description = "Name given to this DataFilterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -172,7 +167,6 @@ public class DataFilterTemplateMVO {
   */
 
   @Schema(name = "description", description = "Description of this DataFilterTemplate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
   public String getDescription() {
     return description;
   }

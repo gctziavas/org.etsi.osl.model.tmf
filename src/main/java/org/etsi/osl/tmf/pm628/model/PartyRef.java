@@ -44,7 +44,6 @@ public class PartyRef extends BaseRootNamedEntity implements PartyRefOrPartyRole
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }

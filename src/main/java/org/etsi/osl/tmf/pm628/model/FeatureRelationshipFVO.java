@@ -109,7 +109,6 @@ public class FeatureRelationshipFVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -129,7 +128,6 @@ public class FeatureRelationshipFVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -149,7 +147,6 @@ public class FeatureRelationshipFVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getAtSchemaLocation() {
     return schemaLocation;
   }
@@ -169,7 +166,6 @@ public class FeatureRelationshipFVO {
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -189,7 +185,6 @@ public class FeatureRelationshipFVO {
   */
   @NotNull 
   @Schema(name = "id", description = "unique identifier", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("id")
   public String getId() {
     return id;
   }
@@ -209,7 +204,6 @@ public class FeatureRelationshipFVO {
   */
   
   @Schema(name = "name", description = "This is the name of the target feature.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -229,7 +223,6 @@ public class FeatureRelationshipFVO {
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }
@@ -249,7 +242,6 @@ public class FeatureRelationshipFVO {
   */
   @NotNull 
   @Schema(name = "relationshipType", description = "This is the type of the feature relationship.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("relationshipType")
   public RelationshipTypeEnum getRelationshipType() {
     return relationshipType;
   }
@@ -269,7 +261,6 @@ public class FeatureRelationshipFVO {
   */
   @Valid 
   @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
   public TimePeriod getValidFor() {
     return validFor;
   }

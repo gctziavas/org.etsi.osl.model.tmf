@@ -38,7 +38,7 @@ public class CharacteristicMVO {
 
   @JsonProperty("characteristicRelationship")
   @Valid
-  private List<CharacteristicRelationshipMVO> characteristicRelationship = new ArrayList<>();
+  private List<CharacteristicRelationshipMVO> characteristicRelationship;
 
   public CharacteristicMVO() {
     super();
@@ -62,7 +62,6 @@ public class CharacteristicMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -82,7 +81,6 @@ public class CharacteristicMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -102,7 +100,6 @@ public class CharacteristicMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -122,7 +119,6 @@ public class CharacteristicMVO {
   */
   
   @Schema(name = "uuid", description = "Unique identifier of the characteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -142,7 +138,6 @@ public class CharacteristicMVO {
   */
   
   @Schema(name = "name", description = "Name of the characteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
   public String getName() {
     return name;
   }
@@ -162,7 +157,6 @@ public class CharacteristicMVO {
   */
   
   @Schema(name = "valueType", description = "Data type of the value of the characteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("valueType")
   public String getValueType() {
     return valueType;
   }
@@ -190,7 +184,6 @@ public class CharacteristicMVO {
   */
   @Valid 
   @Schema(name = "characteristicRelationship", description = "Collection of characteristic relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("characteristicRelationship")
   public List<CharacteristicRelationshipMVO> getCharacteristicRelationship() {
     return characteristicRelationship;
   }

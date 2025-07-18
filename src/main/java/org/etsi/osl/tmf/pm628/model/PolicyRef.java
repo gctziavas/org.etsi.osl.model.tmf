@@ -46,7 +46,6 @@ public class PolicyRef extends BaseRootNamedEntity {
   */
   
   @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@referredType")
   public String getReferredType() {
     return referredType;
   }
@@ -66,7 +65,6 @@ public class PolicyRef extends BaseRootNamedEntity {
   */
   
   @Schema(name = "version", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("version")
   public String getVersion() {
     return version;
   }

@@ -42,7 +42,6 @@ public class ProtocolTransferData {
   */
   
   @Schema(name = "transportProtocol", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("transportProtocol")
   public String getTransportProtocol() {
     return transportProtocol;
   }

@@ -49,21 +49,21 @@ public class ManagementJobMVO {
 
   @JsonProperty("fileTransferData")
   @Valid
-  private List<FileTransferDataMVO> fileTransferData = new ArrayList<>();
+  private List<FileTransferDataMVO> fileTransferData = null;
 
   @JsonProperty("dataAccessEndpoint")
   @Valid
-  private List<DataAccessEndpointMVO> dataAccessEndpoint = new ArrayList<>();
+  private List<DataAccessEndpointMVO> dataAccessEndpoint = null;
 
   @JsonProperty("scheduleDefinition")
   @Valid
-  private List<ScheduleDefinitionMVO> scheduleDefinition = new ArrayList<>();
+  private List<ScheduleDefinitionMVO> scheduleDefinition = null;
 
   // Property bellow was added by UoP and is not officialy part of TMF628 Model
   // @JsonProperty("executionState")
   @Setter
   @Getter
-  @JsonIgnore
+  @JsonProperty("executionState")
   private ExecutionStateType executionState;
 
   public ManagementJobMVO() {
@@ -88,7 +88,6 @@ public class ManagementJobMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -108,7 +107,6 @@ public class ManagementJobMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -128,7 +126,6 @@ public class ManagementJobMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -148,7 +145,6 @@ public class ManagementJobMVO {
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -168,7 +164,6 @@ public class ManagementJobMVO {
   */
   
   @Schema(name = "uuid", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -196,7 +191,6 @@ public class ManagementJobMVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "fileTransferData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("fileTransferData")
   public List<FileTransferDataMVO> getFileTransferData() {
     return fileTransferData;
   }
@@ -224,7 +218,6 @@ public class ManagementJobMVO {
   */
   @Valid @Size(min = 0) 
   @Schema(name = "dataAccessEndpoint", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("dataAccessEndpoint")
   public List<DataAccessEndpointMVO> getDataAccessEndpoint() {
     return dataAccessEndpoint;
   }
@@ -252,7 +245,6 @@ public class ManagementJobMVO {
   */
   @Valid @Size(max = 1) 
   @Schema(name = "scheduleDefinition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("scheduleDefinition")
   public List<ScheduleDefinitionMVO> getScheduleDefinition() {
     return scheduleDefinition;
   }
@@ -275,6 +267,7 @@ public class ManagementJobMVO {
         Objects.equals(this.schemaLocation, managementJobMVO.schemaLocation) &&
         Objects.equals(this.href, managementJobMVO.href) &&
         Objects.equals(this.uuid, managementJobMVO.uuid) &&
+        Objects.equals(this.executionState, managementJobMVO.executionState) &&
         Objects.equals(this.fileTransferData, managementJobMVO.fileTransferData) &&
         Objects.equals(this.dataAccessEndpoint, managementJobMVO.dataAccessEndpoint) &&
         Objects.equals(this.scheduleDefinition, managementJobMVO.scheduleDefinition);
@@ -294,6 +287,7 @@ public class ManagementJobMVO {
     sb.append("    atSchemaLocation: ").append(toIndentedString(schemaLocation)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    id: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    executionState: ").append(toIndentedString(executionState)).append("\n");
     sb.append("    fileTransferData: ").append(toIndentedString(fileTransferData)).append("\n");
     sb.append("    dataAccessEndpoint: ").append(toIndentedString(dataAccessEndpoint)).append("\n");
     sb.append("    scheduleDefinition: ").append(toIndentedString(scheduleDefinition)).append("\n");

@@ -63,7 +63,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   @NotNull 
   @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("@type")
   public String getType() {
     return type;
   }
@@ -83,7 +82,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   
   @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
   public String getBaseType() {
     return baseType;
   }
@@ -103,7 +101,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
   public String getSchemaLocation() {
     return schemaLocation;
   }
@@ -123,7 +120,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   
   @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
   public String getHref() {
     return href;
   }
@@ -143,7 +139,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   
   @Schema(name = "uuid", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("uuid")
   public String getUuid() {
     return uuid;
   }
@@ -163,7 +158,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   
   @Schema(name = "relationshipType", description = "", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("relationshipType")
   public String getRelationshipType() {
     return relationshipType;
   }
@@ -183,7 +177,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   
   @Schema(name = "role", description = "The association role for this service specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("role")
   public String getRole() {
     return role;
   }
@@ -203,7 +196,6 @@ public class PerformanceIndicatorSpecRelationshipMVO {
   */
   @Valid 
   @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
   public TimePeriod getValidFor() {
     return validFor;
   }
