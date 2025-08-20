@@ -1,0 +1,262 @@
+package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.net.URI;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.model.EntityRef;
+import org.openapitools.model.RelatedParty;
+import org.openapitools.model.Violation;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ *  Skipped properties: id,href
+ */
+
+@Schema(name = "AiContractViolation_Create", description = " Skipped properties: id,href")
+@JsonTypeName("AiContractViolation_Create")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-20T10:43:54.824186919Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+public class AiContractViolationCreate {
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private @Nullable OffsetDateTime date;
+
+  private EntityRef aiContract;
+
+  @Valid
+  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+
+  private Violation violation;
+
+  private @Nullable String atBaseType;
+
+  private @Nullable URI atSchemaLocation;
+
+  private @Nullable String atType;
+
+  public AiContractViolationCreate() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public AiContractViolationCreate(EntityRef aiContract, Violation violation) {
+    this.aiContract = aiContract;
+    this.violation = violation;
+  }
+
+  public AiContractViolationCreate date(@Nullable OffsetDateTime date) {
+    this.date = date;
+    return this;
+  }
+
+  /**
+   * Get date
+   * @return date
+   */
+  @Valid 
+  @Schema(name = "date", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("date")
+  public @Nullable OffsetDateTime getDate() {
+    return date;
+  }
+
+  public void setDate(@Nullable OffsetDateTime date) {
+    this.date = date;
+  }
+
+  public AiContractViolationCreate aiContract(EntityRef aiContract) {
+    this.aiContract = aiContract;
+    return this;
+  }
+
+  /**
+   * Get aiContract
+   * @return aiContract
+   */
+  @NotNull @Valid 
+  @Schema(name = "aiContract", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("aiContract")
+  public EntityRef getAiContract() {
+    return aiContract;
+  }
+
+  public void setAiContract(EntityRef aiContract) {
+    this.aiContract = aiContract;
+  }
+
+  public AiContractViolationCreate relatedParty(List<@Valid RelatedParty> relatedParty) {
+    this.relatedParty = relatedParty;
+    return this;
+  }
+
+  public AiContractViolationCreate addRelatedPartyItem(RelatedParty relatedPartyItem) {
+    if (this.relatedParty == null) {
+      this.relatedParty = new ArrayList<>();
+    }
+    this.relatedParty.add(relatedPartyItem);
+    return this;
+  }
+
+  /**
+   * Get relatedParty
+   * @return relatedParty
+   */
+  @Valid 
+  @Schema(name = "relatedParty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("relatedParty")
+  public List<@Valid RelatedParty> getRelatedParty() {
+    return relatedParty;
+  }
+
+  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+    this.relatedParty = relatedParty;
+  }
+
+  public AiContractViolationCreate violation(Violation violation) {
+    this.violation = violation;
+    return this;
+  }
+
+  /**
+   * Get violation
+   * @return violation
+   */
+  @NotNull @Valid 
+  @Schema(name = "violation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("violation")
+  public Violation getViolation() {
+    return violation;
+  }
+
+  public void setViolation(Violation violation) {
+    this.violation = violation;
+  }
+
+  public AiContractViolationCreate atBaseType(@Nullable String atBaseType) {
+    this.atBaseType = atBaseType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the super-class
+   * @return atBaseType
+   */
+  
+  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@baseType")
+  public @Nullable String getAtBaseType() {
+    return atBaseType;
+  }
+
+  public void setAtBaseType(@Nullable String atBaseType) {
+    this.atBaseType = atBaseType;
+  }
+
+  public AiContractViolationCreate atSchemaLocation(@Nullable URI atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+    return this;
+  }
+
+  /**
+   * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * @return atSchemaLocation
+   */
+  @Valid 
+  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@schemaLocation")
+  public @Nullable URI getAtSchemaLocation() {
+    return atSchemaLocation;
+  }
+
+  public void setAtSchemaLocation(@Nullable URI atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+  }
+
+  public AiContractViolationCreate atType(@Nullable String atType) {
+    this.atType = atType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
+   */
+  
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@type")
+  public @Nullable String getAtType() {
+    return atType;
+  }
+
+  public void setAtType(@Nullable String atType) {
+    this.atType = atType;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AiContractViolationCreate aiContractViolationCreate = (AiContractViolationCreate) o;
+    return Objects.equals(this.date, aiContractViolationCreate.date) &&
+        Objects.equals(this.aiContract, aiContractViolationCreate.aiContract) &&
+        Objects.equals(this.relatedParty, aiContractViolationCreate.relatedParty) &&
+        Objects.equals(this.violation, aiContractViolationCreate.violation) &&
+        Objects.equals(this.atBaseType, aiContractViolationCreate.atBaseType) &&
+        Objects.equals(this.atSchemaLocation, aiContractViolationCreate.atSchemaLocation) &&
+        Objects.equals(this.atType, aiContractViolationCreate.atType);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(date, aiContract, relatedParty, violation, atBaseType, atSchemaLocation, atType);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AiContractViolationCreate {\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    aiContract: ").append(toIndentedString(aiContract)).append("\n");
+    sb.append("    relatedParty: ").append(toIndentedString(relatedParty)).append("\n");
+    sb.append("    violation: ").append(toIndentedString(violation)).append("\n");
+    sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
+    sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
+    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+
