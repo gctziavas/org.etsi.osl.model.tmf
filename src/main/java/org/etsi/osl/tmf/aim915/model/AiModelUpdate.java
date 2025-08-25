@@ -1,42 +1,20 @@
 package org.etsi.osl.tmf.aim915.model;
 
-import java.net.URI;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.v3.oas.annotations.media.Schema;
+import org.openapitools.model.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
+
+import javax.annotation.Generated;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AiModelSpecification;
-import org.openapitools.model.Characteristic;
-import org.openapitools.model.EntityRef;
-import org.openapitools.model.Feature;
-import org.openapitools.model.Note;
-import org.openapitools.model.RelatedEntityRefOrValue;
-import org.openapitools.model.RelatedParty;
-import org.openapitools.model.RelatedPlaceRefOrValue;
-import org.openapitools.model.RelatedServiceOrderItem;
-import org.openapitools.model.ResourceRef;
-import org.openapitools.model.ServiceRefOrValue;
-import org.openapitools.model.ServiceRelationship;
-import org.openapitools.model.ServiceSpecificationRef;
-import org.openapitools.model.ServiceStateType;
-import org.openapitools.model.SoftwareRef;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.lang.Nullable;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import javax.annotation.Generated;
+import java.util.Objects;
 
 /**
  * AiModel is a base class for defining the AiModel hierarchy Skipped properties: id,href,serviceDate

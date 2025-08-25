@@ -1,27 +1,20 @@
 package org.etsi.osl.tmf.aim915.model;
 
-import java.net.URI;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.openapitools.model.AlgorithmParams;
 import org.openapitools.model.Consequence;
 import org.openapitools.model.Measurement;
 import org.openapitools.model.PerformanceAlarmSpecification;
 import org.springframework.lang.Nullable;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
+
+import javax.annotation.Generated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import javax.annotation.Generated;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * A threshold rule that is a reference to an algorithm

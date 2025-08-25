@@ -1,35 +1,20 @@
 package org.etsi.osl.tmf.aim915.model;
 
-import java.net.URI;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.v3.oas.annotations.media.Schema;
+import org.openapitools.model.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
+
+import javax.annotation.Generated;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AffectedService;
-import org.openapitools.model.AlarmRef;
-import org.openapitools.model.AlarmType;
-import org.openapitools.model.AlarmedObject;
-import org.openapitools.model.Comment;
-import org.openapitools.model.CrossedThresholdInformation;
-import org.openapitools.model.PerceivedSeverity;
-import org.openapitools.model.RelatedPlaceRefOrValue;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.lang.Nullable;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import javax.annotation.Generated;
+import java.util.Objects;
 
 /**
  * This resource represents an alarm supporting the information model defined in ITU-T X.733. Skipped properties: id,href,alarmRaisedTime,sourceSystemId
