@@ -1,4 +1,4 @@
-package org.openapitools.model;
+package org.etsi.osl.tmf.aim915.model;
 
 import java.net.URI;
 import java.util.Objects;
