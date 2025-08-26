@@ -2,8 +2,8 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.Characteristic;
-import org.openapitools.model.ServiceRefOrValue;
+import org.etsi.osl.tmf.aim915.model.Characteristic;
+import org.etsi.osl.tmf.aim915.model.ServiceRefOrValue;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -30,7 +30,7 @@ public class ServiceRelationship {
   private @Nullable ServiceRefOrValue service;
 
   @Valid
-  private List<@Valid Characteristic> serviceRelationshipCharacteristic = new ArrayList<>();
+  private List<Characteristic> serviceRelationshipCharacteristic = new ArrayList<>();
 
   private @Nullable String atBaseType;
 
@@ -129,7 +129,7 @@ public class ServiceRelationship {
     this.service = service;
   }
 
-  public ServiceRelationship serviceRelationshipCharacteristic(List<@Valid Characteristic> serviceRelationshipCharacteristic) {
+  public ServiceRelationship serviceRelationshipCharacteristic(List<Characteristic> serviceRelationshipCharacteristic) {
     this.serviceRelationshipCharacteristic = serviceRelationshipCharacteristic;
     return this;
   }
@@ -149,11 +149,11 @@ public class ServiceRelationship {
   @Valid 
   @Schema(name = "serviceRelationshipCharacteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceRelationshipCharacteristic")
-  public List<@Valid Characteristic> getServiceRelationshipCharacteristic() {
+  public List<Characteristic> getServiceRelationshipCharacteristic() {
     return serviceRelationshipCharacteristic;
   }
 
-  public void setServiceRelationshipCharacteristic(List<@Valid Characteristic> serviceRelationshipCharacteristic) {
+  public void setServiceRelationshipCharacteristic(List<Characteristic> serviceRelationshipCharacteristic) {
     this.serviceRelationshipCharacteristic = serviceRelationshipCharacteristic;
   }
 

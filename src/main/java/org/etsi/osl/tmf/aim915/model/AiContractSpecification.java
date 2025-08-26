@@ -2,7 +2,7 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.*;
+import org.etsi.osl.tmf.aim915.model.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
@@ -41,19 +41,19 @@ public class AiContractSpecification {
   private @Nullable String version;
 
   @Valid
-  private List<@Valid AttachmentRefOrValue> attachment = new ArrayList<>();
+  private List<AttachmentRefOrValue> attachment = new ArrayList<>();
 
   @Valid
-  private List<@Valid ConstraintRef> constraint = new ArrayList<>();
+  private List<ConstraintRef> constraint = new ArrayList<>();
 
   @Valid
-  private List<@Valid EntitySpecificationRelationship> entitySpecRelationship = new ArrayList<>();
+  private List<EntitySpecificationRelationship> entitySpecRelationship = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+  private List<RelatedParty> relatedParty = new ArrayList<>();
 
   @Valid
-  private List<@Valid CharacteristicSpecification> specCharacteristic = new ArrayList<>();
+  private List<CharacteristicSpecification> specCharacteristic = new ArrayList<>();
 
   private @Nullable TargetEntitySchema targetEntitySchema;
 
@@ -225,7 +225,7 @@ public class AiContractSpecification {
     this.version = version;
   }
 
-  public AiContractSpecification attachment(List<@Valid AttachmentRefOrValue> attachment) {
+  public AiContractSpecification attachment(List<AttachmentRefOrValue> attachment) {
     this.attachment = attachment;
     return this;
   }
@@ -245,15 +245,15 @@ public class AiContractSpecification {
   @Valid 
   @Schema(name = "attachment", description = "Attachments that may be of relevance to this specification, such as picture, document, media", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("attachment")
-  public List<@Valid AttachmentRefOrValue> getAttachment() {
+  public List<AttachmentRefOrValue> getAttachment() {
     return attachment;
   }
 
-  public void setAttachment(List<@Valid AttachmentRefOrValue> attachment) {
+  public void setAttachment(List<AttachmentRefOrValue> attachment) {
     this.attachment = attachment;
   }
 
-  public AiContractSpecification constraint(List<@Valid ConstraintRef> constraint) {
+  public AiContractSpecification constraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
     return this;
   }
@@ -273,15 +273,15 @@ public class AiContractSpecification {
   @Valid 
   @Schema(name = "constraint", description = "This is a list of constraint references applied to this specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("constraint")
-  public List<@Valid ConstraintRef> getConstraint() {
+  public List<ConstraintRef> getConstraint() {
     return constraint;
   }
 
-  public void setConstraint(List<@Valid ConstraintRef> constraint) {
+  public void setConstraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
   }
 
-  public AiContractSpecification entitySpecRelationship(List<@Valid EntitySpecificationRelationship> entitySpecRelationship) {
+  public AiContractSpecification entitySpecRelationship(List<EntitySpecificationRelationship> entitySpecRelationship) {
     this.entitySpecRelationship = entitySpecRelationship;
     return this;
   }
@@ -301,15 +301,15 @@ public class AiContractSpecification {
   @Valid 
   @Schema(name = "entitySpecRelationship", description = "Relationship to another specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("entitySpecRelationship")
-  public List<@Valid EntitySpecificationRelationship> getEntitySpecRelationship() {
+  public List<EntitySpecificationRelationship> getEntitySpecRelationship() {
     return entitySpecRelationship;
   }
 
-  public void setEntitySpecRelationship(List<@Valid EntitySpecificationRelationship> entitySpecRelationship) {
+  public void setEntitySpecRelationship(List<EntitySpecificationRelationship> entitySpecRelationship) {
     this.entitySpecRelationship = entitySpecRelationship;
   }
 
-  public AiContractSpecification relatedParty(List<@Valid RelatedParty> relatedParty) {
+  public AiContractSpecification relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
@@ -329,15 +329,15 @@ public class AiContractSpecification {
   @Valid 
   @Schema(name = "relatedParty", description = "Parties who manage or otherwise have an interest in this specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedParty")
-  public List<@Valid RelatedParty> getRelatedParty() {
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 
-  public AiContractSpecification specCharacteristic(List<@Valid CharacteristicSpecification> specCharacteristic) {
+  public AiContractSpecification specCharacteristic(List<CharacteristicSpecification> specCharacteristic) {
     this.specCharacteristic = specCharacteristic;
     return this;
   }
@@ -357,11 +357,11 @@ public class AiContractSpecification {
   @Valid 
   @Schema(name = "specCharacteristic", description = "List of characteristics that the entity can take", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("specCharacteristic")
-  public List<@Valid CharacteristicSpecification> getSpecCharacteristic() {
+  public List<CharacteristicSpecification> getSpecCharacteristic() {
     return specCharacteristic;
   }
 
-  public void setSpecCharacteristic(List<@Valid CharacteristicSpecification> specCharacteristic) {
+  public void setSpecCharacteristic(List<CharacteristicSpecification> specCharacteristic) {
     this.specCharacteristic = specCharacteristic;
   }
 

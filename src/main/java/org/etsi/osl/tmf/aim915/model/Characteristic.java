@@ -2,7 +2,7 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.CharacteristicRelationship;
+import org.etsi.osl.tmf.aim915.model.CharacteristicRelationship;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -28,7 +28,7 @@ public class Characteristic {
   private @Nullable String valueType;
 
   @Valid
-  private List<@Valid CharacteristicRelationship> characteristicRelationship = new ArrayList<>();
+  private List<CharacteristicRelationship> characteristicRelationship = new ArrayList<>();
 
   private Object value;
 
@@ -110,7 +110,7 @@ public class Characteristic {
     this.valueType = valueType;
   }
 
-  public Characteristic characteristicRelationship(List<@Valid CharacteristicRelationship> characteristicRelationship) {
+  public Characteristic characteristicRelationship(List<CharacteristicRelationship> characteristicRelationship) {
     this.characteristicRelationship = characteristicRelationship;
     return this;
   }
@@ -130,11 +130,11 @@ public class Characteristic {
   @Valid 
   @Schema(name = "characteristicRelationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("characteristicRelationship")
-  public List<@Valid CharacteristicRelationship> getCharacteristicRelationship() {
+  public List<CharacteristicRelationship> getCharacteristicRelationship() {
     return characteristicRelationship;
   }
 
-  public void setCharacteristicRelationship(List<@Valid CharacteristicRelationship> characteristicRelationship) {
+  public void setCharacteristicRelationship(List<CharacteristicRelationship> characteristicRelationship) {
     this.characteristicRelationship = characteristicRelationship;
   }
 

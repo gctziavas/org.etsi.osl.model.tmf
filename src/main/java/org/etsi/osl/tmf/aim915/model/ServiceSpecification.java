@@ -2,7 +2,7 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.*;
+import org.etsi.osl.tmf.aim915.model.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
@@ -41,31 +41,31 @@ public class ServiceSpecification {
   private @Nullable String version;
 
   @Valid
-  private List<@Valid AttachmentRefOrValue> attachment = new ArrayList<>();
+  private List<AttachmentRefOrValue> attachment = new ArrayList<>();
 
   @Valid
-  private List<@Valid ConstraintRef> constraint = new ArrayList<>();
+  private List<ConstraintRef> constraint = new ArrayList<>();
 
   @Valid
-  private List<@Valid EntitySpecificationRelationship> entitySpecRelationship = new ArrayList<>();
+  private List<EntitySpecificationRelationship> entitySpecRelationship = new ArrayList<>();
 
   @Valid
-  private List<@Valid FeatureSpecification> featureSpecification = new ArrayList<>();
+  private List<FeatureSpecification> featureSpecification = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+  private List<RelatedParty> relatedParty = new ArrayList<>();
 
   @Valid
-  private List<@Valid ResourceSpecificationRef> resourceSpecification = new ArrayList<>();
+  private List<ResourceSpecificationRef> resourceSpecification = new ArrayList<>();
 
   @Valid
-  private List<@Valid ServiceLevelSpecificationRef> serviceLevelSpecification = new ArrayList<>();
+  private List<ServiceLevelSpecificationRef> serviceLevelSpecification = new ArrayList<>();
 
   @Valid
-  private List<@Valid ServiceSpecRelationship> serviceSpecRelationship = new ArrayList<>();
+  private List<ServiceSpecRelationship> serviceSpecRelationship = new ArrayList<>();
 
   @Valid
-  private List<@Valid CharacteristicSpecification> specCharacteristic = new ArrayList<>();
+  private List<CharacteristicSpecification> specCharacteristic = new ArrayList<>();
 
   private @Nullable TargetEntitySchema targetEntitySchema;
 
@@ -237,7 +237,7 @@ public class ServiceSpecification {
     this.version = version;
   }
 
-  public ServiceSpecification attachment(List<@Valid AttachmentRefOrValue> attachment) {
+  public ServiceSpecification attachment(List<AttachmentRefOrValue> attachment) {
     this.attachment = attachment;
     return this;
   }
@@ -257,15 +257,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "attachment", description = "Attachments that may be of relevance to this specification, such as picture, document, media", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("attachment")
-  public List<@Valid AttachmentRefOrValue> getAttachment() {
+  public List<AttachmentRefOrValue> getAttachment() {
     return attachment;
   }
 
-  public void setAttachment(List<@Valid AttachmentRefOrValue> attachment) {
+  public void setAttachment(List<AttachmentRefOrValue> attachment) {
     this.attachment = attachment;
   }
 
-  public ServiceSpecification constraint(List<@Valid ConstraintRef> constraint) {
+  public ServiceSpecification constraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
     return this;
   }
@@ -285,15 +285,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "constraint", description = "This is a list of constraint references applied to this specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("constraint")
-  public List<@Valid ConstraintRef> getConstraint() {
+  public List<ConstraintRef> getConstraint() {
     return constraint;
   }
 
-  public void setConstraint(List<@Valid ConstraintRef> constraint) {
+  public void setConstraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
   }
 
-  public ServiceSpecification entitySpecRelationship(List<@Valid EntitySpecificationRelationship> entitySpecRelationship) {
+  public ServiceSpecification entitySpecRelationship(List<EntitySpecificationRelationship> entitySpecRelationship) {
     this.entitySpecRelationship = entitySpecRelationship;
     return this;
   }
@@ -313,15 +313,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "entitySpecRelationship", description = "Relationship to another specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("entitySpecRelationship")
-  public List<@Valid EntitySpecificationRelationship> getEntitySpecRelationship() {
+  public List<EntitySpecificationRelationship> getEntitySpecRelationship() {
     return entitySpecRelationship;
   }
 
-  public void setEntitySpecRelationship(List<@Valid EntitySpecificationRelationship> entitySpecRelationship) {
+  public void setEntitySpecRelationship(List<EntitySpecificationRelationship> entitySpecRelationship) {
     this.entitySpecRelationship = entitySpecRelationship;
   }
 
-  public ServiceSpecification featureSpecification(List<@Valid FeatureSpecification> featureSpecification) {
+  public ServiceSpecification featureSpecification(List<FeatureSpecification> featureSpecification) {
     this.featureSpecification = featureSpecification;
     return this;
   }
@@ -341,15 +341,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "featureSpecification", description = "A list of Features for this specification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("featureSpecification")
-  public List<@Valid FeatureSpecification> getFeatureSpecification() {
+  public List<FeatureSpecification> getFeatureSpecification() {
     return featureSpecification;
   }
 
-  public void setFeatureSpecification(List<@Valid FeatureSpecification> featureSpecification) {
+  public void setFeatureSpecification(List<FeatureSpecification> featureSpecification) {
     this.featureSpecification = featureSpecification;
   }
 
-  public ServiceSpecification relatedParty(List<@Valid RelatedParty> relatedParty) {
+  public ServiceSpecification relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
@@ -369,15 +369,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "relatedParty", description = "Parties who manage or otherwise have an interest in this specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedParty")
-  public List<@Valid RelatedParty> getRelatedParty() {
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 
-  public ServiceSpecification resourceSpecification(List<@Valid ResourceSpecificationRef> resourceSpecification) {
+  public ServiceSpecification resourceSpecification(List<ResourceSpecificationRef> resourceSpecification) {
     this.resourceSpecification = resourceSpecification;
     return this;
   }
@@ -397,15 +397,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "resourceSpecification", description = "A list of resource specification references (ResourceSpecificationRef [*]). The ResourceSpecification is required for a service specification with type ResourceFacingServiceSpecification (RFSS).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("resourceSpecification")
-  public List<@Valid ResourceSpecificationRef> getResourceSpecification() {
+  public List<ResourceSpecificationRef> getResourceSpecification() {
     return resourceSpecification;
   }
 
-  public void setResourceSpecification(List<@Valid ResourceSpecificationRef> resourceSpecification) {
+  public void setResourceSpecification(List<ResourceSpecificationRef> resourceSpecification) {
     this.resourceSpecification = resourceSpecification;
   }
 
-  public ServiceSpecification serviceLevelSpecification(List<@Valid ServiceLevelSpecificationRef> serviceLevelSpecification) {
+  public ServiceSpecification serviceLevelSpecification(List<ServiceLevelSpecificationRef> serviceLevelSpecification) {
     this.serviceLevelSpecification = serviceLevelSpecification;
     return this;
   }
@@ -425,15 +425,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "serviceLevelSpecification", description = "A list of service level specifications related to this service specification, and which will need to be satisifiable for corresponding service instances; e.g. Gold, Platinum", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceLevelSpecification")
-  public List<@Valid ServiceLevelSpecificationRef> getServiceLevelSpecification() {
+  public List<ServiceLevelSpecificationRef> getServiceLevelSpecification() {
     return serviceLevelSpecification;
   }
 
-  public void setServiceLevelSpecification(List<@Valid ServiceLevelSpecificationRef> serviceLevelSpecification) {
+  public void setServiceLevelSpecification(List<ServiceLevelSpecificationRef> serviceLevelSpecification) {
     this.serviceLevelSpecification = serviceLevelSpecification;
   }
 
-  public ServiceSpecification serviceSpecRelationship(List<@Valid ServiceSpecRelationship> serviceSpecRelationship) {
+  public ServiceSpecification serviceSpecRelationship(List<ServiceSpecRelationship> serviceSpecRelationship) {
     this.serviceSpecRelationship = serviceSpecRelationship;
     return this;
   }
@@ -453,15 +453,15 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "serviceSpecRelationship", description = "A list of service specifications related to this specification, e.g. migration, substitution, dependency or exclusivity relationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceSpecRelationship")
-  public List<@Valid ServiceSpecRelationship> getServiceSpecRelationship() {
+  public List<ServiceSpecRelationship> getServiceSpecRelationship() {
     return serviceSpecRelationship;
   }
 
-  public void setServiceSpecRelationship(List<@Valid ServiceSpecRelationship> serviceSpecRelationship) {
+  public void setServiceSpecRelationship(List<ServiceSpecRelationship> serviceSpecRelationship) {
     this.serviceSpecRelationship = serviceSpecRelationship;
   }
 
-  public ServiceSpecification specCharacteristic(List<@Valid CharacteristicSpecification> specCharacteristic) {
+  public ServiceSpecification specCharacteristic(List<CharacteristicSpecification> specCharacteristic) {
     this.specCharacteristic = specCharacteristic;
     return this;
   }
@@ -481,11 +481,11 @@ public class ServiceSpecification {
   @Valid 
   @Schema(name = "specCharacteristic", description = "List of characteristics that the entity can take", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("specCharacteristic")
-  public List<@Valid CharacteristicSpecification> getSpecCharacteristic() {
+  public List<CharacteristicSpecification> getSpecCharacteristic() {
     return specCharacteristic;
   }
 
-  public void setSpecCharacteristic(List<@Valid CharacteristicSpecification> specCharacteristic) {
+  public void setSpecCharacteristic(List<CharacteristicSpecification> specCharacteristic) {
     this.specCharacteristic = specCharacteristic;
   }
 

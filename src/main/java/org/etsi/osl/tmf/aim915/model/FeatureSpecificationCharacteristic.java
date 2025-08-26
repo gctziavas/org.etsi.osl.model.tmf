@@ -2,9 +2,9 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.CharacteristicValueSpecification;
-import org.openapitools.model.FeatureSpecificationCharacteristicRelationship;
-import org.openapitools.model.TimePeriod;
+import org.etsi.osl.tmf.aim915.model.CharacteristicValueSpecification;
+import org.etsi.osl.tmf.aim915.model.FeatureSpecificationCharacteristicRelationship;
+import org.etsi.osl.tmf.aim915.model.TimePeriod;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -44,10 +44,10 @@ public class FeatureSpecificationCharacteristic {
   private @Nullable String valueType;
 
   @Valid
-  private List<@Valid FeatureSpecificationCharacteristicRelationship> featureSpecCharRelationship = new ArrayList<>();
+  private List<FeatureSpecificationCharacteristicRelationship> featureSpecCharRelationship = new ArrayList<>();
 
   @Valid
-  private List<@Valid CharacteristicValueSpecification> featureSpecCharacteristicValue = new ArrayList<>();
+  private List<CharacteristicValueSpecification> featureSpecCharacteristicValue = new ArrayList<>();
 
   private @Nullable TimePeriod validFor;
 
@@ -270,7 +270,7 @@ public class FeatureSpecificationCharacteristic {
     this.valueType = valueType;
   }
 
-  public FeatureSpecificationCharacteristic featureSpecCharRelationship(List<@Valid FeatureSpecificationCharacteristicRelationship> featureSpecCharRelationship) {
+  public FeatureSpecificationCharacteristic featureSpecCharRelationship(List<FeatureSpecificationCharacteristicRelationship> featureSpecCharRelationship) {
     this.featureSpecCharRelationship = featureSpecCharRelationship;
     return this;
   }
@@ -290,15 +290,15 @@ public class FeatureSpecificationCharacteristic {
   @Valid 
   @Schema(name = "featureSpecCharRelationship", description = "An aggregation, migration, substitution, dependency or exclusivity relationship between/among feature characteristics.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("featureSpecCharRelationship")
-  public List<@Valid FeatureSpecificationCharacteristicRelationship> getFeatureSpecCharRelationship() {
+  public List<FeatureSpecificationCharacteristicRelationship> getFeatureSpecCharRelationship() {
     return featureSpecCharRelationship;
   }
 
-  public void setFeatureSpecCharRelationship(List<@Valid FeatureSpecificationCharacteristicRelationship> featureSpecCharRelationship) {
+  public void setFeatureSpecCharRelationship(List<FeatureSpecificationCharacteristicRelationship> featureSpecCharRelationship) {
     this.featureSpecCharRelationship = featureSpecCharRelationship;
   }
 
-  public FeatureSpecificationCharacteristic featureSpecCharacteristicValue(List<@Valid CharacteristicValueSpecification> featureSpecCharacteristicValue) {
+  public FeatureSpecificationCharacteristic featureSpecCharacteristicValue(List<CharacteristicValueSpecification> featureSpecCharacteristicValue) {
     this.featureSpecCharacteristicValue = featureSpecCharacteristicValue;
     return this;
   }
@@ -318,11 +318,11 @@ public class FeatureSpecificationCharacteristic {
   @Valid 
   @Schema(name = "featureSpecCharacteristicValue", description = "Used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a FeatureCharacteristic object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("featureSpecCharacteristicValue")
-  public List<@Valid CharacteristicValueSpecification> getFeatureSpecCharacteristicValue() {
+  public List<CharacteristicValueSpecification> getFeatureSpecCharacteristicValue() {
     return featureSpecCharacteristicValue;
   }
 
-  public void setFeatureSpecCharacteristicValue(List<@Valid CharacteristicValueSpecification> featureSpecCharacteristicValue) {
+  public void setFeatureSpecCharacteristicValue(List<CharacteristicValueSpecification> featureSpecCharacteristicValue) {
     this.featureSpecCharacteristicValue = featureSpecCharacteristicValue;
   }
 

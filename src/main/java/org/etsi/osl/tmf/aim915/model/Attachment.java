@@ -2,8 +2,8 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.Quantity;
-import org.openapitools.model.TimePeriod;
+import org.etsi.osl.tmf.aim915.model.Quantity;
+import org.etsi.osl.tmf.aim915.model.TimePeriod;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;

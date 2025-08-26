@@ -2,9 +2,9 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.EntityRef;
-import org.openapitools.model.RelatedParty;
-import org.openapitools.model.Violation;
+import org.etsi.osl.tmf.aim915.model.EntityRef;
+import org.etsi.osl.tmf.aim915.model.RelatedParty;
+import org.etsi.osl.tmf.aim915.model.Violation;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
@@ -34,7 +34,7 @@ public class AiContractViolation {
   private @Nullable EntityRef aiContract;
 
   @Valid
-  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+  private List<RelatedParty> relatedParty = new ArrayList<>();
 
   private @Nullable Violation violation;
 
@@ -124,7 +124,7 @@ public class AiContractViolation {
     this.aiContract = aiContract;
   }
 
-  public AiContractViolation relatedParty(List<@Valid RelatedParty> relatedParty) {
+  public AiContractViolation relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
@@ -144,11 +144,11 @@ public class AiContractViolation {
   @Valid 
   @Schema(name = "relatedParty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedParty")
-  public List<@Valid RelatedParty> getRelatedParty() {
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 

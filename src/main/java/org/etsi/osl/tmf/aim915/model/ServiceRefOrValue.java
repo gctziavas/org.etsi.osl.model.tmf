@@ -2,7 +2,7 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.*;
+import org.etsi.osl.tmf.aim915.model.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
@@ -54,38 +54,38 @@ public class ServiceRefOrValue {
   private @Nullable String startMode;
 
   @Valid
-  private List<@Valid Feature> feature = new ArrayList<>();
+  private List<Feature> feature = new ArrayList<>();
 
   @Valid
-  private List<@Valid Note> note = new ArrayList<>();
+  private List<Note> note = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedPlaceRefOrValue> place = new ArrayList<>();
+  private List<RelatedPlaceRefOrValue> place = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedEntityRefOrValue> relatedEntity = new ArrayList<>();
+  private List<RelatedEntityRefOrValue> relatedEntity = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+  private List<RelatedParty> relatedParty = new ArrayList<>();
 
   @Valid
-  private List<@Valid Characteristic> serviceCharacteristic = new ArrayList<>();
+  private List<Characteristic> serviceCharacteristic = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedServiceOrderItem> serviceOrderItem = new ArrayList<>();
+  private List<RelatedServiceOrderItem> serviceOrderItem = new ArrayList<>();
 
   @Valid
-  private List<@Valid ServiceRelationship> serviceRelationship = new ArrayList<>();
+  private List<ServiceRelationship> serviceRelationship = new ArrayList<>();
 
   private @Nullable ServiceSpecificationRef serviceSpecification;
 
   private @Nullable ServiceStateType state;
 
   @Valid
-  private List<@Valid ResourceRef> supportingResource = new ArrayList<>();
+  private List<ResourceRef> supportingResource = new ArrayList<>();
 
   @Valid
-  private List<@Valid ServiceRefOrValue> supportingService = new ArrayList<>();
+  private List<ServiceRefOrValue> supportingService = new ArrayList<>();
 
   private @Nullable String atBaseType;
 
@@ -375,7 +375,7 @@ public class ServiceRefOrValue {
     this.startMode = startMode;
   }
 
-  public ServiceRefOrValue feature(List<@Valid Feature> feature) {
+  public ServiceRefOrValue feature(List<Feature> feature) {
     this.feature = feature;
     return this;
   }
@@ -395,15 +395,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "feature", description = "A list of feature associated with this service ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("feature")
-  public List<@Valid Feature> getFeature() {
+  public List<Feature> getFeature() {
     return feature;
   }
 
-  public void setFeature(List<@Valid Feature> feature) {
+  public void setFeature(List<Feature> feature) {
     this.feature = feature;
   }
 
-  public ServiceRefOrValue note(List<@Valid Note> note) {
+  public ServiceRefOrValue note(List<Note> note) {
     this.note = note;
     return this;
   }
@@ -423,15 +423,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "note", description = "A list of notes made on this service", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("note")
-  public List<@Valid Note> getNote() {
+  public List<Note> getNote() {
     return note;
   }
 
-  public void setNote(List<@Valid Note> note) {
+  public void setNote(List<Note> note) {
     this.note = note;
   }
 
-  public ServiceRefOrValue place(List<@Valid RelatedPlaceRefOrValue> place) {
+  public ServiceRefOrValue place(List<RelatedPlaceRefOrValue> place) {
     this.place = place;
     return this;
   }
@@ -451,15 +451,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "place", description = "A list of places (Place [*]). Used to define a place useful for the service (for example a geographical place whre the service is installed)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("place")
-  public List<@Valid RelatedPlaceRefOrValue> getPlace() {
+  public List<RelatedPlaceRefOrValue> getPlace() {
     return place;
   }
 
-  public void setPlace(List<@Valid RelatedPlaceRefOrValue> place) {
+  public void setPlace(List<RelatedPlaceRefOrValue> place) {
     this.place = place;
   }
 
-  public ServiceRefOrValue relatedEntity(List<@Valid RelatedEntityRefOrValue> relatedEntity) {
+  public ServiceRefOrValue relatedEntity(List<RelatedEntityRefOrValue> relatedEntity) {
     this.relatedEntity = relatedEntity;
     return this;
   }
@@ -479,15 +479,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "relatedEntity", description = "A list of related  entity in relationship with this service ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedEntity")
-  public List<@Valid RelatedEntityRefOrValue> getRelatedEntity() {
+  public List<RelatedEntityRefOrValue> getRelatedEntity() {
     return relatedEntity;
   }
 
-  public void setRelatedEntity(List<@Valid RelatedEntityRefOrValue> relatedEntity) {
+  public void setRelatedEntity(List<RelatedEntityRefOrValue> relatedEntity) {
     this.relatedEntity = relatedEntity;
   }
 
-  public ServiceRefOrValue relatedParty(List<@Valid RelatedParty> relatedParty) {
+  public ServiceRefOrValue relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
@@ -507,15 +507,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "relatedParty", description = "A list of related party references (RelatedParty [*]). A related party defines party or party role linked to a specific entity", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedParty")
-  public List<@Valid RelatedParty> getRelatedParty() {
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 
-  public ServiceRefOrValue serviceCharacteristic(List<@Valid Characteristic> serviceCharacteristic) {
+  public ServiceRefOrValue serviceCharacteristic(List<Characteristic> serviceCharacteristic) {
     this.serviceCharacteristic = serviceCharacteristic;
     return this;
   }
@@ -535,15 +535,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "serviceCharacteristic", description = "A list of characteristics that characterize this service (ServiceCharacteristic [*]) ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceCharacteristic")
-  public List<@Valid Characteristic> getServiceCharacteristic() {
+  public List<Characteristic> getServiceCharacteristic() {
     return serviceCharacteristic;
   }
 
-  public void setServiceCharacteristic(List<@Valid Characteristic> serviceCharacteristic) {
+  public void setServiceCharacteristic(List<Characteristic> serviceCharacteristic) {
     this.serviceCharacteristic = serviceCharacteristic;
   }
 
-  public ServiceRefOrValue serviceOrderItem(List<@Valid RelatedServiceOrderItem> serviceOrderItem) {
+  public ServiceRefOrValue serviceOrderItem(List<RelatedServiceOrderItem> serviceOrderItem) {
     this.serviceOrderItem = serviceOrderItem;
     return this;
   }
@@ -563,15 +563,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "serviceOrderItem", description = "A list of service order items related to this service", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceOrderItem")
-  public List<@Valid RelatedServiceOrderItem> getServiceOrderItem() {
+  public List<RelatedServiceOrderItem> getServiceOrderItem() {
     return serviceOrderItem;
   }
 
-  public void setServiceOrderItem(List<@Valid RelatedServiceOrderItem> serviceOrderItem) {
+  public void setServiceOrderItem(List<RelatedServiceOrderItem> serviceOrderItem) {
     this.serviceOrderItem = serviceOrderItem;
   }
 
-  public ServiceRefOrValue serviceRelationship(List<@Valid ServiceRelationship> serviceRelationship) {
+  public ServiceRefOrValue serviceRelationship(List<ServiceRelationship> serviceRelationship) {
     this.serviceRelationship = serviceRelationship;
     return this;
   }
@@ -591,11 +591,11 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "serviceRelationship", description = "A list of service relationships (ServiceRelationship [*]). Describes links with other service(s) in the inventory.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceRelationship")
-  public List<@Valid ServiceRelationship> getServiceRelationship() {
+  public List<ServiceRelationship> getServiceRelationship() {
     return serviceRelationship;
   }
 
-  public void setServiceRelationship(List<@Valid ServiceRelationship> serviceRelationship) {
+  public void setServiceRelationship(List<ServiceRelationship> serviceRelationship) {
     this.serviceRelationship = serviceRelationship;
   }
 
@@ -639,7 +639,7 @@ public class ServiceRefOrValue {
     this.state = state;
   }
 
-  public ServiceRefOrValue supportingResource(List<@Valid ResourceRef> supportingResource) {
+  public ServiceRefOrValue supportingResource(List<ResourceRef> supportingResource) {
     this.supportingResource = supportingResource;
     return this;
   }
@@ -659,15 +659,15 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "supportingResource", description = "A list of supporting resources (SupportingResource [*]).Note: only Service of type RFS can be associated with Resources", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("supportingResource")
-  public List<@Valid ResourceRef> getSupportingResource() {
+  public List<ResourceRef> getSupportingResource() {
     return supportingResource;
   }
 
-  public void setSupportingResource(List<@Valid ResourceRef> supportingResource) {
+  public void setSupportingResource(List<ResourceRef> supportingResource) {
     this.supportingResource = supportingResource;
   }
 
-  public ServiceRefOrValue supportingService(List<@Valid ServiceRefOrValue> supportingService) {
+  public ServiceRefOrValue supportingService(List<ServiceRefOrValue> supportingService) {
     this.supportingService = supportingService;
     return this;
   }
@@ -687,11 +687,11 @@ public class ServiceRefOrValue {
   @Valid 
   @Schema(name = "supportingService", description = "A list of supporting services (SupportingService [*]). A collection of services that support this service (bundling, link CFS to RFS)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("supportingService")
-  public List<@Valid ServiceRefOrValue> getSupportingService() {
+  public List<ServiceRefOrValue> getSupportingService() {
     return supportingService;
   }
 
-  public void setSupportingService(List<@Valid ServiceRefOrValue> supportingService) {
+  public void setSupportingService(List<ServiceRefOrValue> supportingService) {
     this.supportingService = supportingService;
   }
 

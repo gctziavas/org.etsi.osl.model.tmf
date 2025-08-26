@@ -2,7 +2,7 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.AiContract;
+import org.etsi.osl.tmf.aim915.model.AiContract;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;

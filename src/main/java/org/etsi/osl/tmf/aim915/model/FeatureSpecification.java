@@ -2,10 +2,10 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.ConstraintRef;
-import org.openapitools.model.FeatureSpecificationCharacteristic;
-import org.openapitools.model.FeatureSpecificationRelationship;
-import org.openapitools.model.TimePeriod;
+import org.etsi.osl.tmf.aim915.model.ConstraintRef;
+import org.etsi.osl.tmf.aim915.model.FeatureSpecificationCharacteristic;
+import org.etsi.osl.tmf.aim915.model.FeatureSpecificationRelationship;
+import org.etsi.osl.tmf.aim915.model.TimePeriod;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -37,13 +37,13 @@ public class FeatureSpecification {
   private @Nullable String version;
 
   @Valid
-  private List<@Valid ConstraintRef> constraint = new ArrayList<>();
+  private List<ConstraintRef> constraint = new ArrayList<>();
 
   @Valid
-  private List<@Valid FeatureSpecificationCharacteristic> featureSpecCharacteristic = new ArrayList<>();
+  private List<FeatureSpecificationCharacteristic> featureSpecCharacteristic = new ArrayList<>();
 
   @Valid
-  private List<@Valid FeatureSpecificationRelationship> featureSpecRelationship = new ArrayList<>();
+  private List<FeatureSpecificationRelationship> featureSpecRelationship = new ArrayList<>();
 
   private @Nullable TimePeriod validFor;
 
@@ -173,7 +173,7 @@ public class FeatureSpecification {
     this.version = version;
   }
 
-  public FeatureSpecification constraint(List<@Valid ConstraintRef> constraint) {
+  public FeatureSpecification constraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
     return this;
   }
@@ -193,15 +193,15 @@ public class FeatureSpecification {
   @Valid 
   @Schema(name = "constraint", description = "This is a list of feature constraints", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("constraint")
-  public List<@Valid ConstraintRef> getConstraint() {
+  public List<ConstraintRef> getConstraint() {
     return constraint;
   }
 
-  public void setConstraint(List<@Valid ConstraintRef> constraint) {
+  public void setConstraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
   }
 
-  public FeatureSpecification featureSpecCharacteristic(List<@Valid FeatureSpecificationCharacteristic> featureSpecCharacteristic) {
+  public FeatureSpecification featureSpecCharacteristic(List<FeatureSpecificationCharacteristic> featureSpecCharacteristic) {
     this.featureSpecCharacteristic = featureSpecCharacteristic;
     return this;
   }
@@ -221,15 +221,15 @@ public class FeatureSpecification {
   @Valid 
   @Schema(name = "featureSpecCharacteristic", description = "This is a list of characteristics for a particular feature", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("featureSpecCharacteristic")
-  public List<@Valid FeatureSpecificationCharacteristic> getFeatureSpecCharacteristic() {
+  public List<FeatureSpecificationCharacteristic> getFeatureSpecCharacteristic() {
     return featureSpecCharacteristic;
   }
 
-  public void setFeatureSpecCharacteristic(List<@Valid FeatureSpecificationCharacteristic> featureSpecCharacteristic) {
+  public void setFeatureSpecCharacteristic(List<FeatureSpecificationCharacteristic> featureSpecCharacteristic) {
     this.featureSpecCharacteristic = featureSpecCharacteristic;
   }
 
-  public FeatureSpecification featureSpecRelationship(List<@Valid FeatureSpecificationRelationship> featureSpecRelationship) {
+  public FeatureSpecification featureSpecRelationship(List<FeatureSpecificationRelationship> featureSpecRelationship) {
     this.featureSpecRelationship = featureSpecRelationship;
     return this;
   }
@@ -249,11 +249,11 @@ public class FeatureSpecification {
   @Valid 
   @Schema(name = "featureSpecRelationship", description = "A dependency, exclusivity or aggratation relationship between/among feature specifications.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("featureSpecRelationship")
-  public List<@Valid FeatureSpecificationRelationship> getFeatureSpecRelationship() {
+  public List<FeatureSpecificationRelationship> getFeatureSpecRelationship() {
     return featureSpecRelationship;
   }
 
-  public void setFeatureSpecRelationship(List<@Valid FeatureSpecificationRelationship> featureSpecRelationship) {
+  public void setFeatureSpecRelationship(List<FeatureSpecificationRelationship> featureSpecRelationship) {
     this.featureSpecRelationship = featureSpecRelationship;
   }
 

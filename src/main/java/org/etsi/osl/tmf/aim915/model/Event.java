@@ -2,9 +2,9 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.Characteristic;
-import org.openapitools.model.EntityRef;
-import org.openapitools.model.RelatedParty;
+import org.etsi.osl.tmf.aim915.model.Characteristic;
+import org.etsi.osl.tmf.aim915.model.EntityRef;
+import org.etsi.osl.tmf.aim915.model.RelatedParty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
@@ -50,12 +50,12 @@ public class Event {
   private @Nullable String title;
 
   @Valid
-  private List<@Valid Characteristic> analyticCharacteristic = new ArrayList<>();
+  private List<Characteristic> analyticCharacteristic = new ArrayList<>();
 
   private @Nullable Object event;
 
   @Valid
-  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+  private List<RelatedParty> relatedParty = new ArrayList<>();
 
   private @Nullable EntityRef reportingSystem;
 
@@ -287,7 +287,7 @@ public class Event {
     this.title = title;
   }
 
-  public Event analyticCharacteristic(List<@Valid Characteristic> analyticCharacteristic) {
+  public Event analyticCharacteristic(List<Characteristic> analyticCharacteristic) {
     this.analyticCharacteristic = analyticCharacteristic;
     return this;
   }
@@ -307,11 +307,11 @@ public class Event {
   @Valid 
   @Schema(name = "analyticCharacteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("analyticCharacteristic")
-  public List<@Valid Characteristic> getAnalyticCharacteristic() {
+  public List<Characteristic> getAnalyticCharacteristic() {
     return analyticCharacteristic;
   }
 
-  public void setAnalyticCharacteristic(List<@Valid Characteristic> analyticCharacteristic) {
+  public void setAnalyticCharacteristic(List<Characteristic> analyticCharacteristic) {
     this.analyticCharacteristic = analyticCharacteristic;
   }
 
@@ -335,7 +335,7 @@ public class Event {
     this.event = event;
   }
 
-  public Event relatedParty(List<@Valid RelatedParty> relatedParty) {
+  public Event relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
@@ -355,11 +355,11 @@ public class Event {
   @Valid 
   @Schema(name = "relatedParty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedParty")
-  public List<@Valid RelatedParty> getRelatedParty() {
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 

@@ -10,17 +10,17 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AttachmentRefOrValue;
-import org.openapitools.model.CharacteristicSpecification;
-import org.openapitools.model.ConstraintRef;
-import org.openapitools.model.EntitySpecificationRelationship;
-import org.openapitools.model.FeatureSpecification;
-import org.openapitools.model.RelatedParty;
-import org.openapitools.model.ResourceSpecificationRef;
-import org.openapitools.model.ServiceLevelSpecificationRef;
-import org.openapitools.model.ServiceSpecRelationship;
-import org.openapitools.model.TargetEntitySchema;
-import org.openapitools.model.TimePeriod;
+import org.etsi.osl.tmf.aim915.model.AttachmentRefOrValue;
+import org.etsi.osl.tmf.aim915.model.CharacteristicSpecification;
+import org.etsi.osl.tmf.aim915.model.ConstraintRef;
+import org.etsi.osl.tmf.aim915.model.EntitySpecificationRelationship;
+import org.etsi.osl.tmf.aim915.model.FeatureSpecification;
+import org.etsi.osl.tmf.aim915.model.RelatedParty;
+import org.etsi.osl.tmf.aim915.model.ResourceSpecificationRef;
+import org.etsi.osl.tmf.aim915.model.ServiceLevelSpecificationRef;
+import org.etsi.osl.tmf.aim915.model.ServiceSpecRelationship;
+import org.etsi.osl.tmf.aim915.model.TargetEntitySchema;
+import org.etsi.osl.tmf.aim915.model.TimePeriod;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -70,31 +70,31 @@ public class AiModelSpecificationCreate {
   private @Nullable String version;
 
   @Valid
-  private List<@Valid AttachmentRefOrValue> attachment = new ArrayList<>();
+  private List<AttachmentRefOrValue> attachment = new ArrayList<>();
 
   @Valid
-  private List<@Valid ConstraintRef> constraint = new ArrayList<>();
+  private List<ConstraintRef> constraint = new ArrayList<>();
 
   @Valid
-  private List<@Valid EntitySpecificationRelationship> entitySpecRelationship = new ArrayList<>();
+  private List<EntitySpecificationRelationship> entitySpecRelationship = new ArrayList<>();
 
   @Valid
-  private List<@Valid FeatureSpecification> featureSpecification = new ArrayList<>();
+  private List<FeatureSpecification> featureSpecification = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+  private List<RelatedParty> relatedParty = new ArrayList<>();
 
   @Valid
-  private List<@Valid ResourceSpecificationRef> resourceSpecification = new ArrayList<>();
+  private List<ResourceSpecificationRef> resourceSpecification = new ArrayList<>();
 
   @Valid
-  private List<@Valid ServiceLevelSpecificationRef> serviceLevelSpecification = new ArrayList<>();
+  private List<ServiceLevelSpecificationRef> serviceLevelSpecification = new ArrayList<>();
 
   @Valid
-  private List<@Valid ServiceSpecRelationship> serviceSpecRelationship = new ArrayList<>();
+  private List<ServiceSpecRelationship> serviceSpecRelationship = new ArrayList<>();
 
   @Valid
-  private List<@Valid CharacteristicSpecification> specCharacteristic = new ArrayList<>();
+  private List<CharacteristicSpecification> specCharacteristic = new ArrayList<>();
 
   private @Nullable TargetEntitySchema targetEntitySchema;
 
@@ -377,7 +377,7 @@ public class AiModelSpecificationCreate {
     this.version = version;
   }
 
-  public AiModelSpecificationCreate attachment(List<@Valid AttachmentRefOrValue> attachment) {
+  public AiModelSpecificationCreate attachment(List<AttachmentRefOrValue> attachment) {
     this.attachment = attachment;
     return this;
   }
@@ -397,15 +397,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "attachment", description = "Attachments that may be of relevance to this specification, such as picture, document, media", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("attachment")
-  public List<@Valid AttachmentRefOrValue> getAttachment() {
+  public List<AttachmentRefOrValue> getAttachment() {
     return attachment;
   }
 
-  public void setAttachment(List<@Valid AttachmentRefOrValue> attachment) {
+  public void setAttachment(List<AttachmentRefOrValue> attachment) {
     this.attachment = attachment;
   }
 
-  public AiModelSpecificationCreate constraint(List<@Valid ConstraintRef> constraint) {
+  public AiModelSpecificationCreate constraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
     return this;
   }
@@ -425,15 +425,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "constraint", description = "This is a list of constraint references applied to this specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("constraint")
-  public List<@Valid ConstraintRef> getConstraint() {
+  public List<ConstraintRef> getConstraint() {
     return constraint;
   }
 
-  public void setConstraint(List<@Valid ConstraintRef> constraint) {
+  public void setConstraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
   }
 
-  public AiModelSpecificationCreate entitySpecRelationship(List<@Valid EntitySpecificationRelationship> entitySpecRelationship) {
+  public AiModelSpecificationCreate entitySpecRelationship(List<EntitySpecificationRelationship> entitySpecRelationship) {
     this.entitySpecRelationship = entitySpecRelationship;
     return this;
   }
@@ -453,15 +453,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "entitySpecRelationship", description = "Relationship to another specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("entitySpecRelationship")
-  public List<@Valid EntitySpecificationRelationship> getEntitySpecRelationship() {
+  public List<EntitySpecificationRelationship> getEntitySpecRelationship() {
     return entitySpecRelationship;
   }
 
-  public void setEntitySpecRelationship(List<@Valid EntitySpecificationRelationship> entitySpecRelationship) {
+  public void setEntitySpecRelationship(List<EntitySpecificationRelationship> entitySpecRelationship) {
     this.entitySpecRelationship = entitySpecRelationship;
   }
 
-  public AiModelSpecificationCreate featureSpecification(List<@Valid FeatureSpecification> featureSpecification) {
+  public AiModelSpecificationCreate featureSpecification(List<FeatureSpecification> featureSpecification) {
     this.featureSpecification = featureSpecification;
     return this;
   }
@@ -481,15 +481,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "featureSpecification", description = "A list of Features for this specification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("featureSpecification")
-  public List<@Valid FeatureSpecification> getFeatureSpecification() {
+  public List<FeatureSpecification> getFeatureSpecification() {
     return featureSpecification;
   }
 
-  public void setFeatureSpecification(List<@Valid FeatureSpecification> featureSpecification) {
+  public void setFeatureSpecification(List<FeatureSpecification> featureSpecification) {
     this.featureSpecification = featureSpecification;
   }
 
-  public AiModelSpecificationCreate relatedParty(List<@Valid RelatedParty> relatedParty) {
+  public AiModelSpecificationCreate relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
@@ -509,15 +509,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "relatedParty", description = "Parties who manage or otherwise have an interest in this specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedParty")
-  public List<@Valid RelatedParty> getRelatedParty() {
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 
-  public AiModelSpecificationCreate resourceSpecification(List<@Valid ResourceSpecificationRef> resourceSpecification) {
+  public AiModelSpecificationCreate resourceSpecification(List<ResourceSpecificationRef> resourceSpecification) {
     this.resourceSpecification = resourceSpecification;
     return this;
   }
@@ -537,15 +537,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "resourceSpecification", description = "A list of resource specification references (ResourceSpecificationRef [*]). The ResourceSpecification is required for a service specification with type ResourceFacingServiceSpecification (RFSS).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("resourceSpecification")
-  public List<@Valid ResourceSpecificationRef> getResourceSpecification() {
+  public List<ResourceSpecificationRef> getResourceSpecification() {
     return resourceSpecification;
   }
 
-  public void setResourceSpecification(List<@Valid ResourceSpecificationRef> resourceSpecification) {
+  public void setResourceSpecification(List<ResourceSpecificationRef> resourceSpecification) {
     this.resourceSpecification = resourceSpecification;
   }
 
-  public AiModelSpecificationCreate serviceLevelSpecification(List<@Valid ServiceLevelSpecificationRef> serviceLevelSpecification) {
+  public AiModelSpecificationCreate serviceLevelSpecification(List<ServiceLevelSpecificationRef> serviceLevelSpecification) {
     this.serviceLevelSpecification = serviceLevelSpecification;
     return this;
   }
@@ -565,15 +565,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "serviceLevelSpecification", description = "A list of service level specifications related to this service specification, and which will need to be satisifiable for corresponding service instances; e.g. Gold, Platinum", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceLevelSpecification")
-  public List<@Valid ServiceLevelSpecificationRef> getServiceLevelSpecification() {
+  public List<ServiceLevelSpecificationRef> getServiceLevelSpecification() {
     return serviceLevelSpecification;
   }
 
-  public void setServiceLevelSpecification(List<@Valid ServiceLevelSpecificationRef> serviceLevelSpecification) {
+  public void setServiceLevelSpecification(List<ServiceLevelSpecificationRef> serviceLevelSpecification) {
     this.serviceLevelSpecification = serviceLevelSpecification;
   }
 
-  public AiModelSpecificationCreate serviceSpecRelationship(List<@Valid ServiceSpecRelationship> serviceSpecRelationship) {
+  public AiModelSpecificationCreate serviceSpecRelationship(List<ServiceSpecRelationship> serviceSpecRelationship) {
     this.serviceSpecRelationship = serviceSpecRelationship;
     return this;
   }
@@ -593,15 +593,15 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "serviceSpecRelationship", description = "A list of service specifications related to this specification, e.g. migration, substitution, dependency or exclusivity relationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("serviceSpecRelationship")
-  public List<@Valid ServiceSpecRelationship> getServiceSpecRelationship() {
+  public List<ServiceSpecRelationship> getServiceSpecRelationship() {
     return serviceSpecRelationship;
   }
 
-  public void setServiceSpecRelationship(List<@Valid ServiceSpecRelationship> serviceSpecRelationship) {
+  public void setServiceSpecRelationship(List<ServiceSpecRelationship> serviceSpecRelationship) {
     this.serviceSpecRelationship = serviceSpecRelationship;
   }
 
-  public AiModelSpecificationCreate specCharacteristic(List<@Valid CharacteristicSpecification> specCharacteristic) {
+  public AiModelSpecificationCreate specCharacteristic(List<CharacteristicSpecification> specCharacteristic) {
     this.specCharacteristic = specCharacteristic;
     return this;
   }
@@ -621,11 +621,11 @@ public class AiModelSpecificationCreate {
   @Valid 
   @Schema(name = "specCharacteristic", description = "List of characteristics that the entity can take", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("specCharacteristic")
-  public List<@Valid CharacteristicSpecification> getSpecCharacteristic() {
+  public List<CharacteristicSpecification> getSpecCharacteristic() {
     return specCharacteristic;
   }
 
-  public void setSpecCharacteristic(List<@Valid CharacteristicSpecification> specCharacteristic) {
+  public void setSpecCharacteristic(List<CharacteristicSpecification> specCharacteristic) {
     this.specCharacteristic = specCharacteristic;
   }
 

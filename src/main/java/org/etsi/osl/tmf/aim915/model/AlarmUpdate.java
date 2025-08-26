@@ -3,7 +3,7 @@ package org.etsi.osl.tmf.aim915.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.*;
+import org.etsi.osl.tmf.aim915.model.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
@@ -69,27 +69,27 @@ public class AlarmUpdate {
   private @Nullable String state;
 
   @Valid
-  private List<@Valid AffectedService> affectedService = new ArrayList<>();
+  private List<AffectedService> affectedService = new ArrayList<>();
 
   private @Nullable AlarmType alarmType;
 
   private @Nullable AlarmedObject alarmedObject;
 
   @Valid
-  private List<@Valid Comment> comment = new ArrayList<>();
+  private List<Comment> comment = new ArrayList<>();
 
   @Valid
-  private List<@Valid AlarmRef> correlatedAlarm = new ArrayList<>();
+  private List<AlarmRef> correlatedAlarm = new ArrayList<>();
 
   private @Nullable CrossedThresholdInformation crossedThresholdInformation;
 
   @Valid
-  private List<@Valid AlarmRef> parentAlarm = new ArrayList<>();
+  private List<AlarmRef> parentAlarm = new ArrayList<>();
 
   private @Nullable PerceivedSeverity perceivedSeverity;
 
   @Valid
-  private List<@Valid RelatedPlaceRefOrValue> place = new ArrayList<>();
+  private List<RelatedPlaceRefOrValue> place = new ArrayList<>();
 
   private @Nullable String atBaseType;
 
@@ -497,7 +497,7 @@ public class AlarmUpdate {
     this.state = state;
   }
 
-  public AlarmUpdate affectedService(List<@Valid AffectedService> affectedService) {
+  public AlarmUpdate affectedService(List<AffectedService> affectedService) {
     this.affectedService = affectedService;
     return this;
   }
@@ -517,11 +517,11 @@ public class AlarmUpdate {
   @Valid 
   @Schema(name = "affectedService", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("affectedService")
-  public List<@Valid AffectedService> getAffectedService() {
+  public List<AffectedService> getAffectedService() {
     return affectedService;
   }
 
-  public void setAffectedService(List<@Valid AffectedService> affectedService) {
+  public void setAffectedService(List<AffectedService> affectedService) {
     this.affectedService = affectedService;
   }
 
@@ -565,7 +565,7 @@ public class AlarmUpdate {
     this.alarmedObject = alarmedObject;
   }
 
-  public AlarmUpdate comment(List<@Valid Comment> comment) {
+  public AlarmUpdate comment(List<Comment> comment) {
     this.comment = comment;
     return this;
   }
@@ -585,15 +585,15 @@ public class AlarmUpdate {
   @Valid 
   @Schema(name = "comment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("comment")
-  public List<@Valid Comment> getComment() {
+  public List<Comment> getComment() {
     return comment;
   }
 
-  public void setComment(List<@Valid Comment> comment) {
+  public void setComment(List<Comment> comment) {
     this.comment = comment;
   }
 
-  public AlarmUpdate correlatedAlarm(List<@Valid AlarmRef> correlatedAlarm) {
+  public AlarmUpdate correlatedAlarm(List<AlarmRef> correlatedAlarm) {
     this.correlatedAlarm = correlatedAlarm;
     return this;
   }
@@ -613,11 +613,11 @@ public class AlarmUpdate {
   @Valid 
   @Schema(name = "correlatedAlarm", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("correlatedAlarm")
-  public List<@Valid AlarmRef> getCorrelatedAlarm() {
+  public List<AlarmRef> getCorrelatedAlarm() {
     return correlatedAlarm;
   }
 
-  public void setCorrelatedAlarm(List<@Valid AlarmRef> correlatedAlarm) {
+  public void setCorrelatedAlarm(List<AlarmRef> correlatedAlarm) {
     this.correlatedAlarm = correlatedAlarm;
   }
 
@@ -641,7 +641,7 @@ public class AlarmUpdate {
     this.crossedThresholdInformation = crossedThresholdInformation;
   }
 
-  public AlarmUpdate parentAlarm(List<@Valid AlarmRef> parentAlarm) {
+  public AlarmUpdate parentAlarm(List<AlarmRef> parentAlarm) {
     this.parentAlarm = parentAlarm;
     return this;
   }
@@ -661,11 +661,11 @@ public class AlarmUpdate {
   @Valid 
   @Schema(name = "parentAlarm", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("parentAlarm")
-  public List<@Valid AlarmRef> getParentAlarm() {
+  public List<AlarmRef> getParentAlarm() {
     return parentAlarm;
   }
 
-  public void setParentAlarm(List<@Valid AlarmRef> parentAlarm) {
+  public void setParentAlarm(List<AlarmRef> parentAlarm) {
     this.parentAlarm = parentAlarm;
   }
 
@@ -689,7 +689,7 @@ public class AlarmUpdate {
     this.perceivedSeverity = perceivedSeverity;
   }
 
-  public AlarmUpdate place(List<@Valid RelatedPlaceRefOrValue> place) {
+  public AlarmUpdate place(List<RelatedPlaceRefOrValue> place) {
     this.place = place;
     return this;
   }
@@ -709,11 +709,11 @@ public class AlarmUpdate {
   @Valid 
   @Schema(name = "place", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("place")
-  public List<@Valid RelatedPlaceRefOrValue> getPlace() {
+  public List<RelatedPlaceRefOrValue> getPlace() {
     return place;
   }
 
-  public void setPlace(List<@Valid RelatedPlaceRefOrValue> place) {
+  public void setPlace(List<RelatedPlaceRefOrValue> place) {
     this.place = place;
   }
 

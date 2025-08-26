@@ -2,7 +2,7 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.HeaderItem;
+import org.etsi.osl.tmf.aim915.model.HeaderItem;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -25,7 +25,7 @@ public class Response {
   private @Nullable String statusCode;
 
   @Valid
-  private List<@Valid HeaderItem> header = new ArrayList<>();
+  private List<HeaderItem> header = new ArrayList<>();
 
   public Response() {
     super();
@@ -34,7 +34,7 @@ public class Response {
   /**
    * Constructor with only required parameters
    */
-  public Response(String body, List<@Valid HeaderItem> header) {
+  public Response(String body, List<HeaderItem> header) {
     this.body = body;
     this.header = header;
   }
@@ -79,7 +79,7 @@ public class Response {
     this.statusCode = statusCode;
   }
 
-  public Response header(List<@Valid HeaderItem> header) {
+  public Response header(List<HeaderItem> header) {
     this.header = header;
     return this;
   }
@@ -99,11 +99,11 @@ public class Response {
   @NotNull @Valid @Size(min = 1) 
   @Schema(name = "header", description = "Items included in the header of the response. For example for an HTTP response might contain negotiated locale.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("header")
-  public List<@Valid HeaderItem> getHeader() {
+  public List<HeaderItem> getHeader() {
     return header;
   }
 
-  public void setHeader(List<@Valid HeaderItem> header) {
+  public void setHeader(List<HeaderItem> header) {
     this.header = header;
   }
 

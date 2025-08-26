@@ -2,8 +2,8 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.AttachmentRef;
-import org.openapitools.model.RuleRef;
+import org.etsi.osl.tmf.aim915.model.AttachmentRef;
+import org.etsi.osl.tmf.aim915.model.RuleRef;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;

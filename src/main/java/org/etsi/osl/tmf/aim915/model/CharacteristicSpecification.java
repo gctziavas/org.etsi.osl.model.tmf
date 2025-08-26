@@ -8,9 +8,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.CharacteristicSpecificationRelationship;
-import org.openapitools.model.CharacteristicValueSpecification;
-import org.openapitools.model.TimePeriod;
+import org.etsi.osl.tmf.aim915.model.CharacteristicSpecificationRelationship;
+import org.etsi.osl.tmf.aim915.model.CharacteristicValueSpecification;
+import org.etsi.osl.tmf.aim915.model.TimePeriod;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -51,10 +51,10 @@ public class CharacteristicSpecification {
   private @Nullable String valueType;
 
   @Valid
-  private List<@Valid CharacteristicSpecificationRelationship> charSpecRelationship = new ArrayList<>();
+  private List<CharacteristicSpecificationRelationship> charSpecRelationship = new ArrayList<>();
 
   @Valid
-  private List<@Valid CharacteristicValueSpecification> characteristicValueSpecification = new ArrayList<>();
+  private List<CharacteristicValueSpecification> characteristicValueSpecification = new ArrayList<>();
 
   private @Nullable TimePeriod validFor;
 
@@ -266,7 +266,7 @@ public class CharacteristicSpecification {
     this.valueType = valueType;
   }
 
-  public CharacteristicSpecification charSpecRelationship(List<@Valid CharacteristicSpecificationRelationship> charSpecRelationship) {
+  public CharacteristicSpecification charSpecRelationship(List<CharacteristicSpecificationRelationship> charSpecRelationship) {
     this.charSpecRelationship = charSpecRelationship;
     return this;
   }
@@ -286,15 +286,15 @@ public class CharacteristicSpecification {
   @Valid 
   @Schema(name = "charSpecRelationship", description = "An aggregation, migration, substitution, dependency or exclusivity relationship between/among Specification Characteristics.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("charSpecRelationship")
-  public List<@Valid CharacteristicSpecificationRelationship> getCharSpecRelationship() {
+  public List<CharacteristicSpecificationRelationship> getCharSpecRelationship() {
     return charSpecRelationship;
   }
 
-  public void setCharSpecRelationship(List<@Valid CharacteristicSpecificationRelationship> charSpecRelationship) {
+  public void setCharSpecRelationship(List<CharacteristicSpecificationRelationship> charSpecRelationship) {
     this.charSpecRelationship = charSpecRelationship;
   }
 
-  public CharacteristicSpecification characteristicValueSpecification(List<@Valid CharacteristicValueSpecification> characteristicValueSpecification) {
+  public CharacteristicSpecification characteristicValueSpecification(List<CharacteristicValueSpecification> characteristicValueSpecification) {
     this.characteristicValueSpecification = characteristicValueSpecification;
     return this;
   }
@@ -314,11 +314,11 @@ public class CharacteristicSpecification {
   @Valid 
   @Schema(name = "characteristicValueSpecification", description = "A CharacteristicValueSpecification object is used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a CharacteristicSpecification object. The values of the attributes in the CharacteristicValueSpecification object describe the values of the attributes that a corresponding Characteristic object can take on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("characteristicValueSpecification")
-  public List<@Valid CharacteristicValueSpecification> getCharacteristicValueSpecification() {
+  public List<CharacteristicValueSpecification> getCharacteristicValueSpecification() {
     return characteristicValueSpecification;
   }
 
-  public void setCharacteristicValueSpecification(List<@Valid CharacteristicValueSpecification> characteristicValueSpecification) {
+  public void setCharacteristicValueSpecification(List<CharacteristicValueSpecification> characteristicValueSpecification) {
     this.characteristicValueSpecification = characteristicValueSpecification;
   }
 

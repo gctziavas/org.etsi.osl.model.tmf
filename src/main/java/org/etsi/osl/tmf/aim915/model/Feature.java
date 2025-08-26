@@ -2,9 +2,9 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.Characteristic;
-import org.openapitools.model.ConstraintRef;
-import org.openapitools.model.FeatureRelationship;
+import org.etsi.osl.tmf.aim915.model.Characteristic;
+import org.etsi.osl.tmf.aim915.model.ConstraintRef;
+import org.etsi.osl.tmf.aim915.model.FeatureRelationship;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -31,13 +31,13 @@ public class Feature {
   private String name;
 
   @Valid
-  private List<@Valid ConstraintRef> constraint = new ArrayList<>();
+  private List<ConstraintRef> constraint = new ArrayList<>();
 
   @Valid
-  private List<@Valid Characteristic> featureCharacteristic = new ArrayList<>();
+  private List<Characteristic> featureCharacteristic = new ArrayList<>();
 
   @Valid
-  private List<@Valid FeatureRelationship> featureRelationship = new ArrayList<>();
+  private List<FeatureRelationship> featureRelationship = new ArrayList<>();
 
   public Feature() {
     super();
@@ -46,7 +46,7 @@ public class Feature {
   /**
    * Constructor with only required parameters
    */
-  public Feature(String name, List<@Valid Characteristic> featureCharacteristic) {
+  public Feature(String name, List<Characteristic> featureCharacteristic) {
     this.name = name;
     this.featureCharacteristic = featureCharacteristic;
   }
@@ -131,7 +131,7 @@ public class Feature {
     this.name = name;
   }
 
-  public Feature constraint(List<@Valid ConstraintRef> constraint) {
+  public Feature constraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
     return this;
   }
@@ -151,15 +151,15 @@ public class Feature {
   @Valid 
   @Schema(name = "constraint", description = "This is a list of feature constraints.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("constraint")
-  public List<@Valid ConstraintRef> getConstraint() {
+  public List<ConstraintRef> getConstraint() {
     return constraint;
   }
 
-  public void setConstraint(List<@Valid ConstraintRef> constraint) {
+  public void setConstraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
   }
 
-  public Feature featureCharacteristic(List<@Valid Characteristic> featureCharacteristic) {
+  public Feature featureCharacteristic(List<Characteristic> featureCharacteristic) {
     this.featureCharacteristic = featureCharacteristic;
     return this;
   }
@@ -179,15 +179,15 @@ public class Feature {
   @NotNull @Valid @Size(min = 1) 
   @Schema(name = "featureCharacteristic", description = "This is a list of Characteristics for a particular feature.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("featureCharacteristic")
-  public List<@Valid Characteristic> getFeatureCharacteristic() {
+  public List<Characteristic> getFeatureCharacteristic() {
     return featureCharacteristic;
   }
 
-  public void setFeatureCharacteristic(List<@Valid Characteristic> featureCharacteristic) {
+  public void setFeatureCharacteristic(List<Characteristic> featureCharacteristic) {
     this.featureCharacteristic = featureCharacteristic;
   }
 
-  public Feature featureRelationship(List<@Valid FeatureRelationship> featureRelationship) {
+  public Feature featureRelationship(List<FeatureRelationship> featureRelationship) {
     this.featureRelationship = featureRelationship;
     return this;
   }
@@ -207,11 +207,11 @@ public class Feature {
   @Valid 
   @Schema(name = "featureRelationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("featureRelationship")
-  public List<@Valid FeatureRelationship> getFeatureRelationship() {
+  public List<FeatureRelationship> getFeatureRelationship() {
     return featureRelationship;
   }
 
-  public void setFeatureRelationship(List<@Valid FeatureRelationship> featureRelationship) {
+  public void setFeatureRelationship(List<FeatureRelationship> featureRelationship) {
     this.featureRelationship = featureRelationship;
   }
 

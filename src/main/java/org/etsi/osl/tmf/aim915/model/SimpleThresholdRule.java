@@ -2,10 +2,10 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.Consequence;
-import org.openapitools.model.Measurement;
-import org.openapitools.model.PerformanceAlarmSpecification;
-import org.openapitools.model.TimePeriod;
+import org.etsi.osl.tmf.aim915.model.Consequence;
+import org.etsi.osl.tmf.aim915.model.Measurement;
+import org.etsi.osl.tmf.aim915.model.PerformanceAlarmSpecification;
+import org.etsi.osl.tmf.aim915.model.TimePeriod;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -53,7 +53,7 @@ public class SimpleThresholdRule {
   private @Nullable TimePeriod conformancePeriod;
 
   @Valid
-  private List<@Valid Consequence> consequence = new ArrayList<>();
+  private List<Consequence> consequence = new ArrayList<>();
 
   private @Nullable Measurement measurement;
 
@@ -347,7 +347,7 @@ public class SimpleThresholdRule {
     this.conformancePeriod = conformancePeriod;
   }
 
-  public SimpleThresholdRule consequence(List<@Valid Consequence> consequence) {
+  public SimpleThresholdRule consequence(List<Consequence> consequence) {
     this.consequence = consequence;
     return this;
   }
@@ -367,11 +367,11 @@ public class SimpleThresholdRule {
   @Valid 
   @Schema(name = "consequence", description = "A threshold crossing or a threshold ceased to be crossing results in a Performance consequence.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("consequence")
-  public List<@Valid Consequence> getConsequence() {
+  public List<Consequence> getConsequence() {
     return consequence;
   }
 
-  public void setConsequence(List<@Valid Consequence> consequence) {
+  public void setConsequence(List<Consequence> consequence) {
     this.consequence = consequence;
   }
 

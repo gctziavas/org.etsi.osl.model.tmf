@@ -3,7 +3,7 @@ package org.etsi.osl.tmf.aim915.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.*;
+import org.etsi.osl.tmf.aim915.model.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
@@ -43,13 +43,13 @@ public class AiContractUpdate {
   private @Nullable EntityRef aiModel;
 
   @Valid
-  private List<@Valid Characteristic> characteristic = new ArrayList<>();
+  private List<Characteristic> characteristic = new ArrayList<>();
 
   @Valid
-  private List<@Valid RelatedParty> relatedParty = new ArrayList<>();
+  private List<RelatedParty> relatedParty = new ArrayList<>();
 
   @Valid
-  private List<@Valid Rule> rule = new ArrayList<>();
+  private List<Rule> rule = new ArrayList<>();
 
   private @Nullable TemplateRef template;
 
@@ -221,7 +221,7 @@ public class AiContractUpdate {
     this.aiModel = aiModel;
   }
 
-  public AiContractUpdate characteristic(List<@Valid Characteristic> characteristic) {
+  public AiContractUpdate characteristic(List<Characteristic> characteristic) {
     this.characteristic = characteristic;
     return this;
   }
@@ -241,15 +241,15 @@ public class AiContractUpdate {
   @Valid 
   @Schema(name = "characteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("characteristic")
-  public List<@Valid Characteristic> getCharacteristic() {
+  public List<Characteristic> getCharacteristic() {
     return characteristic;
   }
 
-  public void setCharacteristic(List<@Valid Characteristic> characteristic) {
+  public void setCharacteristic(List<Characteristic> characteristic) {
     this.characteristic = characteristic;
   }
 
-  public AiContractUpdate relatedParty(List<@Valid RelatedParty> relatedParty) {
+  public AiContractUpdate relatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
     return this;
   }
@@ -269,15 +269,15 @@ public class AiContractUpdate {
   @Valid 
   @Schema(name = "relatedParty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("relatedParty")
-  public List<@Valid RelatedParty> getRelatedParty() {
+  public List<RelatedParty> getRelatedParty() {
     return relatedParty;
   }
 
-  public void setRelatedParty(List<@Valid RelatedParty> relatedParty) {
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
     this.relatedParty = relatedParty;
   }
 
-  public AiContractUpdate rule(List<@Valid Rule> rule) {
+  public AiContractUpdate rule(List<Rule> rule) {
     this.rule = rule;
     return this;
   }
@@ -297,11 +297,11 @@ public class AiContractUpdate {
   @Valid 
   @Schema(name = "rule", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("rule")
-  public List<@Valid Rule> getRule() {
+  public List<Rule> getRule() {
     return rule;
   }
 
-  public void setRule(List<@Valid Rule> rule) {
+  public void setRule(List<Rule> rule) {
     this.rule = rule;
   }
 

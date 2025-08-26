@@ -2,10 +2,10 @@ package org.etsi.osl.tmf.aim915.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.openapitools.model.AlgorithmParams;
-import org.openapitools.model.Consequence;
-import org.openapitools.model.Measurement;
-import org.openapitools.model.PerformanceAlarmSpecification;
+import org.etsi.osl.tmf.aim915.model.AlgorithmParams;
+import org.etsi.osl.tmf.aim915.model.Consequence;
+import org.etsi.osl.tmf.aim915.model.Measurement;
+import org.etsi.osl.tmf.aim915.model.PerformanceAlarmSpecification;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
@@ -41,10 +41,10 @@ public class AlgorithmThresholdRule {
   private @Nullable String thresholdRuleSeverity;
 
   @Valid
-  private List<@Valid AlgorithmParams> algorithmParams = new ArrayList<>();
+  private List<AlgorithmParams> algorithmParams = new ArrayList<>();
 
   @Valid
-  private List<@Valid Consequence> consequence = new ArrayList<>();
+  private List<Consequence> consequence = new ArrayList<>();
 
   private @Nullable Measurement measurement;
 
@@ -216,7 +216,7 @@ public class AlgorithmThresholdRule {
     this.thresholdRuleSeverity = thresholdRuleSeverity;
   }
 
-  public AlgorithmThresholdRule algorithmParams(List<@Valid AlgorithmParams> algorithmParams) {
+  public AlgorithmThresholdRule algorithmParams(List<AlgorithmParams> algorithmParams) {
     this.algorithmParams = algorithmParams;
     return this;
   }
@@ -236,15 +236,15 @@ public class AlgorithmThresholdRule {
   @Valid 
   @Schema(name = "algorithmParams", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("algorithmParams")
-  public List<@Valid AlgorithmParams> getAlgorithmParams() {
+  public List<AlgorithmParams> getAlgorithmParams() {
     return algorithmParams;
   }
 
-  public void setAlgorithmParams(List<@Valid AlgorithmParams> algorithmParams) {
+  public void setAlgorithmParams(List<AlgorithmParams> algorithmParams) {
     this.algorithmParams = algorithmParams;
   }
 
-  public AlgorithmThresholdRule consequence(List<@Valid Consequence> consequence) {
+  public AlgorithmThresholdRule consequence(List<Consequence> consequence) {
     this.consequence = consequence;
     return this;
   }
@@ -264,11 +264,11 @@ public class AlgorithmThresholdRule {
   @Valid 
   @Schema(name = "consequence", description = "A threshold crossing or a threshold ceased to be crossing results in a Performance consequence.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("consequence")
-  public List<@Valid Consequence> getConsequence() {
+  public List<Consequence> getConsequence() {
     return consequence;
   }
 
-  public void setConsequence(List<@Valid Consequence> consequence) {
+  public void setConsequence(List<Consequence> consequence) {
     this.consequence = consequence;
   }
 
