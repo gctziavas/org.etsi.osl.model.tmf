@@ -3,9 +3,10 @@ package org.etsi.osl.tmf.aim915.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.etsi.osl.tmf.aim915.model.*;
+import org.etsi.osl.tmf.common.model.service.ServiceRelationship;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
-
+import org.etsi.osl.tmf.common.model.service.Note;
 import javax.annotation.Generated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;

@@ -1,35 +1,16 @@
 package org.etsi.osl.tmf.aim915.model;
 
-import java.net.URI;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import org.etsi.osl.tmf.aim915.model.AttachmentRefOrValue;
-import org.etsi.osl.tmf.aim915.model.CharacteristicSpecification;
-import org.etsi.osl.tmf.aim915.model.ConstraintRef;
-import org.etsi.osl.tmf.aim915.model.EntitySpecificationRelationship;
-import org.etsi.osl.tmf.aim915.model.FeatureSpecification;
-import org.etsi.osl.tmf.aim915.model.RelatedParty;
-import org.etsi.osl.tmf.aim915.model.ResourceSpecificationRef;
-import org.etsi.osl.tmf.aim915.model.ServiceLevelSpecificationRef;
-import org.etsi.osl.tmf.aim915.model.ServiceSpecRelationship;
-import org.etsi.osl.tmf.aim915.model.TargetEntitySchema;
-import org.etsi.osl.tmf.aim915.model.TimePeriod;
-import org.springframework.lang.Nullable;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.etsi.osl.tmf.scm633.model.ServiceSpecificationUpdate;
+import org.springframework.lang.Nullable;
 
-
-import java.util.*;
 import javax.annotation.Generated;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * AiModelSpecification is a class that offers characteristics to describe a type of service. Functionally, it acts as a template by which Services may be instantiated. By sharing the same  specification, these services would therefore share the same set of characteristics. Skipped properties: id,href,lastUpdate
@@ -38,17 +19,11 @@ import javax.annotation.Generated;
 @Schema(name = "AiModelSpecification_Update", description = "AiModelSpecification is a class that offers characteristics to describe a type of service. Functionally, it acts as a template by which Services may be instantiated. By sharing the same  specification, these services would therefore share the same set of characteristics. Skipped properties: id,href,lastUpdate")
 @JsonTypeName("AiModelSpecification_Update")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-20T10:43:54.824186919Z[Etc/UTC]", comments = "Generator version: 7.14.0")
-public class AiModelSpecificationUpdate {
+public class AiModelSpecificationUpdate extends ServiceSpecificationUpdate {
 
   private @Nullable Object deploymentRecord;
 
-  private @Nullable String description;
-
   private @Nullable Object inheritedModel;
-
-  private @Nullable Boolean isBundle;
-
-  private @Nullable String lifecycleStatus;
 
   private @Nullable Object modelContractVersionHistory;
 
@@ -60,13 +35,6 @@ public class AiModelSpecificationUpdate {
 
   private @Nullable Object modelTrainingData;
 
-  private @Nullable String name;
-
-  private @Nullable String version;
-
-  @Valid
-  private List<AttachmentRefOrValue> attachment = new ArrayList<>();
-
   @Valid
   private List<ConstraintRef> constraint = new ArrayList<>();
 
@@ -77,29 +45,10 @@ public class AiModelSpecificationUpdate {
   private List<FeatureSpecification> featureSpecification = new ArrayList<>();
 
   @Valid
-  private List<RelatedParty> relatedParty = new ArrayList<>();
+  private List<CharacteristicSpecification> specCharacteristic = new ArrayList<>();   // in ServiceSpecificationUpdate it is serviceSpecCharacteristic
 
-  @Valid
-  private List<ResourceSpecificationRef> resourceSpecification = new ArrayList<>();
+  private @Nullable TargetEntitySchema targetEntitySchema;  // in ServiceSpecificationUpdate it is TargetServiceSchema
 
-  @Valid
-  private List<ServiceLevelSpecificationRef> serviceLevelSpecification = new ArrayList<>();
-
-  @Valid
-  private List<ServiceSpecRelationship> serviceSpecRelationship = new ArrayList<>();
-
-  @Valid
-  private List<CharacteristicSpecification> specCharacteristic = new ArrayList<>();
-
-  private @Nullable TargetEntitySchema targetEntitySchema;
-
-  private @Nullable TimePeriod validFor;
-
-  private @Nullable String atBaseType;
-
-  private @Nullable URI atSchemaLocation;
-
-  private @Nullable String atType;
 
   public AiModelSpecificationUpdate deploymentRecord(@Nullable Object deploymentRecord) {
     this.deploymentRecord = deploymentRecord;
@@ -127,26 +76,6 @@ public class AiModelSpecificationUpdate {
   }
 
   /**
-   * Description of the specification
-   * @return description
-   */
-  
-  @Schema(name = "description", description = "Description of the specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
-  public @Nullable String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@Nullable String description) {
-    this.description = description;
-  }
-
-  public AiModelSpecificationUpdate inheritedModel(@Nullable Object inheritedModel) {
-    this.inheritedModel = inheritedModel;
-    return this;
-  }
-
-  /**
    * Get inheritedModel
    * @return inheritedModel
    */
@@ -164,41 +93,6 @@ public class AiModelSpecificationUpdate {
   public AiModelSpecificationUpdate isBundle(@Nullable Boolean isBundle) {
     this.isBundle = isBundle;
     return this;
-  }
-
-  /**
-   * isBundle determines whether specification represents a single specification (false), or a bundle of specifications (true).
-   * @return isBundle
-   */
-  
-  @Schema(name = "isBundle", description = "isBundle determines whether specification represents a single specification (false), or a bundle of specifications (true).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isBundle")
-  public @Nullable Boolean getIsBundle() {
-    return isBundle;
-  }
-
-  public void setIsBundle(@Nullable Boolean isBundle) {
-    this.isBundle = isBundle;
-  }
-
-  public AiModelSpecificationUpdate lifecycleStatus(@Nullable String lifecycleStatus) {
-    this.lifecycleStatus = lifecycleStatus;
-    return this;
-  }
-
-  /**
-   * Used to indicate the current lifecycle status of this catalog item
-   * @return lifecycleStatus
-   */
-  
-  @Schema(name = "lifecycleStatus", description = "Used to indicate the current lifecycle status of this catalog item", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("lifecycleStatus")
-  public @Nullable String getLifecycleStatus() {
-    return lifecycleStatus;
-  }
-
-  public void setLifecycleStatus(@Nullable String lifecycleStatus) {
-    this.lifecycleStatus = lifecycleStatus;
   }
 
   public AiModelSpecificationUpdate modelContractVersionHistory(@Nullable Object modelContractVersionHistory) {
@@ -301,73 +195,6 @@ public class AiModelSpecificationUpdate {
     this.modelTrainingData = modelTrainingData;
   }
 
-  public AiModelSpecificationUpdate name(@Nullable String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name given to the specification
-   * @return name
-   */
-  
-  @Schema(name = "name", description = "Name given to the specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
-  public @Nullable String getName() {
-    return name;
-  }
-
-  public void setName(@Nullable String name) {
-    this.name = name;
-  }
-
-  public AiModelSpecificationUpdate version(@Nullable String version) {
-    this.version = version;
-    return this;
-  }
-
-  /**
-   * specification version
-   * @return version
-   */
-  
-  @Schema(name = "version", description = "specification version", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("version")
-  public @Nullable String getVersion() {
-    return version;
-  }
-
-  public void setVersion(@Nullable String version) {
-    this.version = version;
-  }
-
-  public AiModelSpecificationUpdate attachment(List<AttachmentRefOrValue> attachment) {
-    this.attachment = attachment;
-    return this;
-  }
-
-  public AiModelSpecificationUpdate addAttachmentItem(AttachmentRefOrValue attachmentItem) {
-    if (this.attachment == null) {
-      this.attachment = new ArrayList<>();
-    }
-    this.attachment.add(attachmentItem);
-    return this;
-  }
-
-  /**
-   * Attachments that may be of relevance to this specification, such as picture, document, media
-   * @return attachment
-   */
-  @Valid 
-  @Schema(name = "attachment", description = "Attachments that may be of relevance to this specification, such as picture, document, media", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("attachment")
-  public List<AttachmentRefOrValue> getAttachment() {
-    return attachment;
-  }
-
-  public void setAttachment(List<AttachmentRefOrValue> attachment) {
-    this.attachment = attachment;
-  }
 
   public AiModelSpecificationUpdate constraint(List<ConstraintRef> constraint) {
     this.constraint = constraint;
@@ -453,117 +280,6 @@ public class AiModelSpecificationUpdate {
     this.featureSpecification = featureSpecification;
   }
 
-  public AiModelSpecificationUpdate relatedParty(List<RelatedParty> relatedParty) {
-    this.relatedParty = relatedParty;
-    return this;
-  }
-
-  public AiModelSpecificationUpdate addRelatedPartyItem(RelatedParty relatedPartyItem) {
-    if (this.relatedParty == null) {
-      this.relatedParty = new ArrayList<>();
-    }
-    this.relatedParty.add(relatedPartyItem);
-    return this;
-  }
-
-  /**
-   * Parties who manage or otherwise have an interest in this specification
-   * @return relatedParty
-   */
-  @Valid 
-  @Schema(name = "relatedParty", description = "Parties who manage or otherwise have an interest in this specification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("relatedParty")
-  public List<RelatedParty> getRelatedParty() {
-    return relatedParty;
-  }
-
-  public void setRelatedParty(List<RelatedParty> relatedParty) {
-    this.relatedParty = relatedParty;
-  }
-
-  public AiModelSpecificationUpdate resourceSpecification(List<ResourceSpecificationRef> resourceSpecification) {
-    this.resourceSpecification = resourceSpecification;
-    return this;
-  }
-
-  public AiModelSpecificationUpdate addResourceSpecificationItem(ResourceSpecificationRef resourceSpecificationItem) {
-    if (this.resourceSpecification == null) {
-      this.resourceSpecification = new ArrayList<>();
-    }
-    this.resourceSpecification.add(resourceSpecificationItem);
-    return this;
-  }
-
-  /**
-   * A list of resource specification references (ResourceSpecificationRef [*]). The ResourceSpecification is required for a service specification with type ResourceFacingServiceSpecification (RFSS).
-   * @return resourceSpecification
-   */
-  @Valid 
-  @Schema(name = "resourceSpecification", description = "A list of resource specification references (ResourceSpecificationRef [*]). The ResourceSpecification is required for a service specification with type ResourceFacingServiceSpecification (RFSS).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("resourceSpecification")
-  public List<ResourceSpecificationRef> getResourceSpecification() {
-    return resourceSpecification;
-  }
-
-  public void setResourceSpecification(List<ResourceSpecificationRef> resourceSpecification) {
-    this.resourceSpecification = resourceSpecification;
-  }
-
-  public AiModelSpecificationUpdate serviceLevelSpecification(List<ServiceLevelSpecificationRef> serviceLevelSpecification) {
-    this.serviceLevelSpecification = serviceLevelSpecification;
-    return this;
-  }
-
-  public AiModelSpecificationUpdate addServiceLevelSpecificationItem(ServiceLevelSpecificationRef serviceLevelSpecificationItem) {
-    if (this.serviceLevelSpecification == null) {
-      this.serviceLevelSpecification = new ArrayList<>();
-    }
-    this.serviceLevelSpecification.add(serviceLevelSpecificationItem);
-    return this;
-  }
-
-  /**
-   * A list of service level specifications related to this service specification, and which will need to be satisifiable for corresponding service instances; e.g. Gold, Platinum
-   * @return serviceLevelSpecification
-   */
-  @Valid 
-  @Schema(name = "serviceLevelSpecification", description = "A list of service level specifications related to this service specification, and which will need to be satisifiable for corresponding service instances; e.g. Gold, Platinum", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("serviceLevelSpecification")
-  public List<ServiceLevelSpecificationRef> getServiceLevelSpecification() {
-    return serviceLevelSpecification;
-  }
-
-  public void setServiceLevelSpecification(List<ServiceLevelSpecificationRef> serviceLevelSpecification) {
-    this.serviceLevelSpecification = serviceLevelSpecification;
-  }
-
-  public AiModelSpecificationUpdate serviceSpecRelationship(List<ServiceSpecRelationship> serviceSpecRelationship) {
-    this.serviceSpecRelationship = serviceSpecRelationship;
-    return this;
-  }
-
-  public AiModelSpecificationUpdate addServiceSpecRelationshipItem(ServiceSpecRelationship serviceSpecRelationshipItem) {
-    if (this.serviceSpecRelationship == null) {
-      this.serviceSpecRelationship = new ArrayList<>();
-    }
-    this.serviceSpecRelationship.add(serviceSpecRelationshipItem);
-    return this;
-  }
-
-  /**
-   * A list of service specifications related to this specification, e.g. migration, substitution, dependency or exclusivity relationship
-   * @return serviceSpecRelationship
-   */
-  @Valid 
-  @Schema(name = "serviceSpecRelationship", description = "A list of service specifications related to this specification, e.g. migration, substitution, dependency or exclusivity relationship", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("serviceSpecRelationship")
-  public List<ServiceSpecRelationship> getServiceSpecRelationship() {
-    return serviceSpecRelationship;
-  }
-
-  public void setServiceSpecRelationship(List<ServiceSpecRelationship> serviceSpecRelationship) {
-    this.serviceSpecRelationship = serviceSpecRelationship;
-  }
 
   public AiModelSpecificationUpdate specCharacteristic(List<CharacteristicSpecification> specCharacteristic) {
     this.specCharacteristic = specCharacteristic;
@@ -613,86 +329,6 @@ public class AiModelSpecificationUpdate {
     this.targetEntitySchema = targetEntitySchema;
   }
 
-  public AiModelSpecificationUpdate validFor(@Nullable TimePeriod validFor) {
-    this.validFor = validFor;
-    return this;
-  }
-
-  /**
-   * Get validFor
-   * @return validFor
-   */
-  @Valid 
-  @Schema(name = "validFor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("validFor")
-  public @Nullable TimePeriod getValidFor() {
-    return validFor;
-  }
-
-  public void setValidFor(@Nullable TimePeriod validFor) {
-    this.validFor = validFor;
-  }
-
-  public AiModelSpecificationUpdate atBaseType(@Nullable String atBaseType) {
-    this.atBaseType = atBaseType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the super-class
-   * @return atBaseType
-   */
-  
-  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
-  public @Nullable String getAtBaseType() {
-    return atBaseType;
-  }
-
-  public void setAtBaseType(@Nullable String atBaseType) {
-    this.atBaseType = atBaseType;
-  }
-
-  public AiModelSpecificationUpdate atSchemaLocation(@Nullable URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return atSchemaLocation
-   */
-  @Valid 
-  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
-  public @Nullable URI getAtSchemaLocation() {
-    return atSchemaLocation;
-  }
-
-  public void setAtSchemaLocation(@Nullable URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
-  }
-
-  public AiModelSpecificationUpdate atType(@Nullable String atType) {
-    this.atType = atType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class Extensible name
-   * @return atType
-   */
-  
-  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@type")
-  public @Nullable String getAtType() {
-    return atType;
-  }
-
-  public void setAtType(@Nullable String atType) {
-    this.atType = atType;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -724,15 +360,12 @@ public class AiModelSpecificationUpdate {
         Objects.equals(this.serviceSpecRelationship, aiModelSpecificationUpdate.serviceSpecRelationship) &&
         Objects.equals(this.specCharacteristic, aiModelSpecificationUpdate.specCharacteristic) &&
         Objects.equals(this.targetEntitySchema, aiModelSpecificationUpdate.targetEntitySchema) &&
-        Objects.equals(this.validFor, aiModelSpecificationUpdate.validFor) &&
-        Objects.equals(this.atBaseType, aiModelSpecificationUpdate.atBaseType) &&
-        Objects.equals(this.atSchemaLocation, aiModelSpecificationUpdate.atSchemaLocation) &&
-        Objects.equals(this.atType, aiModelSpecificationUpdate.atType);
+        Objects.equals(this.validFor, aiModelSpecificationUpdate.validFor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deploymentRecord, description, inheritedModel, isBundle, lifecycleStatus, modelContractVersionHistory, modelDataSheet, modelEvaluationData, modelSpecificationHistory, modelTrainingData, name, version, attachment, constraint, entitySpecRelationship, featureSpecification, relatedParty, resourceSpecification, serviceLevelSpecification, serviceSpecRelationship, specCharacteristic, targetEntitySchema, validFor, atBaseType, atSchemaLocation, atType);
+    return Objects.hash(deploymentRecord, description, inheritedModel, isBundle, lifecycleStatus, modelContractVersionHistory, modelDataSheet, modelEvaluationData, modelSpecificationHistory, modelTrainingData, name, version, attachment, constraint, entitySpecRelationship, featureSpecification, relatedParty, resourceSpecification, serviceLevelSpecification, serviceSpecRelationship, specCharacteristic, targetEntitySchema, validFor);
   }
 
   @Override
@@ -762,9 +395,6 @@ public class AiModelSpecificationUpdate {
     sb.append("    specCharacteristic: ").append(toIndentedString(specCharacteristic)).append("\n");
     sb.append("    targetEntitySchema: ").append(toIndentedString(targetEntitySchema)).append("\n");
     sb.append("    validFor: ").append(toIndentedString(validFor)).append("\n");
-    sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
-    sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
-    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

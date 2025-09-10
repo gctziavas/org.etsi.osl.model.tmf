@@ -3,14 +3,12 @@ package org.etsi.osl.tmf.aim915.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.etsi.osl.tmf.aim915.model.*;
+import org.etsi.osl.tmf.sim638.model.ServiceUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.Generated;
 import javax.validation.Valid;
-import javax.validation.constraints.*;
-import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,125 +21,36 @@ import java.util.Objects;
 @Schema(name = "AiModel_Update", description = "AiModel is a base class for defining the AiModel hierarchy Skipped properties: id,href,serviceDate")
 @JsonTypeName("AiModel_Update")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-20T10:43:54.824186919Z[Etc/UTC]", comments = "Generator version: 7.14.0")
-public class AiModelUpdate {
-
-  private @Nullable String category;
-
-  private @Nullable String description;
+public class AiModelUpdate extends ServiceUpdate{
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private @Nullable OffsetDateTime endDate;
-
-  private @Nullable Boolean hasStarted;
-
-  private @Nullable Boolean isBundle;
-
-  private @Nullable Boolean isServiceEnabled;
-
-  private @Nullable Boolean isStateful;
-
-  private @Nullable String name;
-
-  private @Nullable String serviceType;
-
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private @Nullable OffsetDateTime startDate;
-
-  private @Nullable String startMode;
 
   private @Nullable AiModelSpecification aiModelSpecification;
 
   @Valid
   private List<Feature> feature = new ArrayList<>();
 
+  private @Nullable Boolean isBundle;
+
   private @Nullable ResourceRef gpu;
-
-  @Valid
-  private List<Note> note = new ArrayList<>();
-
-  @Valid
-  private List<RelatedPlaceRefOrValue> place = new ArrayList<>();
 
   @Valid
   private List<RelatedEntityRefOrValue> relatedEntity = new ArrayList<>();
 
   @Valid
-  private List<RelatedParty> relatedParty = new ArrayList<>();
-
-  @Valid
-  private List<Characteristic> serviceCharacteristic = new ArrayList<>();
-
-  @Valid
-  private List<RelatedServiceOrderItem> serviceOrderItem = new ArrayList<>();
-
-  @Valid
-  private List<ServiceRelationship> serviceRelationship = new ArrayList<>();
-
-  private @Nullable ServiceSpecificationRef serviceSpecification;
+  private List<RelatedServiceOrderItem> serviceOrderItem = new ArrayList<>(); //in ServiceUpdate is ServiceOrder
 
   @Valid
   private List<SoftwareRef> software = new ArrayList<>();
 
-  private @Nullable ServiceStateType state;
-
-  @Valid
-  private List<ResourceRef> supportingResource = new ArrayList<>();
-
-  @Valid
-  private List<ServiceRefOrValue> supportingService = new ArrayList<>();
-
   private @Nullable EntityRef trainingData;
-
-  private @Nullable String atBaseType;
-
-  private @Nullable URI atSchemaLocation;
-
-  private @Nullable String atType;
 
   public AiModelUpdate category(@Nullable String category) {
     this.category = category;
     return this;
   }
 
-  /**
-   * Is it a customer facing or resource facing service
-   * @return category
-   */
-  
-  @Schema(name = "category", description = "Is it a customer facing or resource facing service", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("category")
-  public @Nullable String getCategory() {
-    return category;
-  }
-
-  public void setCategory(@Nullable String category) {
-    this.category = category;
-  }
-
-  public AiModelUpdate description(@Nullable String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Free-text description of the service
-   * @return description
-   */
-  
-  @Schema(name = "description", description = "Free-text description of the service", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
-  public @Nullable String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@Nullable String description) {
-    this.description = description;
-  }
-
-  public AiModelUpdate endDate(@Nullable OffsetDateTime endDate) {
-    this.endDate = endDate;
-    return this;
-  }
 
   /**
    * Date when the service ends
@@ -163,25 +72,7 @@ public class AiModelUpdate {
     return this;
   }
 
-  /**
-   * If TRUE, this Service has already been started
-   * @return hasStarted
-   */
-  
-  @Schema(name = "hasStarted", description = "If TRUE, this Service has already been started", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("hasStarted")
-  public @Nullable Boolean getHasStarted() {
-    return hasStarted;
-  }
 
-  public void setHasStarted(@Nullable Boolean hasStarted) {
-    this.hasStarted = hasStarted;
-  }
-
-  public AiModelUpdate isBundle(@Nullable Boolean isBundle) {
-    this.isBundle = isBundle;
-    return this;
-  }
 
   /**
    * If true, the service is a ServiceBundle which regroup a service hierachy. If false, the service is a 'atomic' service (hierachy leaf).
@@ -203,25 +94,6 @@ public class AiModelUpdate {
     return this;
   }
 
-  /**
-   * If FALSE and hasStarted is FALSE, this particular Service has NOT been enabled for use - if FALSE and hasStarted is TRUE then the service has failed 
-   * @return isServiceEnabled
-   */
-  
-  @Schema(name = "isServiceEnabled", description = "If FALSE and hasStarted is FALSE, this particular Service has NOT been enabled for use - if FALSE and hasStarted is TRUE then the service has failed ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isServiceEnabled")
-  public @Nullable Boolean getIsServiceEnabled() {
-    return isServiceEnabled;
-  }
-
-  public void setIsServiceEnabled(@Nullable Boolean isServiceEnabled) {
-    this.isServiceEnabled = isServiceEnabled;
-  }
-
-  public AiModelUpdate isStateful(@Nullable Boolean isStateful) {
-    this.isStateful = isStateful;
-    return this;
-  }
 
   /**
    * If TRUE, this Service can be changed without affecting any other services
@@ -386,61 +258,6 @@ public class AiModelUpdate {
     this.gpu = gpu;
   }
 
-  public AiModelUpdate note(List<Note> note) {
-    this.note = note;
-    return this;
-  }
-
-  public AiModelUpdate addNoteItem(Note noteItem) {
-    if (this.note == null) {
-      this.note = new ArrayList<>();
-    }
-    this.note.add(noteItem);
-    return this;
-  }
-
-  /**
-   * A list of notes made on this service
-   * @return note
-   */
-  @Valid 
-  @Schema(name = "note", description = "A list of notes made on this service", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("note")
-  public List<Note> getNote() {
-    return note;
-  }
-
-  public void setNote(List<Note> note) {
-    this.note = note;
-  }
-
-  public AiModelUpdate place(List<RelatedPlaceRefOrValue> place) {
-    this.place = place;
-    return this;
-  }
-
-  public AiModelUpdate addPlaceItem(RelatedPlaceRefOrValue placeItem) {
-    if (this.place == null) {
-      this.place = new ArrayList<>();
-    }
-    this.place.add(placeItem);
-    return this;
-  }
-
-  /**
-   * A list of places (Place [*]). Used to define a place useful for the service (for example a geographical place whre the service is installed)
-   * @return place
-   */
-  @Valid 
-  @Schema(name = "place", description = "A list of places (Place [*]). Used to define a place useful for the service (for example a geographical place whre the service is installed)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("place")
-  public List<RelatedPlaceRefOrValue> getPlace() {
-    return place;
-  }
-
-  public void setPlace(List<RelatedPlaceRefOrValue> place) {
-    this.place = place;
-  }
 
   public AiModelUpdate relatedEntity(List<RelatedEntityRefOrValue> relatedEntity) {
     this.relatedEntity = relatedEntity;
@@ -469,63 +286,7 @@ public class AiModelUpdate {
   public void setRelatedEntity(List<RelatedEntityRefOrValue> relatedEntity) {
     this.relatedEntity = relatedEntity;
   }
-
-  public AiModelUpdate relatedParty(List<RelatedParty> relatedParty) {
-    this.relatedParty = relatedParty;
-    return this;
-  }
-
-  public AiModelUpdate addRelatedPartyItem(RelatedParty relatedPartyItem) {
-    if (this.relatedParty == null) {
-      this.relatedParty = new ArrayList<>();
-    }
-    this.relatedParty.add(relatedPartyItem);
-    return this;
-  }
-
-  /**
-   * A list of related party references (RelatedParty [*]). A related party defines party or party role linked to a specific entity
-   * @return relatedParty
-   */
-  @Valid 
-  @Schema(name = "relatedParty", description = "A list of related party references (RelatedParty [*]). A related party defines party or party role linked to a specific entity", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("relatedParty")
-  public List<RelatedParty> getRelatedParty() {
-    return relatedParty;
-  }
-
-  public void setRelatedParty(List<RelatedParty> relatedParty) {
-    this.relatedParty = relatedParty;
-  }
-
-  public AiModelUpdate serviceCharacteristic(List<Characteristic> serviceCharacteristic) {
-    this.serviceCharacteristic = serviceCharacteristic;
-    return this;
-  }
-
-  public AiModelUpdate addServiceCharacteristicItem(Characteristic serviceCharacteristicItem) {
-    if (this.serviceCharacteristic == null) {
-      this.serviceCharacteristic = new ArrayList<>();
-    }
-    this.serviceCharacteristic.add(serviceCharacteristicItem);
-    return this;
-  }
-
-  /**
-   * A list of characteristics that characterize this service (ServiceCharacteristic [*]) 
-   * @return serviceCharacteristic
-   */
-  @Valid 
-  @Schema(name = "serviceCharacteristic", description = "A list of characteristics that characterize this service (ServiceCharacteristic [*]) ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("serviceCharacteristic")
-  public List<Characteristic> getServiceCharacteristic() {
-    return serviceCharacteristic;
-  }
-
-  public void setServiceCharacteristic(List<Characteristic> serviceCharacteristic) {
-    this.serviceCharacteristic = serviceCharacteristic;
-  }
-
+  
   public AiModelUpdate serviceOrderItem(List<RelatedServiceOrderItem> serviceOrderItem) {
     this.serviceOrderItem = serviceOrderItem;
     return this;
@@ -552,54 +313,6 @@ public class AiModelUpdate {
 
   public void setServiceOrderItem(List<RelatedServiceOrderItem> serviceOrderItem) {
     this.serviceOrderItem = serviceOrderItem;
-  }
-
-  public AiModelUpdate serviceRelationship(List<ServiceRelationship> serviceRelationship) {
-    this.serviceRelationship = serviceRelationship;
-    return this;
-  }
-
-  public AiModelUpdate addServiceRelationshipItem(ServiceRelationship serviceRelationshipItem) {
-    if (this.serviceRelationship == null) {
-      this.serviceRelationship = new ArrayList<>();
-    }
-    this.serviceRelationship.add(serviceRelationshipItem);
-    return this;
-  }
-
-  /**
-   * A list of service relationships (ServiceRelationship [*]). Describes links with other service(s) in the inventory.
-   * @return serviceRelationship
-   */
-  @Valid 
-  @Schema(name = "serviceRelationship", description = "A list of service relationships (ServiceRelationship [*]). Describes links with other service(s) in the inventory.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("serviceRelationship")
-  public List<ServiceRelationship> getServiceRelationship() {
-    return serviceRelationship;
-  }
-
-  public void setServiceRelationship(List<ServiceRelationship> serviceRelationship) {
-    this.serviceRelationship = serviceRelationship;
-  }
-
-  public AiModelUpdate serviceSpecification(@Nullable ServiceSpecificationRef serviceSpecification) {
-    this.serviceSpecification = serviceSpecification;
-    return this;
-  }
-
-  /**
-   * Get serviceSpecification
-   * @return serviceSpecification
-   */
-  @Valid 
-  @Schema(name = "serviceSpecification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("serviceSpecification")
-  public @Nullable ServiceSpecificationRef getServiceSpecification() {
-    return serviceSpecification;
-  }
-
-  public void setServiceSpecification(@Nullable ServiceSpecificationRef serviceSpecification) {
-    this.serviceSpecification = serviceSpecification;
   }
 
   public AiModelUpdate software(List<SoftwareRef> software) {
@@ -630,82 +343,6 @@ public class AiModelUpdate {
     this.software = software;
   }
 
-  public AiModelUpdate state(@Nullable ServiceStateType state) {
-    this.state = state;
-    return this;
-  }
-
-  /**
-   * Get state
-   * @return state
-   */
-  @Valid 
-  @Schema(name = "state", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("state")
-  public @Nullable ServiceStateType getState() {
-    return state;
-  }
-
-  public void setState(@Nullable ServiceStateType state) {
-    this.state = state;
-  }
-
-  public AiModelUpdate supportingResource(List<ResourceRef> supportingResource) {
-    this.supportingResource = supportingResource;
-    return this;
-  }
-
-  public AiModelUpdate addSupportingResourceItem(ResourceRef supportingResourceItem) {
-    if (this.supportingResource == null) {
-      this.supportingResource = new ArrayList<>();
-    }
-    this.supportingResource.add(supportingResourceItem);
-    return this;
-  }
-
-  /**
-   * A list of supporting resources (SupportingResource [*]).Note: only Service of type RFS can be associated with Resources
-   * @return supportingResource
-   */
-  @Valid 
-  @Schema(name = "supportingResource", description = "A list of supporting resources (SupportingResource [*]).Note: only Service of type RFS can be associated with Resources", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("supportingResource")
-  public List<ResourceRef> getSupportingResource() {
-    return supportingResource;
-  }
-
-  public void setSupportingResource(List<ResourceRef> supportingResource) {
-    this.supportingResource = supportingResource;
-  }
-
-  public AiModelUpdate supportingService(List<ServiceRefOrValue> supportingService) {
-    this.supportingService = supportingService;
-    return this;
-  }
-
-  public AiModelUpdate addSupportingServiceItem(ServiceRefOrValue supportingServiceItem) {
-    if (this.supportingService == null) {
-      this.supportingService = new ArrayList<>();
-    }
-    this.supportingService.add(supportingServiceItem);
-    return this;
-  }
-
-  /**
-   * A list of supporting services (SupportingService [*]). A collection of services that support this service (bundling, link CFS to RFS)
-   * @return supportingService
-   */
-  @Valid 
-  @Schema(name = "supportingService", description = "A list of supporting services (SupportingService [*]). A collection of services that support this service (bundling, link CFS to RFS)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("supportingService")
-  public List<ServiceRefOrValue> getSupportingService() {
-    return supportingService;
-  }
-
-  public void setSupportingService(List<ServiceRefOrValue> supportingService) {
-    this.supportingService = supportingService;
-  }
-
   public AiModelUpdate trainingData(@Nullable EntityRef trainingData) {
     this.trainingData = trainingData;
     return this;
@@ -724,66 +361,6 @@ public class AiModelUpdate {
 
   public void setTrainingData(@Nullable EntityRef trainingData) {
     this.trainingData = trainingData;
-  }
-
-  public AiModelUpdate atBaseType(@Nullable String atBaseType) {
-    this.atBaseType = atBaseType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the super-class
-   * @return atBaseType
-   */
-  
-  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
-  public @Nullable String getAtBaseType() {
-    return atBaseType;
-  }
-
-  public void setAtBaseType(@Nullable String atBaseType) {
-    this.atBaseType = atBaseType;
-  }
-
-  public AiModelUpdate atSchemaLocation(@Nullable URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return atSchemaLocation
-   */
-  @Valid 
-  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
-  public @Nullable URI getAtSchemaLocation() {
-    return atSchemaLocation;
-  }
-
-  public void setAtSchemaLocation(@Nullable URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
-  }
-
-  public AiModelUpdate atType(@Nullable String atType) {
-    this.atType = atType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class Extensible name
-   * @return atType
-   */
-  
-  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@type")
-  public @Nullable String getAtType() {
-    return atType;
-  }
-
-  public void setAtType(@Nullable String atType) {
-    this.atType = atType;
   }
 
   @Override
@@ -816,20 +393,16 @@ public class AiModelUpdate {
         Objects.equals(this.serviceCharacteristic, aiModelUpdate.serviceCharacteristic) &&
         Objects.equals(this.serviceOrderItem, aiModelUpdate.serviceOrderItem) &&
         Objects.equals(this.serviceRelationship, aiModelUpdate.serviceRelationship) &&
-        Objects.equals(this.serviceSpecification, aiModelUpdate.serviceSpecification) &&
         Objects.equals(this.software, aiModelUpdate.software) &&
         Objects.equals(this.state, aiModelUpdate.state) &&
         Objects.equals(this.supportingResource, aiModelUpdate.supportingResource) &&
         Objects.equals(this.supportingService, aiModelUpdate.supportingService) &&
-        Objects.equals(this.trainingData, aiModelUpdate.trainingData) &&
-        Objects.equals(this.atBaseType, aiModelUpdate.atBaseType) &&
-        Objects.equals(this.atSchemaLocation, aiModelUpdate.atSchemaLocation) &&
-        Objects.equals(this.atType, aiModelUpdate.atType);
+        Objects.equals(this.trainingData, aiModelUpdate.trainingData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, description, endDate, hasStarted, isBundle, isServiceEnabled, isStateful, name, serviceType, startDate, startMode, aiModelSpecification, feature, gpu, note, place, relatedEntity, relatedParty, serviceCharacteristic, serviceOrderItem, serviceRelationship, serviceSpecification, software, state, supportingResource, supportingService, trainingData, atBaseType, atSchemaLocation, atType);
+    return Objects.hash(category, description, endDate, hasStarted, isBundle, isServiceEnabled, isStateful, name, serviceType, startDate, startMode, aiModelSpecification, feature, gpu, note, place, relatedEntity, relatedParty, serviceCharacteristic, serviceOrderItem, serviceRelationship, software, state, supportingResource, supportingService, trainingData);
   }
 
   @Override
@@ -857,15 +430,11 @@ public class AiModelUpdate {
     sb.append("    serviceCharacteristic: ").append(toIndentedString(serviceCharacteristic)).append("\n");
     sb.append("    serviceOrderItem: ").append(toIndentedString(serviceOrderItem)).append("\n");
     sb.append("    serviceRelationship: ").append(toIndentedString(serviceRelationship)).append("\n");
-    sb.append("    serviceSpecification: ").append(toIndentedString(serviceSpecification)).append("\n");
     sb.append("    software: ").append(toIndentedString(software)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    supportingResource: ").append(toIndentedString(supportingResource)).append("\n");
     sb.append("    supportingService: ").append(toIndentedString(supportingService)).append("\n");
     sb.append("    trainingData: ").append(toIndentedString(trainingData)).append("\n");
-    sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
-    sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
-    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
