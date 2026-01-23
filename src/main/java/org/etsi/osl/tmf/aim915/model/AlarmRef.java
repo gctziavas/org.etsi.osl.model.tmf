@@ -1,0 +1,234 @@
+package org.etsi.osl.tmf.aim915.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import org.springframework.lang.Nullable;
+
+import javax.annotation.Generated;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import java.net.URI;
+import java.util.Objects;
+
+/**
+ * AlarmRef
+ */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-20T10:43:54.824186919Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+public class AlarmRef {
+
+  private String id;
+
+  private @Nullable URI href;
+
+  private @Nullable String name;
+
+  private @Nullable String atBaseType;
+
+  private @Nullable URI atSchemaLocation;
+
+  private @Nullable String atType;
+
+  private @Nullable String atReferredType;
+
+  public AlarmRef() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public AlarmRef(String id) {
+    this.id = id;
+  }
+
+  public AlarmRef id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * unique identifier
+   * @return id
+   */
+  @NotNull 
+  @Schema(name = "id", description = "unique identifier", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public AlarmRef href(@Nullable URI href) {
+    this.href = href;
+    return this;
+  }
+
+  /**
+   * Hyperlink reference
+   * @return href
+   */
+  @Valid 
+  @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("href")
+  public @Nullable URI getHref() {
+    return href;
+  }
+
+  public void setHref(@Nullable URI href) {
+    this.href = href;
+  }
+
+  public AlarmRef name(@Nullable String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the related entity.
+   * @return name
+   */
+  
+  @Schema(name = "name", description = "Name of the related entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public @Nullable String getName() {
+    return name;
+  }
+
+  public void setName(@Nullable String name) {
+    this.name = name;
+  }
+
+  public AlarmRef atBaseType(@Nullable String atBaseType) {
+    this.atBaseType = atBaseType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the super-class
+   * @return atBaseType
+   */
+  
+  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@baseType")
+  public @Nullable String getAtBaseType() {
+    return atBaseType;
+  }
+
+  public void setAtBaseType(@Nullable String atBaseType) {
+    this.atBaseType = atBaseType;
+  }
+
+  public AlarmRef atSchemaLocation(@Nullable URI atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+    return this;
+  }
+
+  /**
+   * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * @return atSchemaLocation
+   */
+  @Valid 
+  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@schemaLocation")
+  public @Nullable URI getAtSchemaLocation() {
+    return atSchemaLocation;
+  }
+
+  public void setAtSchemaLocation(@Nullable URI atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+  }
+
+  public AlarmRef atType(@Nullable String atType) {
+    this.atType = atType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
+   */
+  
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@type")
+  public @Nullable String getAtType() {
+    return atType;
+  }
+
+  public void setAtType(@Nullable String atType) {
+    this.atType = atType;
+  }
+
+  public AlarmRef atReferredType(@Nullable String atReferredType) {
+    this.atReferredType = atReferredType;
+    return this;
+  }
+
+  /**
+   * The actual type of the target instance when needed for disambiguation.
+   * @return atReferredType
+   */
+  
+  @Schema(name = "@referredType", description = "The actual type of the target instance when needed for disambiguation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@referredType")
+  public @Nullable String getAtReferredType() {
+    return atReferredType;
+  }
+
+  public void setAtReferredType(@Nullable String atReferredType) {
+    this.atReferredType = atReferredType;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AlarmRef alarmRef = (AlarmRef) o;
+    return Objects.equals(this.id, alarmRef.id) &&
+        Objects.equals(this.href, alarmRef.href) &&
+        Objects.equals(this.name, alarmRef.name) &&
+        Objects.equals(this.atBaseType, alarmRef.atBaseType) &&
+        Objects.equals(this.atSchemaLocation, alarmRef.atSchemaLocation) &&
+        Objects.equals(this.atType, alarmRef.atType) &&
+        Objects.equals(this.atReferredType, alarmRef.atReferredType);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, href, name, atBaseType, atSchemaLocation, atType, atReferredType);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AlarmRef {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
+    sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
+    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
+    sb.append("    atReferredType: ").append(toIndentedString(atReferredType)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

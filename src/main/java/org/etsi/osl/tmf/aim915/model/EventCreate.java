@@ -1,0 +1,493 @@
+package org.etsi.osl.tmf.aim915.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import io.swagger.v3.oas.annotations.media.Schema;
+import org.etsi.osl.tmf.aim915.model.Characteristic;
+import org.etsi.osl.tmf.aim915.model.EntityRef;
+import org.etsi.osl.tmf.aim915.model.RelatedParty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
+
+import javax.annotation.Generated;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import java.net.URI;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * event with common attributes. Skipped properties: id,href
+ */
+
+@Schema(name = "Event_Create", description = "event with common attributes. Skipped properties: id,href")
+@JsonTypeName("Event_Create")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-20T10:43:54.824186919Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+public class EventCreate {
+
+  private @Nullable String correlationId;
+
+  private @Nullable String description;
+
+  private @Nullable String domain;
+
+  private @Nullable String eventId;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private @Nullable OffsetDateTime eventTime;
+
+  private @Nullable String eventType;
+
+  private @Nullable String priority;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private @Nullable OffsetDateTime timeOccurred;
+
+  private @Nullable String title;
+
+  @Valid
+  private List<Characteristic> analyticCharacteristic = new ArrayList<>();
+
+  private @Nullable Object event;
+
+  @Valid
+  private List<RelatedParty> relatedParty = new ArrayList<>();
+
+  private @Nullable EntityRef reportingSystem;
+
+  private @Nullable EntityRef source;
+
+  private @Nullable String atBaseType;
+
+  private @Nullable URI atSchemaLocation;
+
+  private @Nullable String atType;
+
+  public EventCreate correlationId(@Nullable String correlationId) {
+    this.correlationId = correlationId;
+    return this;
+  }
+
+  /**
+   * The correlation id for this event.
+   * @return correlationId
+   */
+  
+  @Schema(name = "correlationId", description = "The correlation id for this event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("correlationId")
+  public @Nullable String getCorrelationId() {
+    return correlationId;
+  }
+
+  public void setCorrelationId(@Nullable String correlationId) {
+    this.correlationId = correlationId;
+  }
+
+  public EventCreate description(@Nullable String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * An explnatory of the event.
+   * @return description
+   */
+  
+  @Schema(name = "description", description = "An explnatory of the event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("description")
+  public @Nullable String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@Nullable String description) {
+    this.description = description;
+  }
+
+  public EventCreate domain(@Nullable String domain) {
+    this.domain = domain;
+    return this;
+  }
+
+  /**
+   * The domain of the event.
+   * @return domain
+   */
+  
+  @Schema(name = "domain", description = "The domain of the event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("domain")
+  public @Nullable String getDomain() {
+    return domain;
+  }
+
+  public void setDomain(@Nullable String domain) {
+    this.domain = domain;
+  }
+
+  public EventCreate eventId(@Nullable String eventId) {
+    this.eventId = eventId;
+    return this;
+  }
+
+  /**
+   * The identifier of the notification.
+   * @return eventId
+   */
+  
+  @Schema(name = "eventId", description = "The identifier of the notification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventId")
+  public @Nullable String getEventId() {
+    return eventId;
+  }
+
+  public void setEventId(@Nullable String eventId) {
+    this.eventId = eventId;
+  }
+
+  public EventCreate eventTime(@Nullable OffsetDateTime eventTime) {
+    this.eventTime = eventTime;
+    return this;
+  }
+
+  /**
+   * Time of the event occurrence.
+   * @return eventTime
+   */
+  @Valid 
+  @Schema(name = "eventTime", description = "Time of the event occurrence.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventTime")
+  public @Nullable OffsetDateTime getEventTime() {
+    return eventTime;
+  }
+
+  public void setEventTime(@Nullable OffsetDateTime eventTime) {
+    this.eventTime = eventTime;
+  }
+
+  public EventCreate eventType(@Nullable String eventType) {
+    this.eventType = eventType;
+    return this;
+  }
+
+  /**
+   * The type of the notification.
+   * @return eventType
+   */
+  
+  @Schema(name = "eventType", description = "The type of the notification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventType")
+  public @Nullable String getEventType() {
+    return eventType;
+  }
+
+  public void setEventType(@Nullable String eventType) {
+    this.eventType = eventType;
+  }
+
+  public EventCreate priority(@Nullable String priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * A priority.
+   * @return priority
+   */
+  
+  @Schema(name = "priority", description = "A priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public @Nullable String getPriority() {
+    return priority;
+  }
+
+  public void setPriority(@Nullable String priority) {
+    this.priority = priority;
+  }
+
+  public EventCreate timeOccurred(@Nullable OffsetDateTime timeOccurred) {
+    this.timeOccurred = timeOccurred;
+    return this;
+  }
+
+  /**
+   * The time the event occurred.
+   * @return timeOccurred
+   */
+  @Valid 
+  @Schema(name = "timeOccurred", description = "The time the event occurred.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("timeOccurred")
+  public @Nullable OffsetDateTime getTimeOccurred() {
+    return timeOccurred;
+  }
+
+  public void setTimeOccurred(@Nullable OffsetDateTime timeOccurred) {
+    this.timeOccurred = timeOccurred;
+  }
+
+  public EventCreate title(@Nullable String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * The title of the event.
+   * @return title
+   */
+  
+  @Schema(name = "title", description = "The title of the event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("title")
+  public @Nullable String getTitle() {
+    return title;
+  }
+
+  public void setTitle(@Nullable String title) {
+    this.title = title;
+  }
+
+  public EventCreate analyticCharacteristic(List<Characteristic> analyticCharacteristic) {
+    this.analyticCharacteristic = analyticCharacteristic;
+    return this;
+  }
+
+  public EventCreate addAnalyticCharacteristicItem(Characteristic analyticCharacteristicItem) {
+    if (this.analyticCharacteristic == null) {
+      this.analyticCharacteristic = new ArrayList<>();
+    }
+    this.analyticCharacteristic.add(analyticCharacteristicItem);
+    return this;
+  }
+
+  /**
+   * Get analyticCharacteristic
+   * @return analyticCharacteristic
+   */
+  @Valid 
+  @Schema(name = "analyticCharacteristic", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("analyticCharacteristic")
+  public List<Characteristic> getAnalyticCharacteristic() {
+    return analyticCharacteristic;
+  }
+
+  public void setAnalyticCharacteristic(List<Characteristic> analyticCharacteristic) {
+    this.analyticCharacteristic = analyticCharacteristic;
+  }
+
+  public EventCreate event(@Nullable Object event) {
+    this.event = event;
+    return this;
+  }
+
+  /**
+   * Get event
+   * @return event
+   */
+  
+  @Schema(name = "event", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("event")
+  public @Nullable Object getEvent() {
+    return event;
+  }
+
+  public void setEvent(@Nullable Object event) {
+    this.event = event;
+  }
+
+  public EventCreate relatedParty(List<RelatedParty> relatedParty) {
+    this.relatedParty = relatedParty;
+    return this;
+  }
+
+  public EventCreate addRelatedPartyItem(RelatedParty relatedPartyItem) {
+    if (this.relatedParty == null) {
+      this.relatedParty = new ArrayList<>();
+    }
+    this.relatedParty.add(relatedPartyItem);
+    return this;
+  }
+
+  /**
+   * Get relatedParty
+   * @return relatedParty
+   */
+  @Valid 
+  @Schema(name = "relatedParty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("relatedParty")
+  public List<RelatedParty> getRelatedParty() {
+    return relatedParty;
+  }
+
+  public void setRelatedParty(List<RelatedParty> relatedParty) {
+    this.relatedParty = relatedParty;
+  }
+
+  public EventCreate reportingSystem(@Nullable EntityRef reportingSystem) {
+    this.reportingSystem = reportingSystem;
+    return this;
+  }
+
+  /**
+   * Get reportingSystem
+   * @return reportingSystem
+   */
+  @Valid 
+  @Schema(name = "reportingSystem", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("reportingSystem")
+  public @Nullable EntityRef getReportingSystem() {
+    return reportingSystem;
+  }
+
+  public void setReportingSystem(@Nullable EntityRef reportingSystem) {
+    this.reportingSystem = reportingSystem;
+  }
+
+  public EventCreate source(@Nullable EntityRef source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Get source
+   * @return source
+   */
+  @Valid 
+  @Schema(name = "source", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("source")
+  public @Nullable EntityRef getSource() {
+    return source;
+  }
+
+  public void setSource(@Nullable EntityRef source) {
+    this.source = source;
+  }
+
+  public EventCreate atBaseType(@Nullable String atBaseType) {
+    this.atBaseType = atBaseType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the super-class
+   * @return atBaseType
+   */
+  
+  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@baseType")
+  public @Nullable String getAtBaseType() {
+    return atBaseType;
+  }
+
+  public void setAtBaseType(@Nullable String atBaseType) {
+    this.atBaseType = atBaseType;
+  }
+
+  public EventCreate atSchemaLocation(@Nullable URI atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+    return this;
+  }
+
+  /**
+   * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * @return atSchemaLocation
+   */
+  @Valid 
+  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@schemaLocation")
+  public @Nullable URI getAtSchemaLocation() {
+    return atSchemaLocation;
+  }
+
+  public void setAtSchemaLocation(@Nullable URI atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+  }
+
+  public EventCreate atType(@Nullable String atType) {
+    this.atType = atType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
+   */
+  
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@type")
+  public @Nullable String getAtType() {
+    return atType;
+  }
+
+  public void setAtType(@Nullable String atType) {
+    this.atType = atType;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    EventCreate eventCreate = (EventCreate) o;
+    return Objects.equals(this.correlationId, eventCreate.correlationId) &&
+        Objects.equals(this.description, eventCreate.description) &&
+        Objects.equals(this.domain, eventCreate.domain) &&
+        Objects.equals(this.eventId, eventCreate.eventId) &&
+        Objects.equals(this.eventTime, eventCreate.eventTime) &&
+        Objects.equals(this.eventType, eventCreate.eventType) &&
+        Objects.equals(this.priority, eventCreate.priority) &&
+        Objects.equals(this.timeOccurred, eventCreate.timeOccurred) &&
+        Objects.equals(this.title, eventCreate.title) &&
+        Objects.equals(this.analyticCharacteristic, eventCreate.analyticCharacteristic) &&
+        Objects.equals(this.event, eventCreate.event) &&
+        Objects.equals(this.relatedParty, eventCreate.relatedParty) &&
+        Objects.equals(this.reportingSystem, eventCreate.reportingSystem) &&
+        Objects.equals(this.source, eventCreate.source) &&
+        Objects.equals(this.atBaseType, eventCreate.atBaseType) &&
+        Objects.equals(this.atSchemaLocation, eventCreate.atSchemaLocation) &&
+        Objects.equals(this.atType, eventCreate.atType);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(correlationId, description, domain, eventId, eventTime, eventType, priority, timeOccurred, title, analyticCharacteristic, event, relatedParty, reportingSystem, source, atBaseType, atSchemaLocation, atType);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class EventCreate {\n");
+    sb.append("    correlationId: ").append(toIndentedString(correlationId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
+    sb.append("    eventTime: ").append(toIndentedString(eventTime)).append("\n");
+    sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    timeOccurred: ").append(toIndentedString(timeOccurred)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    analyticCharacteristic: ").append(toIndentedString(analyticCharacteristic)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("    relatedParty: ").append(toIndentedString(relatedParty)).append("\n");
+    sb.append("    reportingSystem: ").append(toIndentedString(reportingSystem)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
+    sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
+    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

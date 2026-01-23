@@ -1,0 +1,113 @@
+package org.etsi.osl.tmf.aim915.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.annotation.Generated;
+import javax.validation.constraints.*;
+import java.util.Objects;
+
+/**
+ * An item typically included in a request or response
+ */
+
+@Schema(name = "HeaderItem", description = "An item typically included in a request or response")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-20T10:43:54.824186919Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+public class HeaderItem {
+
+  private String name;
+
+  private String value;
+
+  public HeaderItem() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public HeaderItem(String name, String value) {
+    this.name = name;
+    this.value = value;
+  }
+
+  public HeaderItem name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The name of the header item, e.g. locale
+   * @return name
+   */
+  @NotNull 
+  @Schema(name = "name", description = "The name of the header item, e.g. locale", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public HeaderItem value(String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * The value of the header item, e.g. en-us
+   * @return value
+   */
+  @NotNull 
+  @Schema(name = "value", description = "The value of the header item, e.g. en-us", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("value")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    HeaderItem headerItem = (HeaderItem) o;
+    return Objects.equals(this.name, headerItem.name) &&
+        Objects.equals(this.value, headerItem.value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, value);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class HeaderItem {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+
